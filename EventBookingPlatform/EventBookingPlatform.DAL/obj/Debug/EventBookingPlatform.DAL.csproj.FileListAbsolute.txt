@@ -1,0 +1,10 @@
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.DAL\bin\Debug\EventBookingPlatform.DAL.dll.config
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.DAL\bin\Debug\EventBookingPlatform.DAL.dll
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.DAL\bin\Debug\EventBookingPlatform.DAL.pdb
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.DAL\bin\Debug\EntityFramework.dll
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.DAL\bin\Debug\EntityFramework.xml
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.DAL\obj\Debug\EventBookingPlatform.DAL.csprojResolveAssemblyReference.cache
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.DAL\obj\Debug\EventBookingPlatform.DAL.dll
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.DAL\obj\Debug\EventBookingPlatform.DAL.pdb

@@ -1,0 +1,11 @@
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EventBookingPlatform.UnitTest.dll.config
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EventBookingPlatform.UnitTest.dll
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EventBookingPlatform.UnitTest.pdb
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EntityFramework.dll
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EventBookingPlatform.DAL.dll
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EntityFramework.xml
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EventBookingPlatform.DAL.pdb
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.UnitTest\obj\Debug\EventBookingPlatform.UnitTest.dll
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.UnitTest\obj\Debug\EventBookingPlatform.UnitTest.pdb

@@ -1,0 +1,5 @@
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.Helpers\bin\Debug\EventBookingPlatform.Helpers.dll
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.Helpers\bin\Debug\EventBookingPlatform.Helpers.pdb
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.csprojResolveAssemblyReference.cache
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.dll
+E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.pdb

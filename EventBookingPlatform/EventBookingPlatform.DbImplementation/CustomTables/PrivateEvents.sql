@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[PrivateEvents]
+(
+	[Pk_EventId] INT NOT NULL PRIMARY KEY IDENTITY,
+	[Event] VARCHAR(50) NOT NULL
+)

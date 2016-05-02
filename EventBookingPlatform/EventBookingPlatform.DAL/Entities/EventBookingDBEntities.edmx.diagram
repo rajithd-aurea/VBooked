@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="daa688c0718b442dbea4306340632c08" Name="Diagram1">
+        <EntityTypeShape EntityType="DevEventBookingDBModel.AspNetRole" Width="1.5" PointX="0.75" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.AspNetUser" Width="1.5" PointX="3" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.Catering" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.CateringValue" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.Certificate" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.Chef" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.ChefSpokenLanguage" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.ChildrenOption" Width="1.5" PointX="9.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.ChildrenOptionComment" Width="1.5" PointX="7.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.ChildrenOptionValue" Width="1.5" PointX="12" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.DisabledOption" Width="1.5" PointX="9.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.DisabledOptionComment" Width="1.5" PointX="7.5" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.DisabledOptionValue" Width="1.5" PointX="12" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.Event" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.FacilityOption" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.FacilityOptionValue" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.Hall" Width="1.5" PointX="7.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.Kitchen" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.KitchenValue" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.KosherSupervision" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.KosherSupervisionComment" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.KosherSuperVisionValue" Width="1.5" PointX="9.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.ParkingOption" Width="1.5" PointX="7.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.ParkingOptionComment" Width="1.5" PointX="7.5" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.ParkingOptionValue" Width="1.5" PointX="10" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.Supplier" Width="1.5" PointX="11.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueCharacterization" Width="1.5" PointX="7.5" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueChildrenOption" Width="1.5" PointX="7.5" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueContact" Width="1.5" PointX="7.5" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueDescription" Width="1.5" PointX="7.5" PointY="35.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueDisabledOption" Width="1.5" PointX="7.5" PointY="38.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueFacility" Width="1.5" PointX="7.5" PointY="41.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueParkingOption" Width="1.5" PointX="7.5" PointY="44.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueWaitingRoomOption" Width="1.5" PointX="7.5" PointY="47.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.WaitingRoomOption" Width="1.5" PointX="7.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.WaitingRoomOptionComment" Width="1.5" PointX="7.5" PointY="50.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.WaitingRoomOptionValue" Width="1.5" PointX="10" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_Chef_ChefSpokenLanguage" ManuallyRouted="false" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_ChildrenOption_ChildrenOptionValue" ManuallyRouted="false" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_DisabledOption_DisabledOptionValue" ManuallyRouted="false" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_FacilityOption_FacilityOptionValue" ManuallyRouted="false" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_ParkingOption_ParkingOptionValue" ManuallyRouted="false" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_WaitingRoomOption_WaitingRoomOptionValue" ManuallyRouted="false" />
+        <AssociationConnector Association="DevEventBookingDBModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueInfo" Width="1.5" PointX="5.25" PointY="24.5" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_AspNetUsers_VenueInfo" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_Certificate" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_ChildrenOptionComment" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_DisabledOptionComment" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_Hall" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_ParkingOptionComment" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_VenueCharacterization" />
+        <AssociationConnector Association="DevEventBookingDBModel.Fk_VenueInfo_VenueChildrenOption" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_VenueContact" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_VenueDescription" />
+        <AssociationConnector Association="DevEventBookingDBModel.Fk_VenueInfo_VenueDisabledOption" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_VenueFacility" />
+        <AssociationConnector Association="DevEventBookingDBModel.Fk_VenueInfo_VenueParkingOption" />
+        <AssociationConnector Association="DevEventBookingDBModel.Fk_VenueInfo_VenueWaitingRoomOption" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_WaitingRoomOptionComment" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.PrivateEvent" Width="1.5" PointX="3.375" PointY="14.75" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueEvent" Width="1.5" PointX="7.5" PointY="54" />
+        <AssociationConnector Association="DevEventBookingDBModel.Fk_VenueInfo_VenueEvents" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
