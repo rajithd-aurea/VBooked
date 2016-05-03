@@ -45,6 +45,10 @@
     <Reference Include="EventBookingPlatform.DAL">
       <HintPath>..\EventBookingPlatform.DAL\bin\Debug\EventBookingPlatform.DAL.dll</HintPath>
     </Reference>
+    <Reference Include="EventBookingPlatform.Helpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\EventBookingPlatform.Helpers\bin\Debug\EventBookingPlatform.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
