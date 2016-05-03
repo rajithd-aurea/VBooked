@@ -3,3 +3,8 @@ E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.Helpe
 E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.csprojResolveAssemblyReference.cache
 E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.dll
 E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.pdb
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\bin\Debug\EventBookingPlatform.Helpers.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\bin\Debug\EventBookingPlatform.Helpers.pdb
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.csprojResolveAssemblyReference.cache
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.pdb
