@@ -1,14 +1,14 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
+﻿using EventBookingPlatform.Models;
+using EventBookingPlatform.Helpers;
+
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using EventBookingPlatform.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
+using System.Text;
 
 namespace EventBookingPlatform.Controllers
 {
@@ -181,39 +181,20 @@ namespace EventBookingPlatform.Controllers
                 {
                     AddRoleToUser(user.Id, usertype);
 
-                    //System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient();
-                    //smtp.Host = "smtp.gmail.com";
-                    //smtp.Port = 465;
-                    //smtp.EnableSsl = true;
-                    //smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
-                    //smtp.UseDefaultCredentials = false;
-                    //smtp.Credentials = new System.Net.NetworkCredential("lorenz53192@gmail.com", "email53192");
+                    EmailHelper emailHelper = new EmailHelper
+                    {
+                        Host = "mail.vbooked.com",
+                        Sender = "support@vbooked.com",
+                        Recipient = user.Email,
+                        Subject = "VBooked Registration Confirmation",
+                        NetworkUser = "support@vbooked.com",
+                        NetworkPass = "supportmail123!",
+                        UserEmail = user.Email,
+                        UserPassword = model.Password,
+                        ConfirmationUrl = string.Format(Url.Action("ConfirmEmail", "Account", new { Token = user.Id, Email = user.Email }, Request.Url.Scheme))
+                    };
 
-                    //System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage("lorenz53192@gmail.com", user.Email);
-                    //m.Subject = "VBook Registration confirmation";
-                    //m.Body = string.Format("Dear {0} <BR/> Thank you for your registration, please click on the below link to complete your registration: < a href =\"{1}\" title =\"User Email Confirm\">{1}</a>",
-                    //   user.UserName, Url.Action("ConfirmEmail", "Account",
-                    //   new { Token = user.Id, Email = user.Email }, Request.Url.Scheme));
-                    //m.IsBodyHtml = true;
-
-                    //smtp.Send(m);
-
-                    //return RedirectToAction("Confirm", "Account", new { Email = user.Email });
-
-
-                    //if (usertype == "host")
-                    //{
-                    //    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
-                    //    return RedirectToAction("Dashboard", "Host");
-                    //}
-
-                    //if (usertype == "user")
-                    //{
-                    //    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
-                    //    return RedirectToAction("Dashboard", "Renter");
-                    //}
+                    await emailHelper.SendEmail();
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
