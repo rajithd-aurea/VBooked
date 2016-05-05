@@ -24,6 +24,12 @@ namespace EventBookingPlatform
                 url: "Account/Register/{usertype}",
                 defaults: new { usertype = "host" }
             );
+
+            routes.MapRoute(
+                name: "RegistrationConfirmationRoute",
+                url: "Account/Confirm/{status}",
+                defaults: new { status = false }
+            );
         }
     }
 }
