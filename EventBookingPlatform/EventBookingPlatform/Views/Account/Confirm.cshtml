@@ -2,9 +2,21 @@
     ViewBag.Title = "Confirm";
 }
 
-<h2>Registration Successful!</h2>
-<div>
-    <p>
-        Thank you for registering! We have sent a confirmation link to your email to complete your registration.
-    </p>
-</div>
+@if (ViewBag.Status == false)
+{
+    <h2>Please Account Registration</h2>
+    <div>
+        <p>
+            We have sent a confirmation link to your email to complete your registration. Please confirm your account registration to login.
+        </p>
+    </div>
+}
+else
+{
+    <h2>Registration Successful!</h2>
+    <div>
+        <p>
+            Thank you for registering! We have sent a confirmation link to your email to complete your registration.
+        </p>
+    </div>
+}
