@@ -52,6 +52,12 @@ namespace EventBookingPlatform.Controllers
             }
         }
 
+        [AllowAnonymous]
+        public ActionResult Confirm()
+        {
+            return View();
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -205,7 +211,7 @@ namespace EventBookingPlatform.Controllers
 
                     await emailHelper.SendEmail();
 
-                    return RedirectToAction("Login", "Account");
+                    return RedirectToAction("Confirm", "Account");
                 }
                 AddErrors(result);
             }
