@@ -73,30 +73,33 @@ namespace EventBookingPlatform.Controllers
                 var user = await UserManager.FindAsync(model.Email, model.Password);
                 if (user != null)
                 {
-                    // This doesn't count login failures towards account lockout
-                    // To enable password failures to trigger account lockout, change to shouldLockout: true
-                    var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-                    switch (result)
+                    if (user.EmailConfirmed)
                     {
-                        case SignInStatus.Success:
-                            if (UserManager.IsInRole(user.Id, "Admin"))
-                                return RedirectToAction("Dashboard", "Admin");
+                        // This doesn't count login failures towards account lockout
+                        // To enable password failures to trigger account lockout, change to shouldLockout: true
+                        var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+                        switch (result)
+                        {
+                            case SignInStatus.Success:
+                                if (UserManager.IsInRole(user.Id, "Admin"))
+                                    return RedirectToAction("Dashboard", "Admin");
 
-                            if (UserManager.IsInRole(user.Id, "Host"))
-                                return RedirectToAction("Dashboard", "Host");
+                                if (UserManager.IsInRole(user.Id, "Host"))
+                                    return RedirectToAction("Dashboard", "Host");
 
-                            if (UserManager.IsInRole(user.Id, "User"))
-                                return RedirectToAction("Dashboard", "Renter");
+                                if (UserManager.IsInRole(user.Id, "User"))
+                                    return RedirectToAction("Dashboard", "Renter");
 
-                            break;
-                        case SignInStatus.LockedOut:
-                            return View("Lockout");
-                        case SignInStatus.RequiresVerification:
-                            return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                        case SignInStatus.Failure:
-                        default:
-                            ModelState.AddModelError("", "Invalid login attempt.");
-                            return View(model);
+                                break;
+                            case SignInStatus.LockedOut:
+                                return View("Lockout");
+                            case SignInStatus.RequiresVerification:
+                                return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                            case SignInStatus.Failure:
+                            default:
+                                ModelState.AddModelError("", "Invalid login attempt.");
+                                return View(model);
+                        }
                     }
                 }
                 else
@@ -181,6 +184,12 @@ namespace EventBookingPlatform.Controllers
                 {
                     AddRoleToUser(user.Id, usertype);
 
+                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                    // Send an email with this link
+                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
                     EmailHelper emailHelper = new EmailHelper
                     {
                         Host = "mail.vbooked.com",
@@ -191,16 +200,10 @@ namespace EventBookingPlatform.Controllers
                         NetworkPass = "supportmail123!",
                         UserEmail = user.Email,
                         UserPassword = model.Password,
-                        ConfirmationUrl = string.Format(Url.Action("ConfirmEmail", "Account", new { Token = user.Id, Email = user.Email }, Request.Url.Scheme))
+                        ConfirmationUrl = callbackUrl
                     };
 
                     await emailHelper.SendEmail();
-
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    //string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     return RedirectToAction("Login", "Account");
                 }
