@@ -53,8 +53,10 @@ namespace EventBookingPlatform.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult Confirm()
+        public ActionResult Confirm(bool status)
         {
+            ViewBag.Status = status;
+
             return View();
         }
 
@@ -106,6 +108,10 @@ namespace EventBookingPlatform.Controllers
                                 ModelState.AddModelError("", "Invalid login attempt.");
                                 return View(model);
                         }
+                    }
+                    else
+                    {
+                        return RedirectToAction("Confirm", "Account", new { status = false });
                     }
                 }
                 else
@@ -211,7 +217,7 @@ namespace EventBookingPlatform.Controllers
 
                     await emailHelper.SendEmail();
 
-                    return RedirectToAction("Confirm", "Account");
+                    return RedirectToAction("Confirm", "Account", new { status = false });
                 }
                 AddErrors(result);
             }
