@@ -1,0 +1,9 @@
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\bin\Release\EventBookingPlatform.BusinessLayer.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\bin\Release\EventBookingPlatform.BusinessLayer.pdb
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\bin\Release\EventBookingPlatform.DAL.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\bin\Release\EntityFramework.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\bin\Release\EventBookingPlatform.DAL.pdb
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\bin\Release\EntityFramework.xml
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\obj\Release\EventBookingPlatform.BusinessLayer.csprojResolveAssemblyReference.cache
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\obj\Release\EventBookingPlatform.BusinessLayer.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\obj\Release\EventBookingPlatform.BusinessLayer.pdb

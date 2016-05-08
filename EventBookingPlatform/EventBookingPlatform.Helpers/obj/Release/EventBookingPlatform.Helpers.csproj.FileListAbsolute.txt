@@ -1,0 +1,5 @@
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\bin\Release\EventBookingPlatform.Helpers.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\bin\Release\EventBookingPlatform.Helpers.pdb
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Release\EventBookingPlatform.Helpers.csprojResolveAssemblyReference.cache
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Release\EventBookingPlatform.Helpers.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Release\EventBookingPlatform.Helpers.pdb

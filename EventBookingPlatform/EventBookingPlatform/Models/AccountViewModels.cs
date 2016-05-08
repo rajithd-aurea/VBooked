@@ -65,6 +65,11 @@ namespace EventBookingPlatform.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Fullname")]
+        [StringLength(50, ErrorMessage = "Please provide your fullname.")]
+        public string Fullname { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }

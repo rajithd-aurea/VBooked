@@ -1,0 +1,14 @@
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Release\EventBookingPlatform.UnitTest.dll.config
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Release\EventBookingPlatform.UnitTest.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Release\EventBookingPlatform.UnitTest.pdb
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Release\EntityFramework.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Release\EntityFramework.SqlServer.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Release\EventBookingPlatform.DAL.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Release\EventBookingPlatform.Helpers.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Release\EntityFramework.xml
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Release\EntityFramework.SqlServer.xml
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Release\EventBookingPlatform.DAL.pdb
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Release\EventBookingPlatform.Helpers.pdb
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\obj\Release\EventBookingPlatform.UnitTest.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\obj\Release\EventBookingPlatform.UnitTest.pdb
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\obj\Release\EventBookingPlatform.UnitTest.csprojResolveAssemblyReference.cache

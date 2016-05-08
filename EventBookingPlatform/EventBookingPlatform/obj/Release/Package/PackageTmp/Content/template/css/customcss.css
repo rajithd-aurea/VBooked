@@ -1,0 +1,74 @@
+.login-form {
+	width: 340px;
+	height: 200px;
+	margin: 0 auto;
+	border: 1px solid #000;
+}
+
+ul.option-list {
+	padding: 0;
+	margin: 0;
+}
+
+ul.option-list li {
+	list-style-type: none;
+	float: left;
+	margin-right: 10px;
+}
+
+.result-container {
+	padding: 5px;
+	border: 1px solid #000;
+}
+
+.details-container {
+	padding: 5px;
+	width: 90px;
+	margin: 0 auto;
+}
+
+.rating-container {
+	width: 300px;
+    padding: 5px;
+    margin: 0 auto;
+}
+
+.rating-container p {
+	   padding: 16px;
+    width: 144px;
+    margin: -11px auto;
+    border: 1px solid #000;
+}
+
+.category-header {
+	font-weight: bold;
+}
+
+th.header {
+	text-align: center;
+}
+
+table#avgTable {
+	width: 100%;
+}
+
+table#avgTable thead tr th, table#avgTable tbody tr td {
+	text-align: center !important;
+}
+
+#dlgEvalResult {
+	height: 200px;
+	border: 1px solid #000; 
+}
+
+.content-container {
+    padding: 20px;
+}
+
+.events-container {
+    width: 100%;
+}
+
+.events-list {
+    width: 100%;
+}

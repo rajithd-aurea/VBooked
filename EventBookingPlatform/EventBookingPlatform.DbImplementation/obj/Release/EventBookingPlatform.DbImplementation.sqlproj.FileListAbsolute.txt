@@ -1,0 +1,5 @@
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\bin\Release\EventBookingPlatform.DbImplementation.dacpac
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\bin\Release\EventBookingPlatform.DbImplementation.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\bin\Release\EventBookingPlatform.DbImplementation.pdb
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\obj\Release\EventBookingPlatform.DbImplementation.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\obj\Release\EventBookingPlatform.DbImplementation.pdb

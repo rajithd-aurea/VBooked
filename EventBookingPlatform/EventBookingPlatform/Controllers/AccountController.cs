@@ -1,5 +1,6 @@
 ﻿using EventBookingPlatform.Models;
 using EventBookingPlatform.Helpers;
+using EventBookingPlatform.BusinessLayer;
 
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -17,6 +18,7 @@ namespace EventBookingPlatform.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private VenueBLL _venueBLL;
 
         public AccountController()
         {
@@ -184,7 +186,7 @@ namespace EventBookingPlatform.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model, string usertype)
+        public async Task<ActionResult> Register(RegisterViewModel model, string usertype, string venuename)
         {
             if (ModelState.IsValid)
             {
@@ -195,6 +197,9 @@ namespace EventBookingPlatform.Controllers
                 if (result.Succeeded)
                 {
                     AddRoleToUser(user.Id, usertype);
+
+                    _venueBLL = new VenueBLL();
+                    _venueBLL.AddVenueName(user.Id, venuename, false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link

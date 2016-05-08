@@ -162,6 +162,7 @@ E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform\bin\M
 E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform\obj\Debug\EventBookingPlatform.csprojResolveAssemblyReference.cache
 E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform\obj\Debug\EventBookingPlatform.dll
 E:\Projects\EventBookingPlatform\EventBookingPlatform\EventBookingPlatform\obj\Debug\EventBookingPlatform.pdb
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\obj\Debug\EventBookingPlatform.csprojResolveAssemblyReference.cache
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\ApplicationInsights.config
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\roslyn\csc.exe
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -181,6 +182,9 @@ E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\EventBookingPl
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\Antlr3.Runtime.dll
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\EntityFramework.dll
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\EntityFramework.SqlServer.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\EventBookingPlatform.BusinessLayer.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\EventBookingPlatform.DAL.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\EventBookingPlatform.Helpers.dll
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\Microsoft.AI.Agent.Intercept.dll
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\Microsoft.AI.DependencyCollector.dll
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -212,6 +216,9 @@ E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\System.Web.Web
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\System.Web.WebPages.dll
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\System.Web.WebPages.Razor.dll
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\WebGrease.dll
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\EventBookingPlatform.BusinessLayer.pdb
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\EventBookingPlatform.DAL.pdb
+E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\EventBookingPlatform.Helpers.pdb
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\Microsoft.AI.DependencyCollector.xml
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\Microsoft.AI.ServerTelemetryChannel.xml
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\Microsoft.AI.Web.xml
@@ -241,8 +248,5 @@ E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\Microsoft.Owin
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\Microsoft.Owin.Security.Google.xml
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\Microsoft.Owin.Security.Twitter.xml
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\obj\Debug\EventBookingPlatform.csprojResolveAssemblyReference.cache
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\obj\Debug\EventBookingPlatform.dll
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\obj\Debug\EventBookingPlatform.pdb
-E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\EventBookingPlatform.Helpers.dll
-E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform\bin\EventBookingPlatform.Helpers.pdb

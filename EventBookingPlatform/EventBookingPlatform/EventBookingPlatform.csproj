@@ -42,8 +42,15 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EventBookingPlatform.BusinessLayer">
+      <HintPath>..\EventBookingPlatform.BusinessLayer\bin\Debug\EventBookingPlatform.BusinessLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="EventBookingPlatform.DAL">
+      <HintPath>..\EventBookingPlatform.DAL\bin\Debug\EventBookingPlatform.DAL.dll</HintPath>
+    </Reference>
     <Reference Include="EventBookingPlatform.Helpers">
       <HintPath>..\EventBookingPlatform.Helpers\bin\Debug\EventBookingPlatform.Helpers.dll</HintPath>
     </Reference>
@@ -247,6 +254,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\EventBookingPublishProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -259,7 +267,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -300,6 +310,7 @@
     <Content Include="Views\Renter\RenterPageTemplate.cshtml" />
     <Content Include="Views\Settings\Main.cshtml" />
     <Content Include="Views\Host\HostPageTemplate.cshtml" />
+    <Content Include="Views\Account\Confirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
