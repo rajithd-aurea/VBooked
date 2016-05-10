@@ -10,5 +10,11 @@ namespace EventBookingPlatform.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult ForApproval()
+        {
+            return View();
+        }
     }
 }
