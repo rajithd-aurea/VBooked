@@ -30,6 +30,12 @@ namespace EventBookingPlatform
                 url: "Account/Confirm/{status}",
                 defaults: new { status = false }
             );
+
+            routes.MapRoute(
+                name: "VenueDashboardRoute",
+                url: "Venue/{action}/{hostid}",
+                defaults: new { action = "Dashboard", hostid = string.Empty }
+            );
         }
     }
 }
