@@ -95,7 +95,7 @@ namespace EventBookingPlatform.Controllers
                                     return RedirectToAction("Dashboard", "Admin");
 
                                 if (UserManager.IsInRole(user.Id, "Host"))
-                                    return RedirectToAction("Dashboard", "Host");
+                                    return RedirectToAction("Dashboard", "Venue", new { hostid = user.Id });
 
                                 if (UserManager.IsInRole(user.Id, "User"))
                                     return RedirectToAction("Dashboard", "Renter");
