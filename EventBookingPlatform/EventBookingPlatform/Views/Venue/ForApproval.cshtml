@@ -26,30 +26,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Venue 1</td>
-                        <td>@Html.ActionLink("Approve", "", "")</td>
-                    </tr>
-                    <tr>
-                        <td>Venue 2</td>
-                        <td>@Html.ActionLink("Approve", "", "")</td>
-                    </tr>
-                    <tr>
-                        <td>Venue 3</td>
-                        <td>@Html.ActionLink("Approve", "", "")</td>
-                    </tr>
-                    <tr>
-                        <td>Venue 4</td>
-                        <td>@Html.ActionLink("Approve", "", "")</td>
-                    </tr>
-                    <tr>
-                        <td>Venue 5</td>
-                        <td>@Html.ActionLink("Approve", "", "")</td>
-                    </tr>
-                    <tr>
-                        <td>Venue 6</td>
-                        <td>@Html.ActionLink("Approve", "", "")</td>
-                    </tr>
+                    @{
+                        foreach (var venue in ViewBag.VenueList)
+                        {
+                            <tr>
+                                <td>@venue.Name</td>
+                                <td>@Html.ActionLink("Approve", "", "")</td>
+                            </tr>
+                        }
+                    }
                 </tbody>
             </table>
         </div>
