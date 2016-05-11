@@ -21,9 +21,9 @@ namespace EventBookingPlatform.BusinessLayer
             _repo.Save();
         }
 
-        public async Task<List<VenueInfo>> GetVenueList(string hostid)
+        public IEnumerable<VenueInfo> GetUnapprovedVenueList()
         {
-            return await _repo.GetVenuesAsync(hostid);
+            return _repo.GetUnapprovedVenues();
         }
     }
 }

@@ -4,12 +4,13 @@ using System.Threading.Tasks;
 using System;
 using System.Data.Entity;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EventBookingPlatform.DAL.Repository
 {
     public interface IEFRepository
     {
-        Task<List<VenueInfo>> GetVenuesAsync(string hostid);
+        IEnumerable<VenueInfo> GetUnapprovedVenues();
         void AddVenueName(string hostid, string venuename, bool approval);
         void Save();
     }
@@ -50,9 +51,9 @@ namespace EventBookingPlatform.DAL.Repository
             _entity.VenueInfoes.Add(venueInfo);
         }
 
-        public async Task<List<VenueInfo>> GetVenuesAsync(string hostid)
+        public IEnumerable<VenueInfo> GetUnapprovedVenues()
         {
-            return await _entity.VenueInfoes.ToListAsync();
+            return _entity.VenueInfoes.Where(status => status.Approved == false).ToList();
         }
     }
 }

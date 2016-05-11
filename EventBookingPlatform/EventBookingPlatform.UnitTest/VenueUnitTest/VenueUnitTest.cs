@@ -58,16 +58,16 @@ namespace EventBookingPlatform.UnitTest.VenueUnitTest
         }
 
         [TestMethod]
-        public async Task Venue_GetVenues_Test()
+        public void Venue_GetUnapprovedVenues_Test()
         {
             // Arrange
-            string hostid = "782fc72d-145c-4013-8078-3a6835ba9db1";
+            //string hostid = "782fc72d-145c-4013-8078-3a6835ba9db1";
 
             // Act
-            var listOfVenues = await _repo.GetVenuesAsync(hostid);
+            var listOfVenues = _repo.GetUnapprovedVenues();
 
             // Assert
-            Assert.IsTrue(listOfVenues.Count > 0);
+            Assert.IsNotNull(listOfVenues);
         }
     }
 }
