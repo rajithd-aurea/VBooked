@@ -36,6 +36,12 @@ namespace EventBookingPlatform
                 url: "Venue/{action}/{hostid}",
                 defaults: new { action = "Dashboard", hostid = string.Empty }
             );
+
+            routes.MapRoute(
+                name: "ViewVenueInfoRoute",
+                url: "Host/Dashboard/{hostid}/{venueid}",
+                defaults: new { hostid = string.Empty, venueid = 0 }
+            );
         }
     }
 }

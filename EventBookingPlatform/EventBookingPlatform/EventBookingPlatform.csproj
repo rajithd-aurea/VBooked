@@ -213,6 +213,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RenterController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\VenueController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -266,6 +267,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\venue.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -311,6 +313,8 @@
     <Content Include="Views\Settings\Main.cshtml" />
     <Content Include="Views\Host\HostPageTemplate.cshtml" />
     <Content Include="Views\Account\Confirm.cshtml" />
+    <Content Include="Views\Venue\Dashboard.cshtml" />
+    <Content Include="Views\Venue\ForApproval.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

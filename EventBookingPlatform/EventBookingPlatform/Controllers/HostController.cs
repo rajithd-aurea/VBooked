@@ -6,8 +6,13 @@ namespace EventBookingPlatform.Controllers
     public class HostController : Controller
     {
         [HttpGet]
-        public ActionResult Dashboard()
+        public ActionResult Dashboard(string hostid, string venueid)
         {
+            Session["VenueId"] = venueid;
+
+            ViewBag.HostId = Session["UserId"];
+            ViewBag.VenueId = Session["VenueId"];
+
             return View();
         }
     }

@@ -69,5 +69,18 @@ namespace EventBookingPlatform.UnitTest.VenueUnitTest
             // Assert
             Assert.IsNotNull(listOfVenues);
         }
+
+        [TestMethod]
+        public void Venue_GetApprovedVenuesPerHost_Test()
+        {
+            // Arrange
+            string hostid = "0675d564-f92f-4e39-a9bb-05ac418d3b2b";
+
+            // Act
+            var listOfVenuesPerHost = _repo.GetApprovedVenues(hostid);
+
+            // Assert
+            Assert.AreNotEqual(0, listOfVenuesPerHost.Count);
+        }
     }
 }

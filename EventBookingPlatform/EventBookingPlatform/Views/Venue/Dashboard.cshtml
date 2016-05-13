@@ -25,30 +25,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Venue 1</td>
-                        <td>@Html.ActionLink("View", "", "")</td>
-                    </tr>
-                    <tr>
-                        <td>Venue 2</td>
-                        <td>@Html.ActionLink("View", "", "")</td>
-                    </tr>
-                    <tr>
-                        <td>Venue 3</td>
-                        <td>@Html.ActionLink("View", "", "")</td>
-                    </tr>
-                    <tr>
-                        <td>Venue 4</td>
-                        <td>@Html.ActionLink("View", "", "")</td>
-                    </tr>
-                    <tr>
-                        <td>Venue 5</td>
-                        <td>@Html.ActionLink("View", "", "")</td>
-                    </tr>
-                    <tr>
-                        <td>Venue 6</td>
-                        <td>@Html.ActionLink("View", "", "")</td>
-                    </tr>
+                    @{
+                        var venues = (List<EventBookingPlatform.DAL.Entities.VenueInfo>)ViewData["VenueList"];
+
+                        foreach (var venue in venues)
+                        {
+                            <tr>
+                                <td>@venue.Name</td>
+                                <td>@Html.ActionLink("View", "Dashboard", "Host", new { hostid = Session["UserId"].ToString(), venueid = venue.Pk_VenueId }, null)</td>
+                            </tr>
+                        }
+                    }
                 </tbody>
             </table>
         </div>

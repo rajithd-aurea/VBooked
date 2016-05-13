@@ -13,6 +13,7 @@ namespace EventBookingPlatform.DAL.Repository
         IEnumerable<VenueInfo> GetUnapprovedVenues();
         void AddVenueName(string hostid, string venuename, bool approval);
         void Save();
+        List<VenueInfo> GetApprovedVenues(string hostid);
     }
 
     public class Repository : IEFRepository
@@ -54,6 +55,17 @@ namespace EventBookingPlatform.DAL.Repository
         public IEnumerable<VenueInfo> GetUnapprovedVenues()
         {
             return _entity.VenueInfoes.Where(status => status.Approved == false).ToList();
+        }
+
+        public List<VenueInfo> GetApprovedVenues(string hostid)
+        {
+            _entity.Configuration.ProxyCreationEnabled = false;
+
+            var venues = (from venue in _entity.VenueInfoes
+                          where venue.Id == hostid && venue.Approved == true
+                          select venue).ToList();
+
+            return venues;
         }
     }
 }

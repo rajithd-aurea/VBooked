@@ -85,6 +85,9 @@ namespace EventBookingPlatform.Controllers
                 {
                     if (user.EmailConfirmed)
                     {
+                        Session["UserId"] = user.Id;
+                        Session["VenueId"] = 0;
+
                         // This doesn't count login failures towards account lockout
                         // To enable password failures to trigger account lockout, change to shouldLockout: true
                         var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
@@ -95,7 +98,7 @@ namespace EventBookingPlatform.Controllers
                                     return RedirectToAction("Dashboard", "Admin");
 
                                 if (UserManager.IsInRole(user.Id, "Host"))
-                                    return RedirectToAction("Dashboard", "Venue", new { hostid = user.Id });
+                                    return RedirectToAction("Dashboard", "Venue", new { hostid = Session["UserId"] });
 
                                 if (UserManager.IsInRole(user.Id, "User"))
                                     return RedirectToAction("Dashboard", "Renter");

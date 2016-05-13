@@ -37,6 +37,7 @@ namespace EventBookingPlatform
 
             bundles.Add(new ScriptBundle("~/bundles/jscript").Include(
                         "~/Content/template/js/jquery-1.11.3.js",
+                        "~/Scripts/venue.js",
                         "~/Content/template/js/jquery-ui.js",
                         "~/Content/template/js/bootstrap.min.js",
                         "~/Content/template/js/plugins/morris/morris-data.js",

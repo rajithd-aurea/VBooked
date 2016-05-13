@@ -15,15 +15,17 @@ namespace EventBookingPlatform.Controllers
         }
 
         [HttpGet]
-        public ActionResult Dashboard(string hostid)
+        public ActionResult ForApproval()
         {
+            ViewBag.VenueList = _venueBLL.GetUnapprovedVenueList();
+
             return View();
         }
 
         [HttpGet]
-        public ActionResult ForApproval()
+        public ActionResult Dashboard(string hostid)
         {
-            ViewBag.VenueList = _venueBLL.GetUnapprovedVenueList();
+            ViewData["VenueList"] = _venueBLL.GetApprovedVenuesPerHost(Session["UserId"].ToString());
 
             return View();
         }
