@@ -9,7 +9,8 @@ namespace EventBookingPlatform
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/venue.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -37,7 +38,6 @@ namespace EventBookingPlatform
 
             bundles.Add(new ScriptBundle("~/bundles/jscript").Include(
                         "~/Content/template/js/jquery-1.11.3.js",
-                        "~/Scripts/venue.js",
                         "~/Content/template/js/jquery-ui.js",
                         "~/Content/template/js/bootstrap.min.js",
                         "~/Content/template/js/plugins/morris/morris-data.js",
