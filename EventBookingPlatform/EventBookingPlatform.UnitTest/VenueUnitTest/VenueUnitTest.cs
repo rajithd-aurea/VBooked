@@ -71,6 +71,26 @@ namespace EventBookingPlatform.UnitTest.VenueUnitTest
         }
 
         [TestMethod]
+        public void Venue_ApproveVenue_Test()
+        {
+            // Arrange
+            bool isVenueApproved = false;
+            int venueid = 1;
+
+            // Act
+            var isApproved = _repo.ApproveVenue(venueid);
+
+            if (isApproved)
+            {
+                isVenueApproved = true;
+
+                Assert.IsTrue(isVenueApproved);
+            }
+            else
+                Assert.Fail();
+        }
+
+        [TestMethod]
         public void Venue_GetApprovedVenuesPerHost_Test()
         {
             // Arrange

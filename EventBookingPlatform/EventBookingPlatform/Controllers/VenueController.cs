@@ -29,5 +29,13 @@ namespace EventBookingPlatform.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Approve(int venueid)
+        {
+            _venueBLL.ApproveVenue(venueid);
+
+            return View();
+        }
     }
 }

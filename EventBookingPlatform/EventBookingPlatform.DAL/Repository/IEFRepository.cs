@@ -14,6 +14,7 @@ namespace EventBookingPlatform.DAL.Repository
         void AddVenueName(string hostid, string venuename, bool approval);
         void Save();
         List<VenueInfo> GetApprovedVenues(string hostid);
+        bool ApproveVenue(int venueid);
     }
 
     public class Repository : IEFRepository
@@ -66,6 +67,17 @@ namespace EventBookingPlatform.DAL.Repository
                           select venue).ToList();
 
             return venues;
+        }
+
+        public bool ApproveVenue(int venueid)
+        {
+            VenueInfo venueinfo = _entity.VenueInfoes.Find(venueid);
+            venueinfo.Approved = true;
+
+            _entity.Entry(venueinfo).State = EntityState.Modified;
+            Save();
+
+            return true;
         }
     }
 }
