@@ -33,7 +33,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Host Page</a>
+                @Html.ActionLink("Host Page", "Dashboard", "Venue", new { hostid = Request.QueryString["hostid"] }, new { @class = "navbar-brand" })
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -62,7 +62,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="/Host/Dashboard">Home</i></a>
+                        @Html.ActionLink("Home", "Dashboard", "Venue", new { hostid = Request.QueryString["hostid"] }, null)
                     </li>
                     <li class="dropdown">
                         <a href="javascript:;" data-toggle="collapse" data-target="#settings">Settings</a>
