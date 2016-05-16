@@ -38,15 +38,15 @@ namespace EventBookingPlatform
             );
 
             routes.MapRoute(
-                name: "ViewVenueInfoRoute",
-                url: "Venue/{action}/{hostid}/{venueid}",
-                defaults: new { action = "info", hostid = string.Empty, venueid = 0 }
-            );
-
-            routes.MapRoute(
                 name: "ApproveVenueRoute",
                 url: "Venue/Approve/{venueid}",
                 defaults: new { venueid = 0 }
+            );
+
+            routes.MapRoute(
+                name: "ViewVenueInfoRoute",
+                url: "Venue/{action}/{hostid}/{venueid}",
+                defaults: new { action = "info", hostid = string.Empty, venueid = 0 }
             );
         }
     }
