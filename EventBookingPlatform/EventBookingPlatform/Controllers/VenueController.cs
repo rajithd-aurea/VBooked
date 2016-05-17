@@ -57,7 +57,7 @@ namespace EventBookingPlatform.Controllers
                     childmodule == "Description" ||
                     childmodule == "ActivityTime" ||
                     childmodule == "Halls")
-                    return View("~/Views/Settings/" + childmodule);
+                    return View("~/Views/Settings/" + childmodule + ".cshtml");
             }
 
             return View();
