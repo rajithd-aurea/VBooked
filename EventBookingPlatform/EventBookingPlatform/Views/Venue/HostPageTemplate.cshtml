@@ -67,9 +67,20 @@
                     <li class="dropdown">
                         <a href="javascript:;" data-toggle="collapse" data-target="#settings">Settings</a>
                         <ul id="settings" class="collapse">
-                            <li>@Html.ActionLink("Main", "Main", "Settings")</li>
-                            <li>@Html.ActionLink("Administrative", "Administrative", "Settings")</li>
-                            <li>@Html.ActionLink("Operative", "Operative", "Settings")</li>
+                            <li>
+                                <a href="javascript:;" data-toggle="collapse" data-target="#main">Main</a>
+                                <ul id="main" class="collapse third-level-menu">
+                                    <li>@Html.ActionLink("Add Place", "Page", "Venue", new { mainmodule = "Settings", parentmodule = "Main", childmodule = "addplace" }, new { })</li>
+                                    <li>@Html.ActionLink("Contact", "Page", "Venue", new { mainmodule = "Settings", parentmodule = "Main", childmodule = "contact" }, new { })</li>
+                                    <li>@Html.ActionLink("Characterization Place", "Page", "Venue", new { mainmodule = "Settings", parentmodule = "Main", childmodule = "characterization" }, new { })</li>
+                                    <li>@Html.ActionLink("Place Description", "Page", "Venue", new { mainmodule = "Settings", parentmodule = "Main", childmodule = "description" }, new { })</li>
+                                    <li>@Html.ActionLink("Activity Time", "Page", "Venue", new { mainmodule = "Settings", parentmodule = "Main", childmodule = "activitytime" }, new { })</li>
+                                    <li>@Html.ActionLink("Halls", "Page", "Venue", new { mainmodule = "Settings", parentmodule = "Main", childmodule = "halls" }, new { })</li>
+                                </ul>
+                                @*@Html.ActionLink("Main", "Page", "Venue", new { mainmodule = "Settings", parentmodule = "Main" }, new { })*@
+                            </li>
+                            <li>@Html.ActionLink("Administrative", "Page", "Venue", new { mainmodule = "Settings", parentmodule = "Administrative" }, new { })</li>
+                            <li>@Html.ActionLink("Operative", "Page", "Venue", new { mainmodule = "Settings", parentmodule = "Operative" }, new { })</li>
                             <li>@Html.ActionLink("Food & Drinks", "FoodDrinks", "Settings")</li>
                             <li>@Html.ActionLink("Design", "Design", "Settings")</li>
                             <li>@Html.ActionLink("Multimedia", "Multimedia", "Settings")</li>

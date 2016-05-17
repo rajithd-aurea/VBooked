@@ -72,3 +72,22 @@ table#avgTable thead tr th, table#avgTable tbody tr td {
 .events-list {
     width: 100%;
 }
+
+/* THIRD LEVEL MENU */
+ul.third-level-menu {
+    list-style-type: none;
+    margin: 0 0 0 20px;
+}
+
+    ul.third-level-menu li {
+        display: block;
+        padding: 10px 10px 10px 10px;
+    }
+
+        ul.third-level-menu li a {
+            color: #9d9d9d;
+        }
+
+            ul.third-level-menu li a:hover {
+                background-color: transparent;
+            }

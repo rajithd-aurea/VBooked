@@ -45,5 +45,32 @@ namespace EventBookingPlatform.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Page(string mainmodule, string parentmodule, string childmodule)
+        {
+            if (mainmodule == "Settings" && parentmodule == "Main")
+            {
+                if (childmodule == "addplace")
+                    return Content("Add Place");
+
+                if (childmodule == "contact")
+                    return Content("Contact");
+
+                if (childmodule == "characterization")
+                    return Content("Characterization");
+
+                if (childmodule == "description")
+                    return Content("Description");
+
+                if (childmodule == "activitytime")
+                    return Content("Activity Time");
+
+                if (childmodule == "halls")
+                    return Content("Halls");
+            }
+
+            return View();
+        }
     }
 }

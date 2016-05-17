@@ -48,6 +48,12 @@ namespace EventBookingPlatform
                 url: "Venue/{action}/{hostid}/{venueid}",
                 defaults: new { action = "info", hostid = string.Empty, venueid = 0 }
             );
+
+            routes.MapRoute(
+                name: "HostNavigationRoute",
+                url: "Venue/Page/{mainmodule}/{parentmodule}/{childmodule}",
+                defaults: new { mainmodule = "Settings", parentmodule = "Main", childmodule ="addplace" }
+            );
         }
     }
 }
