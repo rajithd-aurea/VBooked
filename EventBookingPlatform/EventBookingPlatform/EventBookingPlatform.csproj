@@ -208,7 +208,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\HostController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RenterController.cs" />
@@ -305,16 +304,23 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Host\Dashboard.cshtml" />
     <Content Include="Views\Admin\AdminPageTemplate.cshtml" />
     <Content Include="Views\Admin\Dashboard.cshtml" />
     <Content Include="Views\Renter\Dashboard.cshtml" />
     <Content Include="Views\Renter\RenterPageTemplate.cshtml" />
     <Content Include="Views\Settings\Main.cshtml" />
-    <Content Include="Views\Host\HostPageTemplate.cshtml" />
+    <Content Include="Views\Venue\HostPageTemplate.cshtml" />
     <Content Include="Views\Account\Confirm.cshtml" />
     <Content Include="Views\Venue\Dashboard.cshtml" />
     <Content Include="Views\Venue\ForApproval.cshtml" />
+    <Content Include="Views\Venue\Approve.cshtml" />
+    <Content Include="Views\Venue\Info.cshtml" />
+    <Content Include="Views\Settings\AddPlace.cshtml" />
+    <Content Include="Views\Settings\Contact.cshtml" />
+    <Content Include="Views\Settings\Characterization.cshtml" />
+    <Content Include="Views\Settings\Description.cshtml" />
+    <Content Include="Views\Settings\ActivityTime.cshtml" />
+    <Content Include="Views\Settings\Halls.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

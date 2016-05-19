@@ -7,3 +7,7 @@ E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\bin\Debug\
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\bin\Debug\EventBookingPlatform.Helpers.pdb
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.dll
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.pdb
+D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\bin\Debug\EventBookingPlatform.Helpers.dll
+D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\bin\Debug\EventBookingPlatform.Helpers.pdb
+D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.dll
+D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.pdb

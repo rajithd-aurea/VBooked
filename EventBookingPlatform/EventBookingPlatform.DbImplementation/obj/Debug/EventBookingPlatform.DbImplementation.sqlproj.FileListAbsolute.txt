@@ -22,3 +22,8 @@ E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\b
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\bin\Debug\EventBookingPlatform.DbImplementation.pdb
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\obj\Debug\EventBookingPlatform.DbImplementation.dll
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\obj\Debug\EventBookingPlatform.DbImplementation.pdb
+D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\bin\Debug\EventBookingPlatform.DbImplementation.dacpac
+D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\bin\Debug\EventBookingPlatform.DbImplementation.dll
+D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\bin\Debug\EventBookingPlatform.DbImplementation.pdb
+D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\obj\Debug\EventBookingPlatform.DbImplementation.dll
+D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\obj\Debug\EventBookingPlatform.DbImplementation.pdb

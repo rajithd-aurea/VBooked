@@ -1,7 +1,79 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "AddPlace";
     Layout = "~/Views/Venue/HostPageTemplate.cshtml";
 }
 
-<h2>AddPlace</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
+            <li><i class="fa fa-dashboard"></i> Settings</li>
+            <li>Main</li>
+            <li>Add Place</li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>Name of Venue</label>
+            <input type="text" id="venuename" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Type of Venue</label>
+            <select id="venuename" class="form-control"></select>
+        </div>
+        <div class="form-group">
+            <label>Foundation Year</label>
+            <input type="text" id="foundationyear" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Registration #</label>
+            <input type="text" id="regno" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Renovation Year</label>
+            <input type="text" id="renovationyear" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Area (sq)</label>
+            <input type="text" id="venuename" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Open spaces of the place</label>
+            <input type="text" id="openspaces" class="form-control" />
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>Service</label>
+            <select id="service" class="form-control"></select>
+        </div>
+        <div class="form-group">
+            <label>Season Activity</label>
+            <select id="seasonactivity" class="form-control"></select>
+        </div>
+        <div class="form-group">
+            <label>Location</label>
+            <input type="text" id="location" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Settlement</label>
+            <input type="text" id="settlement" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Street</label>
+            <input type="text" id="street" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Targeting</label>
+            <input type="text" id="targeting" class="form-control" />
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <input type="submit" value="Add" class="btn btn-primary form-control" />
+    </div>
+</div>

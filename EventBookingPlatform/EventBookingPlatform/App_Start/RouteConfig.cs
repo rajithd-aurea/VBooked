@@ -51,8 +51,8 @@ namespace EventBookingPlatform
 
             routes.MapRoute(
                 name: "HostNavigationRoute",
-                url: "Venue/Page/{mainmodule}/{parentmodule}/{childmodule}",
-                defaults: new { mainmodule = "Settings", parentmodule = "Main", childmodule ="addplace" }
+                url: "Venue/Page/{venueid}/{mainmodule}/{parentmodule}/{childmodule}",
+                defaults: new { venueid = 0, mainmodule = "Settings", parentmodule = "Main", childmodule ="addplace" }
             );
         }
     }
