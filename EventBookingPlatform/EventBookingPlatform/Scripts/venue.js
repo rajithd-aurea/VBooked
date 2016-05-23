@@ -76,8 +76,19 @@
 };
 
 $(document).ready(function () {
+    $('#seasonal').hide();
+
     venue.getVenues();
     venue.loadVenueTypes();
 
     venue.validateForm();
+
+    $('#seasonactivity').change(function () {
+        var val = $(this).val();
+        
+        if (val == "Seasonal")
+            $('#seasonal').show();
+        else
+            $('#seasonal').hide();
+    });
 });
