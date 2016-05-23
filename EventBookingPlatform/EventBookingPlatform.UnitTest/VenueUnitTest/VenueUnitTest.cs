@@ -102,5 +102,16 @@ namespace EventBookingPlatform.UnitTest.VenueUnitTest
             // Assert
             Assert.AreNotEqual(0, listOfVenuesPerHost.Count);
         }
+
+        [TestMethod]
+        public void Venue_GetVenueTypes_Test()
+        {
+            // Arrange
+            // Act
+            var venueTypes = _repo.GetVenueTypes();
+
+            // Assert
+            Assert.IsNotNull(venueTypes);
+        }
     }
 }

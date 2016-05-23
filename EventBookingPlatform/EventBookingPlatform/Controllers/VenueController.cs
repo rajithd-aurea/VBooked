@@ -62,5 +62,13 @@ namespace EventBookingPlatform.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public JsonResult GetVenueTypes()
+        {
+            var venueTypes = _venueBLL.GetVenueTypes();
+
+            return Json(venueTypes, JsonRequestBehavior.AllowGet);
+        }
     }
 }
