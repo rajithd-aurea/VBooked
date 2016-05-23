@@ -378,6 +378,13 @@
     <Property Name="OptionName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="OptionValue" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="VenueType">
+    <Key>
+      <PropertyRef Name="Pk_VenueTypeId" />
+    </Key>
+    <Property Name="Pk_VenueTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VenueType" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
   <EntityType Name="VenueWaitingRoomOption">
     <Key>
       <PropertyRef Name="Pk_VenueWaitingRoomOptId" />
@@ -773,6 +780,7 @@
     <EntitySet Name="VenueFacility" EntityType="Self.VenueFacility" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VenueInfo" EntityType="Self.VenueInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VenueParkingOption" EntityType="Self.VenueParkingOption" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VenueType" EntityType="Self.VenueType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VenueWaitingRoomOption" EntityType="Self.VenueWaitingRoomOption" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WaitingRoomOption" EntityType="Self.WaitingRoomOption" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WaitingRoomOptionComment" EntityType="Self.WaitingRoomOptionComment" Schema="dbo" store:Type="Tables" />

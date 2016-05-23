@@ -454,5 +454,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="VenueTypes">
+      <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueType">
+        <MappingFragment StoreEntitySet="VenueType">
+          <ScalarProperty Name="VenueType1" ColumnName="VenueType" />
+          <ScalarProperty Name="Pk_VenueTypeId" ColumnName="Pk_VenueTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

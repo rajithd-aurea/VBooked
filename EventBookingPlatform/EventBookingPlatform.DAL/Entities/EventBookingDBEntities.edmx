@@ -383,6 +383,13 @@
           <Property Name="OptionName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="OptionValue" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="VenueType">
+          <Key>
+            <PropertyRef Name="Pk_VenueTypeId" />
+          </Key>
+          <Property Name="Pk_VenueTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VenueType" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityType Name="VenueWaitingRoomOption">
           <Key>
             <PropertyRef Name="Pk_VenueWaitingRoomOptId" />
@@ -778,6 +785,7 @@
           <EntitySet Name="VenueFacility" EntityType="Self.VenueFacility" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VenueInfo" EntityType="Self.VenueInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VenueParkingOption" EntityType="Self.VenueParkingOption" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VenueType" EntityType="Self.VenueType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VenueWaitingRoomOption" EntityType="Self.VenueWaitingRoomOption" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WaitingRoomOption" EntityType="Self.WaitingRoomOption" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WaitingRoomOptionComment" EntityType="Self.WaitingRoomOptionComment" Schema="dbo" store:Type="Tables" />
@@ -1542,6 +1550,7 @@
             <End Role="VenueInfo" EntitySet="VenueInfoes" />
             <End Role="VenueEvent" EntitySet="VenueEvents" />
           </AssociationSet>
+          <EntitySet Name="VenueTypes" EntityType="DevEventBookingDBModel.VenueType" />
         </EntityContainer>
         <EntityType Name="VenueInfo">
           <Key>
@@ -1786,6 +1795,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="VenueType">
+          <Key>
+            <PropertyRef Name="Pk_VenueTypeId" />
+          </Key>
+          <Property Name="Pk_VenueTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VenueType1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2242,6 +2258,14 @@
                 <ScalarProperty Name="Events" ColumnName="Events" />
                 <ScalarProperty Name="Fk_VenueId" ColumnName="Fk_VenueId" />
                 <ScalarProperty Name="Pk_VenueEventId" ColumnName="Pk_VenueEventId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VenueTypes">
+            <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueType">
+              <MappingFragment StoreEntitySet="VenueType">
+                <ScalarProperty Name="VenueType1" ColumnName="VenueType" />
+                <ScalarProperty Name="Pk_VenueTypeId" ColumnName="Pk_VenueTypeId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

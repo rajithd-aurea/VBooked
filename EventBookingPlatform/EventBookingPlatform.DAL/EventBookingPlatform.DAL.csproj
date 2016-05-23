@@ -180,6 +180,9 @@
     <Compile Include="Entities\VenueParkingOption.cs">
       <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\VenueType.cs">
+      <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\VenueWaitingRoomOption.cs">
       <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
     </Compile>

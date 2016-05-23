@@ -651,6 +651,7 @@
       <End Role="VenueInfo" EntitySet="VenueInfoes" />
       <End Role="VenueEvent" EntitySet="VenueEvents" />
     </AssociationSet>
+    <EntitySet Name="VenueTypes" EntityType="DevEventBookingDBModel.VenueType" />
   </EntityContainer>
   <EntityType Name="VenueInfo">
     <Key>
@@ -895,4 +896,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="VenueType">
+    <Key>
+      <PropertyRef Name="Pk_VenueTypeId" />
+    </Key>
+    <Property Name="Pk_VenueTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VenueType1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>
