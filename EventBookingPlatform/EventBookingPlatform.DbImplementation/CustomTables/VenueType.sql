@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[VenueType]
+(
+	[Pk_VenueTypeId] INT NOT NULL PRIMARY KEY IDENTITY,
+	[VenueType] VARCHAR(100) NOT NULL
+)
