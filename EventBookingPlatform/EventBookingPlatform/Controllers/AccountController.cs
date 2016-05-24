@@ -87,6 +87,7 @@ namespace EventBookingPlatform.Controllers
                     {
                         Session["UserId"] = user.Id;
                         Session["VenueId"] = 0;
+                        Session["VenueName"] = string.Empty;
 
                         // This doesn't count login failures towards account lockout
                         // To enable password failures to trigger account lockout, change to shouldLockout: true
