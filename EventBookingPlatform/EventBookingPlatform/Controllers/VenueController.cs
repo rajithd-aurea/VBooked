@@ -39,9 +39,10 @@ namespace EventBookingPlatform.Controllers
         }
         
         [HttpGet]
-        public ActionResult Info(string hostid, int venueid)
+        public ActionResult Info(string hostid, int venueid, string venuename)
         {
             Session["VenueId"] = venueid;
+            Session["VenueName"] = venuename;
 
             return View();
         }
