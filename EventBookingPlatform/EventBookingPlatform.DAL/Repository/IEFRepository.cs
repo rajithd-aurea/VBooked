@@ -16,6 +16,7 @@ namespace EventBookingPlatform.DAL.Repository
         List<VenueInfo> GetApprovedVenues(string hostid);
         bool ApproveVenue(int venueid);
         IEnumerable<VenueType> GetVenueTypes();
+        void AddPlace(VenueInfo obj);
     }
 
     public class Repository : IEFRepository
@@ -84,6 +85,24 @@ namespace EventBookingPlatform.DAL.Repository
         public IEnumerable<VenueType> GetVenueTypes()
         {
             return _entity.VenueTypes.ToList();
+        }
+
+        public void AddPlace(VenueInfo obj)
+        {
+            VenueInfo venueInfo = _entity.VenueInfoes.Find(obj.Pk_VenueId);
+            venueInfo.Type = obj.Type;
+            venueInfo.FoundationYr = obj.FoundationYr;
+            venueInfo.RegNo = obj.RegNo;
+            venueInfo.RenovationYr = obj.RenovationYr;
+            venueInfo.Area = obj.Area;
+            venueInfo.OpenSpace = obj.OpenSpace;
+            venueInfo.Service = obj.Service;
+            venueInfo.SeasonActs = obj.SeasonActs;
+            venueInfo.Location = obj.Location;
+            venueInfo.Settlement = obj.Settlement;
+
+            _entity.Entry(venueInfo).State = EntityState.Modified;
+            Save();
         }
     }
 }

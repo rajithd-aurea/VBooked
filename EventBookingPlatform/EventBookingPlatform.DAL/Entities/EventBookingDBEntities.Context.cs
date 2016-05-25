@@ -64,9 +64,9 @@ namespace EventBookingPlatform.DAL.Entities
         public virtual DbSet<WaitingRoomOption> WaitingRoomOptions { get; set; }
         public virtual DbSet<WaitingRoomOptionComment> WaitingRoomOptionComments { get; set; }
         public virtual DbSet<WaitingRoomOptionValue> WaitingRoomOptionValues { get; set; }
-        public virtual DbSet<VenueInfo> VenueInfoes { get; set; }
         public virtual DbSet<PrivateEvent> PrivateEvents { get; set; }
         public virtual DbSet<VenueEvent> VenueEvents { get; set; }
         public virtual DbSet<VenueType> VenueTypes { get; set; }
+        public virtual DbSet<VenueInfo> VenueInfoes { get; set; }
     }
 }

@@ -53,7 +53,10 @@
         <AssociationConnector Association="DevEventBookingDBModel.FK_ParkingOption_ParkingOptionValue" ManuallyRouted="false" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_WaitingRoomOption_WaitingRoomOptionValue" ManuallyRouted="false" />
         <AssociationConnector Association="DevEventBookingDBModel.AspNetUserRoles" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueInfo" Width="1.5" PointX="5.25" PointY="24.5" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.PrivateEvent" Width="1.5" PointX="3.375" PointY="14.75" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueEvent" Width="1.5" PointX="7.5" PointY="54" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueType" Width="1.5" PointX="14.375" PointY="6.75" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueInfo" Width="1.5" PointX="5.25" PointY="24.25" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_AspNetUsers_VenueInfo" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_Certificate" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_ChildrenOptionComment" />
@@ -65,14 +68,11 @@
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_VenueContact" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_VenueDescription" />
         <AssociationConnector Association="DevEventBookingDBModel.Fk_VenueInfo_VenueDisabledOption" />
+        <AssociationConnector Association="DevEventBookingDBModel.Fk_VenueInfo_VenueEvents" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_VenueFacility" />
         <AssociationConnector Association="DevEventBookingDBModel.Fk_VenueInfo_VenueParkingOption" />
         <AssociationConnector Association="DevEventBookingDBModel.Fk_VenueInfo_VenueWaitingRoomOption" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_WaitingRoomOptionComment" />
-        <EntityTypeShape EntityType="DevEventBookingDBModel.PrivateEvent" Width="1.5" PointX="3.375" PointY="14.75" />
-        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueEvent" Width="1.5" PointX="7.5" PointY="54" />
-        <AssociationConnector Association="DevEventBookingDBModel.Fk_VenueInfo_VenueEvents" />
-        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueType" Width="1.5" PointX="14.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

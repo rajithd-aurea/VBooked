@@ -27,11 +27,11 @@ namespace EventBookingPlatform.DAL.Entities
             this.VenueContacts = new HashSet<VenueContact>();
             this.VenueDescriptions = new HashSet<VenueDescription>();
             this.VenueDisabledOptions = new HashSet<VenueDisabledOption>();
+            this.VenueEvents = new HashSet<VenueEvent>();
             this.VenueFacilities = new HashSet<VenueFacility>();
             this.VenueParkingOptions = new HashSet<VenueParkingOption>();
             this.VenueWaitingRoomOptions = new HashSet<VenueWaitingRoomOption>();
             this.WaitingRoomOptionComments = new HashSet<WaitingRoomOptionComment>();
-            this.VenueEvents = new HashSet<VenueEvent>();
         }
     
         public int Pk_VenueId { get; set; }
@@ -46,8 +46,10 @@ namespace EventBookingPlatform.DAL.Entities
         public string OpenSpace { get; set; }
         public string Service { get; set; }
         public string SeasonActs { get; set; }
-        public string Location { get; set; }
-        public string Settlement { get; set; }
+        public string Country { get; set; }
+        public string City { get; set; }
+        public string Street { get; set; }
+        public string ZipCode { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -71,6 +73,8 @@ namespace EventBookingPlatform.DAL.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VenueDisabledOption> VenueDisabledOptions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VenueEvent> VenueEvents { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VenueFacility> VenueFacilities { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VenueParkingOption> VenueParkingOptions { get; set; }
@@ -78,7 +82,5 @@ namespace EventBookingPlatform.DAL.Entities
         public virtual ICollection<VenueWaitingRoomOption> VenueWaitingRoomOptions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WaitingRoomOptionComment> WaitingRoomOptionComments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VenueEvent> VenueEvents { get; set; }
     }
 }
