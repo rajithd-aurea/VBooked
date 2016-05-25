@@ -764,8 +764,10 @@ CREATE TABLE [dbo].[VenueInfo](
 	[OpenSpace] [varchar](10) NOT NULL,
 	[Service] [varchar](100) NOT NULL,
 	[SeasonActs] [varchar](50) NOT NULL,
-	[Location] [varchar](100) NOT NULL,
-	[Settlement] [varchar](100) NOT NULL,
+	[Country] [varchar](100) NOT NULL,
+	[City] [varchar](100) NOT NULL,
+	[Street] [varchar](100) NOT NULL,
+	[ZipCode] [varchar](5) NOT NULL
  CONSTRAINT [PK_VenueInfo] PRIMARY KEY CLUSTERED 
 (
 	[Pk_VenueId] ASC
@@ -878,15 +880,10 @@ INSERT [dbo].[AspNetRoles] ([Id], [Name]) VALUES (N'ec1b809e-bbaa-4969-95b2-9857
 INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'782fc72d-145c-4013-8078-3a6835ba9db1', N'ec1b809e-bbaa-4969-95b2-9857093bae5c')
 INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'9ce5e6e7-aa8f-428f-ba62-d611b0a6e02f', N'96f271a7-f116-4ef1-94a0-a23d5ab23d76')
 INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'b8be8661-f868-4ea9-ac13-45aa200690e2', N'4134a323-fd0f-4ac3-85fa-19f68244a70d')
-INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'bd474cf1-3dbf-48a7-9ba2-af6ff1d7604d', N'ec1b809e-bbaa-4969-95b2-9857093bae5c')
 INSERT [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'782fc72d-145c-4013-8078-3a6835ba9db1', N'host1@gmail.com', 0, N'AHw0FCC6N31nwFvcLpS0PVHJUyjPwW+fHZXaJ7jyBWXrKTJTuqf6BTII05OOdAeQWQ==', N'c15a15ee-5e97-41fe-b4a7-a5f869220d71', NULL, 0, 0, NULL, 0, 0, N'host1@gmail.com')
 INSERT [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'9ce5e6e7-aa8f-428f-ba62-d611b0a6e02f', N'admin@gmail.com', 1, N'AI4Ao/pCQkQMjPT8XrqRwUecN+ZMAqL4PcJ28pJlca8QbE5q+OhiWlvEoV9qFpkoLg==', N'c29d32e7-5a55-46c2-b9f8-c894ebca3260', NULL, 0, 0, NULL, 0, 0, N'admin@gmail.com')
 INSERT [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'b8be8661-f868-4ea9-ac13-45aa200690e2', N'renter1@gmail.com', 0, N'AHB0NVa4unzV7wMMSI/BOLxJ3/TTu/gcCbHIIBNGHjaKUkYnDfC34yUnLtpGJnTD4Q==', N'6a7df1d5-5141-4c20-afd7-b878a8a30bb5', NULL, 0, 0, NULL, 0, 0, N'renter1@gmail.com')
-INSERT [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'bd474cf1-3dbf-48a7-9ba2-af6ff1d7604d', N'developer.lorenz@gmail.com', 1, N'AH1z4jQRpQeJeQ3D5kzk442VnlRwu2g+ZXV5aaHkWK3iuZsn16LImyBei0i1ysBAwA==', N'd17b43d7-95ed-4b01-9eed-6d16e13f7179', NULL, 0, 0, NULL, 1, 0, N'developer.lorenz@gmail.com')
-SET IDENTITY_INSERT [dbo].[VenueInfo] ON 
 
-INSERT [dbo].[VenueInfo] ([Pk_VenueId], [Approved], [Id], [Name], [Type], [FoundationYr], [RegNo], [RenovationYr], [Area], [OpenSpace], [Service], [SeasonActs], [Location], [Settlement]) VALUES (1, 1, N'bd474cf1-3dbf-48a7-9ba2-af6ff1d7604d', N'DCG Resort', N'', N'', N'', N'', N'', N'', N'', N'', N'', N'')
-SET IDENTITY_INSERT [dbo].[VenueInfo] OFF
 SET IDENTITY_INSERT [dbo].[VenueType] ON 
 
 INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (1, N'Hotel')
