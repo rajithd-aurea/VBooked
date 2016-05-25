@@ -48,8 +48,10 @@ namespace EventBookingPlatform.DAL.Repository
                 OpenSpace = "",
                 Service = "",
                 SeasonActs = "",
-                Location = "",
-                Settlement = ""
+                Country = "",
+                City = "",
+                Street = "",
+                ZipCode = ""
             };
 
             _entity.VenueInfoes.Add(venueInfo);
@@ -98,8 +100,10 @@ namespace EventBookingPlatform.DAL.Repository
             venueInfo.OpenSpace = obj.OpenSpace;
             venueInfo.Service = obj.Service;
             venueInfo.SeasonActs = obj.SeasonActs;
-            venueInfo.Location = obj.Location;
-            venueInfo.Settlement = obj.Settlement;
+            venueInfo.Country = obj.Country;
+            venueInfo.City = obj.City;
+            venueInfo.Street = obj.Street;
+            venueInfo.ZipCode = obj.ZipCode;
 
             _entity.Entry(venueInfo).State = EntityState.Modified;
             Save();
