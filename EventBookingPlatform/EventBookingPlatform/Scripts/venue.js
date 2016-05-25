@@ -31,10 +31,10 @@
                 openspaces: "required",
                 service: "required",
                 seasonactivity: "required",
-                location: "required",
-                settlement: "required",
+                country: "required",
+                city: "required",
                 street: "required",
-                targeting: "required"
+                zipcode: "required"
             },
             messages: {
                 venuename: "Please enter Venue Name",
@@ -46,13 +46,13 @@
                 openspaces: "Please enter Open Spaces",
                 service: "Please select Service",
                 seasonactivity: "Please select Season Activity",
-                location: "Please enter Location",
-                settlement: "Please enter Settlement",
+                country: "Please select Country",
+                city: "Please select City",
                 street: "Please enter Street",
-                targeting: "Please enter Targeting"
+                zipcode: "Please enter Zip Code"
             },
             submitHandler: function (form) {
-                alert("Success!");
+                venue.addPlace();
             }
         });
     },
@@ -71,6 +71,16 @@
             error: function (error) {
                 console.log(error);
             }
+        });
+    },
+    addPlace: function () {
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+            },
+            success: function () { },
+            error: function () { }
         });
     }
 };
