@@ -24,7 +24,7 @@ CREATE TABLE [dbo].[AspNetRoles](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -41,7 +41,7 @@ CREATE TABLE [dbo].[AspNetUserClaims](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -59,7 +59,7 @@ CREATE TABLE [dbo].[AspNetUserLogins](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -75,7 +75,7 @@ CREATE TABLE [dbo].[AspNetUserRoles](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -100,7 +100,7 @@ CREATE TABLE [dbo].[AspNetUsers](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Catering]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[Catering]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -117,9 +117,9 @@ CREATE TABLE [dbo].[Catering](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[CateringValue]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[CateringValue]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -136,9 +136,9 @@ CREATE TABLE [dbo].[CateringValue](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[Certificate]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[Certificate]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -169,9 +169,9 @@ CREATE TABLE [dbo].[Certificate](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[Chef]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[Chef]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -191,9 +191,9 @@ CREATE TABLE [dbo].[Chef](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[ChefSpokenLanguage]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[ChefSpokenLanguage]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -211,9 +211,9 @@ CREATE TABLE [dbo].[ChefSpokenLanguage](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[ChildrenOption]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[ChildrenOption]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -231,9 +231,9 @@ CREATE TABLE [dbo].[ChildrenOption](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[ChildrenOptionComment]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[ChildrenOptionComment]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -249,7 +249,7 @@ CREATE TABLE [dbo].[ChildrenOptionComment](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[ChildrenOptionValue]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[ChildrenOptionValue]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -267,9 +267,9 @@ CREATE TABLE [dbo].[ChildrenOptionValue](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[DisabledOption]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[DisabledOption]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -287,9 +287,9 @@ CREATE TABLE [dbo].[DisabledOption](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[DisabledOptionComment]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[DisabledOptionComment]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -305,7 +305,7 @@ CREATE TABLE [dbo].[DisabledOptionComment](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[DisabledOptionValue]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[DisabledOptionValue]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -323,9 +323,9 @@ CREATE TABLE [dbo].[DisabledOptionValue](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[Events]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[Events]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -343,9 +343,9 @@ CREATE TABLE [dbo].[Events](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[FacilityOption]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[FacilityOption]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -363,9 +363,9 @@ CREATE TABLE [dbo].[FacilityOption](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[FacilityOptionValue]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[FacilityOptionValue]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -383,9 +383,9 @@ CREATE TABLE [dbo].[FacilityOptionValue](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[Hall]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[Hall]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -411,9 +411,9 @@ CREATE TABLE [dbo].[Hall](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[Kitchen]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[Kitchen]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -430,9 +430,9 @@ CREATE TABLE [dbo].[Kitchen](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[KitchenValue]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[KitchenValue]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -449,9 +449,9 @@ CREATE TABLE [dbo].[KitchenValue](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[KosherSupervision]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[KosherSupervision]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -468,9 +468,9 @@ CREATE TABLE [dbo].[KosherSupervision](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[KosherSupervisionComment]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[KosherSupervisionComment]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -485,7 +485,7 @@ CREATE TABLE [dbo].[KosherSupervisionComment](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[KosherSuperVisionValue]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[KosherSuperVisionValue]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -504,9 +504,9 @@ CREATE TABLE [dbo].[KosherSuperVisionValue](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[ParkingOption]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[ParkingOption]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -524,9 +524,9 @@ CREATE TABLE [dbo].[ParkingOption](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[ParkingOptionComment]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[ParkingOptionComment]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -542,7 +542,7 @@ CREATE TABLE [dbo].[ParkingOptionComment](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[ParkingOptionValue]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[ParkingOptionValue]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -560,9 +560,28 @@ CREATE TABLE [dbo].[ParkingOptionValue](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[Suppliers]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[PrivateEvents]    Script Date: 5/25/2016 7:18:57 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[PrivateEvents](
+	[Pk_EventId] [int] IDENTITY(1,1) NOT NULL,
+	[Event] [varchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Pk_EventId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Table [dbo].[Suppliers]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -584,9 +603,9 @@ CREATE TABLE [dbo].[Suppliers](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[VenueCharacterization]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[VenueCharacterization]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -610,9 +629,9 @@ CREATE TABLE [dbo].[VenueCharacterization](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[VenueChildrenOption]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[VenueChildrenOption]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -633,9 +652,9 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[VenueContact]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[VenueContact]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -658,9 +677,9 @@ CREATE TABLE [dbo].[VenueContact](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[VenueDescription]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[VenueDescription]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -678,7 +697,7 @@ CREATE TABLE [dbo].[VenueDescription](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[VenueDisabledOption]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[VenueDisabledOption]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -699,9 +718,29 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[VenueFacility]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[VenueEvents]    Script Date: 5/25/2016 7:18:57 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[VenueEvents](
+	[Pk_VenueEventId] [int] IDENTITY(1,1) NOT NULL,
+	[Fk_VenueId] [int] NOT NULL,
+	[Events] [varchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Pk_VenueEventId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Table [dbo].[VenueFacility]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -722,9 +761,9 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[VenueInfo]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[VenueInfo]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -753,9 +792,9 @@ CREATE TABLE [dbo].[VenueInfo](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[VenueParkingOption]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[VenueParkingOption]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -774,9 +813,28 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[VenueWaitingRoomOption]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[VenueType]    Script Date: 5/25/2016 7:18:57 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[VenueType](
+	[Pk_VenueTypeId] [int] IDENTITY(1,1) NOT NULL,
+	[VenueType] [varchar](100) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Pk_VenueTypeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Table [dbo].[VenueWaitingRoomOption]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -797,9 +855,9 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[WaitingRoomOption]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[WaitingRoomOption]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -817,9 +875,9 @@ CREATE TABLE [dbo].[WaitingRoomOption](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
-/****** Object:  Table [dbo].[WaitingRoomOptionComment]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[WaitingRoomOptionComment]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -835,7 +893,7 @@ CREATE TABLE [dbo].[WaitingRoomOptionComment](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[WaitingRoomOptionValue]    Script Date: 4/12/2016 9:49:39 PM ******/
+/****** Object:  Table [dbo].[WaitingRoomOptionValue]    Script Date: 5/25/2016 7:18:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -852,25 +910,52 @@ CREATE TABLE [dbo].[WaitingRoomOptionValue](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
-CREATE TABLE [dbo].[VenueEvents](
-	[Pk_VenueEventId] INT NOT NULL PRIMARY KEY IDENTITY,
-	[Fk_VenueId] INT NOT NULL,
-	[Events] VARCHAR(50) NOT NULL,
-	CONSTRAINT Fk_VenueInfo_VenueEvents FOREIGN KEY (Fk_VenueId) REFERENCES VenueInfo(Pk_VenueId)
-)
-
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name]) VALUES (N'4134a323-fd0f-4ac3-85fa-19f68244a70d', N'User')
 INSERT [dbo].[AspNetRoles] ([Id], [Name]) VALUES (N'96f271a7-f116-4ef1-94a0-a23d5ab23d76', N'Admin')
 INSERT [dbo].[AspNetRoles] ([Id], [Name]) VALUES (N'ec1b809e-bbaa-4969-95b2-9857093bae5c', N'Host')
-INSERT [dbo].[AspNetRoles] ([Id], [Name]) VALUES (N'4134a323-fd0f-4ac3-85fa-19f68244a70d', N'User')
 INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'782fc72d-145c-4013-8078-3a6835ba9db1', N'ec1b809e-bbaa-4969-95b2-9857093bae5c')
 INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'9ce5e6e7-aa8f-428f-ba62-d611b0a6e02f', N'96f271a7-f116-4ef1-94a0-a23d5ab23d76')
 INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'b8be8661-f868-4ea9-ac13-45aa200690e2', N'4134a323-fd0f-4ac3-85fa-19f68244a70d')
-INSERT [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'9ce5e6e7-aa8f-428f-ba62-d611b0a6e02f', N'admin@gmail.com', 0, N'AI4Ao/pCQkQMjPT8XrqRwUecN+ZMAqL4PcJ28pJlca8QbE5q+OhiWlvEoV9qFpkoLg==', N'c29d32e7-5a55-46c2-b9f8-c894ebca3260', NULL, 0, 0, NULL, 0, 0, N'admin@gmail.com')
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'bd474cf1-3dbf-48a7-9ba2-af6ff1d7604d', N'ec1b809e-bbaa-4969-95b2-9857093bae5c')
 INSERT [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'782fc72d-145c-4013-8078-3a6835ba9db1', N'host1@gmail.com', 0, N'AHw0FCC6N31nwFvcLpS0PVHJUyjPwW+fHZXaJ7jyBWXrKTJTuqf6BTII05OOdAeQWQ==', N'c15a15ee-5e97-41fe-b4a7-a5f869220d71', NULL, 0, 0, NULL, 0, 0, N'host1@gmail.com')
+INSERT [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'9ce5e6e7-aa8f-428f-ba62-d611b0a6e02f', N'admin@gmail.com', 1, N'AI4Ao/pCQkQMjPT8XrqRwUecN+ZMAqL4PcJ28pJlca8QbE5q+OhiWlvEoV9qFpkoLg==', N'c29d32e7-5a55-46c2-b9f8-c894ebca3260', NULL, 0, 0, NULL, 0, 0, N'admin@gmail.com')
 INSERT [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'b8be8661-f868-4ea9-ac13-45aa200690e2', N'renter1@gmail.com', 0, N'AHB0NVa4unzV7wMMSI/BOLxJ3/TTu/gcCbHIIBNGHjaKUkYnDfC34yUnLtpGJnTD4Q==', N'6a7df1d5-5141-4c20-afd7-b878a8a30bb5', NULL, 0, 0, NULL, 0, 0, N'renter1@gmail.com')
+INSERT [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'bd474cf1-3dbf-48a7-9ba2-af6ff1d7604d', N'developer.lorenz@gmail.com', 1, N'AH1z4jQRpQeJeQ3D5kzk442VnlRwu2g+ZXV5aaHkWK3iuZsn16LImyBei0i1ysBAwA==', N'd17b43d7-95ed-4b01-9eed-6d16e13f7179', NULL, 0, 0, NULL, 1, 0, N'developer.lorenz@gmail.com')
+SET IDENTITY_INSERT [dbo].[VenueInfo] ON 
+
+INSERT [dbo].[VenueInfo] ([Pk_VenueId], [Approved], [Id], [Name], [Type], [FoundationYr], [RegNo], [RenovationYr], [Area], [OpenSpace], [Service], [SeasonActs], [Location], [Settlement]) VALUES (1, 1, N'bd474cf1-3dbf-48a7-9ba2-af6ff1d7604d', N'DCG Resort', N'', N'', N'', N'', N'', N'', N'', N'', N'', N'')
+SET IDENTITY_INSERT [dbo].[VenueInfo] OFF
+SET IDENTITY_INSERT [dbo].[VenueType] ON 
+
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (1, N'Hotel')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (2, N'Conference Center')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (3, N'Hotel')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (4, N'Meeting Room')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (5, N'Restaurant')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (6, N'Convention Center')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (7, N'Hall')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (8, N'Hall & Garden')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (9, N'Theater')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (10, N'Stadium')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (11, N'Yacht')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (12, N'Rooftop')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (13, N'Ballroom')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (14, N'Garden')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (15, N'University')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (16, N'Mansion')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (17, N'Museum')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (18, N'Loft')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (19, N'Open Space')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (20, N'Outdoors')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (21, N'One-Stop Venue')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (22, N'Catering Hall')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (23, N'Church')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (24, N'Mosque')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (25, N'Synagouge')
+SET IDENTITY_INSERT [dbo].[VenueType] OFF
 ALTER TABLE [dbo].[AspNetUserClaims]  WITH CHECK ADD  CONSTRAINT [FK_dbo.AspNetUserClaims_dbo.AspNetUsers_UserId] FOREIGN KEY([UserId])
 REFERENCES [dbo].[AspNetUsers] ([Id])
 ON DELETE CASCADE
@@ -969,6 +1054,11 @@ ALTER TABLE [dbo].[VenueDisabledOption]  WITH CHECK ADD  CONSTRAINT [Fk_VenueInf
 REFERENCES [dbo].[VenueInfo] ([Pk_VenueId])
 GO
 ALTER TABLE [dbo].[VenueDisabledOption] CHECK CONSTRAINT [Fk_VenueInfo_VenueDisabledOption]
+GO
+ALTER TABLE [dbo].[VenueEvents]  WITH CHECK ADD  CONSTRAINT [Fk_VenueInfo_VenueEvents] FOREIGN KEY([Fk_VenueId])
+REFERENCES [dbo].[VenueInfo] ([Pk_VenueId])
+GO
+ALTER TABLE [dbo].[VenueEvents] CHECK CONSTRAINT [Fk_VenueInfo_VenueEvents]
 GO
 ALTER TABLE [dbo].[VenueFacility]  WITH CHECK ADD  CONSTRAINT [FK_VenueInfo_VenueFacility] FOREIGN KEY([Fk_VenueId])
 REFERENCES [dbo].[VenueInfo] ([Pk_VenueId])
