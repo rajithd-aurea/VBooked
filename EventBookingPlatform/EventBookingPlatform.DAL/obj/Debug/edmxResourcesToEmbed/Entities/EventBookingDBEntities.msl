@@ -464,5 +464,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="DevEventBookingDBModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="country_name" ColumnName="country_name" />
+          <ScalarProperty Name="tld" ColumnName="tld" />
+          <ScalarProperty Name="cc_iso" ColumnName="cc_iso" />
+          <ScalarProperty Name="cc_fips" ColumnName="cc_fips" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -652,6 +652,7 @@
       <End Role="VenueInfo" EntitySet="VenueInfoes" />
       <End Role="WaitingRoomOptionComment" EntitySet="WaitingRoomOptionComments" />
     </AssociationSet>
+    <EntitySet Name="Countries" EntityType="DevEventBookingDBModel.Country" />
   </EntityContainer>
   <EntityType Name="PrivateEvent">
     <Key>
@@ -905,4 +906,16 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="cc_fips" />
+      <PropertyRef Name="cc_iso" />
+      <PropertyRef Name="tld" />
+      <PropertyRef Name="country_name" />
+    </Key>
+    <Property Name="cc_fips" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="cc_iso" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="tld" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="country_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>
