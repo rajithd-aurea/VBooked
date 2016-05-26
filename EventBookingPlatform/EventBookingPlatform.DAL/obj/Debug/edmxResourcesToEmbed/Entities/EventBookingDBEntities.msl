@@ -417,26 +417,6 @@
         <ScalarProperty Name="Id" ColumnName="UserId" />
       </EndProperty>
     </AssociationSetMapping>
-    <EntitySetMapping Name="VenueInfoes">
-      <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueInfo">
-        <MappingFragment StoreEntitySet="VenueInfo">
-          <ScalarProperty Name="Settlement" ColumnName="Settlement" />
-          <ScalarProperty Name="Location" ColumnName="Location" />
-          <ScalarProperty Name="SeasonActs" ColumnName="SeasonActs" />
-          <ScalarProperty Name="Service" ColumnName="Service" />
-          <ScalarProperty Name="OpenSpace" ColumnName="OpenSpace" />
-          <ScalarProperty Name="Area" ColumnName="Area" />
-          <ScalarProperty Name="RenovationYr" ColumnName="RenovationYr" />
-          <ScalarProperty Name="RegNo" ColumnName="RegNo" />
-          <ScalarProperty Name="FoundationYr" ColumnName="FoundationYr" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Approved" ColumnName="Approved" />
-          <ScalarProperty Name="Pk_VenueId" ColumnName="Pk_VenueId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PrivateEvents">
       <EntityTypeMapping TypeName="DevEventBookingDBModel.PrivateEvent">
         <MappingFragment StoreEntitySet="PrivateEvents">
@@ -459,6 +439,28 @@
         <MappingFragment StoreEntitySet="VenueType">
           <ScalarProperty Name="VenueType1" ColumnName="VenueType" />
           <ScalarProperty Name="Pk_VenueTypeId" ColumnName="Pk_VenueTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VenueInfoes">
+      <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueInfo">
+        <MappingFragment StoreEntitySet="VenueInfo">
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="SeasonActs" ColumnName="SeasonActs" />
+          <ScalarProperty Name="Service" ColumnName="Service" />
+          <ScalarProperty Name="OpenSpace" ColumnName="OpenSpace" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="RenovationYr" ColumnName="RenovationYr" />
+          <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+          <ScalarProperty Name="FoundationYr" ColumnName="FoundationYr" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Pk_VenueId" ColumnName="Pk_VenueId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

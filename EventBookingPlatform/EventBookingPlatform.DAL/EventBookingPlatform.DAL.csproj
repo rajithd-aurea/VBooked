@@ -87,6 +87,9 @@
     <Compile Include="Entities\ChildrenOptionValue.cs">
       <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Country.cs">
+      <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\DisabledOption.cs">
       <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
     </Compile>
