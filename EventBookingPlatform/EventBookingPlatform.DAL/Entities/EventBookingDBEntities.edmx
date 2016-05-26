@@ -133,8 +133,16 @@
           <Property Name="Fk_ChildrenOptId" Type="int" Nullable="false" />
           <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DevEventBookingDB.dbo.Country' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Pk_CountryId" />
+          </Key>
+          <Property Name="Pk_CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cc_fips" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="cc_iso" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="tld" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="country_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityType Name="DisabledOption">
           <Key>
             <PropertyRef Name="Pk_DisabledOptionId" />
@@ -763,6 +771,7 @@ warning 6002: The table/view 'DevEventBookingDB.dbo.Country' does not have a pri
           <EntitySet Name="ChildrenOption" EntityType="Self.ChildrenOption" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChildrenOptionComment" EntityType="Self.ChildrenOptionComment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChildrenOptionValue" EntityType="Self.ChildrenOptionValue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DisabledOption" EntityType="Self.DisabledOption" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DisabledOptionComment" EntityType="Self.DisabledOptionComment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DisabledOptionValue" EntityType="Self.DisabledOptionValue" Schema="dbo" store:Type="Tables" />
@@ -1555,6 +1564,7 @@ warning 6002: The table/view 'DevEventBookingDB.dbo.Country' does not have a pri
             <End Role="VenueInfo" EntitySet="VenueInfoes" />
             <End Role="WaitingRoomOptionComment" EntitySet="WaitingRoomOptionComments" />
           </AssociationSet>
+          <EntitySet Name="Countries" EntityType="DevEventBookingDBModel.Country" />
         </EntityContainer>
         <EntityType Name="PrivateEvent">
           <Key>
@@ -1808,6 +1818,16 @@ warning 6002: The table/view 'DevEventBookingDB.dbo.Country' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Pk_CountryId" />
+          </Key>
+          <Property Name="Pk_CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cc_fips" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="cc_iso" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="tld" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="country_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2274,6 +2294,17 @@ warning 6002: The table/view 'DevEventBookingDB.dbo.Country' does not have a pri
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Approved" ColumnName="Approved" />
                 <ScalarProperty Name="Pk_VenueId" ColumnName="Pk_VenueId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="DevEventBookingDBModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="country_name" ColumnName="country_name" />
+                <ScalarProperty Name="tld" ColumnName="tld" />
+                <ScalarProperty Name="cc_iso" ColumnName="cc_iso" />
+                <ScalarProperty Name="cc_fips" ColumnName="cc_fips" />
+                <ScalarProperty Name="Pk_CountryId" ColumnName="Pk_CountryId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

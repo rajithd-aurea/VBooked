@@ -471,6 +471,7 @@
           <ScalarProperty Name="tld" ColumnName="tld" />
           <ScalarProperty Name="cc_iso" ColumnName="cc_iso" />
           <ScalarProperty Name="cc_fips" ColumnName="cc_fips" />
+          <ScalarProperty Name="Pk_CountryId" ColumnName="Pk_CountryId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

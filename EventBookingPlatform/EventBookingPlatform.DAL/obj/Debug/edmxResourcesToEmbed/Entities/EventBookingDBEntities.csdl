@@ -908,11 +908,9 @@
   </Association>
   <EntityType Name="Country">
     <Key>
-      <PropertyRef Name="cc_fips" />
-      <PropertyRef Name="cc_iso" />
-      <PropertyRef Name="tld" />
-      <PropertyRef Name="country_name" />
+      <PropertyRef Name="Pk_CountryId" />
     </Key>
+    <Property Name="Pk_CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="cc_fips" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
     <Property Name="cc_iso" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
     <Property Name="tld" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />

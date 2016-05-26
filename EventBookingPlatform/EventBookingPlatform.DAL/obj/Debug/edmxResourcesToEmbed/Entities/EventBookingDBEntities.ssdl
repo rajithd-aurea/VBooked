@@ -128,15 +128,11 @@
     <Property Name="Fk_ChildrenOptId" Type="int" Nullable="false" />
     <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DevEventBookingDB.dbo.Country' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Country">
     <Key>
-      <PropertyRef Name="cc_fips" />
-      <PropertyRef Name="cc_iso" />
-      <PropertyRef Name="tld" />
-      <PropertyRef Name="country_name" />
+      <PropertyRef Name="Pk_CountryId" />
     </Key>
+    <Property Name="Pk_CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="cc_fips" Type="nvarchar" MaxLength="2" Nullable="false" />
     <Property Name="cc_iso" Type="nvarchar" MaxLength="2" Nullable="false" />
     <Property Name="tld" Type="nvarchar" MaxLength="3" Nullable="false" />
@@ -770,6 +766,7 @@ warning 6002: The table/view 'DevEventBookingDB.dbo.Country' does not have a pri
     <EntitySet Name="ChildrenOption" EntityType="Self.ChildrenOption" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChildrenOptionComment" EntityType="Self.ChildrenOptionComment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChildrenOptionValue" EntityType="Self.ChildrenOptionValue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DisabledOption" EntityType="Self.DisabledOption" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DisabledOptionComment" EntityType="Self.DisabledOptionComment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DisabledOptionValue" EntityType="Self.DisabledOptionValue" Schema="dbo" store:Type="Tables" />
@@ -801,14 +798,6 @@ warning 6002: The table/view 'DevEventBookingDB.dbo.Country' does not have a pri
     <EntitySet Name="WaitingRoomOption" EntityType="Self.WaitingRoomOption" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WaitingRoomOptionComment" EntityType="Self.WaitingRoomOptionComment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WaitingRoomOptionValue" EntityType="Self.WaitingRoomOptionValue" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Country" EntityType="Self.Country" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Country].[cc_fips] AS [cc_fips], 
-    [Country].[cc_iso] AS [cc_iso], 
-    [Country].[tld] AS [tld], 
-    [Country].[country_name] AS [country_name]
-    FROM [dbo].[Country] AS [Country]</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="FK_AspNetUsers_VenueInfo" Association="Self.FK_AspNetUsers_VenueInfo">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="VenueInfo" EntitySet="VenueInfo" />
