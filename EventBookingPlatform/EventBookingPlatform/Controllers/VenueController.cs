@@ -8,10 +8,12 @@ namespace EventBookingPlatform.Controllers
     public class VenueController : Controller
     {
         private VenueBLL _venueBLL;
+        private CountryBLL _countryBLL;
 
         public VenueController()
         {
             _venueBLL = new VenueBLL();
+            _countryBLL = new CountryBLL();
         }
 
         [HttpGet]
@@ -70,6 +72,14 @@ namespace EventBookingPlatform.Controllers
             var venueTypes = _venueBLL.GetVenueTypes();
 
             return Json(venueTypes, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetCountryList()
+        {
+            var countries = _countryBLL.GetCountries();
+
+            return Json(countries, JsonRequestBehavior.AllowGet);
         }
     }
 }

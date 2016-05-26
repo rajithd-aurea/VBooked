@@ -17,6 +17,7 @@ namespace EventBookingPlatform.DAL.Repository
         bool ApproveVenue(int venueid);
         IEnumerable<VenueType> GetVenueTypes();
         void AddPlace(VenueInfo obj);
+        IEnumerable<Country> GetCountries();
     }
 
     public class Repository : IEFRepository
@@ -107,6 +108,11 @@ namespace EventBookingPlatform.DAL.Repository
 
             _entity.Entry(venueInfo).State = EntityState.Modified;
             Save();
+        }
+
+        public IEnumerable<Country> GetCountries()
+        {
+            return _entity.Countries.ToList();
         }
     }
 }

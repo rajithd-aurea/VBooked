@@ -73,6 +73,23 @@
             }
         });
     },
+    loadCountries: function () {
+        $.ajax({
+            type: "GET",
+            url: "/Venue/GetCountryList",
+            dataType: "json",
+            success: function (result) {
+                var country = $('#country');
+
+                $.each(result, function (index, value) {
+                    $('<option value="' + value.country_name + '">' + value.country_name + '</option>').appendTo(country);
+                });
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    },
     addPlace: function () {
         $.ajax({
             type: "POST",
@@ -90,6 +107,7 @@ $(document).ready(function () {
 
     venue.getVenues();
     venue.loadVenueTypes();
+    venue.loadCountries();
 
     venue.validateForm();
 
