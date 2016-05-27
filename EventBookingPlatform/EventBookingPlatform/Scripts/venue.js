@@ -114,10 +114,6 @@
             },
             submitHandler: function (form) {
                 venue.addPlace();
-
-                $('#alert-success').show(function () {
-                    $(this).slideDown("slow");
-                });
             }
         });
     },
@@ -187,7 +183,11 @@
                 ZipCode: $('#zipcode').val()
             },
             success: function (result) {
-                console.log(result);
+                if (result.status == 1) {
+                    alert(result.message);
+
+                    window.location.href = "/Venue/Page?venueid=" + $('#venueid').val() + "&mainmodule=" + "Settings" + "&parentmodule=" + "Main" + "&childmodule=" + "Contact";
+                }
             },
             error: function (error) {
                 console.log(error);
