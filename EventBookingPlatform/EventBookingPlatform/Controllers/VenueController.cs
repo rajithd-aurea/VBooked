@@ -53,8 +53,10 @@ namespace EventBookingPlatform.Controllers
         [HttpGet]
         public ActionResult Module(string mainmodule, string parentmodule, int venueid)
         {
-            if (mainmodule == "Settings" && parentmodule == "Main")
+            if (mainmodule == "Settings")
             {
+                if (parentmodule == "Main" ||
+                    parentmodule == "Administrative")
                 return View("~/Views/Settings/" + parentmodule + ".cshtml");
             }
 
