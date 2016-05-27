@@ -19,6 +19,40 @@
             }
         });
     },
+    loadVenueTypes: function () {
+        $.ajax({
+            type: "GET",
+            url: "/Venue/GetVenueTypes",
+            dataType: "json",
+            success: function (result) {
+                var venueType = $('#venuetype');
+
+                $.each(result, function (index, value) {
+                    $('<option value="' + value.VenueType1 + '">' + value.VenueType1 + '</option>').appendTo(venueType);
+                });
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    },
+    loadCountries: function () {
+        $.ajax({
+            type: "GET",
+            url: "/Venue/GetCountryList",
+            dataType: "json",
+            success: function (result) {
+                var country = $('#country');
+
+                $.each(result, function (index, value) {
+                    $('<option value="' + value.country_name + '">' + value.country_name + '</option>').appendTo(country);
+                });
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    },
     addPlaceFormValidation: function () {
         $('#frmAddPlace').validate({
             rules: {
@@ -117,37 +151,49 @@
             }
         });
     },
-    loadVenueTypes: function () {
-        $.ajax({
-            type: "GET",
-            url: "/Venue/GetVenueTypes",
-            dataType: "json",
-            success: function (result) {
-                var venueType = $('#venuetype');
-
-                $.each(result, function (index, value) {
-                    $('<option value="' + value.VenueType1 + '">' + value.VenueType1 + '</option>').appendTo(venueType);
-                });
+    addContactFormValidation: function () {
+        $('#frmAddContact').validate({
+            rules: {
+                phone: {
+                    required: true,
+                    digits: true
+                },
+                phone2: {
+                    digits: true
+                },
+                fax: {
+                    required: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                position: {
+                    required: true
+                },
+                extmancomp: {
+                    required: true
+                }
             },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    },
-    loadCountries: function () {
-        $.ajax({
-            type: "GET",
-            url: "/Venue/GetCountryList",
-            dataType: "json",
-            success: function (result) {
-                var country = $('#country');
-
-                $.each(result, function (index, value) {
-                    $('<option value="' + value.country_name + '">' + value.country_name + '</option>').appendTo(country);
-                });
+            messages: {
+                phone: {
+                    required: "This field is required."
+                },
+                fax: {
+                    required: "This field is required."
+                },
+                email: {
+                    required: "This field is required."
+                },
+                position: {
+                    required: "This field is required."
+                },
+                extmancomp: {
+                    required: "This field is required."
+                }
             },
-            error: function (error) {
-                console.log(error);
+            submitHandler: function (form) {
+                venue.addContact();
             }
         });
     },
@@ -184,9 +230,35 @@
             },
             success: function (result) {
                 if (result.status == 1) {
-                    alert(result.message);
-
-                    window.location.href = "/Venue/Page?venueid=" + $('#venueid').val() + "&mainmodule=" + "Settings" + "&parentmodule=" + "Main" + "&childmodule=" + "Contact";
+                    $('#alert-success').show(function () {
+                        $(this).slideDown();
+                    });
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    },
+    addContact: function () {
+        $.ajax({
+            type: "POST",
+            url: "/Venue/UpdatePlaceContact",
+            data: {
+                __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                Fk_VenueId: $('#venueid').val(),
+                Phone: $('#phone').val(),
+                Phone2: $('#phone2').val(),
+                Fax: $('#fax').val(),
+                Email: $('#email').val(),
+                Position: $('#position').val(),
+                ExtManCompanyName: $('#extmancomp').val()
+            },
+            success: function (result) {
+                if (result.status == 1) {
+                    $('#alert-contact-success').show(function () {
+                        $(this).slideDown();
+                    });
                 }
             },
             error: function (error) {
@@ -199,12 +271,14 @@
 $(document).ready(function () {
     $('#seasonal').hide();
     $('#alert-success').hide();
+    $('#alert-contact-success').hide();
 
     venue.getVenues();
     venue.loadVenueTypes();
     venue.loadCountries();
 
     venue.addPlaceFormValidation();
+    venue.addContactFormValidation();
 
     $('#seasonactivity').change(function () {
         var val = $(this).val();
