@@ -67,24 +67,14 @@
                     <li class="dropdown">
                         <a href="javascript:;" data-toggle="collapse" data-target="#settings">Settings</a>
                         <ul id="settings" class="collapse">
-                            <li>
-                                @Html.ActionLink("Main", "Module", "Venue", new { mainmodule = "Settings", parentmodule = "Main", venueid = Session["VenueId"] }, null)
-                                @*<ul id="main" class="collapse third-level-menu">
-                                    <li>@Html.ActionLink("Add Place", "Page", "Venue", new { venueid = Session["VenueId"], mainmodule = "Settings", parentmodule = "Main", childmodule = "AddPlace" }, new { })</li>
-                                    <li>@Html.ActionLink("Contact", "Page", "Venue", new { venueid = Session["VenueId"], mainmodule = "Settings", parentmodule = "Main", childmodule = "Contact" }, new { })</li>
-                                    <li>@Html.ActionLink("Characterization Place", "Page", "Venue", new { venueid = Session["VenueId"], mainmodule = "Settings", parentmodule = "Main", childmodule = "Characterization" }, new { })</li>
-                                    <li>@Html.ActionLink("Place Description", "Page", "Venue", new { venueid = Session["VenueId"], mainmodule = "Settings", parentmodule = "Main", childmodule = "Description" }, new { })</li>
-                                    <li>@Html.ActionLink("Activity Time", "Page", "Venue", new { venueid = Session["VenueId"], mainmodule = "Settings", parentmodule = "Main", childmodule = "ActivityTime" }, new { })</li>
-                                    <li>@Html.ActionLink("Halls", "Page", "Venue", new { venueid = Session["VenueId"], mainmodule = "Settings", parentmodule = "Main", childmodule = "Halls" }, new { })</li>
-                                </ul>*@
-                            </li>
-                            <li>@Html.ActionLink("Administrative", "Page", "Venue", new { mainmodule = "Settings", parentmodule = "Administrative" }, new { })</li>
-                            <li>@Html.ActionLink("Operative", "Page", "Venue", new { mainmodule = "Settings", parentmodule = "Operative" }, new { })</li>
-                            <li>@Html.ActionLink("Food & Drinks", "FoodDrinks", "Settings")</li>
-                            <li>@Html.ActionLink("Design", "Design", "Settings")</li>
-                            <li>@Html.ActionLink("Multimedia", "Multimedia", "Settings")</li>
-                            <li>@Html.ActionLink("Extras", "Extras", "Settings")</li>
-                            <li>@Html.ActionLink("Gallery", "Gallery", "Settings")</li>
+                            <li>@Html.ActionLink("Main", "Module", "Venue", new { mainmodule = "Settings", parentmodule = "Main", venueid = Session["VenueId"] }, null)</li>
+                            <li>@Html.ActionLink("Administrative", "Module", "Venue", new { mainmodule = "Settings", parentmodule = "Administrative", venueid = Session["VenueId"] }, null)</li>
+                            <li>@Html.ActionLink("Operative", "", "", new { mainmodule = "Settings", parentmodule = "Operative", venueid = Session["VenueId"] }, null)</li>
+                            <li>@Html.ActionLink("Food & Drinks", "", "", new { mainmodule = "Settings", parentmodule = "FoodDrinks", venueid = Session["VenueId"] }, null)</li>
+                            <li>@Html.ActionLink("Design", "", "", new { mainmodule = "Settings", parentmodule = "Design", venueid = Session["VenueId"] }, null)</li>
+                            <li>@Html.ActionLink("Multimedia", "", "", new { mainmodule = "Settings", parentmodule = "Multimedia", venueid = Session["VenueId"] }, null)</li>
+                            <li>@Html.ActionLink("Extras", "", "", new { mainmodule = "Settings", parentmodule = "Extras", venueid = Session["VenueId"] }, null)</li>
+                            <li>@Html.ActionLink("Gallery", "", "", new { mainmodule = "Settings", parentmodule = "Gallery", venueid = Session["VenueId"] }, null)</li>
                         </ul>
                     </li>
                     <li>
