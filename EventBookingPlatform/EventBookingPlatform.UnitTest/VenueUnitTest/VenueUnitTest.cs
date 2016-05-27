@@ -37,8 +37,10 @@ namespace EventBookingPlatform.UnitTest.VenueUnitTest
                 OpenSpace = "",
                 Service = "",
                 SeasonActs = "",
-                Location = "",
-                Settlement = ""
+                Country = "",
+                City = "",
+                Street = "",
+                ZipCode = ""
             };
 
             // Act
@@ -112,6 +114,45 @@ namespace EventBookingPlatform.UnitTest.VenueUnitTest
 
             // Assert
             Assert.IsNotNull(venueTypes);
+        }
+
+        [TestMethod]
+        public void Venue_AddPlace_Test()
+        {
+            // Arrange
+            VenueInfo obj = new VenueInfo
+            {
+                Pk_VenueId = 3,
+                Type = "Hotel",
+                FoundationYr = "2004",
+                RegNo = "19847563998407",
+                RenovationYr = "2010",
+                Area = "250",
+                OpenSpace = "90",
+                Service = "Space rent only",
+                SeasonActs = "May",
+                Country = "Philippines",
+                City = "Davao",
+                Street = "Park Avenue Street",
+                ZipCode = "8000"
+            };
+
+            // Act
+            _repo.AddPlace(obj);
+
+            // Assert
+            Assert.IsNotNull(obj.Type, "Must provide Type");
+            Assert.IsNotNull(obj.FoundationYr, "Must provide Foundation Year");
+            Assert.IsNotNull(obj.RegNo, "Must provide Registration No");
+            Assert.IsNotNull(obj.RenovationYr, "Must provide Renovation Year");
+            Assert.IsNotNull(obj.Area, "Must provide Area");
+            Assert.IsNotNull(obj.OpenSpace, "Must provide Open Space");
+            Assert.IsNotNull(obj.Service, "Must provide Service");
+            Assert.IsNotNull(obj.SeasonActs, "Must provide Season acts");
+            Assert.IsNotNull(obj.Country, "Must provide Country");
+            Assert.IsNotNull(obj.City, "Must provide City");
+            Assert.IsNotNull(obj.Street, "Must provide Street");
+            Assert.IsNotNull(obj.ZipCode, "Must provide Zip Code");
         }
     }
 }

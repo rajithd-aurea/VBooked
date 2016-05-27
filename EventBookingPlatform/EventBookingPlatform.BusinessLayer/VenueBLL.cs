@@ -40,5 +40,10 @@ namespace EventBookingPlatform.BusinessLayer
         {
             return _repo.GetVenueTypes();
         }
+
+        public void UpdatePlaceInfo(VenueInfo obj)
+        {
+            _repo.AddPlace(obj);
+        }
     }
 }

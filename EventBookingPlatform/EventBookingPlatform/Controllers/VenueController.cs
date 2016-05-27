@@ -1,4 +1,5 @@
 ﻿using EventBookingPlatform.BusinessLayer;
+using EventBookingPlatform.DAL.Entities;
 
 using System.Web.Mvc;
 
@@ -80,6 +81,17 @@ namespace EventBookingPlatform.Controllers
             var countries = _countryBLL.GetCountries();
 
             return Json(countries, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult UpdatePlaceInitialInfo(VenueInfo obj)
+        {
+            obj.Id = Session["UserId"].ToString();
+
+            _venueBLL.UpdatePlaceInfo(obj);
+
+            return Json(new { status = 1, message = "Successfully updated place info!" });
         }
     }
 }

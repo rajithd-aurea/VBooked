@@ -91,13 +91,42 @@
         });
     },
     addPlace: function () {
+        var seasonactivity = $('#seasonactivity').val();
+        var activity = "";
+
+        if (seasonactivity == "Seasonal")
+            activity = $('#seasonal').val();
+        else
+            activity = seasonactivity;
+
         $.ajax({
             type: "POST",
-            url: "",
+            url: "/Venue/UpdatePlaceInitialInfo",
             data: {
+                __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                Pk_VenueId: $('#venueid').val(),
+                Approved: true,
+                Id: $('#hostid').val(),
+                Name: $('#venuename').val(),
+                Type: $('#venuetype').val(),
+                FoundationYr: $('#foundationyear').val(),
+                RegNo: $('#regno').val(),
+                RenovationYr: $('#renovationyear').val(),
+                Area: $('#area').val(),
+                OpenSpace: $('#openspaces').val(),
+                Service: $('#service option:selected').text(),
+                SeasonActs: activity,
+                Country: $('#country option:selected').text(),
+                City: $('#city').val(),
+                Street: $('#street').val(),
+                ZipCode: $('#zipcode').val()
             },
-            success: function () { },
-            error: function () { }
+            success: function (result) {
+                console.log(result);
+            },
+            error: function (error) {
+                console.log(error);
+            }
         });
     }
 };

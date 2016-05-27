@@ -16,6 +16,11 @@
 <form action="" method="post" id="frmAddPlace" novalidate="novalidate">
     <div class="row">
         <div class="col-lg-6">
+            @Html.AntiForgeryToken()
+
+            <input type="hidden" id="venueid" value="@Request.QueryString["venueid"]" />
+            <input type="hidden" id="hostid" value="@Request.QueryString["hostid"]" />
+            
             <div class="form-group">
                 <label>Name of Venue</label>
                 <input type="text" id="venuename" value="@Session["VenueName"]" readonly="readonly" name="venuename" class="form-control" />
