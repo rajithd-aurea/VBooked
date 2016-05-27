@@ -51,17 +51,11 @@ namespace EventBookingPlatform.Controllers
         }
 
         [HttpGet]
-        public ActionResult Page(string mainmodule, string parentmodule, string childmodule)
+        public ActionResult Module(string mainmodule, string parentmodule, int venueid)
         {
             if (mainmodule == "Settings" && parentmodule == "Main")
             {
-                if (childmodule == "AddPlace" ||
-                    childmodule == "Contact" ||
-                    childmodule == "Characterization" ||
-                    childmodule == "Description" ||
-                    childmodule == "ActivityTime" ||
-                    childmodule == "Halls")
-                    return View("~/Views/Settings/" + childmodule + ".cshtml");
+                return View("~/Views/Settings/" + parentmodule + ".cshtml");
             }
 
             return View();
@@ -92,6 +86,14 @@ namespace EventBookingPlatform.Controllers
             _venueBLL.UpdatePlaceInfo(obj);
 
             return Json(new { status = 1, message = "Successfully updated place info!" });
+        }
+
+        [HttpPost]
+        public JsonResult UpdatePlaceContact(VenueContact obj)
+        {
+            _venueBLL.UpdateVenueContact(obj);
+
+            return Json(new { status = 1, message = "Successfully added venue contact!" });
         }
     }
 }
