@@ -22,34 +22,89 @@
     validateForm: function () {
         $('#frmAddPlace').validate({
             rules: {
-                venuename: "required",
-                venuetype: "required",
-                foundationyear: "required",
-                regno: "required",
-                renovationyear: "required",
-                area: "required",
-                openspaces: "required",
-                service: "required",
-                seasonactivity: "required",
-                country: "required",
-                city: "required",
-                street: "required",
-                zipcode: "required"
+                venuename: {
+                    required: true
+                },
+                venuetype: {
+                    required: true
+                },
+                foundationyear: {
+                    required: true,
+                    digits: true,
+                    minlength: 4,
+                    maxlength: 4
+                },
+                regno: {
+                    required: true
+                },
+                renovationyear: {
+                    required: true,
+                    digits: true,
+                    minlength: 4,
+                    maxlength: 4
+                },
+                area: {
+                    required: true,
+                    number: true
+                },
+                openspaces: {
+                    required: true,
+                    number: true
+                },
+                service: {
+                    required: true
+                },
+                seasonactivity: {
+                    required: true
+                },
+                country: {
+                    required: true
+                },
+                city: {
+                    required: true
+                },
+                street: {
+                    required: true
+                },
+                zipcode: {
+                    required: true,
+                    number: true
+                }
             },
             messages: {
                 venuename: "Please enter Venue Name",
                 venuetype: "Please select Venue Type",
-                foundationyear: "Please enter Foundation Year",
-                regno: "Please enter Registration #",
-                renovationyear: "Please enter Renovation Year",
-                area: "Please enter Area (sq)",
-                openspaces: "Please enter Open Spaces",
+                foundationyear: {
+                    minlength: "Please enter 4 digits for year",
+                    maxlength: "Please enter 4 digits for year"
+                },
+                regno: {
+                    required: "This field is required."
+                },
+                renovationyear: {
+                    minlength: "Please enter 4 digits for year",
+                    maxlength: "Please enter 4 digits for year"
+                },
+                area: {
+                    number: "Please enter whole or decimal values"
+                },
+                openspaces: {
+                    number: "Please enter whole or decimal values"
+                },
                 service: "Please select Service",
                 seasonactivity: "Please select Season Activity",
-                country: "Please select Country",
-                city: "Please select City",
-                street: "Please enter Street",
-                zipcode: "Please enter Zip Code"
+                country: {
+                    required: "This field is required."
+                },
+                city: {
+                    required: "This field is required."
+                },
+                street: {
+                    required: "This field is required."
+                },
+                zipcode: {
+                    number: "Please enter valid Zip Code"
+                }
             },
             submitHandler: function (form) {
                 venue.addPlace();
