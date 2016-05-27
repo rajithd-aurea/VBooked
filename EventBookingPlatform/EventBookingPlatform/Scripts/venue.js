@@ -19,7 +19,7 @@
             }
         });
     },
-    validateForm: function () {
+    addPlaceFormValidation: function () {
         $('#frmAddPlace').validate({
             rules: {
                 venuename: {
@@ -114,6 +114,10 @@
             },
             submitHandler: function (form) {
                 venue.addPlace();
+
+                $('#alert-success').show(function () {
+                    $(this).slideDown("slow");
+                });
             }
         });
     },
@@ -194,12 +198,13 @@
 
 $(document).ready(function () {
     $('#seasonal').hide();
+    $('#alert-success').hide();
 
     venue.getVenues();
     venue.loadVenueTypes();
     venue.loadCountries();
 
-    venue.validateForm();
+    venue.addPlaceFormValidation();
 
     $('#seasonactivity').change(function () {
         var val = $(this).val();
