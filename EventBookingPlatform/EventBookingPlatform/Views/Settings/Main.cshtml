@@ -27,10 +27,10 @@
                             Successfully updated venue initial detail!
                         </div>
 
+                        @Html.AntiForgeryToken()
+
                         <div class="row">
                             <div class="col-lg-6">
-                                @Html.AntiForgeryToken()
-
                                 <div class="form-group">
                                     <label>Name of Venue</label>
                                     <input type="text" id="venuename" value="@Session["VenueName"]" readonly="readonly" name="venuename" class="form-control" />
@@ -133,10 +133,10 @@
                             Successfully updated venue contact detail!
                         </div>
 
+                        @Html.AntiForgeryToken()
+
                         <div class="row">
                             <div class="col-lg-6">
-                                @Html.AntiForgeryToken()
-
                                 <div class="form-group">
                                     <label>Phone</label>
                                     <input type="text" id="phone" name="phone" class="form-control" />
