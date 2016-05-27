@@ -884,7 +884,7 @@ INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'e43b4071-fc52-47e5
 INSERT [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'782fc72d-145c-4013-8078-3a6835ba9db1', N'host1@gmail.com', 0, N'AHw0FCC6N31nwFvcLpS0PVHJUyjPwW+fHZXaJ7jyBWXrKTJTuqf6BTII05OOdAeQWQ==', N'c15a15ee-5e97-41fe-b4a7-a5f869220d71', NULL, 0, 0, NULL, 0, 0, N'host1@gmail.com')
 INSERT [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'9ce5e6e7-aa8f-428f-ba62-d611b0a6e02f', N'admin@gmail.com', 1, N'AI4Ao/pCQkQMjPT8XrqRwUecN+ZMAqL4PcJ28pJlca8QbE5q+OhiWlvEoV9qFpkoLg==', N'c29d32e7-5a55-46c2-b9f8-c894ebca3260', NULL, 0, 0, NULL, 0, 0, N'admin@gmail.com')
 INSERT [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'b8be8661-f868-4ea9-ac13-45aa200690e2', N'renter1@gmail.com', 0, N'AHB0NVa4unzV7wMMSI/BOLxJ3/TTu/gcCbHIIBNGHjaKUkYnDfC34yUnLtpGJnTD4Q==', N'6a7df1d5-5141-4c20-afd7-b878a8a30bb5', NULL, 0, 0, NULL, 0, 0, N'renter1@gmail.com')
-INSERT [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'e43b4071-fc52-47e5-97ad-4bdb9ce100b7', N'developer.lorenz@gmail.com', 0, N'AHcuif2wkbUSzRh5+6F9nZFCR/VADb/0SeC/W9HeoDNk/AtSevj21i98Yd+kZeyzVw==', N'0a3a384d-5c29-47a1-8371-dc4ac9881a8f', NULL, 0, 0, NULL, 0, 0, N'developer.lorenz@gmail.com')
+INSERT [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (N'e43b4071-fc52-47e5-97ad-4bdb9ce100b7', N'developer.lorenz@gmail.com', 1, N'AHcuif2wkbUSzRh5+6F9nZFCR/VADb/0SeC/W9HeoDNk/AtSevj21i98Yd+kZeyzVw==', N'0a3a384d-5c29-47a1-8371-dc4ac9881a8f', NULL, 0, 0, NULL, 0, 0, N'developer.lorenz@gmail.com')
 
 SET IDENTITY_INSERT [dbo].[VenueType] ON 
 
@@ -1334,4 +1334,51 @@ INSERT INTO [dbo].[Country] VALUES
 	('YM', 'YE', '.ye', 'Yemen'),
 	('ZA', 'ZM', '.zm', 'Zambia'),
 	('ZI', 'ZW', '.zw', 'Zimbabwe');
+GO
+
+-- Insert Private Events
+INSERT INTO PrivateEvents VALUES
+	('Birthday Parties'),
+	('Theme Parties'),
+	('Holiday Parties'),
+	('Anniversaries'),
+	('Retirements'),
+	('Sweet Sixteen'),
+	('Family Reunions'),
+	('Fundraisers'),
+	('Bachelor/Bachelorette Parties'),
+	('Bridal Showers'),
+	('Baby Showers'),
+	('Cocktail Parties'),
+	('Casino Party'),
+	('Weddings'),
+	('Sleep Overs'),
+	('Pool Parties'),
+	('Bar mizvah party'),
+	('Brit'),
+	('Henna'),
+	('other');
+GO
+
+-- Insert Business/Corporate Events
+INSERT INTO BusinessEvents VALUES
+	('Conferences'),
+	('Seminars'),
+	('Team Building'),
+	('Trade Show'),
+	('Business Dinner'),
+	('Golf'),
+	('Press Conference'),
+	('Networking Event'),
+	('Incentive Travel'),
+	('Opening Ceremony'),
+	('Product Launch'),
+	('Theme Party'),
+	('VIP Events'),
+	('Trade Fair'),
+	('Shareholder Meeting'),
+	('Award Ceremony'),
+	('Incentive Event'),
+	('Board Meeting'),
+	('Executive Retreat');
 GO
