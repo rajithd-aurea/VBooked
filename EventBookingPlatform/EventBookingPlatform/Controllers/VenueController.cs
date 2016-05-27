@@ -89,6 +89,7 @@ namespace EventBookingPlatform.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public JsonResult UpdatePlaceContact(VenueContact obj)
         {
             _venueBLL.UpdateVenueContact(obj);
