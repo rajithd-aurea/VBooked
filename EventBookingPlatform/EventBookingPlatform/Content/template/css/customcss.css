@@ -91,3 +91,14 @@ ul.third-level-menu {
             ul.third-level-menu li a:hover {
                 background-color: transparent;
             }
+/* END */
+
+/* FORM VALIDATION STYLE */
+#frmAddPlace .form-group label.error {
+    color: #FB3A3A;
+    display: inline-block;
+    padding: 0;
+    text-align: left;
+    width: 220px;
+}
+/* END */

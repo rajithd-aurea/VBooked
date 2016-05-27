@@ -73,7 +73,9 @@
             },
             messages: {
                 venuename: "Please enter Venue Name",
-                venuetype: "Please select Venue Type",
+                venuetype: {
+                    required: "This field is required."
+                },
                 foundationyear: {
                     minlength: "Please enter 4 digits for year",
                     maxlength: "Please enter 4 digits for year"
@@ -91,8 +93,12 @@
                 openspaces: {
                     number: "Please enter whole or decimal values"
                 },
-                service: "Please select Service",
-                seasonactivity: "Please select Season Activity",
+                service: {
+                    required: "This field is required."
+                },
+                seasonactivity: {
+                    required: "This field is required."
+                },
                 country: {
                     required: "This field is required."
                 },
