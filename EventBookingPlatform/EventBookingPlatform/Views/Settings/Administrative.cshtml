@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "Administrative";
+    Layout = "~/Views/Venue/HostPageTemplate.cshtml";
+}
+
+<input type="hidden" id="venueid" value="@Request.QueryString["venueid"]" />
+<input type="hidden" id="hostid" value="@Request.QueryString["hostid"]" />
+
+<div class="row">
+    <div class="col-lg-12">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#certificates" aria-controls="" role="tab" data-toggle="tab">Certificates</a></li>
+            <li role="presentation"><a href="#suppliers" aria-controls="" role="tab" data-toggle="tab">Suppliers</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="certificates">
+                <div class="content-container">
+                    <form action="" method="post" id="frmAddPlace" novalidate="novalidate">
+                        <div class="alert alert-success" id="alert-success">
+                            Successfully updated venue initial detail!
+                        </div>
+
+                        @Html.AntiForgeryToken()
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Name of Venue</label>
+                                    <input type="text" id="venuename" value="@Session["VenueName"]" readonly="readonly" name="venuename" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Country</label>
+                                    <select id="country" name="country" class="form-control">
+                                        <option value="">Select..</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <input type="text" id="city" name="city" class="form-control" />
+                                    @*<select id="city" name="city" class="form-control">
+                                            <option value="Select">Select..</option>
+                                        </select>*@
+                                </div>
+                                <div class="form-group">
+                                    <label>Street</label>
+                                    <input type="text" id="street" name="street" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Zip Code</label>
+                                    <input type="text" id="zipcode" name="zipcode" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="submit" value="Update" class="btn btn-primary form-control" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="suppliers">
+                <div class="content-container">
+                    <form action="" method="post" id="frmAddContact" novalidate="novalidate">
+                        <div class="alert alert-success" id="alert-contact-success">
+                            Successfully updated venue contact detail!
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="text" id="phone" name="phone" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone 2</label>
+                                    <input type="text" id="phone2" name="phone2" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Fax</label>
+                                    <input type="text" id="fax" name="fax" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" id="email" name="email" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>What is your position</label>
+                                    <input type="text" id="position" name="position" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>External Manage Company Name</label>
+                                    <input type="text" id="extmancomp" name="extmancomp" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="submit" value="Update" class="btn btn-primary form-control" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
