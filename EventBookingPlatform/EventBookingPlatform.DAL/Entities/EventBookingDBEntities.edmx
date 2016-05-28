@@ -56,6 +56,13 @@
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
+        <EntityType Name="BusinessEvents">
+          <Key>
+            <PropertyRef Name="Pk_BusinessEventId" />
+          </Key>
+          <Property Name="Pk_BusinessEventId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Event" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Catering">
           <Key>
             <PropertyRef Name="Pk_CateringId" />
@@ -763,6 +770,7 @@
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BusinessEvents" EntityType="Self.BusinessEvents" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Catering" EntityType="Self.Catering" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CateringValue" EntityType="Self.CateringValue" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Certificate" EntityType="Self.Certificate" Schema="dbo" store:Type="Tables" />
@@ -1565,6 +1573,7 @@
             <End Role="WaitingRoomOptionComment" EntitySet="WaitingRoomOptionComments" />
           </AssociationSet>
           <EntitySet Name="Countries" EntityType="DevEventBookingDBModel.Country" />
+          <EntitySet Name="BusinessEvents" EntityType="DevEventBookingDBModel.BusinessEvent" />
         </EntityContainer>
         <EntityType Name="PrivateEvent">
           <Key>
@@ -1827,6 +1836,13 @@
           <Property Name="cc_iso" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
           <Property Name="tld" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
           <Property Name="country_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BusinessEvent">
+          <Key>
+            <PropertyRef Name="Pk_BusinessEventId" />
+          </Key>
+          <Property Name="Pk_BusinessEventId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Event" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2305,6 +2321,14 @@
                 <ScalarProperty Name="cc_iso" ColumnName="cc_iso" />
                 <ScalarProperty Name="cc_fips" ColumnName="cc_fips" />
                 <ScalarProperty Name="Pk_CountryId" ColumnName="Pk_CountryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BusinessEvents">
+            <EntityTypeMapping TypeName="DevEventBookingDBModel.BusinessEvent">
+              <MappingFragment StoreEntitySet="BusinessEvents">
+                <ScalarProperty Name="Event" ColumnName="Event" />
+                <ScalarProperty Name="Pk_BusinessEventId" ColumnName="Pk_BusinessEventId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
