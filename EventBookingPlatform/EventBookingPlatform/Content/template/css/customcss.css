@@ -69,9 +69,28 @@ table#avgTable thead tr th, table#avgTable tbody tr td {
     width: 100%;
 }
 
-.events-list {
+.private-events-list,
+.corporate-events-list {
     width: 100%;
 }
+
+ul#private-events,
+ul#corporate-events {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+    ul#private-events li,
+    ul#corporate-events li {
+        display: block;
+        padding: 0;
+    }
+
+        ul#private-events li input[type=checkbox],
+        ul#corporate-events li input[type=checkbox] {
+            margin-right: 5px;
+        }
 
 /* THIRD LEVEL MENU */
 ul.third-level-menu {
@@ -95,7 +114,8 @@ ul.third-level-menu {
 
 /* FORM VALIDATION STYLE */
 #frmAddPlace .form-group label.error,
-#frmAddContact .form-group label.error {
+#frmAddContact .form-group label.error,
+#frmPlaceDesc .form-group label.error {
     color: #FB3A3A;
     display: inline-block;
     padding: 0;
