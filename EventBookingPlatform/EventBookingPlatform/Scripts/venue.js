@@ -197,6 +197,34 @@
             }
         });
     },
+    addPlaceDescriptionFormValidation: function () {
+        $('#frmPlaceDesc').validate({
+            rules: {
+                placedescription: {
+                    required: true
+                },
+                advantage1: {
+                    required: true
+                },
+                advantage2: {
+                    required: true
+                }
+            },
+            messages: {
+                placedescription: {
+                    required: "This field is required."
+                },
+                advantage1: {
+                    required: "This field is required."
+                },
+                advantage2: {
+                    required: "This field is required."
+                }
+            },
+            submitHandler: function (form) {
+            }
+        });
+    },
     addPlace: function () {
         var seasonactivity = $('#seasonactivity').val();
         var activity = "";
@@ -268,17 +296,68 @@
     }
 };
 
+var alerts = {
+    hideAlerts: function () {
+        $('#seasonal').hide();
+        $('#alert-success').hide();
+        $('#alert-contact-success').hide();
+        $('#alert-placedesc-success').hide();
+    }
+};
+
+var events = {
+    getPrivateEvents: function () {
+        $.ajax({
+            type: "GET",
+            url: "/Venue/GetPrivateEvents",
+            dataType: "json",
+            success: function (result) {
+                var eventlist = $('ul#private-events');
+
+                $.each(result, function (index, value) {
+                    $('<li>' +
+                           '<input type="checkbox" value="' + value.Event + '">' + value.Event +
+                      '</li>').appendTo(eventlist);
+                });
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    },
+    getBusinessEvents: function () {
+        $.ajax({
+            type: "GET",
+            url: "/Venue/GetBusinessEvents",
+            dataType: "json",
+            success: function (result) {
+                var eventlist = $('ul#corporate-events');
+
+                $.each(result, function (index, value) {
+                    $('<li>' +
+                           '<input type="checkbox" value="' + value.Event + '">' + value.Event +
+                      '</li>').appendTo(eventlist);
+                });
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+};
+
 $(document).ready(function () {
-    $('#seasonal').hide();
-    $('#alert-success').hide();
-    $('#alert-contact-success').hide();
+    alerts.hideAlerts();
 
     venue.getVenues();
     venue.loadVenueTypes();
     venue.loadCountries();
+    events.getPrivateEvents();
+    events.getBusinessEvents();
 
     venue.addPlaceFormValidation();
     venue.addContactFormValidation();
+    venue.addPlaceDescriptionFormValidation();
 
     $('#seasonactivity').change(function () {
         var val = $(this).val();

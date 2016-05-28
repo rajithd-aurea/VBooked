@@ -18,5 +18,10 @@ namespace EventBookingPlatform.BusinessLayer
         {
             return _repo.GetPrivateEvents();
         }
+
+        public IEnumerable<BusinessEvent> GetBusinessEvents()
+        {
+            return _repo.GetBusinessEvents();
+        }
     }
 }

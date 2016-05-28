@@ -10,11 +10,13 @@ namespace EventBookingPlatform.Controllers
     {
         private VenueBLL _venueBLL;
         private CountryBLL _countryBLL;
+        private EventBLL _eventBLL;
 
         public VenueController()
         {
             _venueBLL = new VenueBLL();
             _countryBLL = new CountryBLL();
+            _eventBLL = new EventBLL();
         }
 
         [HttpGet]
@@ -97,6 +99,22 @@ namespace EventBookingPlatform.Controllers
             _venueBLL.UpdateVenueContact(obj);
 
             return Json(new { status = 1, message = "Successfully added venue contact!" });
+        }
+
+        [HttpGet]
+        public JsonResult GetPrivateEvents()
+        {
+            var privateEvents = _eventBLL.GetPrivateEvents();
+
+            return Json(privateEvents, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetBusinessEvents()
+        {
+            var businessEvents = _eventBLL.GetBusinessEvents();
+
+            return Json(businessEvents, JsonRequestBehavior.AllowGet);
         }
     }
 }

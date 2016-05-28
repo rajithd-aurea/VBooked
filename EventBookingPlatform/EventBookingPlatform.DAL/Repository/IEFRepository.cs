@@ -18,6 +18,10 @@ namespace EventBookingPlatform.DAL.Repository
         IEnumerable<VenueType> GetVenueTypes();
         void AddPlace(VenueInfo obj);
         IEnumerable<Country> GetCountries();
+        void AddVenueContact(VenueContact obj);
+        IEnumerable<PrivateEvent> GetPrivateEvents();
+        IEnumerable<BusinessEvent> GetBusinessEvents();
+        //void AddVenueDescription(VenueDescription obj);
     }
 
     public class Repository : IEFRepository
@@ -114,5 +118,25 @@ namespace EventBookingPlatform.DAL.Repository
         {
             return _entity.Countries.ToList();
         }
+
+        public void AddVenueContact(VenueContact obj)
+        {
+            _entity.VenueContacts.Add(obj);
+        }
+
+        public IEnumerable<PrivateEvent> GetPrivateEvents()
+        {
+            return _entity.PrivateEvents.ToList();
+        }
+
+        public IEnumerable<BusinessEvent> GetBusinessEvents()
+        {
+            return _entity.BusinessEvents.ToList();
+        }
+
+        //public void AddVenueDescription(VenueDescription obj)
+        //{
+        //    _entity.VenueDescriptions.Add(obj);
+        //}
     }
 }
