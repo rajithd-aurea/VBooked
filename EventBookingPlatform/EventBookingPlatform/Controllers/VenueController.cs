@@ -116,5 +116,14 @@ namespace EventBookingPlatform.Controllers
 
             return Json(businessEvents, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult UpdateVenueDescription(VenueDescription obj)
+        {
+            _venueBLL.UpdateVenueDescription(obj);
+
+            return Json(new { status = 1, message = "Successfully updated venue description!" });
+        }
     }
 }

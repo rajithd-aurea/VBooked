@@ -154,5 +154,57 @@ namespace EventBookingPlatform.UnitTest.VenueUnitTest
             Assert.IsNotNull(obj.Street, "Must provide Street");
             Assert.IsNotNull(obj.ZipCode, "Must provide Zip Code");
         }
+
+        [TestMethod]
+        public void Venue_AddVenueContact_Test()
+        {
+            // Arrange
+            VenueContact obj = new VenueContact
+            {
+                Fk_VenueId = 3,
+                Phone = "123456789",
+                Phone2 = "",
+                Fax = "(082) 302-5690",
+                Email = "owner@gmail.com",
+                Position = "Owner",
+                ExtManCompanyName = "DCG Resort"
+            };
+
+            // Act
+            _repo.AddVenueContact(obj);
+            _repo.Save();
+
+            // Assert
+            Assert.IsNotNull(obj.Fk_VenueId, "Must provide Venue Id");
+            Assert.IsNotNull(obj.Phone, "Must provide Phone");
+            Assert.IsNotNull(obj.Phone2, "Must provide Phone 2");
+            Assert.IsNotNull(obj.Fax, "Must provide Fax");
+            Assert.IsNotNull(obj.Email, "Must provide Email");
+            Assert.IsNotNull(obj.Position, "Must provide Position");
+            Assert.IsNotNull(obj.ExtManCompanyName, "Must provide External Manage Company Name");
+        }
+
+        [TestMethod]
+        public void Venue_AddVenueDescription_Test()
+        {
+            // Arrange
+            VenueDescription obj = new VenueDescription
+            {
+                Fk_VenueId = 1,
+                Description = "test",
+                DistAdvantage = "test",
+                DistAdvantageIn = "test",
+            };
+
+            // Act
+            _repo.AddVenueDescription(obj);
+            _repo.Save();
+
+            // Assert
+            Assert.IsNotNull(obj.Fk_VenueId, "Must provide Venue Id");
+            Assert.IsNotNull(obj.Description, "Must provide Description");
+            Assert.IsNotNull(obj.DistAdvantage, "Must provide Advantage 1");
+            Assert.IsNotNull(obj.DistAdvantageIn, "Must provide Advantage 2");
+        }
     }
 }

@@ -222,6 +222,7 @@
                 }
             },
             submitHandler: function (form) {
+                venue.addVenueDescription();
             }
         });
     },
@@ -285,6 +286,29 @@
             success: function (result) {
                 if (result.status == 1) {
                     $('#alert-contact-success').show(function () {
+                        $(this).slideDown();
+                    });
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    },
+    addVenueDescription: function () {
+        $.ajax({
+            type: "POST",
+            url: "/Venue/UpdateVenueDescription",
+            data: {
+                __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                Fk_VenueId: $('#venueid').val(),
+                Description: $('#placedescription').val(),
+                DistAdvantage: $('#advantage1').val(),
+                DistAdvantageIn: $('#advantage2').val()
+            },
+            success: function (result) {
+                if (result.status == 1) {
+                    $('#alert-placedesc-success').show(function () {
                         $(this).slideDown();
                     });
                 }

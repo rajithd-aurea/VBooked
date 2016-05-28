@@ -21,7 +21,7 @@ namespace EventBookingPlatform.DAL.Repository
         void AddVenueContact(VenueContact obj);
         IEnumerable<PrivateEvent> GetPrivateEvents();
         IEnumerable<BusinessEvent> GetBusinessEvents();
-        //void AddVenueDescription(VenueDescription obj);
+        void AddVenueDescription(VenueDescription obj);
     }
 
     public class Repository : IEFRepository
@@ -134,9 +134,9 @@ namespace EventBookingPlatform.DAL.Repository
             return _entity.BusinessEvents.ToList();
         }
 
-        //public void AddVenueDescription(VenueDescription obj)
-        //{
-        //    _entity.VenueDescriptions.Add(obj);
-        //}
+        public void AddVenueDescription(VenueDescription obj)
+        {
+            _entity.VenueDescriptions.Add(obj);
+        }
     }
 }

@@ -45,5 +45,17 @@ namespace EventBookingPlatform.BusinessLayer
         {
             _repo.AddPlace(obj);
         }
+
+        public void UpdateVenueContact(VenueContact obj)
+        {
+            _repo.AddVenueContact(obj);
+            _repo.Save();
+        }
+
+        public void UpdateVenueDescription(VenueDescription obj)
+        {
+            _repo.AddVenueDescription(obj);
+            _repo.Save();
+        }
     }
 }
