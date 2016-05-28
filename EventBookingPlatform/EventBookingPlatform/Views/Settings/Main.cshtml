@@ -217,72 +217,69 @@
             </div>
             <div role="tabpanel" class="tab-pane" id="placedesc">
                 <div class="content-container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label>Description of the Place</label>
-                                <textarea rows="6" cols="10" id="placedescription" class="form-control"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Distinct Advantage</label>
-                                <textarea rows="6" cols="10" id="advantage1" class="form-control"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Distinct Advantage 2</label>
-                                <textarea rows="6" cols="10" id="advantage2" class="form-control"></textarea>
-                            </div>
+                    <form action="" method="post" id="frmPlaceDesc" novalidate="novalidate">
+                        <div class="alert alert-success" id="alert-placedesc-success">
+                            Successfully updated place description!
                         </div>
-                        <div class="col-lg-6">
-                            <div class="events-container">
-                                <h3>Social/Private Events</h3>
-                                <p>We can host private events type:</p>
-                                <div class="events-list">
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 1">Value 1
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 2">Value 2
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 3">Value 3
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 4">Value 4
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 5">Value 5
-                                    </label>
+
+                        @Html.AntiForgeryToken()
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Description of the Place</label>
+                                    <textarea rows="6" cols="10" id="placedescription" class="form-control"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Distinct Advantage</label>
+                                    <textarea rows="6" cols="10" id="advantage1" class="form-control"></textarea>
                                 </div>
                             </div>
-                            <br />
-                            <div class="events-container">
-                                <h3>Business Events</h3>
-                                <p>We can host corporate events type:</p>
-                                <div class="events-list">
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 1">Value 1
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 2">Value 2
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 3">Value 3
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 4">Value 4
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 5">Value 5
-                                    </label>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Distinct Advantage 2</label>
+                                    <textarea rows="6" cols="10" id="advantage2" class="form-control"></textarea>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <input type="submit" value="Save" class="btn btn-primary form-control" />
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="events-container">
+                                    <div class="private-events-list">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Social/Private Events</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <ul id="private-events"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="events-container">
+                                    <div class="corporate-events-list">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Business Events</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <ul id="corporate-events"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3"></div>
+                            <div class="col-lg-3"></div>
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="submit" value="Save" class="btn btn-primary form-control" />
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="acttime">
