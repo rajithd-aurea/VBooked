@@ -223,6 +223,8 @@
             },
             submitHandler: function (form) {
                 venue.addVenueDescription();
+
+                events.addEventsToVenue($('#venueid').val());
             }
         });
     },
@@ -366,6 +368,45 @@ var events = {
             error: function (error) {
                 console.log(error);
             }
+        });
+    },
+    addEventsToVenue: function (venueid) {
+        var privateEventsList = $('ul#private-events li');
+
+        $(privateEventsList).find('input[type=checkbox]:checked').each(function () {
+            $.ajax({
+                type: "POST",
+                url: "/Venue/AddEventsToVenue",
+                data: {
+                    Fk_VenueId: venueid,
+                    Events: this.value
+                },
+                success: function (result) {
+                    console.log(result);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+
+        var corporateEventsList = $('ul#corporate-events li');
+
+        $(corporateEventsList).find('input[type=checkbox]:checked').each(function () {
+            $.ajax({
+                type: "POST",
+                url: "/Venue/AddEventsToVenue",
+                data: {
+                    Fk_VenueId: venueid,
+                    Events: this.value
+                },
+                success: function (result) {
+                    console.log(result);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
         });
     }
 };

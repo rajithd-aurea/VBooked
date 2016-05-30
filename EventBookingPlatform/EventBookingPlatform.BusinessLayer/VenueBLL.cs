@@ -57,5 +57,24 @@ namespace EventBookingPlatform.BusinessLayer
             _repo.AddVenueDescription(obj);
             _repo.Save();
         }
+
+        public void AddEventToVenue(List<VenueEvent> eventList)
+        {
+            foreach (var evt in eventList)
+            {
+                if (string.IsNullOrEmpty(evt.Events)) { }
+                else
+                {
+                    VenueEvent venueEvt = new VenueEvent
+                    {
+                        Fk_VenueId = evt.Fk_VenueId,
+                        Events = evt.Events
+                    };
+
+                    _repo.AddVenueEvents(venueEvt);
+                    _repo.Save();
+                }
+            }
+        }
     }
 }

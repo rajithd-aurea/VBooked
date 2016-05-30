@@ -2,6 +2,7 @@
 using EventBookingPlatform.DAL.Entities;
 
 using System.Web.Mvc;
+using System.Collections.Generic;
 
 namespace EventBookingPlatform.Controllers
 {
@@ -124,6 +125,17 @@ namespace EventBookingPlatform.Controllers
             _venueBLL.UpdateVenueDescription(obj);
 
             return Json(new { status = 1, message = "Successfully updated venue description!" });
+        }
+
+        [HttpPost]
+        public JsonResult AddEventsToVenue(VenueEvent obj)
+        {
+            List<VenueEvent> eventInfo = new List<VenueEvent>();
+            eventInfo.Add(obj);
+
+            _venueBLL.AddEventToVenue(eventInfo);
+
+            return Json(new { status = 1 });
         }
     }
 }

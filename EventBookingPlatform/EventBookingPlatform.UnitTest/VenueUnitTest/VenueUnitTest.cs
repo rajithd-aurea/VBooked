@@ -2,7 +2,7 @@
 using EventBookingPlatform.DAL.Repository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace EventBookingPlatform.UnitTest.VenueUnitTest
 {
@@ -205,6 +205,44 @@ namespace EventBookingPlatform.UnitTest.VenueUnitTest
             Assert.IsNotNull(obj.Description, "Must provide Description");
             Assert.IsNotNull(obj.DistAdvantage, "Must provide Advantage 1");
             Assert.IsNotNull(obj.DistAdvantageIn, "Must provide Advantage 2");
+        }
+
+        [TestMethod]
+        public void Venue_AddEventsToVenue_Test()
+        {
+            // Arrange
+            List<VenueEvent> eventList = new List<VenueEvent>()
+            {
+                new VenueEvent { Fk_VenueId = 1, Events = "Birthday Parties" },
+                new VenueEvent { Fk_VenueId = 1, Events = "Anniversaries" },
+                new VenueEvent { Fk_VenueId = 1, Events = "Weddings" },
+                new VenueEvent { Fk_VenueId = 1, Events = "Bachelor/Bachelorette Parties" },
+                new VenueEvent { Fk_VenueId = 1, Events = "Holiday Parties" }
+            };
+
+            // Act
+            foreach (var evt in eventList)
+            {
+                if (string.IsNullOrEmpty(evt.Events))
+                {
+                    // Assert
+                    Assert.Fail();
+                }
+                else
+                {
+                    VenueEvent venueEvt = new VenueEvent
+                    {
+                        Fk_VenueId = evt.Fk_VenueId,
+                        Events = evt.Events
+                    };
+
+                    _repo.AddVenueEvents(venueEvt);
+                    _repo.Save();
+
+                    // Assert
+                    Assert.IsNotNull(venueEvt.Events);
+                }
+            }
         }
     }
 }
