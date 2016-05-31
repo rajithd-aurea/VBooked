@@ -596,13 +596,13 @@ GO
 CREATE TABLE [dbo].[VenueCharacterization](
 	[Pk_VenueCharId] [int] IDENTITY(1,1) NOT NULL,
 	[Fk_VenueId] [int] NOT NULL,
-	[TypeOfConstruction] [varchar](100) NOT NULL,
-	[OpenAreas] [varchar](100) NOT NULL,
-	[AView] [varchar](100) NOT NULL,
-	[MaxNoRoomsAreas] [varchar](100) NOT NULL,
-	[Parking] [varchar](100) NOT NULL,
-	[Privacy] [varchar](100) NOT NULL,
-	[PagesIn] [varchar](100) NOT NULL,
+	[TypeOfConstruction] [varchar](MAX) NOT NULL,
+	[OpenAreas] [varchar](MAX) NOT NULL,
+	[AView] [varchar](MAX) NOT NULL,
+	[MaxNoRoomsAreas] [varchar](MAX) NOT NULL,
+	[Parking] [varchar](MAX) NOT NULL,
+	[Privacy] [varchar](MAX) NOT NULL,
+	[PagesIn] [varchar](MAX) NOT NULL,
  CONSTRAINT [PK_VenueCharacterization] PRIMARY KEY CLUSTERED 
 (
 	[Pk_VenueCharId] ASC
@@ -890,29 +890,28 @@ SET IDENTITY_INSERT [dbo].[VenueType] ON
 
 INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (1, N'Hotel')
 INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (2, N'Conference Center')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (3, N'Hotel')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (4, N'Meeting Room')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (5, N'Restaurant')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (6, N'Convention Center')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (7, N'Hall')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (8, N'Hall & Garden')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (9, N'Theater')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (10, N'Stadium')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (11, N'Yacht')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (12, N'Rooftop')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (13, N'Ballroom')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (14, N'Garden')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (15, N'University')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (16, N'Mansion')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (17, N'Museum')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (18, N'Loft')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (19, N'Open Space')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (20, N'Outdoors')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (21, N'One-Stop Venue')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (22, N'Catering Hall')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (23, N'Church')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (24, N'Mosque')
-INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (25, N'Synagouge')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (3, N'Meeting Room')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (4, N'Restaurant')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (5, N'Convention Center')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (6, N'Hall')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (7, N'Hall & Garden')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (8, N'Theater')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (9, N'Stadium')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (10, N'Yacht')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (11, N'Rooftop')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (12, N'Ballroom')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (13, N'Garden')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (14, N'University')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (15, N'Mansion')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (16, N'Museum')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (17, N'Loft')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (18, N'Open Space')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (19, N'Outdoors')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (20, N'One-Stop Venue')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (21, N'Catering Hall')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (22, N'Church')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (23, N'Mosque')
+INSERT [dbo].[VenueType] ([Pk_VenueTypeId], [VenueType]) VALUES (24, N'Synagouge')
 SET IDENTITY_INSERT [dbo].[VenueType] OFF
 ALTER TABLE [dbo].[AspNetUserClaims]  WITH CHECK ADD  CONSTRAINT [FK_dbo.AspNetUserClaims_dbo.AspNetUsers_UserId] FOREIGN KEY([UserId])
 REFERENCES [dbo].[AspNetUsers] ([Id])
