@@ -3,6 +3,10 @@ using EventBookingPlatform.DAL.Entities;
 
 using System.Web.Mvc;
 using System.Collections.Generic;
+using System.Web;
+using System.IO;
+using System;
+using System.Linq;
 
 namespace EventBookingPlatform.Controllers
 {
@@ -136,6 +140,175 @@ namespace EventBookingPlatform.Controllers
             _venueBLL.AddEventToVenue(eventInfo);
 
             return Json(new { status = 1 });
+        }
+
+        [HttpPost]
+        public JsonResult UploadTypeOfConstructionImage()
+        {
+            string _imgname = string.Empty;
+
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var pic = System.Web.HttpContext.Current.Request.Files["MyImages"];
+
+                if (pic.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(pic.FileName);
+                    
+                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/TypeOfConstruction"), fileName);
+                    var imageServerLocation = "~/Content/Files/Venues/TypeOfConstruction/" + fileName;
+
+                    _venueBLL.UploadTypeConstructionImage(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
+
+                    pic.SaveAs(serverPath);
+                }
+            }
+
+            return Json(new { status = 1, message = "Successfully uploaded Type of Construction Image." });
+        }
+
+        [HttpPost]
+        public JsonResult UploadOpenAreasImage()
+        {
+            string _imgname = string.Empty;
+
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var pic = System.Web.HttpContext.Current.Request.Files["MyImages"];
+                if (pic.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(pic.FileName);
+
+                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/OpenAreas"), fileName);
+                    var imageServerLocation = "~/Content/Files/Venues/OpenAreas/" + fileName;
+
+                    _venueBLL.UploadOpenAreasImage(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
+
+                    pic.SaveAs(serverPath);
+                }
+            }
+
+            return Json(new { status = 1, message = "Successfully uploaded Open Areas Image." });
+        }
+
+        [HttpPost]
+        public JsonResult UploadAViewImage()
+        {
+            string _imgname = string.Empty;
+
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var pic = System.Web.HttpContext.Current.Request.Files["MyImages"];
+                if (pic.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(pic.FileName);
+
+                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/AView"), fileName);
+                    var imageServerLocation = "~/Content/Files/Venues/AView/" + fileName;
+
+                    _venueBLL.UploadAViewImage(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
+
+                    pic.SaveAs(serverPath);
+                }
+            }
+
+            return Json(new { status = 1, message = "Successfully uploaded A View Image." });
+        }
+
+        [HttpPost]
+        public JsonResult UploadRoomsAreasEnclosuresImage()
+        {
+            string _imgname = string.Empty;
+
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var pic = System.Web.HttpContext.Current.Request.Files["MyImages"];
+                if (pic.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(pic.FileName);
+
+                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/RoomsAreasEnclosures"), fileName);
+                    var imageServerLocation = "~/Content/Files/Venues/RoomsAreasEnclosures/" + fileName;
+
+                    _venueBLL.UploadRoomsAreasEnclosureImage(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
+
+                    pic.SaveAs(serverPath);
+                }
+            }
+
+            return Json(new { status = 1, message = "Successfully uploaded Rooms/Areas/Enclosures Image." });
+        }
+
+        [HttpPost]
+        public JsonResult UploadParkingImage()
+        {
+            string _imgname = string.Empty;
+
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var pic = System.Web.HttpContext.Current.Request.Files["MyImages"];
+                if (pic.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(pic.FileName);
+
+                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Parking"), fileName);
+                    var imageServerLocation = "~/Content/Files/Venues/Parking/" + fileName;
+
+                    _venueBLL.UploadParkingImage(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
+
+                    pic.SaveAs(serverPath);
+                }
+            }
+
+            return Json(new { status = 1, message = "Successfully uploaded Parking Image." });
+        }
+
+        [HttpPost]
+        public JsonResult UploadPrivacyImage()
+        {
+            string _imgname = string.Empty;
+
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var pic = System.Web.HttpContext.Current.Request.Files["MyImages"];
+                if (pic.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(pic.FileName);
+
+                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Privacy"), fileName);
+                    var imageServerLocation = "~/Content/Files/Venues/Privacy/" + fileName;
+
+                    _venueBLL.UploadPrivacyImage(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
+
+                    pic.SaveAs(serverPath);
+                }
+            }
+
+            return Json(new { status = 1, message = "Successfully uploaded Privacy Image." });
+        }
+
+        [HttpPost]
+        public JsonResult UploadPagesInImage()
+        {
+            string _imgname = string.Empty;
+
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var pic = System.Web.HttpContext.Current.Request.Files["MyImages"];
+                if (pic.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(pic.FileName);
+
+                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/PagesIn"), fileName);
+                    var imageServerLocation = "~/Content/Files/Venues/PagesIn/" + fileName;
+
+                    _venueBLL.UploadPagesInImage(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
+
+                    pic.SaveAs(serverPath);
+                }
+            }
+
+            return Json(new { status = 1, message = "Successfully uploaded Pages In Image." });
         }
     }
 }

@@ -23,6 +23,13 @@ namespace EventBookingPlatform.DAL.Repository
         IEnumerable<BusinessEvent> GetBusinessEvents();
         void AddVenueDescription(VenueDescription obj);
         void AddVenueEvents(VenueEvent obj);
+        void SaveTypeOfContructionImage(int venueid, string imagepath);
+        void SaveOpenAreasImage(int venueid, string imagepath);
+        void SaveAViewImage(int venueid, string imagepath);
+        void SaveRoomsAreasEnclosureImage(int venueid, string imagepath);
+        void SaveParkingImage(int venueid, string imagepath);
+        void SavePrivacyImage(int venueid, string imagepath);
+        void SavePagesInImage(int venueid, string imagepath);
     }
 
     public class Repository : IEFRepository
@@ -143,6 +150,125 @@ namespace EventBookingPlatform.DAL.Repository
         public void AddVenueEvents(VenueEvent obj)
         {
             _entity.VenueEvents.Add(obj);
+        }
+
+        public void SaveTypeOfContructionImage(int venueid, string imagepath)
+        {
+            VenueCharacterization typeOfConstruction = new VenueCharacterization
+            {
+                Fk_VenueId = venueid,
+                TypeOfConstruction = imagepath,
+                OpenAreas = "",
+                AView = "",
+                MaxNoRoomsAreas = "",
+                Parking = "",
+                Privacy = "",
+                PagesIn = ""
+            };
+
+            _entity.VenueCharacterizations.Add(typeOfConstruction);
+        }
+
+        public void SaveOpenAreasImage(int venueid, string imagepath)
+        {
+            VenueCharacterization openAreas = new VenueCharacterization
+            {
+                Fk_VenueId = venueid,
+                TypeOfConstruction = "",
+                OpenAreas = imagepath,
+                AView = "",
+                MaxNoRoomsAreas = "",
+                Parking = "",
+                Privacy = "",
+                PagesIn = ""
+            };
+
+            _entity.VenueCharacterizations.Add(openAreas);
+        }
+
+        public void SaveAViewImage(int venueid, string imagepath)
+        {
+            VenueCharacterization aView = new VenueCharacterization
+            {
+                Fk_VenueId = venueid,
+                TypeOfConstruction = "",
+                OpenAreas = "",
+                AView = imagepath,
+                MaxNoRoomsAreas = "",
+                Parking = "",
+                Privacy = "",
+                PagesIn = ""
+            };
+
+            _entity.VenueCharacterizations.Add(aView);
+        }
+
+        public void SaveRoomsAreasEnclosureImage(int venueid, string imagepath)
+        {
+            VenueCharacterization roomsAreasEnclosure = new VenueCharacterization
+            {
+                Fk_VenueId = venueid,
+                TypeOfConstruction = "",
+                OpenAreas = "",
+                AView = "",
+                MaxNoRoomsAreas = imagepath,
+                Parking = "",
+                Privacy = "",
+                PagesIn = ""
+            };
+
+            _entity.VenueCharacterizations.Add(roomsAreasEnclosure);
+        }
+
+        public void SaveParkingImage(int venueid, string imagepath)
+        {
+            VenueCharacterization parking = new VenueCharacterization
+            {
+                Fk_VenueId = venueid,
+                TypeOfConstruction = "",
+                OpenAreas = "",
+                AView = "",
+                MaxNoRoomsAreas = "",
+                Parking = imagepath,
+                Privacy = "",
+                PagesIn = ""
+            };
+
+            _entity.VenueCharacterizations.Add(parking);
+        }
+
+        public void SavePrivacyImage(int venueid, string imagepath)
+        {
+            VenueCharacterization privacy = new VenueCharacterization
+            {
+                Fk_VenueId = venueid,
+                TypeOfConstruction = "",
+                OpenAreas = "",
+                AView = "",
+                MaxNoRoomsAreas = "",
+                Parking = "",
+                Privacy = imagepath,
+                PagesIn = ""
+            };
+
+            _entity.VenueCharacterizations.Add(privacy);
+        }
+
+        public void SavePagesInImage(int venueid, string imagepath)
+        {
+            VenueCharacterization pagesIn = new VenueCharacterization
+            {
+                Fk_VenueId = venueid,
+                TypeOfConstruction = "",
+                OpenAreas = "",
+                AView = "",
+                MaxNoRoomsAreas = "",
+                Parking = "",
+                Privacy = "",
+                PagesIn = imagepath
+            };
+
+            _entity.VenueCharacterizations.Add(pagesIn);
         }
     }
 }

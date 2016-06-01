@@ -76,5 +76,47 @@ namespace EventBookingPlatform.BusinessLayer
                 }
             }
         }
+
+        public void UploadTypeConstructionImage(int venueid, string imagepath)
+        {
+            _repo.SaveTypeOfContructionImage(venueid, imagepath);
+            _repo.Save();
+        }
+
+        public void UploadOpenAreasImage(int venueid, string imagepath)
+        {
+            _repo.SaveOpenAreasImage(venueid, imagepath);
+            _repo.Save();
+        }
+
+        public void UploadAViewImage(int venueid, string imagepath)
+        {
+            _repo.SaveAViewImage(venueid, imagepath);
+            _repo.Save();
+        }
+
+        public void UploadRoomsAreasEnclosureImage(int venueid, string imagepath)
+        {
+            _repo.SaveRoomsAreasEnclosureImage(venueid, imagepath);
+            _repo.Save();
+        }
+
+        public void UploadParkingImage(int venueid, string imagepath)
+        {
+            _repo.SaveParkingImage(venueid, imagepath);
+            _repo.Save();
+        }
+
+        public void UploadPrivacyImage(int venueid, string imagepath)
+        {
+            _repo.SavePrivacyImage(venueid, imagepath);
+            _repo.Save();
+        }
+
+        public void UploadPagesInImage(int venueid, string imagepath)
+        {
+            _repo.SavePagesInImage(venueid, imagepath);
+            _repo.Save();
+        }
     }
 }

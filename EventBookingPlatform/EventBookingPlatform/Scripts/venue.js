@@ -53,6 +53,188 @@
             }
         });
     },
+    uploadTypeOfConstructionImage: function () {
+        var data = new FormData();
+        var files = $("#TypeOfConstructionImg").get(0).files;
+        if (files.length > 0) {
+            data.append("MyImages", files[0]);
+        }
+
+        $.ajax({
+            url: "/Venue/UploadTypeOfConstructionImage",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function (response) {
+                if (response.status == 1) {
+                    $('#alert-place-characterization').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text(response.message);
+                    });
+                }
+            },
+            error: function (er) {
+                console.log(er);
+            }
+        });
+    },
+    uploadOpenAreasImage: function () {
+        var data = new FormData();
+        var files = $("#OpenAreas").get(0).files;
+        if (files.length > 0) {
+            data.append("MyImages", files[0]);
+        }
+
+        $.ajax({
+            url: "/Venue/UploadOpenAreasImage",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function (response) {
+                if (response.status == 1) {
+                    $('#alert-place-characterization').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text(response.message);
+                    });
+                }
+            },
+            error: function (er) {
+                console.log(er);
+            }
+        });
+    },
+    uploadAViewImage: function () {
+        var data = new FormData();
+        var files = $("#AView").get(0).files;
+        if (files.length > 0) {
+            data.append("MyImages", files[0]);
+        }
+
+        $.ajax({
+            url: "/Venue/UploadAViewImage",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function (response) {
+                if (response.status == 1) {
+                    $('#alert-place-characterization').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text(response.message);
+                    });
+                }
+            },
+            error: function (er) {
+                console.log(er);
+            }
+        });
+    },
+    uploadRoomsAreasEnclosuresImage: function () {
+        var data = new FormData();
+        var files = $("#RoomsAreasEnclosures").get(0).files;
+        if (files.length > 0) {
+            data.append("MyImages", files[0]);
+        }
+
+        $.ajax({
+            url: "/Venue/UploadRoomsAreasEnclosuresImage",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function (response) {
+                if (response.status == 1) {
+                    $('#alert-place-characterization').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text(response.message);
+                    });
+                }
+            },
+            error: function (er) {
+                console.log(er);
+            }
+        });
+    },
+    uploadParkingImage: function () {
+        var data = new FormData();
+        var files = $("#Parking").get(0).files;
+        if (files.length > 0) {
+            data.append("MyImages", files[0]);
+        }
+
+        $.ajax({
+            url: "/Venue/UploadParkingImage",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function (response) {
+                if (response.status == 1) {
+                    $('#alert-place-characterization').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text(response.message);
+                    });
+                }
+            },
+            error: function (er) {
+                console.log(er);
+            }
+        });
+    },
+    uploadPrivacyImage: function () {
+        var data = new FormData();
+        var files = $("#Privacy").get(0).files;
+        if (files.length > 0) {
+            data.append("MyImages", files[0]);
+        }
+
+        $.ajax({
+            url: "/Venue/UploadPrivacyImage",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function (response) {
+                if (response.status == 1) {
+                    $('#alert-place-characterization').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text(response.message);
+                    });
+                }
+            },
+            error: function (er) {
+                console.log(er);
+            }
+        });
+    },
+    uploadPageInImage: function () {
+        var data = new FormData();
+        var files = $("#PageIn").get(0).files;
+        if (files.length > 0) {
+            data.append("MyImages", files[0]);
+        }
+
+        $.ajax({
+            url: "/Venue/UploadPagesInImage",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function (response) {
+                if (response.status == 1) {
+                    $('#alert-place-characterization').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text(response.message);
+                    });
+                }
+            },
+            error: function (er) {
+                console.log(er);
+            }
+        });
+    },
     addPlaceFormValidation: function () {
         $('#frmAddPlace').validate({
             rules: {
@@ -228,6 +410,125 @@
             }
         });
     },
+    addTypeOfConstructionImage: function () {
+        $('#frmAddTypeOfConstruction').validate({
+            rules: {
+                TypeOfConstructionImg: {
+                    required: true
+                }
+            },
+            messages: {
+                TypeOfConstructionImg: {
+                    required: "This field is required."
+                }
+            },
+            submitHandler: function (form) {
+                venue.uploadTypeOfConstructionImage();
+            }
+        });
+    },
+    addOpenAreasImage: function () {
+        $('#frmAddOpenAreas').validate({
+            rules: {
+                OpenAreas: {
+                    required: true
+                }
+            },
+            messages: {
+                OpenAreas: {
+                    required: "This field is required."
+                }
+            },
+            submitHandler: function (form) {
+                venue.uploadOpenAreasImage();
+            }
+        });
+    },
+    addAViewImage: function () {
+        $('#frmAddAView').validate({
+            rules: {
+                AView: {
+                    required: true
+                }
+            },
+            messages: {
+                AView: {
+                    required: "This field is required."
+                }
+            },
+            submitHandler: function (form) {
+                venue.uploadAViewImage();
+            }
+        });
+    },
+    addRoomsAreasEnclosureImage: function () {
+        $('#frmAddRoomsAreasEnclosure').validate({
+            rules: {
+                RoomsAreasEnclosures: {
+                    required: true
+                }
+            },
+            messages: {
+                RoomsAreasEnclosures: {
+                    required: "This field is required."
+                }
+            },
+            submitHandler: function (form) {
+                venue.uploadRoomsAreasEnclosuresImage();
+            }
+        });
+    },
+    addParkingImage: function () {
+        $('#frmAddParking').validate({
+            rules: {
+                Parking: {
+                    required: true
+                }
+            },
+            messages: {
+                Parking: {
+                    required: "This field is required."
+                }
+            },
+            submitHandler: function (form) {
+                venue.uploadParkingImage();
+            }
+        });
+    },
+    addPrivacyImage: function () {
+        $('#frmAddPrivacy').validate({
+            rules: {
+                Privacy: {
+                    required: true
+                }
+            },
+            messages: {
+                Privacy: {
+                    required: "This field is required."
+                }
+            },
+            submitHandler: function (form) {
+                venue.uploadPrivacyImage();
+            }
+        });
+    },
+    addPagesInImage: function () {
+        $('#frmAddPagesIn').validate({
+            rules: {
+                PageIn: {
+                    required: true
+                }
+            },
+            messages: {
+                PageIn: {
+                    required: "This field is required."
+                }
+            },
+            submitHandler: function (form) {
+                venue.uploadPageInImage();
+            }
+        });
+    },
     addPlace: function () {
         var seasonactivity = $('#seasonactivity').val();
         var activity = "";
@@ -328,6 +629,7 @@ var alerts = {
         $('#alert-success').hide();
         $('#alert-contact-success').hide();
         $('#alert-placedesc-success').hide();
+        $('#alert-place-characterization').hide();
     }
 };
 
@@ -423,6 +725,14 @@ $(document).ready(function () {
     venue.addPlaceFormValidation();
     venue.addContactFormValidation();
     venue.addPlaceDescriptionFormValidation();
+
+    venue.addTypeOfConstructionImage();
+    venue.addOpenAreasImage();
+    venue.addAViewImage();
+    venue.addRoomsAreasEnclosureImage();
+    venue.addParkingImage();
+    venue.addPrivacyImage();
+    venue.addPagesInImage();
 
     $('#seasonactivity').change(function () {
         var val = $(this).val();
