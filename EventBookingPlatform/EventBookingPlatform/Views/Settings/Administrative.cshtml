@@ -8,6 +8,15 @@
 
 <div class="row">
     <div class="col-lg-12">
+        <ol class="breadcrumb">
+            <li><i class="fa fa-dashboard"></i> Settings</li>
+            <li>Administrative</li>
+        </ol>
+    </div>
+</div>
+
+@*<div class="row">
+    <div class="col-lg-12">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#certificates" aria-controls="" role="tab" data-toggle="tab">Certificates</a></li>
@@ -18,55 +27,46 @@
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="certificates">
                 <div class="content-container">
-                    <form action="" method="post" id="frmAddPlace" novalidate="novalidate">
-                        <div class="alert alert-success" id="alert-success">
-                            Successfully updated venue initial detail!
-                        </div>
+                    <div class="alert alert-success" id="alert-certificates">
+                        <p class="img-for"></p>
+                    </div>
 
-                        @Html.AntiForgeryToken()
-
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Name of Venue</label>
-                                    <input type="text" id="venuename" value="@Session["VenueName"]" readonly="readonly" name="venuename" class="form-control" />
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Business & General Terms</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        @using (Html.BeginForm("", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddBusinessCert" }))
+                                        {
+                                            <label>Certificate for Starting a Business/Enterprise Ltd.</label><br />
+                                            <small>Accepted formats: JPG or PDF. 3MB max size.</small>
+                                            <input type="file" name="BusinessCert" id="BusinessCert" class="form-control" />
+                                            <input type="submit" value="Save" class="btn btn-primary form-control" />
+                                        }
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Country</label>
-                                    <select id="country" name="country" class="form-control">
-                                        <option value="">Select..</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>City</label>
-                                    <input type="text" id="city" name="city" class="form-control" />
-                                    @*<select id="city" name="city" class="form-control">
-                                            <option value="Select">Select..</option>
-                                        </select>*@
-                                </div>
-                                <div class="form-group">
-                                    <label>Street</label>
-                                    <input type="text" id="street" name="street" class="form-control" />
-                                </div>
-                                <div class="form-group">
-                                    <label>Zip Code</label>
-                                    <input type="text" id="zipcode" name="zipcode" class="form-control" />
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        @using (Html.BeginForm("", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddTermsCert" }))
+                                        {
+                                            <label>General Conditions & Terms</label><br />
+                                            <small>Accepted formats: Word or PDF. 3MB max size.</small>
+                                            <input type="file" name="Terms" id="Terms" class="form-control" />
+                                            <input type="submit" value="Save" class="btn btn-primary form-control" />
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <input type="submit" value="Update" class="btn btn-primary form-control" />
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="suppliers">
                 <div class="content-container">
-                    <form action="" method="post" id="frmAddContact" novalidate="novalidate">
+                    @*<form action="" method="post" id="frmAddContact" novalidate="novalidate">
                         <div class="alert alert-success" id="alert-contact-success">
                             Successfully updated venue contact detail!
                         </div>
@@ -107,12 +107,12 @@
                                 <input type="submit" value="Update" class="btn btn-primary form-control" />
                             </div>
                         </div>
-                    </form>
-                </div>
+                    </form>*@
+                @*</div>
             </div>
         </div>
     </div>
-</div>
+</div>*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
