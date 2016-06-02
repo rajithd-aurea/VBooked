@@ -31,7 +31,6 @@ namespace EventBookingPlatform.DAL.Entities
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Catering> Caterings { get; set; }
         public virtual DbSet<CateringValue> CateringValues { get; set; }
-        public virtual DbSet<Certificate> Certificates { get; set; }
         public virtual DbSet<Chef> Chefs { get; set; }
         public virtual DbSet<ChefSpokenLanguage> ChefSpokenLanguages { get; set; }
         public virtual DbSet<ChildrenOption> ChildrenOptions { get; set; }
@@ -70,5 +69,6 @@ namespace EventBookingPlatform.DAL.Entities
         public virtual DbSet<VenueInfo> VenueInfoes { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<BusinessEvent> BusinessEvents { get; set; }
+        public virtual DbSet<VenueCertificate> VenueCertificates { get; set; }
     }
 }

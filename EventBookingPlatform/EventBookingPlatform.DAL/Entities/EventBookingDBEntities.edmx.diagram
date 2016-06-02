@@ -11,7 +11,6 @@
         <EntityTypeShape EntityType="DevEventBookingDBModel.AspNetUser" Width="1.5" PointX="3" PointY="25.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DevEventBookingDBModel.Catering" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DevEventBookingDBModel.CateringValue" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DevEventBookingDBModel.Certificate" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DevEventBookingDBModel.Chef" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DevEventBookingDBModel.ChefSpokenLanguage" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DevEventBookingDBModel.ChildrenOption" Width="1.5" PointX="9.75" PointY="9.875" IsExpanded="true" />
@@ -58,7 +57,6 @@
         <EntityTypeShape EntityType="DevEventBookingDBModel.VenueType" Width="1.5" PointX="14.375" PointY="6.75" />
         <EntityTypeShape EntityType="DevEventBookingDBModel.VenueInfo" Width="1.5" PointX="5.25" PointY="24.25" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_AspNetUsers_VenueInfo" />
-        <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_Certificate" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_ChildrenOptionComment" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_DisabledOptionComment" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_Hall" />
@@ -75,6 +73,8 @@
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_WaitingRoomOptionComment" />
         <EntityTypeShape EntityType="DevEventBookingDBModel.Country" Width="1.5" PointX="14.375" PointY="9.75" />
         <EntityTypeShape EntityType="DevEventBookingDBModel.BusinessEvent" Width="1.5" PointX="14.375" PointY="12.75" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueCertificate" Width="1.5" PointX="7.5" PointY="9.375" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_VenueCertificate" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

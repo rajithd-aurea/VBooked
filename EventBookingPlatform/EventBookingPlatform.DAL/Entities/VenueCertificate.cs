@@ -12,23 +12,16 @@ namespace EventBookingPlatform.DAL.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Certificate
+    public partial class VenueCertificate
     {
         public int Pk_CertificateId { get; set; }
         public int Fk_VenueId { get; set; }
-        public string BusinessName { get; set; }
         public string BusinessCert { get; set; }
-        public string TermsName { get; set; }
         public string TermsConditionsCert { get; set; }
-        public string BusinessLicName { get; set; }
         public string BusinessLicCert { get; set; }
-        public string PoliceAuthName { get; set; }
         public string PoliceAuthCert { get; set; }
-        public string FireDeptName { get; set; }
         public string FireDeptCert { get; set; }
-        public string SanitationName { get; set; }
         public string SanitationCert { get; set; }
-        public string ThirdPtInsuranceName { get; set; }
         public string ThirdPtInsuranceCert { get; set; }
     
         public virtual VenueInfo VenueInfo { get; set; }

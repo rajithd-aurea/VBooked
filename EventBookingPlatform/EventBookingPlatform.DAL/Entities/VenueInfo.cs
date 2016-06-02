@@ -17,7 +17,6 @@ namespace EventBookingPlatform.DAL.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public VenueInfo()
         {
-            this.Certificates = new HashSet<Certificate>();
             this.ChildrenOptionComments = new HashSet<ChildrenOptionComment>();
             this.DisabledOptionComments = new HashSet<DisabledOptionComment>();
             this.Halls = new HashSet<Hall>();
@@ -32,6 +31,7 @@ namespace EventBookingPlatform.DAL.Entities
             this.VenueParkingOptions = new HashSet<VenueParkingOption>();
             this.VenueWaitingRoomOptions = new HashSet<VenueWaitingRoomOption>();
             this.WaitingRoomOptionComments = new HashSet<WaitingRoomOptionComment>();
+            this.VenueCertificates = new HashSet<VenueCertificate>();
         }
     
         public int Pk_VenueId { get; set; }
@@ -52,8 +52,6 @@ namespace EventBookingPlatform.DAL.Entities
         public string ZipCode { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Certificate> Certificates { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChildrenOptionComment> ChildrenOptionComments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -82,5 +80,7 @@ namespace EventBookingPlatform.DAL.Entities
         public virtual ICollection<VenueWaitingRoomOption> VenueWaitingRoomOptions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WaitingRoomOptionComment> WaitingRoomOptionComments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VenueCertificate> VenueCertificates { get; set; }
     }
 }
