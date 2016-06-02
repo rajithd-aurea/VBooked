@@ -145,23 +145,16 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_PADDING ON
 GO
-CREATE TABLE [dbo].[Certificate](
+CREATE TABLE [dbo].[VenueCertificate](
 	[Pk_CertificateId] [int] IDENTITY(1,1) NOT NULL,
 	[Fk_VenueId] [int] NOT NULL,
-	[BusinessName] [varchar](50) NULL,
-	[BusinessCert] [varchar](50) NULL,
-	[TermsName] [varchar](50) NULL,
-	[TermsConditionsCert] [varchar](50) NULL,
-	[BusinessLicName] [varchar](50) NULL,
-	[BusinessLicCert] [varchar](50) NULL,
-	[PoliceAuthName] [varchar](50) NULL,
-	[PoliceAuthCert] [varchar](50) NULL,
-	[FireDeptName] [varchar](50) NULL,
-	[FireDeptCert] [varchar](50) NULL,
-	[SanitationName] [varchar](50) NULL,
-	[SanitationCert] [varchar](50) NULL,
-	[ThirdPtInsuranceName] [varchar](50) NULL,
-	[ThirdPtInsuranceCert] [varchar](50) NULL,
+	[BusinessCert] [varchar](MAX) NULL,
+	[TermsConditionsCert] [varchar](MAX) NULL,
+	[BusinessLicCert] [varchar](MAX) NULL,
+	[PoliceAuthCert] [varchar](MAX) NULL,
+	[FireDeptCert] [varchar](MAX) NULL,
+	[SanitationCert] [varchar](MAX) NULL,
+	[ThirdPtInsuranceCert] [varchar](MAX) NULL,
  CONSTRAINT [PK_Certificate] PRIMARY KEY CLUSTERED 
 (
 	[Pk_CertificateId] ASC
@@ -937,10 +930,10 @@ ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[AspNetUserRoles] CHECK CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId]
 GO
-ALTER TABLE [dbo].[Certificate]  WITH CHECK ADD  CONSTRAINT [FK_VenueInfo_Certificate] FOREIGN KEY([Fk_VenueId])
+ALTER TABLE [dbo].[VenueCertificate]  WITH CHECK ADD  CONSTRAINT [FK_VenueInfo_VenueCertificate] FOREIGN KEY([Fk_VenueId])
 REFERENCES [dbo].[VenueInfo] ([Pk_VenueId])
 GO
-ALTER TABLE [dbo].[Certificate] CHECK CONSTRAINT [FK_VenueInfo_Certificate]
+ALTER TABLE [dbo].[VenueCertificate] CHECK CONSTRAINT [FK_VenueInfo_VenueCertificate]
 GO
 ALTER TABLE [dbo].[ChefSpokenLanguage]  WITH CHECK ADD  CONSTRAINT [FK_Chef_ChefSpokenLanguage] FOREIGN KEY([Fk_VenueChefId])
 REFERENCES [dbo].[Chef] ([Pk_VenueChefId])
