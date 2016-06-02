@@ -155,8 +155,8 @@ namespace EventBookingPlatform.Controllers
                 {
                     var fileName = Path.GetFileName(pic.FileName);
                     
-                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/TypeOfConstruction"), fileName);
-                    var imageServerLocation = "~/Content/Files/Venues/TypeOfConstruction/" + fileName;
+                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Images/TypeOfConstruction"), fileName);
+                    var imageServerLocation = "~/Content/Files/Venues/Images/TypeOfConstruction/" + fileName;
 
                     _venueBLL.UploadTypeConstructionImage(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
 
@@ -179,8 +179,8 @@ namespace EventBookingPlatform.Controllers
                 {
                     var fileName = Path.GetFileName(pic.FileName);
 
-                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/OpenAreas"), fileName);
-                    var imageServerLocation = "~/Content/Files/Venues/OpenAreas/" + fileName;
+                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Images/OpenAreas"), fileName);
+                    var imageServerLocation = "~/Content/Files/Venues/Images/OpenAreas/" + fileName;
 
                     _venueBLL.UploadOpenAreasImage(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
 
@@ -203,8 +203,8 @@ namespace EventBookingPlatform.Controllers
                 {
                     var fileName = Path.GetFileName(pic.FileName);
 
-                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/AView"), fileName);
-                    var imageServerLocation = "~/Content/Files/Venues/AView/" + fileName;
+                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Images/AView"), fileName);
+                    var imageServerLocation = "~/Content/Files/Venues/Images/AView/" + fileName;
 
                     _venueBLL.UploadAViewImage(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
 
@@ -227,8 +227,8 @@ namespace EventBookingPlatform.Controllers
                 {
                     var fileName = Path.GetFileName(pic.FileName);
 
-                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/RoomsAreasEnclosures"), fileName);
-                    var imageServerLocation = "~/Content/Files/Venues/RoomsAreasEnclosures/" + fileName;
+                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Images/RoomsAreasEnclosures"), fileName);
+                    var imageServerLocation = "~/Content/Files/Venues/Images/RoomsAreasEnclosures/" + fileName;
 
                     _venueBLL.UploadRoomsAreasEnclosureImage(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
 
@@ -251,8 +251,8 @@ namespace EventBookingPlatform.Controllers
                 {
                     var fileName = Path.GetFileName(pic.FileName);
 
-                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Parking"), fileName);
-                    var imageServerLocation = "~/Content/Files/Venues/Parking/" + fileName;
+                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Images/Parking"), fileName);
+                    var imageServerLocation = "~/Content/Files/Venues/Images/Parking/" + fileName;
 
                     _venueBLL.UploadParkingImage(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
 
@@ -275,8 +275,8 @@ namespace EventBookingPlatform.Controllers
                 {
                     var fileName = Path.GetFileName(pic.FileName);
 
-                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Privacy"), fileName);
-                    var imageServerLocation = "~/Content/Files/Venues/Privacy/" + fileName;
+                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Images/Privacy"), fileName);
+                    var imageServerLocation = "~/Content/Files/Venues/Images/Privacy/" + fileName;
 
                     _venueBLL.UploadPrivacyImage(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
 
@@ -299,8 +299,8 @@ namespace EventBookingPlatform.Controllers
                 {
                     var fileName = Path.GetFileName(pic.FileName);
 
-                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/PagesIn"), fileName);
-                    var imageServerLocation = "~/Content/Files/Venues/PagesIn/" + fileName;
+                    var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Images/PagesIn"), fileName);
+                    var imageServerLocation = "~/Content/Files/Venues/Images/PagesIn/" + fileName;
 
                     _venueBLL.UploadPagesInImage(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
 
