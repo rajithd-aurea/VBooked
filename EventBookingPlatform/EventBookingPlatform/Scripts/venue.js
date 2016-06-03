@@ -630,6 +630,7 @@ var alerts = {
         $('#alert-contact-success').hide();
         $('#alert-placedesc-success').hide();
         $('#alert-place-characterization').hide();
+        $('#alert-certificates').hide();
     }
 };
 
@@ -713,6 +714,119 @@ var events = {
     }
 };
 
+var certificates = {
+    addBusinessCertificate: function () {
+        $('#frmAddBusinessCert').validate({
+            rules: {
+                BusinessCert: {
+                    required: true
+                }
+            },
+            messages: {
+                BusinessCert: {
+                    required: "This field is required."
+                }
+            },
+            submitHandler: function (form) {
+                var file = $('#BusinessCert').val().split('.').pop().toLowerCase();
+
+                if (file == 'jpg' || file == 'pdf') {
+                    certificates.uploadBusinessCertificate();
+                }
+                else {
+                    alert("Must upload JPG or PDF file.");
+                }
+            }
+        });
+    },
+    uploadBusinessCertificate: function () {
+        var data = new FormData();
+        var files = $("#BusinessCert").get(0).files;
+        if(files.length > 0) {
+            data.append("MyCertificates", files[0]);
+        }
+
+        $.ajax({
+            url: "/Venue/UploadBusinessCertificate",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function (response) {
+                if (response.status == 1) {
+                    $('#alert-certificates').removeClass('alert-danger');
+                    $('#alert-certificates').addClass('alert-success').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text(response.message);
+                    });
+                }
+            },
+            error: function (er) {
+                $('#alert-certificates').removeClass('alert-success');
+                $('#alert-certificates').addClass('alert-danger').show(function () {
+                    $(this).slideDown();
+                    $(this).find('p.img-for').text("Uploaded file size exceeds 3MB.");
+                });
+            }
+        });
+    },
+    addTermsAndConditionsCertificate: function () {
+        $('#frmAddTermsCert').validate({
+            rules: {
+                Terms: {
+                    required: true
+                }
+            },
+            messages: {
+                Terms: {
+                    required: "This field is required."
+                }
+            },
+            submitHandler: function (form) {
+                var file = $('#Terms').val().split('.').pop().toLowerCase();
+
+                if (file == 'doc' || file == 'docx' || file == 'pdf') {
+                    certificates.uploadTermsAndConditionsCertificate();
+                }
+                else {
+                    alert("Must upload Word or PDF file.");
+                }
+            }
+        });
+    },
+    uploadTermsAndConditionsCertificate: function () {
+        var data = new FormData();
+        var files = $("#Terms").get(0).files;
+        if (files.length > 0) {
+            data.append("MyCertificates", files[0]);
+        }
+
+        $.ajax({
+            url: "/Venue/UploadTermsAndConditionsCertificate",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function (response) {
+                if (response.status == 1) {
+                    $('#alert-certificates').removeClass('alert-danger');
+                    $('#alert-certificates').addClass('alert-success').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text(response.message);
+                    });
+                }
+            },
+            error: function (er) {
+                $('#alert-certificates').removeClass('alert-success');
+                $('#alert-certificates').addClass('alert-danger').show(function () {
+                    $(this).slideDown();
+                    $(this).find('p.img-for').text("Uploaded file size exceeds 3MB.");
+                });
+            }
+        });
+    }
+};
+
 $(document).ready(function () {
     alerts.hideAlerts();
 
@@ -733,6 +847,9 @@ $(document).ready(function () {
     venue.addParkingImage();
     venue.addPrivacyImage();
     venue.addPagesInImage();
+
+    certificates.addBusinessCertificate();
+    certificates.addTermsAndConditionsCertificate();
 
     $('#seasonactivity').change(function () {
         var val = $(this).val();

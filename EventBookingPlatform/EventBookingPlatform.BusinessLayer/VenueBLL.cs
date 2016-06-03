@@ -118,5 +118,17 @@ namespace EventBookingPlatform.BusinessLayer
             _repo.SavePagesInImage(venueid, imagepath);
             _repo.Save();
         }
+
+        public void UploadBusinessCertificate(int venueid, string certificatepath)
+        {
+            _repo.SaveBusinessCertificate(venueid, certificatepath);
+            _repo.Save();
+        }
+
+        public void UploadTermsAndConditionsCertificate(int venueid, string certificatepath)
+        {
+            _repo.SaveTermsAndConditionsCertificate(venueid, certificatepath);
+            _repo.Save();
+        }
     }
 }

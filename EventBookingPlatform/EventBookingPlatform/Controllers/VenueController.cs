@@ -142,6 +142,7 @@ namespace EventBookingPlatform.Controllers
             return Json(new { status = 1 });
         }
 
+        #region Upload images for Characterization of place sub module
         [HttpPost]
         public JsonResult UploadTypeOfConstructionImage()
         {
@@ -310,5 +311,48 @@ namespace EventBookingPlatform.Controllers
 
             return Json(new { status = 1, message = "Successfully uploaded Pages In Image." });
         }
+        #endregion
+
+        #region Upload images for Certificates
+        [HttpPost]
+        public JsonResult UploadBusinessCertificate()
+        {
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var certificate = System.Web.HttpContext.Current.Request.Files["MyCertificates"];
+
+                var fileName = Path.GetFileName(certificate.FileName);
+
+                var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Certificates/Business"), fileName);
+                var imageServerLocation = "~/Content/Files/Venues/Certificates/Business/" + fileName;
+
+                _venueBLL.UploadBusinessCertificate(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
+
+                certificate.SaveAs(serverPath);
+            }
+
+            return Json(new { status = 1, message = "Successfully uploaded Certificate Business/Enterprise." });
+        }
+
+        [HttpPost]
+        public JsonResult UploadTermsAndConditionsCertificate()
+        {
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var certificate = System.Web.HttpContext.Current.Request.Files["MyCertificates"];
+
+                var fileName = Path.GetFileName(certificate.FileName);
+
+                var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Certificates/Terms"), fileName);
+                var imageServerLocation = "~/Content/Files/Venues/Certificates/Terms/" + fileName;
+
+                _venueBLL.UploadTermsAndConditionsCertificate(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
+
+                certificate.SaveAs(serverPath);
+            }
+
+            return Json(new { status = 1, message = "Successfully uploaded Terms and Conditions." });
+        }
+        #endregion
     }
 }

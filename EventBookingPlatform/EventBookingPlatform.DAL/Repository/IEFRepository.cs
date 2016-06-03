@@ -30,6 +30,8 @@ namespace EventBookingPlatform.DAL.Repository
         void SaveParkingImage(int venueid, string imagepath);
         void SavePrivacyImage(int venueid, string imagepath);
         void SavePagesInImage(int venueid, string imagepath);
+        void SaveBusinessCertificate(int venueid, string certificatepath);
+        void SaveTermsAndConditionsCertificate(int venueid, string certificatepath);        
     }
 
     public class Repository : IEFRepository
@@ -269,6 +271,40 @@ namespace EventBookingPlatform.DAL.Repository
             };
 
             _entity.VenueCharacterizations.Add(pagesIn);
+        }
+
+        public void SaveBusinessCertificate(int venueid, string certificatepath)
+        {
+            VenueCertificate businessCertificate = new VenueCertificate
+            {
+                Fk_VenueId = venueid,
+                BusinessCert = certificatepath,
+                TermsConditionsCert = "",
+                BusinessLicCert = "",
+                PoliceAuthCert = "",
+                FireDeptCert = "",
+                SanitationCert = "",
+                ThirdPtInsuranceCert = ""
+            };
+
+            _entity.VenueCertificates.Add(businessCertificate);
+        }
+
+        public void SaveTermsAndConditionsCertificate(int venueid, string certificatepath)
+        {
+            VenueCertificate termsAndConditionCertificate = new VenueCertificate
+            {
+                Fk_VenueId = venueid,
+                BusinessCert = "",
+                TermsConditionsCert = certificatepath,
+                BusinessLicCert = "",
+                PoliceAuthCert = "",
+                FireDeptCert = "",
+                SanitationCert = "",
+                ThirdPtInsuranceCert = ""
+            };
+
+            _entity.VenueCertificates.Add(termsAndConditionCertificate);
         }
     }
 }

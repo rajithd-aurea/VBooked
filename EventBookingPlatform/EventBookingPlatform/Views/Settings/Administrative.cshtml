@@ -15,7 +15,7 @@
     </div>
 </div>
 
-@*<div class="row">
+<div class="row">
     <div class="col-lg-12">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
@@ -39,7 +39,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        @using (Html.BeginForm("", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddBusinessCert" }))
+                                        @using (Html.BeginForm("UploadBusinessCertificate", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddBusinessCert" }))
                                         {
                                             <label>Certificate for Starting a Business/Enterprise Ltd.</label><br />
                                             <small>Accepted formats: JPG or PDF. 3MB max size.</small>
@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        @using (Html.BeginForm("", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddTermsCert" }))
+                                        @using (Html.BeginForm("UploadTermsAndConditionsCertificate", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddTermsCert" }))
                                         {
                                             <label>General Conditions & Terms</label><br />
                                             <small>Accepted formats: Word or PDF. 3MB max size.</small>
@@ -108,11 +108,11 @@
                             </div>
                         </div>
                     </form>*@
-                @*</div>
+                </div>
             </div>
         </div>
     </div>
-</div>*@
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
