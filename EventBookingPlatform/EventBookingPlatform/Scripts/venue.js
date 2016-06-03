@@ -859,4 +859,49 @@ $(document).ready(function () {
         else
             $('#seasonal').hide();
     });
+
+    $('#BusinessLicOption').change(function () {
+        var val = $(this).val();
+
+        if (val == "UpToDate")
+            $('#BusinessLicense').prop("disabled", false);
+        else
+            $('#BusinessLicense').prop("disabled", true);
+    });
+
+    $('#FireDeptOption').change(function () {
+        var val = $(this).val();
+
+        if (val == "UpToDate")
+            $('#FireDeptCert').prop("disabled", false);
+        else
+            $('#FireDeptCert').prop("disabled", true);
+    });
+
+    $('#ThirdPtInsuranceOption').change(function () {
+        var val = $(this).val();
+
+        if (val == "UpToDate")
+            $('#ThirdPartyInsurance').prop("disabled", false);
+        else
+            $('#ThirdPartyInsurance').prop("disabled", true);
+    });
+
+    $('#PoliceAuthOption').change(function () {
+        var val = $(this).val();
+
+        if (val == "UpToDate")
+            $('#PoliceAuth').prop("disabled", false);
+        else
+            $('#PoliceAuth').prop("disabled", true);
+    });
+
+    $('#SanitationOption').change(function () {
+        var val = $(this).val();
+
+        if (val == "UpToDate")
+            $('#SanitationCert').prop("disabled", false);
+        else
+            $('#SanitationCert').prop("disabled", true);
+    });
 });
