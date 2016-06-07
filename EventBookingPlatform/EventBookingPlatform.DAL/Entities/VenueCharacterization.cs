@@ -16,13 +16,11 @@ namespace EventBookingPlatform.DAL.Entities
     {
         public int Pk_VenueCharId { get; set; }
         public int Fk_VenueId { get; set; }
-        public string TypeOfConstruction { get; set; }
-        public string OpenAreas { get; set; }
-        public string AView { get; set; }
-        public string MaxNoRoomsAreas { get; set; }
-        public string Parking { get; set; }
-        public string Privacy { get; set; }
-        public string PagesIn { get; set; }
+        public string OptionName { get; set; }
+        public string OptionValue { get; set; }
+        public string OptionImageLocation { get; set; }
+        public int OptionSize { get; set; }
+        public string OpenAreasImage { get; set; }
     
         public virtual VenueInfo VenueInfo { get; set; }
     }

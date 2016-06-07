@@ -51,6 +51,13 @@
     <Property Name="AccessFailedCount" Type="int" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
   </EntityType>
+  <EntityType Name="BusinessEvents">
+    <Key>
+      <PropertyRef Name="Pk_BusinessEventId" />
+    </Key>
+    <Property Name="Pk_BusinessEventId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Event" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Catering">
     <Key>
       <PropertyRef Name="Pk_CateringId" />
@@ -64,27 +71,6 @@
     </Key>
     <Property Name="Pk_CateringValId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Value" Type="varchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="Certificate">
-    <Key>
-      <PropertyRef Name="Pk_CertificateId" />
-    </Key>
-    <Property Name="Pk_CertificateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Fk_VenueId" Type="int" Nullable="false" />
-    <Property Name="BusinessName" Type="varchar" MaxLength="50" />
-    <Property Name="BusinessCert" Type="varchar" MaxLength="50" />
-    <Property Name="TermsName" Type="varchar" MaxLength="50" />
-    <Property Name="TermsConditionsCert" Type="varchar" MaxLength="50" />
-    <Property Name="BusinessLicName" Type="varchar" MaxLength="50" />
-    <Property Name="BusinessLicCert" Type="varchar" MaxLength="50" />
-    <Property Name="PoliceAuthName" Type="varchar" MaxLength="50" />
-    <Property Name="PoliceAuthCert" Type="varchar" MaxLength="50" />
-    <Property Name="FireDeptName" Type="varchar" MaxLength="50" />
-    <Property Name="FireDeptCert" Type="varchar" MaxLength="50" />
-    <Property Name="SanitationName" Type="varchar" MaxLength="50" />
-    <Property Name="SanitationCert" Type="varchar" MaxLength="50" />
-    <Property Name="ThirdPtInsuranceName" Type="varchar" MaxLength="50" />
-    <Property Name="ThirdPtInsuranceCert" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Chef">
     <Key>
@@ -282,19 +268,33 @@
     <Property Name="LiquorBarSupplier" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="SecurityCheckSupplier" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="VenueCertificate">
+    <Key>
+      <PropertyRef Name="Pk_CertificateId" />
+    </Key>
+    <Property Name="Pk_CertificateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fk_VenueId" Type="int" Nullable="false" />
+    <Property Name="BusinessCert" Type="varchar(max)" />
+    <Property Name="TermsConditionsCert" Type="varchar(max)" />
+    <Property Name="BusinessLicCert" Type="varchar(max)" />
+    <Property Name="PoliceAuthCert" Type="varchar(max)" />
+    <Property Name="FireDeptCert" Type="varchar(max)" />
+    <Property Name="SanitationCert" Type="varchar(max)" />
+    <Property Name="ThirdPtInsuranceCert" Type="varchar(max)" />
+  </EntityType>
   <EntityType Name="VenueCharacterization">
     <Key>
       <PropertyRef Name="Pk_VenueCharId" />
     </Key>
     <Property Name="Pk_VenueCharId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Fk_VenueId" Type="int" Nullable="false" />
-    <Property Name="TypeOfConstruction" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="OpenAreas" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="AView" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="MaxNoRoomsAreas" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Parking" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Privacy" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="PagesIn" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TypeOfConstruction" Type="varchar(max)" Nullable="false" />
+    <Property Name="OpenAreas" Type="varchar(max)" Nullable="false" />
+    <Property Name="AView" Type="varchar(max)" Nullable="false" />
+    <Property Name="MaxNoRoomsAreas" Type="varchar(max)" Nullable="false" />
+    <Property Name="Parking" Type="varchar(max)" Nullable="false" />
+    <Property Name="Privacy" Type="varchar(max)" Nullable="false" />
+    <Property Name="PagesIn" Type="varchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="VenueChildrenOption">
     <Key>
@@ -560,18 +560,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_VenueInfo_Certificate">
-    <End Role="VenueInfo" Type="Self.VenueInfo" Multiplicity="1" />
-    <End Role="Certificate" Type="Self.Certificate" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="VenueInfo">
-        <PropertyRef Name="Pk_VenueId" />
-      </Principal>
-      <Dependent Role="Certificate">
-        <PropertyRef Name="Fk_VenueId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_VenueInfo_ChildrenOptionComment">
     <End Role="VenueInfo" Type="Self.VenueInfo" Multiplicity="0..1" />
     <End Role="ChildrenOptionComment" Type="Self.ChildrenOptionComment" Multiplicity="*" />
@@ -616,6 +604,18 @@
         <PropertyRef Name="Pk_VenueId" />
       </Principal>
       <Dependent Role="ParkingOptionComment">
+        <PropertyRef Name="Fk_VenueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VenueInfo_VenueCertificate">
+    <End Role="VenueInfo" Type="Self.VenueInfo" Multiplicity="1" />
+    <End Role="VenueCertificate" Type="Self.VenueCertificate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VenueInfo">
+        <PropertyRef Name="Pk_VenueId" />
+      </Principal>
+      <Dependent Role="VenueCertificate">
         <PropertyRef Name="Fk_VenueId" />
       </Dependent>
     </ReferentialConstraint>
@@ -758,9 +758,9 @@
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BusinessEvents" EntityType="Self.BusinessEvents" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Catering" EntityType="Self.Catering" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CateringValue" EntityType="Self.CateringValue" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Certificate" EntityType="Self.Certificate" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Chef" EntityType="Self.Chef" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChefSpokenLanguage" EntityType="Self.ChefSpokenLanguage" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChildrenOption" EntityType="Self.ChildrenOption" Schema="dbo" store:Type="Tables" />
@@ -784,6 +784,7 @@
     <EntitySet Name="ParkingOptionValue" EntityType="Self.ParkingOptionValue" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PrivateEvents" EntityType="Self.PrivateEvents" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VenueCertificate" EntityType="Self.VenueCertificate" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VenueCharacterization" EntityType="Self.VenueCharacterization" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VenueChildrenOption" EntityType="Self.VenueChildrenOption" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VenueContact" EntityType="Self.VenueContact" Schema="dbo" store:Type="Tables" />
@@ -838,10 +839,6 @@
       <End Role="ParkingOption" EntitySet="ParkingOption" />
       <End Role="ParkingOptionValue" EntitySet="ParkingOptionValue" />
     </AssociationSet>
-    <AssociationSet Name="FK_VenueInfo_Certificate" Association="Self.FK_VenueInfo_Certificate">
-      <End Role="VenueInfo" EntitySet="VenueInfo" />
-      <End Role="Certificate" EntitySet="Certificate" />
-    </AssociationSet>
     <AssociationSet Name="FK_VenueInfo_ChildrenOptionComment" Association="Self.FK_VenueInfo_ChildrenOptionComment">
       <End Role="VenueInfo" EntitySet="VenueInfo" />
       <End Role="ChildrenOptionComment" EntitySet="ChildrenOptionComment" />
@@ -857,6 +854,10 @@
     <AssociationSet Name="FK_VenueInfo_ParkingOptionComment" Association="Self.FK_VenueInfo_ParkingOptionComment">
       <End Role="VenueInfo" EntitySet="VenueInfo" />
       <End Role="ParkingOptionComment" EntitySet="ParkingOptionComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VenueInfo_VenueCertificate" Association="Self.FK_VenueInfo_VenueCertificate">
+      <End Role="VenueInfo" EntitySet="VenueInfo" />
+      <End Role="VenueCertificate" EntitySet="VenueCertificate" />
     </AssociationSet>
     <AssociationSet Name="FK_VenueInfo_VenueCharacterization" Association="Self.FK_VenueInfo_VenueCharacterization">
       <End Role="VenueInfo" EntitySet="VenueInfo" />

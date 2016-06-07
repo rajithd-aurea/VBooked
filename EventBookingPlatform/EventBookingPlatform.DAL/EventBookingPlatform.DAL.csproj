@@ -63,13 +63,13 @@
     <Compile Include="Entities\AspNetUserLogin.cs">
       <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\BusinessEvent.cs">
+      <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Catering.cs">
       <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\CateringValue.cs">
-      <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Certificate.cs">
       <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Chef.cs">
@@ -154,6 +154,9 @@
       <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Supplier.cs">
+      <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\VenueCertificate.cs">
       <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\VenueCharacterization.cs">

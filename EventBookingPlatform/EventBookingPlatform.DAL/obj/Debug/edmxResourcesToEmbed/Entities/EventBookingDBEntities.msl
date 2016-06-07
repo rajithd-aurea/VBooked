@@ -62,28 +62,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Certificates">
-      <EntityTypeMapping TypeName="DevEventBookingDBModel.Certificate">
-        <MappingFragment StoreEntitySet="Certificate">
-          <ScalarProperty Name="Pk_CertificateId" ColumnName="Pk_CertificateId" />
-          <ScalarProperty Name="Fk_VenueId" ColumnName="Fk_VenueId" />
-          <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
-          <ScalarProperty Name="BusinessCert" ColumnName="BusinessCert" />
-          <ScalarProperty Name="TermsName" ColumnName="TermsName" />
-          <ScalarProperty Name="TermsConditionsCert" ColumnName="TermsConditionsCert" />
-          <ScalarProperty Name="BusinessLicName" ColumnName="BusinessLicName" />
-          <ScalarProperty Name="BusinessLicCert" ColumnName="BusinessLicCert" />
-          <ScalarProperty Name="PoliceAuthName" ColumnName="PoliceAuthName" />
-          <ScalarProperty Name="PoliceAuthCert" ColumnName="PoliceAuthCert" />
-          <ScalarProperty Name="FireDeptName" ColumnName="FireDeptName" />
-          <ScalarProperty Name="FireDeptCert" ColumnName="FireDeptCert" />
-          <ScalarProperty Name="SanitationName" ColumnName="SanitationName" />
-          <ScalarProperty Name="SanitationCert" ColumnName="SanitationCert" />
-          <ScalarProperty Name="ThirdPtInsuranceName" ColumnName="ThirdPtInsuranceName" />
-          <ScalarProperty Name="ThirdPtInsuranceCert" ColumnName="ThirdPtInsuranceCert" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Chefs">
       <EntityTypeMapping TypeName="DevEventBookingDBModel.Chef">
         <MappingFragment StoreEntitySet="Chef">
@@ -472,6 +450,29 @@
           <ScalarProperty Name="cc_iso" ColumnName="cc_iso" />
           <ScalarProperty Name="cc_fips" ColumnName="cc_fips" />
           <ScalarProperty Name="Pk_CountryId" ColumnName="Pk_CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BusinessEvents">
+      <EntityTypeMapping TypeName="DevEventBookingDBModel.BusinessEvent">
+        <MappingFragment StoreEntitySet="BusinessEvents">
+          <ScalarProperty Name="Event" ColumnName="Event" />
+          <ScalarProperty Name="Pk_BusinessEventId" ColumnName="Pk_BusinessEventId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VenueCertificates">
+      <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueCertificate">
+        <MappingFragment StoreEntitySet="VenueCertificate">
+          <ScalarProperty Name="ThirdPtInsuranceCert" ColumnName="ThirdPtInsuranceCert" />
+          <ScalarProperty Name="SanitationCert" ColumnName="SanitationCert" />
+          <ScalarProperty Name="FireDeptCert" ColumnName="FireDeptCert" />
+          <ScalarProperty Name="PoliceAuthCert" ColumnName="PoliceAuthCert" />
+          <ScalarProperty Name="BusinessLicCert" ColumnName="BusinessLicCert" />
+          <ScalarProperty Name="TermsConditionsCert" ColumnName="TermsConditionsCert" />
+          <ScalarProperty Name="BusinessCert" ColumnName="BusinessCert" />
+          <ScalarProperty Name="Fk_VenueId" ColumnName="Fk_VenueId" />
+          <ScalarProperty Name="Pk_CertificateId" ColumnName="Pk_CertificateId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

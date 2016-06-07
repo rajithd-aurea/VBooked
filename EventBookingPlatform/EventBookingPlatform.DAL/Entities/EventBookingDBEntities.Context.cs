@@ -52,7 +52,6 @@ namespace EventBookingPlatform.DAL.Entities
         public virtual DbSet<ParkingOptionComment> ParkingOptionComments { get; set; }
         public virtual DbSet<ParkingOptionValue> ParkingOptionValues { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
-        public virtual DbSet<VenueCharacterization> VenueCharacterizations { get; set; }
         public virtual DbSet<VenueChildrenOption> VenueChildrenOptions { get; set; }
         public virtual DbSet<VenueContact> VenueContacts { get; set; }
         public virtual DbSet<VenueDescription> VenueDescriptions { get; set; }
@@ -70,5 +69,6 @@ namespace EventBookingPlatform.DAL.Entities
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<BusinessEvent> BusinessEvents { get; set; }
         public virtual DbSet<VenueCertificate> VenueCertificates { get; set; }
+        public virtual DbSet<VenueCharacterization> VenueCharacterizations { get; set; }
     }
 }
