@@ -589,13 +589,11 @@ GO
 CREATE TABLE [dbo].[VenueCharacterization](
 	[Pk_VenueCharId] [int] IDENTITY(1,1) NOT NULL,
 	[Fk_VenueId] [int] NOT NULL,
-	[TypeOfConstruction] [varchar](MAX) NOT NULL,
-	[OpenAreas] [varchar](MAX) NOT NULL,
-	[AView] [varchar](MAX) NOT NULL,
-	[MaxNoRoomsAreas] [varchar](MAX) NOT NULL,
-	[Parking] [varchar](MAX) NOT NULL,
-	[Privacy] [varchar](MAX) NOT NULL,
-	[PagesIn] [varchar](MAX) NOT NULL,
+	[OptionName] [varchar](200) NOT NULL,
+	[OptionValue] [varchar](MAX) NOT NULL,
+	[OptionImageLocation] [varchar](100) NOT NULL,
+	[OptionSize] [int] NOT NULL,
+	[OpenAreasImage] [varchar](MAX) NOT NULL
  CONSTRAINT [PK_VenueCharacterization] PRIMARY KEY CLUSTERED 
 (
 	[Pk_VenueCharId] ASC
