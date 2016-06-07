@@ -353,6 +353,106 @@ namespace EventBookingPlatform.Controllers
 
             return Json(new { status = 1, message = "Successfully uploaded Terms and Conditions." });
         }
+
+        [HttpPost]
+        public JsonResult UploadBusinessLicenseCertificate()
+        {
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var certificate = System.Web.HttpContext.Current.Request.Files["MyCertificates"];
+
+                var fileName = Path.GetFileName(certificate.FileName);
+
+                var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Certificates/BusinessLicense"), fileName);
+                var imageServerLocation = "~/Content/Files/Venues/Certificates/BusinessLicense/" + fileName;
+
+                _venueBLL.UploadBusinessLicenseCertificate(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
+
+                certificate.SaveAs(serverPath);
+            }
+
+            return Json(new { status = 1, message = "Successfully uploaded Business License." });
+        }
+
+        [HttpPost]
+        public JsonResult UploadPoliceAuthorizationCertificate()
+        {
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var certificate = System.Web.HttpContext.Current.Request.Files["MyCertificates"];
+
+                var fileName = Path.GetFileName(certificate.FileName);
+
+                var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Certificates/PoliceAuthorization"), fileName);
+                var imageServerLocation = "~/Content/Files/Venues/Certificates/PoliceAuthorization/" + fileName;
+
+                _venueBLL.UploadPoliceAuthorizationCertificate(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
+
+                certificate.SaveAs(serverPath);
+            }
+
+            return Json(new { status = 1, message = "Successfully uploaded Police Authorization." });
+        }
+
+        [HttpPost]
+        public JsonResult UploadFireDepartmentCertificate()
+        {
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var certificate = System.Web.HttpContext.Current.Request.Files["MyCertificates"];
+
+                var fileName = Path.GetFileName(certificate.FileName);
+
+                var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Certificates/FireDepartment"), fileName);
+                var imageServerLocation = "~/Content/Files/Venues/Certificates/FireDepartment/" + fileName;
+
+                _venueBLL.UploadFireDepartmentCertificate(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
+
+                certificate.SaveAs(serverPath);
+            }
+
+            return Json(new { status = 1, message = "Successfully uploaded Fire Department Certificate." });
+        }
+
+        [HttpPost]
+        public JsonResult UploadSanitationCertificate()
+        {
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var certificate = System.Web.HttpContext.Current.Request.Files["MyCertificates"];
+
+                var fileName = Path.GetFileName(certificate.FileName);
+
+                var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Certificates/Sanitation"), fileName);
+                var imageServerLocation = "~/Content/Files/Venues/Certificates/Sanitation/" + fileName;
+
+                _venueBLL.UploadSanitationCertificate(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
+
+                certificate.SaveAs(serverPath);
+            }
+
+            return Json(new { status = 1, message = "Successfully uploaded Sanitation Certificate." });
+        }
+
+        [HttpPost]
+        public JsonResult UploadThirdPartyInsurance()
+        {
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var certificate = System.Web.HttpContext.Current.Request.Files["MyCertificates"];
+
+                var fileName = Path.GetFileName(certificate.FileName);
+
+                var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Certificates/ThirdPartyInsurance"), fileName);
+                var imageServerLocation = "~/Content/Files/Venues/Certificates/ThirdPartyInsurance/" + fileName;
+
+                _venueBLL.UploadThirdPartyInsurance(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
+
+                certificate.SaveAs(serverPath);
+            }
+
+            return Json(new { status = 1, message = "Successfully uploaded Third Party Insurance Certificate." });
+        }
         #endregion
     }
 }

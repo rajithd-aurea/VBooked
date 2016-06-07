@@ -771,59 +771,232 @@ var certificates = {
         });
     },
     addTermsAndConditionsCertificate: function () {
-        $('#frmAddTermsCert').validate({
-            rules: {
-                Terms: {
-                    required: true
-                }
-            },
-            messages: {
-                Terms: {
-                    required: "This field is required."
-                }
-            },
-            submitHandler: function (form) {
-                var file = $('#Terms').val().split('.').pop().toLowerCase();
+        var fileExtension = $('#Terms').val().split('.').pop().toLowerCase();
 
-                if (file == 'doc' || file == 'docx' || file == 'pdf') {
-                    certificates.uploadTermsAndConditionsCertificate();
-                }
-                else {
-                    alert("Must upload Word or PDF file.");
-                }
+        if (fileExtension == 'doc' || fileExtension == 'docx' || fileExtension == 'pdf') {
+            var data = new FormData();
+            var files = $("#Terms").get(0).files;
+            if (files.length > 0) {
+                data.append("MyCertificates", files[0]);
             }
-        });
-    },
-    uploadTermsAndConditionsCertificate: function () {
-        var data = new FormData();
-        var files = $("#Terms").get(0).files;
-        if (files.length > 0) {
-            data.append("MyCertificates", files[0]);
-        }
 
-        $.ajax({
-            url: "/Venue/UploadTermsAndConditionsCertificate",
-            type: "POST",
-            processData: false,
-            contentType: false,
-            data: data,
-            success: function (response) {
-                if (response.status == 1) {
-                    $('#alert-certificates').removeClass('alert-danger');
-                    $('#alert-certificates').addClass('alert-success').show(function () {
+            $.ajax({
+                url: "/Venue/UploadTermsAndConditionsCertificate",
+                type: "POST",
+                processData: false,
+                contentType: false,
+                data: data,
+                success: function (response) {
+                    if (response.status == 1) {
+                        $('#alert-certificates').removeClass('alert-danger');
+                        $('#alert-certificates').addClass('alert-success').show(function () {
+                            $(this).slideDown();
+                            $(this).find('p.img-for').text(response.message);
+                        });
+                    }
+                },
+                error: function (er) {
+                    $('#alert-certificates').removeClass('alert-success');
+                    $('#alert-certificates').addClass('alert-danger').show(function () {
                         $(this).slideDown();
-                        $(this).find('p.img-for').text(response.message);
+                        $(this).find('p.img-for').text("Uploaded file size exceeds 3MB.");
                     });
                 }
-            },
-            error: function (er) {
-                $('#alert-certificates').removeClass('alert-success');
-                $('#alert-certificates').addClass('alert-danger').show(function () {
-                    $(this).slideDown();
-                    $(this).find('p.img-for').text("Uploaded file size exceeds 3MB.");
-                });
+            });
+        }
+        else {
+            alert("Must upload Word or PDF file.");
+        }
+    },
+    addBusinessLicense: function () {
+        var fileExtension = $('#BusinessLicense').val().split('.').pop().toLowerCase();
+
+        if (fileExtension == 'jpg' || fileExtension == 'pdf') {
+            var data = new FormData();
+            var files = $("#BusinessLicense").get(0).files;
+            if (files.length > 0) {
+                data.append("MyCertificates", files[0]);
             }
-        });
+
+            $.ajax({
+                url: "/Venue/UploadBusinessLicenseCertificate",
+                type: "POST",
+                processData: false,
+                contentType: false,
+                data: data,
+                success: function (response) {
+                    if (response.status == 1) {
+                        $('#alert-certificates').removeClass('alert-danger');
+                        $('#alert-certificates').addClass('alert-success').show(function () {
+                            $(this).slideDown();
+                            $(this).find('p.img-for').text(response.message);
+                        });
+                    }
+                },
+                error: function (er) {
+                    $('#alert-certificates').removeClass('alert-success');
+                    $('#alert-certificates').addClass('alert-danger').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text("Uploaded file size exceeds 3MB.");
+                    });
+                }
+            });
+        }
+        else {
+            alert("Must upload JPG or PDF file.");
+        }
+    },
+    addPoliceAuthorization: function () {
+        var fileExtension = $('#PoliceAuth').val().split('.').pop().toLowerCase();
+
+        if (fileExtension == 'jpg' || fileExtension == 'pdf') {
+            var data = new FormData();
+            var files = $("#PoliceAuth").get(0).files;
+            if (files.length > 0) {
+                data.append("MyCertificates", files[0]);
+            }
+
+            $.ajax({
+                url: "/Venue/UploadPoliceAuthorizationCertificate",
+                type: "POST",
+                processData: false,
+                contentType: false,
+                data: data,
+                success: function (response) {
+                    if (response.status == 1) {
+                        $('#alert-certificates').removeClass('alert-danger');
+                        $('#alert-certificates').addClass('alert-success').show(function () {
+                            $(this).slideDown();
+                            $(this).find('p.img-for').text(response.message);
+                        });
+                    }
+                },
+                error: function (er) {
+                    $('#alert-certificates').removeClass('alert-success');
+                    $('#alert-certificates').addClass('alert-danger').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text("Uploaded file size exceeds 3MB.");
+                    });
+                }
+            });
+        }
+        else {
+            alert("Must upload JPG or PDF file.");
+        }
+    },
+    addFireDeptCertificate: function () {
+        var fileExtension = $('#FireDeptCert').val().split('.').pop().toLowerCase();
+
+        if (fileExtension == 'jpg' || fileExtension == 'pdf') {
+            var data = new FormData();
+            var files = $("#FireDeptCert").get(0).files;
+            if (files.length > 0) {
+                data.append("MyCertificates", files[0]);
+            }
+
+            $.ajax({
+                url: "/Venue/UploadFireDepartmentCertificate",
+                type: "POST",
+                processData: false,
+                contentType: false,
+                data: data,
+                success: function (response) {
+                    if (response.status == 1) {
+                        $('#alert-certificates').removeClass('alert-danger');
+                        $('#alert-certificates').addClass('alert-success').show(function () {
+                            $(this).slideDown();
+                            $(this).find('p.img-for').text(response.message);
+                        });
+                    }
+                },
+                error: function (er) {
+                    $('#alert-certificates').removeClass('alert-success');
+                    $('#alert-certificates').addClass('alert-danger').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text("Uploaded file size exceeds 3MB.");
+                    });
+                }
+            });
+        }
+        else {
+            alert("Must upload JPG or PDF file.");
+        }
+    },
+    addSanitationCertificate: function () {
+        var fileExtension = $('#SanitationCert').val().split('.').pop().toLowerCase();
+
+        if (fileExtension == 'jpg' || fileExtension == 'pdf') {
+            var data = new FormData();
+            var files = $("#SanitationCert").get(0).files;
+            if (files.length > 0) {
+                data.append("MyCertificates", files[0]);
+            }
+
+            $.ajax({
+                url: "/Venue/UploadSanitationCertificate",
+                type: "POST",
+                processData: false,
+                contentType: false,
+                data: data,
+                success: function (response) {
+                    if (response.status == 1) {
+                        $('#alert-certificates').removeClass('alert-danger');
+                        $('#alert-certificates').addClass('alert-success').show(function () {
+                            $(this).slideDown();
+                            $(this).find('p.img-for').text(response.message);
+                        });
+                    }
+                },
+                error: function (er) {
+                    $('#alert-certificates').removeClass('alert-success');
+                    $('#alert-certificates').addClass('alert-danger').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text("Uploaded file size exceeds 3MB.");
+                    });
+                }
+            });
+        }
+        else {
+            alert("Must upload JPG or PDF file.");
+        }
+    },
+    addThirdPartyInsuranceCertificate: function () {
+        var fileExtension = $('#ThirdPartyInsurance').val().split('.').pop().toLowerCase();
+
+        if (fileExtension == 'jpg' || fileExtension == 'pdf') {
+            var data = new FormData();
+            var files = $("#ThirdPartyInsurance").get(0).files;
+            if (files.length > 0) {
+                data.append("MyCertificates", files[0]);
+            }
+
+            $.ajax({
+                url: "/Venue/UploadThirdPartyInsurance",
+                type: "POST",
+                processData: false,
+                contentType: false,
+                data: data,
+                success: function (response) {
+                    if (response.status == 1) {
+                        $('#alert-certificates').removeClass('alert-danger');
+                        $('#alert-certificates').addClass('alert-success').show(function () {
+                            $(this).slideDown();
+                            $(this).find('p.img-for').text(response.message);
+                        });
+                    }
+                },
+                error: function (er) {
+                    $('#alert-certificates').removeClass('alert-success');
+                    $('#alert-certificates').addClass('alert-danger').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text("Uploaded file size exceeds 3MB.");
+                    });
+                }
+            });
+        }
+        else {
+            alert("Must upload JPG or PDF file.");
+        }
     }
 };
 
@@ -849,59 +1022,109 @@ $(document).ready(function () {
     venue.addPagesInImage();
 
     certificates.addBusinessCertificate();
-    certificates.addTermsAndConditionsCertificate();
 
     $('#seasonactivity').change(function () {
         var val = $(this).val();
-        
+
         if (val == "Seasonal")
             $('#seasonal').show();
         else
             $('#seasonal').hide();
     });
 
+    $('#frmAddTermsCert').submit(function (event) {
+        event.preventDefault();
+        
+        certificates.addTermsAndConditionsCertificate();
+    });
+
     $('#BusinessLicOption').change(function () {
         var val = $(this).val();
 
-        if (val == "UpToDate")
+        if (val == "UpToDate") {
             $('#BusinessLicense').prop("disabled", false);
-        else
+        }
+        else {
             $('#BusinessLicense').prop("disabled", true);
+            $('#BusinessLicense').val("");
+        }
     });
 
-    $('#FireDeptOption').change(function () {
-        var val = $(this).val();
+    $('#frmAddBusinessLic').submit(function (event) {
+        event.preventDefault();
 
-        if (val == "UpToDate")
-            $('#FireDeptCert').prop("disabled", false);
-        else
-            $('#FireDeptCert').prop("disabled", true);
-    });
-
-    $('#ThirdPtInsuranceOption').change(function () {
-        var val = $(this).val();
-
-        if (val == "UpToDate")
-            $('#ThirdPartyInsurance').prop("disabled", false);
-        else
-            $('#ThirdPartyInsurance').prop("disabled", true);
+        certificates.addBusinessLicense();
     });
 
     $('#PoliceAuthOption').change(function () {
         var val = $(this).val();
 
-        if (val == "UpToDate")
+        if (val == "UpToDate") {
             $('#PoliceAuth').prop("disabled", false);
-        else
+        }
+        else {
             $('#PoliceAuth').prop("disabled", true);
+            $('#PoliceAuth').val("");
+        }
+    });
+
+    $('#frmAddPoliceAuthCert').submit(function (event) {
+        event.preventDefault();
+
+        certificates.addPoliceAuthorization();
+    });
+
+    $('#FireDeptOption').change(function () {
+        var val = $(this).val();
+
+        if (val == "UpToDate") {
+            $('#FireDeptCert').prop("disabled", false);
+        }
+        else {
+            $('#FireDeptCert').prop("disabled", true);
+            $('#FireDeptCert').val("");
+        }
+    });
+
+    $('#frmAddFireDeptCert').submit(function (event) {
+        event.preventDefault();
+
+        certificates.addFireDeptCertificate();
     });
 
     $('#SanitationOption').change(function () {
         var val = $(this).val();
 
-        if (val == "UpToDate")
+        if (val == "UpToDate") {
             $('#SanitationCert').prop("disabled", false);
-        else
+        }
+        else {
             $('#SanitationCert').prop("disabled", true);
+            $('#SanitationCert').val("");
+        }
+    });
+
+    $('#frmAddSanitationCert').submit(function (event) {
+        event.preventDefault();
+
+        certificates.addSanitationCertificate();
+    });
+
+    $('#ThirdPtInsuranceOption').change(function () {
+        var val = $(this).val();
+
+        if (val == "UpToDate") {
+            $('#ThirdPartyInsurance').prop("disabled", false);
+        }
+        else {
+            $('#ThirdPartyInsurance').prop("disabled", true);
+            $('#ThirdPartyInsurance').val("");
+        }
+    });
+
+    $('#frmAddThirdPtInsurance').submit(function (event) {
+        event.preventDefault();
+
+        certificates.addThirdPartyInsuranceCertificate();
     });
 });

@@ -31,7 +31,12 @@ namespace EventBookingPlatform.DAL.Repository
         void SavePrivacyImage(int venueid, string imagepath);
         void SavePagesInImage(int venueid, string imagepath);
         void SaveBusinessCertificate(int venueid, string certificatepath);
-        void SaveTermsAndConditionsCertificate(int venueid, string certificatepath);        
+        void SaveTermsAndConditionsCertificate(int venueid, string certificatepath);
+        void SaveBusinessLicense(int venueid, string certificatepath);
+        void SavePoliceAuthorization(int venueid, string certificatepath);
+        void SaveFireDeptCertificate(int venueid, string certificatepath);
+        void SaveSanitationCertificate(int venueid, string certificatepath);
+        void SaveThirdPartyInsurance(int venueid, string certificatepath);
     }
 
     public class Repository : IEFRepository
@@ -302,6 +307,91 @@ namespace EventBookingPlatform.DAL.Repository
                 FireDeptCert = "",
                 SanitationCert = "",
                 ThirdPtInsuranceCert = ""
+            };
+
+            _entity.VenueCertificates.Add(termsAndConditionCertificate);
+        }
+
+        public void SaveBusinessLicense(int venueid, string certificatepath)
+        {
+            VenueCertificate termsAndConditionCertificate = new VenueCertificate
+            {
+                Fk_VenueId = venueid,
+                BusinessCert = "",
+                TermsConditionsCert = "",
+                BusinessLicCert = certificatepath,
+                PoliceAuthCert = "",
+                FireDeptCert = "",
+                SanitationCert = "",
+                ThirdPtInsuranceCert = ""
+            };
+
+            _entity.VenueCertificates.Add(termsAndConditionCertificate);
+        }
+
+        public void SavePoliceAuthorization(int venueid, string certificatepath)
+        {
+            VenueCertificate termsAndConditionCertificate = new VenueCertificate
+            {
+                Fk_VenueId = venueid,
+                BusinessCert = "",
+                TermsConditionsCert = "",
+                BusinessLicCert = "",
+                PoliceAuthCert = certificatepath,
+                FireDeptCert = "",
+                SanitationCert = "",
+                ThirdPtInsuranceCert = ""
+            };
+
+            _entity.VenueCertificates.Add(termsAndConditionCertificate);
+        }
+
+        public void SaveFireDeptCertificate(int venueid, string certificatepath)
+        {
+            VenueCertificate termsAndConditionCertificate = new VenueCertificate
+            {
+                Fk_VenueId = venueid,
+                BusinessCert = "",
+                TermsConditionsCert = "",
+                BusinessLicCert = "",
+                PoliceAuthCert = "",
+                FireDeptCert = certificatepath,
+                SanitationCert = "",
+                ThirdPtInsuranceCert = ""
+            };
+
+            _entity.VenueCertificates.Add(termsAndConditionCertificate);
+        }
+
+        public void SaveSanitationCertificate(int venueid, string certificatepath)
+        {
+            VenueCertificate termsAndConditionCertificate = new VenueCertificate
+            {
+                Fk_VenueId = venueid,
+                BusinessCert = "",
+                TermsConditionsCert = "",
+                BusinessLicCert = "",
+                PoliceAuthCert = "",
+                FireDeptCert = "",
+                SanitationCert = certificatepath,
+                ThirdPtInsuranceCert = ""
+            };
+
+            _entity.VenueCertificates.Add(termsAndConditionCertificate);
+        }
+
+        public void SaveThirdPartyInsurance(int venueid, string certificatepath)
+        {
+            VenueCertificate termsAndConditionCertificate = new VenueCertificate
+            {
+                Fk_VenueId = venueid,
+                BusinessCert = "",
+                TermsConditionsCert = "",
+                BusinessLicCert = "",
+                PoliceAuthCert = "",
+                FireDeptCert = "",
+                SanitationCert = "",
+                ThirdPtInsuranceCert = certificatepath
             };
 
             _entity.VenueCertificates.Add(termsAndConditionCertificate);

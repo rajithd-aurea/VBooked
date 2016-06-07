@@ -55,7 +55,7 @@
                                             <label>General Conditions & Terms</label><br />
                                             <small>Accepted formats: Word or PDF. 3MB max size.</small>
                                             <input type="file" name="Terms" id="Terms" class="form-control form-control-margin-bottom" />
-                                            <input type="submit" value="Save" class="btn btn-primary form-control" />
+                                            <input type="submit" value="Save" id="btnSubmitTerms" class="btn btn-primary form-control" />
                                         }
                                     </div>
                                 </div>
@@ -65,13 +65,13 @@
 
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Other Certificates/Licenses</h3>
+                            <h3 class="panel-title">Other Certificates/Licenses (Optional)</h3>
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        @using (Html.BeginForm("", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddBusinessLic" }))
+                                        @using (Html.BeginForm("UploadBusinessLicenseCertificate", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddBusinessLic" }))
                                         {
                                             <label>Business License</label><br />
                                             <small>Accepted formats: JPG or PDF.</small>
@@ -86,7 +86,7 @@
                                         }
                                     </div>
                                     <div class="form-group">
-                                        @using (Html.BeginForm("", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddFireDeptCert" }))
+                                        @using (Html.BeginForm("UploadFireDepartmentCertificate", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddFireDeptCert" }))
                                         {
                                             <label>Fire Dept.</label><br />
                                             <small>Accepted formats: JPG or PDF.</small>
@@ -101,7 +101,7 @@
                                         }
                                     </div>
                                     <div class="form-group">
-                                        @using (Html.BeginForm("", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddThirdPtInsurance" }))
+                                        @using (Html.BeginForm("UploadThirdPartyInsurance", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddThirdPtInsurance" }))
                                         {
                                             <label>Third Party Insurance</label><br />
                                             <small>Accepted formats: JPG or PDF.</small>
@@ -118,7 +118,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        @using (Html.BeginForm("", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddPoliceAuthCert" }))
+                                        @using (Html.BeginForm("UploadPoliceAuthorizationCertificate", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddPoliceAuthCert" }))
                                         {
                                             <label>Police Authorization</label><br />
                                             <small>Accepted formats: JPG or PDF.</small>
@@ -133,7 +133,7 @@
                                         }
                                     </div>
                                     <div class="form-group">
-                                        @using (Html.BeginForm("", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddSanitationCert" }))
+                                        @using (Html.BeginForm("UploadSanitationCertificate", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddSanitationCert" }))
                                         {
                                             <label>Sanitation Certificate</label><br />
                                             <small>Accepted formats: JPG or PDF.</small>

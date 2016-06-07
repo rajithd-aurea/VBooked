@@ -77,6 +77,7 @@ namespace EventBookingPlatform.BusinessLayer
             }
         }
 
+        #region Upload images for Characterization of place sub module
         public void UploadTypeConstructionImage(int venueid, string imagepath)
         {
             _repo.SaveTypeOfContructionImage(venueid, imagepath);
@@ -118,7 +119,9 @@ namespace EventBookingPlatform.BusinessLayer
             _repo.SavePagesInImage(venueid, imagepath);
             _repo.Save();
         }
+        #endregion
 
+        #region Upload images/documents for Certificates
         public void UploadBusinessCertificate(int venueid, string certificatepath)
         {
             _repo.SaveBusinessCertificate(venueid, certificatepath);
@@ -130,5 +133,36 @@ namespace EventBookingPlatform.BusinessLayer
             _repo.SaveTermsAndConditionsCertificate(venueid, certificatepath);
             _repo.Save();
         }
+
+        public void UploadBusinessLicenseCertificate(int venueid, string certificatepath)
+        {
+            _repo.SaveBusinessLicense(venueid, certificatepath);
+            _repo.Save();
+        }
+
+        public void UploadPoliceAuthorizationCertificate(int venueid, string certificatepath)
+        {
+            _repo.SavePoliceAuthorization(venueid, certificatepath);
+            _repo.Save();
+        }
+
+        public void UploadFireDepartmentCertificate(int venueid, string certificatepath)
+        {
+            _repo.SaveFireDeptCertificate(venueid, certificatepath);
+            _repo.Save();
+        }
+
+        public void UploadSanitationCertificate(int venueid, string certificatepath)
+        {
+            _repo.SaveSanitationCertificate(venueid, certificatepath);
+            _repo.Save();
+        }
+
+        public void UploadThirdPartyInsurance(int venueid, string certificatepath)
+        {
+            _repo.SaveThirdPartyInsurance(venueid, certificatepath);
+            _repo.Save();
+        }
+        #endregion
     }
 }
