@@ -211,7 +211,6 @@
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RenterController.cs" />
-    <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\VenueController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -315,15 +314,24 @@
     <Content Include="Views\Venue\ForApproval.cshtml" />
     <Content Include="Views\Venue\Approve.cshtml" />
     <Content Include="Views\Venue\Info.cshtml" />
-    <Content Include="Views\Settings\AddPlace.cshtml" />
-    <Content Include="Views\Settings\Contact.cshtml" />
-    <Content Include="Views\Settings\Characterization.cshtml" />
-    <Content Include="Views\Settings\Description.cshtml" />
-    <Content Include="Views\Settings\ActivityTime.cshtml" />
-    <Content Include="Views\Settings\Halls.cshtml" />
+    <Content Include="Views\Settings\Administrative.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Files\Venues\Certificates\BusinessLicense\" />
+    <Folder Include="Content\Files\Venues\Certificates\Business\" />
+    <Folder Include="Content\Files\Venues\Certificates\FireDepartment\" />
+    <Folder Include="Content\Files\Venues\Certificates\PoliceAuthorization\" />
+    <Folder Include="Content\Files\Venues\Certificates\Sanitation\" />
+    <Folder Include="Content\Files\Venues\Certificates\Terms\" />
+    <Folder Include="Content\Files\Venues\Certificates\ThirdPartyInsurance\" />
+    <Folder Include="Content\Files\Venues\Images\AView\" />
+    <Folder Include="Content\Files\Venues\Images\BusinessCertificate\" />
+    <Folder Include="Content\Files\Venues\Images\OpenAreas\" />
+    <Folder Include="Content\Files\Venues\Images\Pillars\" />
+    <Folder Include="Content\Files\Venues\Images\Privacy\" />
+    <Folder Include="Content\Files\Venues\Images\RoomsAreasEnclosures\" />
+    <Folder Include="Content\Files\Venues\Images\VenueStructure\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
