@@ -1,2 +1,9 @@
-#Ignore base project excess files
+#Ignore DbImplementation project excess files
 EventBookingPlatform/EventBookingPlatform.DbImplementation/bin/Debug/*.txt
+EventBookingPlatform/EventBookingPlatform.DbImplementation/bin/Debug/*.publish.sql
+
+#Ignore Helpers project excess files
+EventBookingPlatform/EventBookingPlatform.Helpers/obj/*
+
+#Ignore BusinessLayer project excess files
+EventBookingPlatform/EventBookingPlatform.BusinessLayer/*
