@@ -288,13 +288,11 @@
     </Key>
     <Property Name="Pk_VenueCharId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Fk_VenueId" Type="int" Nullable="false" />
-    <Property Name="TypeOfConstruction" Type="varchar(max)" Nullable="false" />
-    <Property Name="OpenAreas" Type="varchar(max)" Nullable="false" />
-    <Property Name="AView" Type="varchar(max)" Nullable="false" />
-    <Property Name="MaxNoRoomsAreas" Type="varchar(max)" Nullable="false" />
-    <Property Name="Parking" Type="varchar(max)" Nullable="false" />
-    <Property Name="Privacy" Type="varchar(max)" Nullable="false" />
-    <Property Name="PagesIn" Type="varchar(max)" Nullable="false" />
+    <Property Name="OptionName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="OptionValue" Type="varchar(max)" Nullable="false" />
+    <Property Name="OptionImageLocation" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="OptionSize" Type="int" Nullable="false" />
+    <Property Name="OpenAreasImage" Type="varchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="VenueChildrenOption">
     <Key>
