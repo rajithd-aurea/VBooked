@@ -1,0 +1,2 @@
+#Ignore base project excess files
+EventBookingPlatform/EventBookingPlatform.DbImplementation/bin/Debug/*.txt
