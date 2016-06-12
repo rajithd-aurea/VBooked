@@ -190,10 +190,17 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                @using (Html.BeginForm("UploadTypeOfConstruction", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddTypeOfConstruction" }))
+                                @using (Html.BeginForm("SaveCharacterizationPlaceInfo", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddVenueStructure" }))
                                 {
-                                    <label>Type of Construction</label>
-                                    <input type="file" name="TypeOfConstructionImg" id="TypeOfConstructionImg" class="form-control form-control-margin-bottom" />
+                                    @Html.AntiForgeryToken()
+
+                                    <label>Structure of the Venue</label>
+                                    <select id="drpVenueStructure" class="form-control form-control-margin-bottom">
+                                        <option value="Select">Select..</option>
+                                        <option value="Apart Standing Building Separate Entrance">Apart standing building separate entrance</option>
+                                        <option value="Apart Building Entrance From A Common Floor">Apart building, entrance from a common floor</option>
+                                    </select>
+                                    <input type="file" name="VenueStructure" id="VenueStructure" class="form-control form-control-margin-bottom" disabled="disabled" />
                                     <input type="submit" value="Save" class="btn btn-primary form-control" />
                                 }
                             </div>
@@ -201,49 +208,89 @@
                                 @using (Html.BeginForm("UploadOpenAreasImage", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddOpenAreas" }))
                                 {
                                     <label>Open Areas</label>
+                                    <select id="drpOpenAreasOption" class="form-control form-control-margin-bottom">
+                                        <option value="Select">Select..</option>
+                                        <option value="Lobby">Lobby</option>
+                                        <option value="Hall">Hall</option>
+                                        <option value="Garden">Garden</option>
+                                        <option value="N/A">N/A</option>
+                                    </select>
+                                    <input type="text" name="sqmeter" id="sqmeter" class="form-control form-control-margin-bottom" placeholder="Enter Sq. Meter" />
                                     <input type="file" name="OpenAreas" id="OpenAreas" class="form-control form-control-margin-bottom" />
                                     <input type="submit" value="Save" class="btn btn-primary form-control" />
                                 }
                             </div>
                             <div class="form-group">
-                                @using (Html.BeginForm("UploadAViewImage", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddAView" }))
+                                @using (Html.BeginForm("SaveCharacterizationPlaceInfo", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddAView" }))
                                 {
+                                    @Html.AntiForgeryToken()
+
                                     <label>A View</label>
-                                    <input type="file" name="AView" id="AView" class="form-control form-control-margin-bottom" />
+                                    <select id="drpAViewOption" class="form-control form-control-margin-bottom">
+                                        <option value="Select">Select..</option>
+                                        <option value="Industrial Area">Industrial Area</option>
+                                        <option value="Forrest">Forrest</option>
+                                        <option value="Prairie">Prairie</option>
+                                        <option value="City">City</option>
+                                        <option value="Kibbutz">Kibbutz</option>
+                                        <option value="Sea/Ocean">Sea/Ocean</option>
+                                        <option value="Tourism Center">Tourism Center</option>
+                                        <option value="Parc">Parc</option>
+                                        <option value="Mountatin">Mountain</option>
+                                        <option value="City View">City View</option>
+                                        <option value="N/A">N/A</option>
+                                    </select>
+                                    <input type="file" name="AView" id="AView" class="form-control form-control-margin-bottom" disabled="disabled" />
                                     <input type="submit" value="Save" class="btn btn-primary form-control" />
                                 }
                             </div>
                             <div class="form-group">
-                                @using (Html.BeginForm("UploadRoomsAreasEnclosuresImage", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddRoomsAreasEnclosure" }))
-                                {
+                                <form id="frmAddRoomsAreasEnclosure">
+                                    @Html.AntiForgeryToken()
+
                                     <label>Max Number of Rooms/Areas/Enclosures assigned</label>
-                                    <input type="file" name="RoomsAreasEnclosures" id="RoomsAreasEnclosures" class="form-control form-control-margin-bottom" />
+                                    <select id="drpMaxRoomsAreasOption" class="form-control form-control-margin-bottom">
+                                        <option value="Select">Select..</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="N/A">N/A</option>
+                                    </select>
                                     <input type="submit" value="Save" class="btn btn-primary form-control" />
-                                }
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                @using (Html.BeginForm("UploadParkingImage", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddParking" }))
+                                @using (Html.BeginForm("SaveCharacterizationPlaceInfo", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddPrivacy" }))
                                 {
-                                    <label>Parking</label>
-                                    <input type="file" name="Parking" id="Parking" class="form-control form-control-margin-bottom" />
-                                    <input type="submit" value="Save" class="btn btn-primary form-control" />
-                                }
-                            </div>
-                            <div class="form-group">
-                                @using (Html.BeginForm("UploadPrivacyImage", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddPrivacy" }))
-                                {
+                                    @Html.AntiForgeryToken()
+
                                     <label>Privacy</label>
-                                    <input type="file" name="Privacy" id="Privacy" class="form-control form-control-margin-bottom" />
+                                    <select id="drpPrivacyOption" class="form-control form-control-margin-bottom">
+                                        <option value="Select">Select..</option>
+                                        <option value="Separate event with separate entry">Separate event with separate entry</option>
+                                        <option value="Multiple events, separate entry">Multiple events, separate entry</option>
+                                        <option value="Multiple events, common entry">Multiple events, common entry</option>
+                                        <option value="N/A">N/A</option>
+                                    </select>
+                                    <input type="file" name="Privacy" id="Privacy" class="form-control form-control-margin-bottom" disabled="disabled" />
                                     <input type="submit" value="Save" class="btn btn-primary form-control" />
                                 }
                             </div>
                             <div class="form-group">
-                                @using (Html.BeginForm("UploadPagesInImage", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddPagesIn" }))
+                                @using (Html.BeginForm("SaveCharacterizationPlaceInfo", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddPillars" }))
                                 {
-                                    <label>Pages In</label>
-                                    <input type="file" name="PageIn" id="PageIn" class="form-control form-control-margin-bottom" />
+                                    @Html.AntiForgeryToken()
+
+                                    <label>Pillars</label>
+                                    <select id="drpPillarsOption" class="form-control form-control-margin-bottom">
+                                        <option value="Select">Select..</option>
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="N/A">N/A</option>
+                                    </select>
+                                    <input type="file" name="Pillars" id="Pillars" class="form-control form-control-margin-bottom" disabled="disabled" />
                                     <input type="submit" value="Save" class="btn btn-primary form-control" />
                                 }
                             </div>

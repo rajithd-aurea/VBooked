@@ -53,15 +53,15 @@
             }
         });
     },
-    uploadTypeOfConstructionImage: function () {
+    uploadVenueStructureImage: function () {
         var data = new FormData();
-        var files = $("#TypeOfConstructionImg").get(0).files;
+        var files = $("#VenueStructure").get(0).files;
         if (files.length > 0) {
             data.append("MyImages", files[0]);
         }
 
         $.ajax({
-            url: "/Venue/UploadTypeOfConstructionImage",
+            url: "/Venue/UploadVenueStructureImage",
             type: "POST",
             processData: false,
             contentType: false,
@@ -79,29 +79,31 @@
             }
         });
     },
-    uploadOpenAreasImage: function () {
-        var data = new FormData();
-        var files = $("#OpenAreas").get(0).files;
-        if (files.length > 0) {
-            data.append("MyImages", files[0]);
-        }
+    saveVenueStructureInfo: function () {
+        var filename = $('#VenueStructure').val().split('\\').pop();
 
         $.ajax({
-            url: "/Venue/UploadOpenAreasImage",
             type: "POST",
-            processData: false,
-            contentType: false,
-            data: data,
-            success: function (response) {
-                if (response.status == 1) {
+            url: "/Venue/SaveCharacterizationPlaceInfo",
+            data: {
+                __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                Fk_VenueId: parseInt($('#venueid').val()),
+                OptionName: "StructureOfTheVenue",
+                OptionValue: $('#drpVenueStructure option:selected').text(),
+                OptionImageLocation: "~/Content/Files/Venues/Images/VenueStructure/" + filename,
+                OptionSize: 0,
+                OpenAreasImage: "N/A"
+            },
+            success: function (result) {
+                if (result.status == 1) {
                     $('#alert-place-characterization').show(function () {
                         $(this).slideDown();
-                        $(this).find('p.img-for').text(response.message);
+                        $(this).find('p.img-for').text(result.message);
                     });
                 }
             },
-            error: function (er) {
-                console.log(er);
+            error: function (error) {
+                console.log(error);
             }
         });
     },
@@ -131,55 +133,57 @@
             }
         });
     },
-    uploadRoomsAreasEnclosuresImage: function () {
-        var data = new FormData();
-        var files = $("#RoomsAreasEnclosures").get(0).files;
-        if (files.length > 0) {
-            data.append("MyImages", files[0]);
-        }
+    saveAViewInfo: function () {
+        var filename = $('#AView').val().split('\\').pop();
 
         $.ajax({
-            url: "/Venue/UploadRoomsAreasEnclosuresImage",
             type: "POST",
-            processData: false,
-            contentType: false,
-            data: data,
-            success: function (response) {
-                if (response.status == 1) {
+            url: "/Venue/SaveCharacterizationPlaceInfo",
+            data: {
+                __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                Fk_VenueId: parseInt($('#venueid').val()),
+                OptionName: "AView",
+                OptionValue: $('#drpAViewOption option:selected').text(),
+                OptionImageLocation: "~/Content/Files/Venues/Images/AView/" + filename,
+                OptionSize: 0,
+                OpenAreasImage: "N/A"
+            },
+            success: function (result) {
+                if (result.status == 1) {
                     $('#alert-place-characterization').show(function () {
                         $(this).slideDown();
-                        $(this).find('p.img-for').text(response.message);
+                        $(this).find('p.img-for').text(result.message);
                     });
                 }
             },
-            error: function (er) {
-                console.log(er);
+            error: function (error) {
+                console.log(error);
             }
         });
     },
-    uploadParkingImage: function () {
-        var data = new FormData();
-        var files = $("#Parking").get(0).files;
-        if (files.length > 0) {
-            data.append("MyImages", files[0]);
-        }
-
+    saveMaxRoomsAreasEnclosures: function () {
         $.ajax({
-            url: "/Venue/UploadParkingImage",
             type: "POST",
-            processData: false,
-            contentType: false,
-            data: data,
-            success: function (response) {
-                if (response.status == 1) {
+            url: "/Venue/SaveCharacterizationPlaceInfo",
+            data: {
+                __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                Fk_VenueId: parseInt($('#venueid').val()),
+                OptionName: "MaxRoomsAreasEnclosures",
+                OptionValue: $('#drpMaxRoomsAreasOption').val(),
+                OptionImageLocation: "N/A",
+                OptionSize: 0,
+                OpenAreasImage: "N/A"
+            },
+            success: function (result) {
+                if (result.status == 1) {
                     $('#alert-place-characterization').show(function () {
                         $(this).slideDown();
-                        $(this).find('p.img-for').text(response.message);
+                        $(this).find('p.img-for').text(result.message);
                     });
                 }
             },
-            error: function (er) {
-                console.log(er);
+            error: function (error) {
+                console.log(error);
             }
         });
     },
@@ -209,15 +213,43 @@
             }
         });
     },
-    uploadPageInImage: function () {
+    savePrivacyInfo: function () {
+        var filename = $('#Privacy').val().split('\\').pop();
+
+        $.ajax({
+            type: "POST",
+            url: "/Venue/SaveCharacterizationPlaceInfo",
+            data: {
+                __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                Fk_VenueId: parseInt($('#venueid').val()),
+                OptionName: "Privacy",
+                OptionValue: $('#drpPrivacyOption').val(),
+                OptionImageLocation: "~/Content/Files/Venues/Images/Privacy/" + filename,
+                OptionSize: 0,
+                OpenAreasImage: "N/A"
+            },
+            success: function (result) {
+                if (result.status == 1) {
+                    $('#alert-place-characterization').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text(result.message);
+                    });
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    },
+    uploadPillarsImage: function () {
         var data = new FormData();
-        var files = $("#PageIn").get(0).files;
+        var files = $("#Pillars").get(0).files;
         if (files.length > 0) {
             data.append("MyImages", files[0]);
         }
 
         $.ajax({
-            url: "/Venue/UploadPagesInImage",
+            url: "/Venue/UploadPillarsImage",
             type: "POST",
             processData: false,
             contentType: false,
@@ -235,6 +267,60 @@
             }
         });
     },
+    savePillarsInfo: function () {
+        var filename = $('#Pillars').val().split('\\').pop();
+
+        $.ajax({
+            type: "POST",
+            url: "/Venue/SaveCharacterizationPlaceInfo",
+            data: {
+                __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                Fk_VenueId: parseInt($('#venueid').val()),
+                OptionName: "Pillars",
+                OptionValue: $('#drpPillarsOption').val(),
+                OptionImageLocation: "~/Content/Files/Venues/Images/Pillars/" + filename,
+                OptionSize: 0,
+                OpenAreasImage: "N/A"
+            },
+            success: function (result) {
+                if (result.status == 1) {
+                    $('#alert-place-characterization').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text(result.message);
+                    });
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    },
+    //uploadOpenAreasImage: function () {
+    //    var data = new FormData();
+    //    var files = $("#OpenAreas").get(0).files;
+    //    if (files.length > 0) {
+    //        data.append("MyImages", files[0]);
+    //    }
+
+    //    $.ajax({
+    //        url: "/Venue/UploadOpenAreasImage",
+    //        type: "POST",
+    //        processData: false,
+    //        contentType: false,
+    //        data: data,
+    //        success: function (response) {
+    //            if (response.status == 1) {
+    //                $('#alert-place-characterization').show(function () {
+    //                    $(this).slideDown();
+    //                    $(this).find('p.img-for').text(response.message);
+    //                });
+    //            }
+    //        },
+    //        error: function (er) {
+    //            console.log(er);
+    //        }
+    //    });
+    //},
     addPlaceFormValidation: function () {
         $('#frmAddPlace').validate({
             rules: {
@@ -410,125 +496,23 @@
             }
         });
     },
-    addTypeOfConstructionImage: function () {
-        $('#frmAddTypeOfConstruction').validate({
-            rules: {
-                TypeOfConstructionImg: {
-                    required: true
-                }
-            },
-            messages: {
-                TypeOfConstructionImg: {
-                    required: "This field is required."
-                }
-            },
-            submitHandler: function (form) {
-                venue.uploadTypeOfConstructionImage();
-            }
-        });
-    },
-    addOpenAreasImage: function () {
-        $('#frmAddOpenAreas').validate({
-            rules: {
-                OpenAreas: {
-                    required: true
-                }
-            },
-            messages: {
-                OpenAreas: {
-                    required: "This field is required."
-                }
-            },
-            submitHandler: function (form) {
-                venue.uploadOpenAreasImage();
-            }
-        });
-    },
-    addAViewImage: function () {
-        $('#frmAddAView').validate({
-            rules: {
-                AView: {
-                    required: true
-                }
-            },
-            messages: {
-                AView: {
-                    required: "This field is required."
-                }
-            },
-            submitHandler: function (form) {
-                venue.uploadAViewImage();
-            }
-        });
-    },
-    addRoomsAreasEnclosureImage: function () {
-        $('#frmAddRoomsAreasEnclosure').validate({
-            rules: {
-                RoomsAreasEnclosures: {
-                    required: true
-                }
-            },
-            messages: {
-                RoomsAreasEnclosures: {
-                    required: "This field is required."
-                }
-            },
-            submitHandler: function (form) {
-                venue.uploadRoomsAreasEnclosuresImage();
-            }
-        });
-    },
-    addParkingImage: function () {
-        $('#frmAddParking').validate({
-            rules: {
-                Parking: {
-                    required: true
-                }
-            },
-            messages: {
-                Parking: {
-                    required: "This field is required."
-                }
-            },
-            submitHandler: function (form) {
-                venue.uploadParkingImage();
-            }
-        });
-    },
-    addPrivacyImage: function () {
-        $('#frmAddPrivacy').validate({
-            rules: {
-                Privacy: {
-                    required: true
-                }
-            },
-            messages: {
-                Privacy: {
-                    required: "This field is required."
-                }
-            },
-            submitHandler: function (form) {
-                venue.uploadPrivacyImage();
-            }
-        });
-    },
-    addPagesInImage: function () {
-        $('#frmAddPagesIn').validate({
-            rules: {
-                PageIn: {
-                    required: true
-                }
-            },
-            messages: {
-                PageIn: {
-                    required: "This field is required."
-                }
-            },
-            submitHandler: function (form) {
-                venue.uploadPageInImage();
-            }
-        });
-    },
+    //addOpenAreasImage: function () {
+    //    $('#frmAddOpenAreas').validate({
+    //        rules: {
+    //            OpenAreas: {
+    //                required: true
+    //            }
+    //        },
+    //        messages: {
+    //            OpenAreas: {
+    //                required: "This field is required."
+    //            }
+    //        },
+    //        submitHandler: function (form) {
+    //            venue.uploadOpenAreasImage();
+    //        }
+    //    });
+    //},
     addPlace: function () {
         var seasonactivity = $('#seasonactivity').val();
         var activity = "";
@@ -1013,13 +997,7 @@ $(document).ready(function () {
     venue.addContactFormValidation();
     venue.addPlaceDescriptionFormValidation();
 
-    venue.addTypeOfConstructionImage();
-    venue.addOpenAreasImage();
-    venue.addAViewImage();
-    venue.addRoomsAreasEnclosureImage();
-    venue.addParkingImage();
-    venue.addPrivacyImage();
-    venue.addPagesInImage();
+    //venue.addOpenAreasImage();
 
     certificates.addBusinessCertificate();
 
@@ -1032,6 +1010,142 @@ $(document).ready(function () {
             $('#seasonal').hide();
     });
 
+    // MAIN - CHARACTERIZATION OF PLACE
+    // Venue Structure
+    $('#drpVenueStructure').change(function () {
+        var val = $(this).val();
+
+        if (val == "Select") {
+            $('#VenueStructure').prop("disabled", true);
+            $('#VenueStructure').val("");
+        }
+        else {
+            $('#VenueStructure').prop("disabled", false);
+        }
+    });
+
+    $('#frmAddVenueStructure').submit(function (event) {
+        event.preventDefault();
+
+        var fileExtension = $('#VenueStructure').val().split('.').pop().toLowerCase();
+        var optionValue = $('#drpVenueStructure option:selected').text();
+
+        if (fileExtension != 'jpg' || optionValue == "Select") {
+            alert("Please a select an option or upload JPG image");
+        }
+        else {
+            venue.uploadVenueStructureImage();
+            venue.saveVenueStructureInfo();
+        }
+    });
+    // End
+
+    // A View
+    $('#drpAViewOption').change(function () {
+        var val = $(this).val();
+
+        if (val == "Select") {
+            $('#AView').prop("disabled", true);
+            $('#AView').val("");
+        }
+        else {
+            $('#AView').prop("disabled", false);
+        }
+    });
+
+    $('#frmAddAView').submit(function (event) {
+        event.preventDefault();
+
+        var fileExtension = $('#AView').val().split('.').pop().toLowerCase();
+        var optionValue = $('#drpAViewOption option:selected').text();
+
+        if (fileExtension != 'jpg' || optionValue == "Select") {
+            alert("Please a select an option or upload JPG image");
+        }
+        else {
+            venue.uploadAViewImage();
+            venue.saveAViewInfo();
+        }
+    });
+    // End
+
+    // Max # of Rooms/Areas/Enclosures
+    $('#frmAddRoomsAreasEnclosure').submit(function (event) {
+        event.preventDefault();
+
+        var optionValue = $('#drpMaxRoomsAreasOption').val();
+
+        if (optionValue == "Select")
+            alert("Must select value.");
+        else
+            venue.saveMaxRoomsAreasEnclosures();
+    });
+    // End
+
+    // Privacy
+    $('#drpPrivacyOption').change(function () {
+        var val = $(this).val();
+
+        if (val == "Select" || val == "N/A") {
+            $('#Privacy').prop("disabled", true);
+            $('#Privacy').val("");
+        }
+        else {
+            $('#Privacy').prop("disabled", false);
+        }
+    });
+
+    $('#frmAddPrivacy').submit(function (event) {
+        event.preventDefault();
+
+        var fileExtension = $('#Privacy').val().split('.').pop().toLowerCase();
+        var optionValue = $('#drpPrivacyOption option:selected').text();
+        var image = $('#Privacy').val();
+
+        if (fileExtension != 'jpg' || optionValue == "Select" || image == '') {
+            alert("Please a select an option or upload JPG image");
+        }
+        else {
+            venue.uploadPrivacyImage();
+            venue.savePrivacyInfo();
+        }
+    });
+    // End
+
+    // Pillars
+    $('#drpPillarsOption').change(function () {
+        var val = $(this).val();
+
+        if (val == "Select" || val == "No" || val == "N/A") {
+            $('#Pillars').prop("disabled", true);
+            $('#Pillars').val("");
+        }
+        else {
+            $('#Pillars').prop("disabled", false);
+        }
+    });
+
+    $('#frmAddPillars').submit(function (event) {
+        event.preventDefault();
+
+        var fileExtension = $('#Pillars').val().split('.').pop().toLowerCase();
+        var optionValue = $('#drpPillarsOption option:selected').text();
+        var image = $('#Pillars').val();
+
+        if (fileExtension != 'jpg' || optionValue == "Select" || image == '') {
+            alert("Please a select an option or upload JPG image");
+        }
+        else {
+            venue.uploadPillarsImage();
+            venue.savePillarsInfo();
+        }
+    });
+    // End
+    // END
+
+
+
+    // ADMINISTRATIVE - CERTIFICATES
     $('#frmAddTermsCert').submit(function (event) {
         event.preventDefault();
         
@@ -1127,4 +1241,5 @@ $(document).ready(function () {
 
         certificates.addThirdPartyInsuranceCertificate();
     });
+    // END
 });

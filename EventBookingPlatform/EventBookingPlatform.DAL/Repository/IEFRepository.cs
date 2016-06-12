@@ -5,6 +5,8 @@ using System;
 using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 
 namespace EventBookingPlatform.DAL.Repository
 {
@@ -23,13 +25,12 @@ namespace EventBookingPlatform.DAL.Repository
         IEnumerable<BusinessEvent> GetBusinessEvents();
         void AddVenueDescription(VenueDescription obj);
         void AddVenueEvents(VenueEvent obj);
-        void SaveTypeOfContructionImage(int venueid, string imagepath);
-        void SaveOpenAreasImage(int venueid, string imagepath);
-        void SaveAViewImage(int venueid, string imagepath);
-        void SaveRoomsAreasEnclosureImage(int venueid, string imagepath);
-        void SaveParkingImage(int venueid, string imagepath);
-        void SavePrivacyImage(int venueid, string imagepath);
-        void SavePagesInImage(int venueid, string imagepath);
+
+        #region Upload images for Characterization of place sub module
+        void SaveCharacterizationPlace(VenueCharacterization obj);
+        #endregion
+
+        #region Upload images for Certificates
         void SaveBusinessCertificate(int venueid, string certificatepath);
         void SaveTermsAndConditionsCertificate(int venueid, string certificatepath);
         void SaveBusinessLicense(int venueid, string certificatepath);
@@ -37,6 +38,7 @@ namespace EventBookingPlatform.DAL.Repository
         void SaveFireDeptCertificate(int venueid, string certificatepath);
         void SaveSanitationCertificate(int venueid, string certificatepath);
         void SaveThirdPartyInsurance(int venueid, string certificatepath);
+        #endregion
     }
 
     public class Repository : IEFRepository
@@ -159,124 +161,139 @@ namespace EventBookingPlatform.DAL.Repository
             _entity.VenueEvents.Add(obj);
         }
 
-        public void SaveTypeOfContructionImage(int venueid, string imagepath)
+        public void SaveCharacterizationPlace(VenueCharacterization obj)
         {
-            VenueCharacterization typeOfConstruction = new VenueCharacterization
+            VenueCharacterization characterization = new VenueCharacterization
             {
-                Fk_VenueId = venueid,
-                TypeOfConstruction = imagepath,
-                OpenAreas = "",
-                AView = "",
-                MaxNoRoomsAreas = "",
-                Parking = "",
-                Privacy = "",
-                PagesIn = ""
+                Fk_VenueId = obj.Fk_VenueId,
+                OptionName = obj.OptionName,
+                OptionValue = obj.OptionValue,
+                OptionImageLocation = obj.OptionImageLocation,
+                OptionSize = obj.OptionSize,
+                OpenAreasImage = obj.OpenAreasImage
             };
 
-            _entity.VenueCharacterizations.Add(typeOfConstruction);
+            _entity.VenueCharacterizations.Add(characterization);
         }
 
-        public void SaveOpenAreasImage(int venueid, string imagepath)
-        {
-            VenueCharacterization openAreas = new VenueCharacterization
-            {
-                Fk_VenueId = venueid,
-                TypeOfConstruction = "",
-                OpenAreas = imagepath,
-                AView = "",
-                MaxNoRoomsAreas = "",
-                Parking = "",
-                Privacy = "",
-                PagesIn = ""
-            };
+        //public void SaveTypeOfContructionImage(int venueid, string imagepath)
+        //{
+        //    VenueCharacterization typeOfConstruction = new VenueCharacterization
+        //    {
+        //        Fk_VenueId = venueid,
+        //        TypeOfConstruction = imagepath,
+        //        OpenAreas = "",
+        //        AView = "",
+        //        MaxNoRoomsAreas = "",
+        //        Parking = "",
+        //        Privacy = "",
+        //        PagesIn = ""
+        //    };
 
-            _entity.VenueCharacterizations.Add(openAreas);
-        }
+        //    _entity.VenueCharacterizations.Add(typeOfConstruction);
+        //}
 
-        public void SaveAViewImage(int venueid, string imagepath)
-        {
-            VenueCharacterization aView = new VenueCharacterization
-            {
-                Fk_VenueId = venueid,
-                TypeOfConstruction = "",
-                OpenAreas = "",
-                AView = imagepath,
-                MaxNoRoomsAreas = "",
-                Parking = "",
-                Privacy = "",
-                PagesIn = ""
-            };
+        //public void SaveOpenAreasImage(int venueid, string imagepath)
+        //{
+        //    VenueCharacterization openAreas = new VenueCharacterization
+        //    {
+        //        Fk_VenueId = venueid,
+        //        TypeOfConstruction = "",
+        //        OpenAreas = imagepath,
+        //        AView = "",
+        //        MaxNoRoomsAreas = "",
+        //        Parking = "",
+        //        Privacy = "",
+        //        PagesIn = ""
+        //    };
 
-            _entity.VenueCharacterizations.Add(aView);
-        }
+        //    _entity.VenueCharacterizations.Add(openAreas);
+        //}
 
-        public void SaveRoomsAreasEnclosureImage(int venueid, string imagepath)
-        {
-            VenueCharacterization roomsAreasEnclosure = new VenueCharacterization
-            {
-                Fk_VenueId = venueid,
-                TypeOfConstruction = "",
-                OpenAreas = "",
-                AView = "",
-                MaxNoRoomsAreas = imagepath,
-                Parking = "",
-                Privacy = "",
-                PagesIn = ""
-            };
+        //public void SaveAViewImage(int venueid, string imagepath)
+        //{
+        //    VenueCharacterization aView = new VenueCharacterization
+        //    {
+        //        Fk_VenueId = venueid,
+        //        TypeOfConstruction = "",
+        //        OpenAreas = "",
+        //        AView = imagepath,
+        //        MaxNoRoomsAreas = "",
+        //        Parking = "",
+        //        Privacy = "",
+        //        PagesIn = ""
+        //    };
 
-            _entity.VenueCharacterizations.Add(roomsAreasEnclosure);
-        }
+        //    _entity.VenueCharacterizations.Add(aView);
+        //}
 
-        public void SaveParkingImage(int venueid, string imagepath)
-        {
-            VenueCharacterization parking = new VenueCharacterization
-            {
-                Fk_VenueId = venueid,
-                TypeOfConstruction = "",
-                OpenAreas = "",
-                AView = "",
-                MaxNoRoomsAreas = "",
-                Parking = imagepath,
-                Privacy = "",
-                PagesIn = ""
-            };
+        //public void SaveRoomsAreasEnclosureImage(int venueid, string imagepath)
+        //{
+        //    VenueCharacterization roomsAreasEnclosure = new VenueCharacterization
+        //    {
+        //        Fk_VenueId = venueid,
+        //        TypeOfConstruction = "",
+        //        OpenAreas = "",
+        //        AView = "",
+        //        MaxNoRoomsAreas = imagepath,
+        //        Parking = "",
+        //        Privacy = "",
+        //        PagesIn = ""
+        //    };
 
-            _entity.VenueCharacterizations.Add(parking);
-        }
+        //    _entity.VenueCharacterizations.Add(roomsAreasEnclosure);
+        //}
 
-        public void SavePrivacyImage(int venueid, string imagepath)
-        {
-            VenueCharacterization privacy = new VenueCharacterization
-            {
-                Fk_VenueId = venueid,
-                TypeOfConstruction = "",
-                OpenAreas = "",
-                AView = "",
-                MaxNoRoomsAreas = "",
-                Parking = "",
-                Privacy = imagepath,
-                PagesIn = ""
-            };
+        //public void SaveParkingImage(int venueid, string imagepath)
+        //{
+        //    VenueCharacterization parking = new VenueCharacterization
+        //    {
+        //        Fk_VenueId = venueid,
+        //        TypeOfConstruction = "",
+        //        OpenAreas = "",
+        //        AView = "",
+        //        MaxNoRoomsAreas = "",
+        //        Parking = imagepath,
+        //        Privacy = "",
+        //        PagesIn = ""
+        //    };
 
-            _entity.VenueCharacterizations.Add(privacy);
-        }
+        //    _entity.VenueCharacterizations.Add(parking);
+        //}
 
-        public void SavePagesInImage(int venueid, string imagepath)
-        {
-            VenueCharacterization pagesIn = new VenueCharacterization
-            {
-                Fk_VenueId = venueid,
-                TypeOfConstruction = "",
-                OpenAreas = "",
-                AView = "",
-                MaxNoRoomsAreas = "",
-                Parking = "",
-                Privacy = "",
-                PagesIn = imagepath
-            };
+        //public void SavePrivacyImage(int venueid, string imagepath)
+        //{
+        //    VenueCharacterization privacy = new VenueCharacterization
+        //    {
+        //        Fk_VenueId = venueid,
+        //        TypeOfConstruction = "",
+        //        OpenAreas = "",
+        //        AView = "",
+        //        MaxNoRoomsAreas = "",
+        //        Parking = "",
+        //        Privacy = imagepath,
+        //        PagesIn = ""
+        //    };
 
-            _entity.VenueCharacterizations.Add(pagesIn);
-        }
+        //    _entity.VenueCharacterizations.Add(privacy);
+        //}
+
+        //public void SavePagesInImage(int venueid, string imagepath)
+        //{
+        //    VenueCharacterization pagesIn = new VenueCharacterization
+        //    {
+        //        Fk_VenueId = venueid,
+        //        TypeOfConstruction = "",
+        //        OpenAreas = "",
+        //        AView = "",
+        //        MaxNoRoomsAreas = "",
+        //        Parking = "",
+        //        Privacy = "",
+        //        PagesIn = imagepath
+        //    };
+
+        //    _entity.VenueCharacterizations.Add(pagesIn);
+        //}
 
         public void SaveBusinessCertificate(int venueid, string certificatepath)
         {

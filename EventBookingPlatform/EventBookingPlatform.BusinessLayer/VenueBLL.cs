@@ -77,46 +77,20 @@ namespace EventBookingPlatform.BusinessLayer
             }
         }
 
-        #region Upload images for Characterization of place sub module
-        public void UploadTypeConstructionImage(int venueid, string imagepath)
+        #region Save info for Characterization of place sub module
+        public void SaveCharacterizationPlaceInfo(VenueCharacterization param)
         {
-            _repo.SaveTypeOfContructionImage(venueid, imagepath);
-            _repo.Save();
-        }
+            VenueCharacterization obj = new VenueCharacterization
+            {
+                Fk_VenueId = param.Fk_VenueId,
+                OptionName = param.OptionName,
+                OptionValue = param.OptionValue,
+                OptionImageLocation = param.OptionImageLocation,
+                OptionSize = param.OptionSize,
+                OpenAreasImage = param.OpenAreasImage
+            };
 
-        public void UploadOpenAreasImage(int venueid, string imagepath)
-        {
-            _repo.SaveOpenAreasImage(venueid, imagepath);
-            _repo.Save();
-        }
-
-        public void UploadAViewImage(int venueid, string imagepath)
-        {
-            _repo.SaveAViewImage(venueid, imagepath);
-            _repo.Save();
-        }
-
-        public void UploadRoomsAreasEnclosureImage(int venueid, string imagepath)
-        {
-            _repo.SaveRoomsAreasEnclosureImage(venueid, imagepath);
-            _repo.Save();
-        }
-
-        public void UploadParkingImage(int venueid, string imagepath)
-        {
-            _repo.SaveParkingImage(venueid, imagepath);
-            _repo.Save();
-        }
-
-        public void UploadPrivacyImage(int venueid, string imagepath)
-        {
-            _repo.SavePrivacyImage(venueid, imagepath);
-            _repo.Save();
-        }
-
-        public void UploadPagesInImage(int venueid, string imagepath)
-        {
-            _repo.SavePagesInImage(venueid, imagepath);
+            _repo.SaveCharacterizationPlace(obj);
             _repo.Save();
         }
         #endregion
