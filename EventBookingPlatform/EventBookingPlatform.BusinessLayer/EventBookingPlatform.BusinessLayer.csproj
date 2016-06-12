@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CountryBLL.cs" />
+    <Compile Include="EventBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VenueBLL.cs" />
   </ItemGroup>

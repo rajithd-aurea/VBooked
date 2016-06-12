@@ -25,3 +25,12 @@ D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\bi
 D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\obj\Debug\EventBookingPlatform.BusinessLayer.csprojResolveAssemblyReference.cache
 D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\obj\Debug\EventBookingPlatform.BusinessLayer.dll
 D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\obj\Debug\EventBookingPlatform.BusinessLayer.pdb
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\obj\Debug\EventBookingPlatform.BusinessLayer.csprojResolveAssemblyReference.cache
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\bin\Debug\EventBookingPlatform.BusinessLayer.dll
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\bin\Debug\EventBookingPlatform.BusinessLayer.pdb
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\bin\Debug\EventBookingPlatform.DAL.dll
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\bin\Debug\EntityFramework.dll
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\bin\Debug\EventBookingPlatform.DAL.pdb
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\bin\Debug\EntityFramework.xml
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\obj\Debug\EventBookingPlatform.BusinessLayer.dll
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\obj\Debug\EventBookingPlatform.BusinessLayer.pdb
