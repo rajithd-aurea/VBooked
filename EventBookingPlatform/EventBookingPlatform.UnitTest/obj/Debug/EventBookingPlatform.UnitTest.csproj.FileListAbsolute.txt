@@ -37,3 +37,17 @@ D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Deb
 D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\obj\Debug\EventBookingPlatform.UnitTest.csprojResolveAssemblyReference.cache
 D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\obj\Debug\EventBookingPlatform.UnitTest.dll
 D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\obj\Debug\EventBookingPlatform.UnitTest.pdb
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\obj\Debug\EventBookingPlatform.UnitTest.csprojResolveAssemblyReference.cache
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EventBookingPlatform.UnitTest.dll.config
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EventBookingPlatform.UnitTest.dll
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EventBookingPlatform.UnitTest.pdb
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EntityFramework.dll
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EntityFramework.SqlServer.dll
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EventBookingPlatform.DAL.dll
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EventBookingPlatform.Helpers.dll
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EntityFramework.xml
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EntityFramework.SqlServer.xml
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EventBookingPlatform.DAL.pdb
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\bin\Debug\EventBookingPlatform.Helpers.pdb
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\obj\Debug\EventBookingPlatform.UnitTest.dll
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.UnitTest\obj\Debug\EventBookingPlatform.UnitTest.pdb
