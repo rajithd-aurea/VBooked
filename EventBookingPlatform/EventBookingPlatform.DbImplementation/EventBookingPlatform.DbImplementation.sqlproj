@@ -68,5 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="CustomTables\PrivateEvents.sql" />
+    <Build Include="CustomTables\VenueType.sql" />
+    <Build Include="CustomTables\BusinessEvents.sql" />
   </ItemGroup>
 </Project>
