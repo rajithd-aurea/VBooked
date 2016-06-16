@@ -70,11 +70,6 @@ namespace EventBookingPlatform.Models
         public string Fullname { get; set; }
 
         [Required]
-        [Display(Name = "Venue Name")]
-        [StringLength(50, ErrorMessage = "Please provide venue name.")]
-        public string VenueName { get; set; }
-
-        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }

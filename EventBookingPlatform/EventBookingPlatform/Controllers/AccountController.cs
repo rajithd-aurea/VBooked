@@ -18,7 +18,6 @@ namespace EventBookingPlatform.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private VenueBLL _venueBLL;
 
         public AccountController()
         {
@@ -202,20 +201,19 @@ namespace EventBookingPlatform.Controllers
                 {
                     AddRoleToUser(user.Id, usertype);
 
-                    _venueBLL = new VenueBLL();
-                    _venueBLL.AddVenueName(user.Id, venuename, false);
-
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code, email = user.Email }, protocol: Request.Url.Scheme);
                     //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     EmailHelper emailHelper = new EmailHelper
                     {
+                        EmailFor = "Registration",
+                        RegistrantName = model.Fullname,
                         Host = "mail.vbooked.com",
                         Sender = "support@vbooked.com",
-                        Recipient = user.Email,
+                        Recipient = model.Email,
                         Subject = "VBooked Registration Confirmation",
                         NetworkUser = "support@vbooked.com",
                         NetworkPass = "supportmail123!",
@@ -238,13 +236,16 @@ namespace EventBookingPlatform.Controllers
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
-        public async Task<ActionResult> ConfirmEmail(string userId, string code)
+        public async Task<ActionResult> ConfirmEmail(string userId, string code, string email)
         {
             if (userId == null || code == null)
             {
                 return View("Error");
             }
             var result = await UserManager.ConfirmEmailAsync(userId, code);
+
+            ViewBag.Email = email;
+
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 

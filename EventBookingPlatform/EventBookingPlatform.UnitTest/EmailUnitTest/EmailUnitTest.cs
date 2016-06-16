@@ -18,6 +18,8 @@ namespace EventBookingPlatform.UnitTest.EmailUnitTest
                 bool isEmailSent = false;
                 EmailHelper emailHelper = new EmailHelper
                 {
+                    EmailFor = "Registration",
+                    RegistrantName = "Lorenz Bahinting",
                     Host = "mail.vbooked.com",
                     Sender = "support@vbooked.com",
                     Recipient = "developer.lorenz@gmail.com",

@@ -17,13 +17,17 @@ namespace EventBookingPlatform.Helpers
         public string UserEmail { get; set; }
         public string UserPassword { get; set; }
         public string ConfirmationUrl { get; set; }
+        public string EmailFor { get; set; }
+        public string RegistrantName { get; set; }
 
         public EmailHelper()
         {
         }
 
-        public EmailHelper(string host, string sender, string recipient, string subject, string networkuser, string networkpass, string useremail, string userpassword, string confirmationurl)
+        public EmailHelper(string emailfor, string registrantname, string host, string sender, string recipient, string subject, string networkuser, string networkpass, string useremail, string userpassword, string confirmationurl)
         {
+            EmailFor = emailfor;
+            RegistrantName = registrantname;
             Host = host;
             NetworkUser = networkuser;
             NetworkPass = networkpass;
@@ -41,7 +45,10 @@ namespace EventBookingPlatform.Helpers
                 MailMessage message = new MailMessage(Sender, Recipient);
                 message.BodyEncoding = Encoding.Default;
                 message.Subject = Subject;
-                message.Body = EmailContent();
+
+                if (EmailFor == "Registration")
+                    message.Body = RegistrationEmailContent();
+
                 message.Priority = MailPriority.High;
                 message.IsBodyHtml = true;
 
@@ -58,11 +65,13 @@ namespace EventBookingPlatform.Helpers
             }
         }
 
-        private string EmailContent()
+        private string RegistrationEmailContent()
         {
             StringBuilder content = new StringBuilder();
-            content.Append("Dear " + Recipient + "<br />");
-            content.Append("Thank you for registering at http://wwww.vbooked.com! Below is your login details. Before you can login, please confirm your email by clicking at " + "<a href=" + ConfirmationUrl + ">Confirm Registration" + "</a>" + "<br />");
+            content.Append("Dear " + RegistrantName + "<br /><br />");
+            content.Append("Congratulations!<br /><br />");
+            content.Append("Your registration was successful. Thank you for registering at http://wwww.vbooked.com!<br /><br />");
+            content.Append("Below is your login details. Before you can login, please confirm your email by clicking at " + "<a href=" + ConfirmationUrl + ">Confirm Registration" + "</a>" + "<br />");
             content.Append("<br />");
             content.Append("Login Credentials" + "<br />");
             content.Append("Email: " + UserEmail + "<br />");
