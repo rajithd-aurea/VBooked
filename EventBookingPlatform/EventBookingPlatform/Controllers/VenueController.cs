@@ -7,6 +7,7 @@ using System.Web;
 using System.IO;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace EventBookingPlatform.Controllers
 {
@@ -25,17 +26,26 @@ namespace EventBookingPlatform.Controllers
         }
 
         [HttpGet]
-        public ActionResult ForApproval()
+        public ActionResult Dashboard(string hostid)
         {
-            ViewBag.VenueList = _venueBLL.GetUnapprovedVenueList();
+            ViewData["VenueList"] = _venueBLL.GetApprovedVenuesPerHost(Session["UserId"].ToString());
 
             return View();
         }
 
-        [HttpGet]
-        public ActionResult Dashboard(string hostid)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult AddVenueName(string hostid, string venuename, bool approval)
         {
-            ViewData["VenueList"] = _venueBLL.GetApprovedVenuesPerHost(Session["UserId"].ToString());
+            _venueBLL.AddVenueName(hostid, venuename, approval);
+
+            return Json(new { status = 1 });
+        }
+
+        [HttpGet]
+        public ActionResult ForApproval()
+        {
+            ViewBag.VenueList = _venueBLL.GetUnapprovedVenueList();
 
             return View();
         }

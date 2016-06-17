@@ -13,10 +13,7 @@ namespace EventBookingPlatform.DAL.Repository
     public interface IEFRepository
     {
         IEnumerable<VenueInfo> GetUnapprovedVenues();
-        void AddVenueName(string hostid, string venuename, bool approval);
         void Save();
-        List<VenueInfo> GetApprovedVenues(string hostid);
-        bool ApproveVenue(int venueid);
         IEnumerable<VenueType> GetVenueTypes();
         void AddPlace(VenueInfo obj);
         IEnumerable<Country> GetCountries();
@@ -25,6 +22,12 @@ namespace EventBookingPlatform.DAL.Repository
         IEnumerable<BusinessEvent> GetBusinessEvents();
         void AddVenueDescription(VenueDescription obj);
         void AddVenueEvents(VenueEvent obj);
+
+        #region Venue methods
+        void AddVenueName(string hostid, string venuename, bool approval);
+        List<VenueInfo> GetApprovedVenues(string hostid);
+        bool ApproveVenue(int venueid);
+        #endregion
 
         #region Upload images for Characterization of place sub module
         void SaveCharacterizationPlace(VenueCharacterization obj);
@@ -295,6 +298,7 @@ namespace EventBookingPlatform.DAL.Repository
         //    _entity.VenueCharacterizations.Add(pagesIn);
         //}
 
+        #region Methods to upload Certificates
         public void SaveBusinessCertificate(int venueid, string certificatepath)
         {
             VenueCertificate businessCertificate = new VenueCertificate
@@ -413,5 +417,6 @@ namespace EventBookingPlatform.DAL.Repository
 
             _entity.VenueCertificates.Add(termsAndConditionCertificate);
         }
+        #endregion
     }
 }

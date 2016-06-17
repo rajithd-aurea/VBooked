@@ -1,4 +1,29 @@
 ﻿var venue = {
+    addVenueName: function (forgerytoken, hostid, venuename, approval) {
+        $.ajax({
+            type: "POST",
+            url: "/Venue/AddVenueName",
+            data: {
+                __RequestVerificationToken: forgerytoken,
+                hostid: hostid,
+                venuename: venuename,
+                approval: approval
+            },
+            success: function (result) {
+                if (result.status == 1) {
+                    $('#alert-addvenue-success').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text(result.message);
+                    });
+
+                    $('#venuename').val("");
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    },
     getVenues: function () {
         $.ajax({
             type: "GET",
@@ -615,6 +640,7 @@ var alerts = {
         $('#alert-placedesc-success').hide();
         $('#alert-place-characterization').hide();
         $('#alert-certificates').hide();
+        $('#alert-addvenue-success').hide();
     }
 };
 
@@ -1000,6 +1026,29 @@ $(document).ready(function () {
     //venue.addOpenAreasImage();
 
     certificates.addBusinessCertificate();
+
+    // Add Venue Name
+    $('#frmAddVenue').validate({
+        rules: {
+            venuename: {
+                required: true
+            }
+        },
+        messages: {
+            venuename: {
+                required: "This field is required."
+            }
+        },
+        submitHandler: function (form) {
+            var antiforgerytoken = $('input[name=__RequestVerificationToken]').val();
+            var hostid = $('#hostid').val();
+            var venuename = $('#venuename').val();
+            var approval = false;
+
+            venue.addVenueName(antiforgerytoken, hostid, venuename, approval);
+        }
+    });
+    // End
 
     $('#seasonactivity').change(function () {
         var val = $(this).val();
