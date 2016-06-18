@@ -641,6 +641,7 @@ var alerts = {
         $('#alert-place-characterization').hide();
         $('#alert-certificates').hide();
         $('#alert-addvenue-success').hide();
+        $('#alert-pending-venue-approval').hide();
     }
 };
 
@@ -1046,6 +1047,27 @@ $(document).ready(function () {
             var approval = false;
 
             venue.addVenueName(antiforgerytoken, hostid, venuename, approval);
+        }
+    });
+    // End
+
+    // Display pending venues notificaion
+    $.ajax({
+        type: "GET",
+        url: "/Venue/GetUnapprovedVenuesCountPerHost",
+        data: { hostid: $('#hostid').val() },
+        success: function (result) {
+            if (result.count > 0) {
+                $('#alert-pending-venue-approval').show(function () {
+                    $(this).slideDown();
+                });
+            }
+            else {
+                $('#alert-place-characterization').hide();
+            }
+        },
+        error: function (error) {
+            console.log(error);
         }
     });
     // End

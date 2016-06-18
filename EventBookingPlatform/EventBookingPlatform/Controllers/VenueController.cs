@@ -59,6 +59,12 @@ namespace EventBookingPlatform.Controllers
         }
         
         [HttpGet]
+        public JsonResult GetUnapprovedVenuesCountPerHost(string hostid)
+        {
+            return Json(new { count = _venueBLL.GetUnapprovedVenuesCountPerHost(hostid) }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
         public ActionResult Info(string hostid, int venueid, string venuename)
         {
             Session["VenueId"] = venueid;

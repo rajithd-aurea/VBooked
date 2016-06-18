@@ -27,6 +27,7 @@ namespace EventBookingPlatform.DAL.Repository
         void AddVenueName(string hostid, string venuename, bool approval);
         List<VenueInfo> GetApprovedVenues(string hostid);
         bool ApproveVenue(int venueid);
+        int GetUnapprovedVenuesCountPerHost(string hostid);
         #endregion
 
         #region Upload images for Characterization of place sub module
@@ -58,6 +59,7 @@ namespace EventBookingPlatform.DAL.Repository
             _entity.SaveChanges();
         }
 
+        #region Venue Methods
         public void AddVenueName(string hostid, string venuename, bool approval)
         {
             VenueInfo venueInfo = new VenueInfo
@@ -82,11 +84,6 @@ namespace EventBookingPlatform.DAL.Repository
             _entity.VenueInfoes.Add(venueInfo);
         }
 
-        public IEnumerable<VenueInfo> GetUnapprovedVenues()
-        {
-            return _entity.VenueInfoes.Where(status => status.Approved == false).ToList();
-        }
-
         public List<VenueInfo> GetApprovedVenues(string hostid)
         {
             _entity.Configuration.ProxyCreationEnabled = false;
@@ -107,6 +104,17 @@ namespace EventBookingPlatform.DAL.Repository
             Save();
 
             return true;
+        }
+
+        public int GetUnapprovedVenuesCountPerHost(string hostid)
+        {
+            return _entity.VenueInfoes.Where(venue => venue.Approved == false && venue.Id == hostid).Count();
+        }
+        #endregion
+
+        public IEnumerable<VenueInfo> GetUnapprovedVenues()
+        {
+            return _entity.VenueInfoes.Where(status => status.Approved == false).ToList();
         }
 
         public IEnumerable<VenueType> GetVenueTypes()
