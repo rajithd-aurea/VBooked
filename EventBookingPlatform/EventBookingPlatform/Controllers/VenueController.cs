@@ -1,5 +1,6 @@
 ﻿using EventBookingPlatform.BusinessLayer;
 using EventBookingPlatform.DAL.Entities;
+using EventBookingPlatform.Helpers;
 
 using System.Web.Mvc;
 using System.Collections.Generic;
@@ -51,9 +52,27 @@ namespace EventBookingPlatform.Controllers
         }
 
         [HttpGet]
-        public ActionResult Approve(int venueid)
+        public async Task<ActionResult> Approve(int venueid, string email, string venuename)
         {
             _venueBLL.ApproveVenue(venueid);
+
+            EmailHelper emailHelper = new EmailHelper
+            {
+                EmailFor = "Venue Approval",
+                RegistrantName = email,
+                VenueName = venuename,
+                Host = "mail.vbooked.com",
+                Sender = "support@vbooked.com",
+                Recipient = email,
+                Subject = "VBooked Venue Approval",
+                NetworkUser = "support@vbooked.com",
+                NetworkPass = "supportmail123!",
+                UserEmail = "",
+                UserPassword = "",
+                ConfirmationUrl = ""
+            };
+
+            await emailHelper.SendEmailAsync();
 
             return View();
         }

@@ -25,13 +25,15 @@
                         <th>Option</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="unapprovedVenueList">
                     @{
-                        foreach (var venue in ViewBag.VenueList)
+                        var venuelist = ViewBag.VenueList;
+
+                        foreach (var venue in venuelist)
                         {
                             <tr>
-                                <td>@venue.Name</td>
-                                <td>@Html.ActionLink("Approve", "Approve", "Venue", new { venueid = venue.Pk_VenueId }, null)</td>
+                                <td><p>@venue.VenueInfo.Name</p></td>
+                                <td>@Html.ActionLink("Approve", "Approve", "Venue", new { venueid = venue.VenueInfo.Pk_VenueId, email = venue.User.Email, venuename = venue.VenueInfo.Name }, null)</td>
                             </tr>
                         }
                     }

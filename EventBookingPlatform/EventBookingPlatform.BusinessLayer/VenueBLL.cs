@@ -1,5 +1,6 @@
 ﻿using EventBookingPlatform.DAL.Entities;
 using EventBookingPlatform.DAL.Repository;
+using EventBookingPlatform.DAL.Models;
 
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace EventBookingPlatform.BusinessLayer
             _repo.Save();
         }
 
-        public IEnumerable<VenueInfo> GetUnapprovedVenueList()
+        public IEnumerable<UnapproveVenueModel> GetUnapprovedVenueList()
         {
             return _repo.GetUnapprovedVenues();
         }

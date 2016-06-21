@@ -1,4 +1,5 @@
 ﻿using EventBookingPlatform.DAL.Entities;
+using EventBookingPlatform.DAL.Models;
 
 using System.Threading.Tasks;
 using System;
@@ -12,7 +13,6 @@ namespace EventBookingPlatform.DAL.Repository
 {
     public interface IEFRepository
     {
-        IEnumerable<VenueInfo> GetUnapprovedVenues();
         void Save();
         IEnumerable<VenueType> GetVenueTypes();
         void AddPlace(VenueInfo obj);
@@ -25,6 +25,7 @@ namespace EventBookingPlatform.DAL.Repository
 
         #region Venue methods
         void AddVenueName(string hostid, string venuename, bool approval);
+        IEnumerable<UnapproveVenueModel> GetUnapprovedVenues();
         List<VenueInfo> GetApprovedVenues(string hostid);
         bool ApproveVenue(int venueid);
         int GetUnapprovedVenuesCountPerHost(string hostid);
@@ -106,16 +107,25 @@ namespace EventBookingPlatform.DAL.Repository
             return true;
         }
 
+        public IEnumerable<UnapproveVenueModel> GetUnapprovedVenues()
+        {
+            var venueinfo = (from vinfo in _entity.VenueInfoes
+                             join aspnetuser in _entity.AspNetUsers on vinfo.Id equals aspnetuser.Id
+                             where vinfo.Approved == false
+                             select new UnapproveVenueModel
+                             {
+                                 User = aspnetuser,
+                                 VenueInfo = vinfo
+                             }).ToList();
+
+            return venueinfo;
+        }
+
         public int GetUnapprovedVenuesCountPerHost(string hostid)
         {
             return _entity.VenueInfoes.Where(venue => venue.Approved == false && venue.Id == hostid).Count();
         }
         #endregion
-
-        public IEnumerable<VenueInfo> GetUnapprovedVenues()
-        {
-            return _entity.VenueInfoes.Where(status => status.Approved == false).ToList();
-        }
 
         public IEnumerable<VenueType> GetVenueTypes()
         {

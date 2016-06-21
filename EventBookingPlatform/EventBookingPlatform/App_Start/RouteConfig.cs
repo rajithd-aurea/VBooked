@@ -39,8 +39,8 @@ namespace EventBookingPlatform
 
             routes.MapRoute(
                 name: "ApproveVenueRoute",
-                url: "Venue/Approve/{venueid}",
-                defaults: new { venueid = 0 }
+                url: "Venue/Approve/{venueid}/{email}/{venuename}",
+                defaults: new { venueid = 0, email = string.Empty, venuename = string.Empty }
             );
 
             routes.MapRoute(
