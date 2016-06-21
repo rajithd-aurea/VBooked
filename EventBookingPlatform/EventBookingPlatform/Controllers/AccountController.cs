@@ -211,6 +211,7 @@ namespace EventBookingPlatform.Controllers
                     {
                         EmailFor = "Registration",
                         RegistrantName = model.Fullname,
+                        VenueName = "",
                         Host = "mail.vbooked.com",
                         Sender = "support@vbooked.com",
                         Recipient = model.Email,
@@ -222,7 +223,7 @@ namespace EventBookingPlatform.Controllers
                         ConfirmationUrl = callbackUrl
                     };
 
-                    await emailHelper.SendEmail();
+                    await emailHelper.SendEmailAsync();
 
                     return RedirectToAction("Confirm", "Account", new { status = false });
                 }
