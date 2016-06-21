@@ -20,6 +20,7 @@ namespace EventBookingPlatform.UnitTest.EmailUnitTest
                 {
                     EmailFor = "Registration",
                     RegistrantName = "Lorenz Bahinting",
+                    VenueName = "",
                     Host = "mail.vbooked.com",
                     Sender = "support@vbooked.com",
                     Recipient = "developer.lorenz@gmail.com",
@@ -32,7 +33,43 @@ namespace EventBookingPlatform.UnitTest.EmailUnitTest
                 };
 
                 // Act
-                await emailHelper.SendEmail();
+                await emailHelper.SendEmailAsync();
+
+                isEmailSent = true;
+
+                Assert.IsTrue(isEmailSent);
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.InnerException.ToString());
+            }
+        }
+
+        [TestMethod]
+        public async Task Email_SendVenueApprovalEmail_Test()
+        {
+            try
+            {
+                // Arrange
+                bool isEmailSent = false;
+                EmailHelper emailHelper = new EmailHelper
+                {
+                    EmailFor = "Venue Approval",
+                    RegistrantName = "Lorenz Bahinting",
+                    VenueName = "Test Venue",
+                    Host = "mail.vbooked.com",
+                    Sender = "support@vbooked.com",
+                    Recipient = "developer.lorenz@gmail.com",
+                    Subject = "VBooked Venue Approval",
+                    NetworkUser = "support@vbooked.com",
+                    NetworkPass = "supportmail123!",
+                    UserEmail = "",
+                    UserPassword = "",
+                    ConfirmationUrl = ""
+                };
+
+                // Act
+                await emailHelper.SendEmailAsync();
 
                 isEmailSent = true;
 
