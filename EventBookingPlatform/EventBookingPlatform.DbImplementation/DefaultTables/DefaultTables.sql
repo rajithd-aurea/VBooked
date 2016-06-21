@@ -149,12 +149,19 @@ CREATE TABLE [dbo].[VenueCertificate](
 	[Pk_CertificateId] [int] IDENTITY(1,1) NOT NULL,
 	[Fk_VenueId] [int] NOT NULL,
 	[BusinessCert] [varchar](MAX) NULL,
+	[BusinessCertStatus] [bit] NOT NULL,
 	[TermsConditionsCert] [varchar](MAX) NULL,
+	[TermsConditionsCertStatus] [bit] NOT NULL,
 	[BusinessLicCert] [varchar](MAX) NULL,
+	[BusinessLicCertStatus] [bit] NOT NULL,
 	[PoliceAuthCert] [varchar](MAX) NULL,
+	[PoliceAuthCertStatus] [bit] NOT NULL,
 	[FireDeptCert] [varchar](MAX) NULL,
+	[FireDeptCertStatus] [bit] NOT NULL,
 	[SanitationCert] [varchar](MAX) NULL,
+	[SanitationCertStatus] [bit] NOT NULL,
 	[ThirdPtInsuranceCert] [varchar](MAX) NULL,
+	[ThirdPtInsuranceCertStatus] [bit] NOT NULL,
  CONSTRAINT [PK_Certificate] PRIMARY KEY CLUSTERED 
 (
 	[Pk_CertificateId] ASC
@@ -746,6 +753,7 @@ CREATE TABLE [dbo].[VenueInfo](
 	[Pk_VenueId] [int] IDENTITY(1,1) NOT NULL,
 	[Approved] [bit] NOT NULL,
 	[Id] [nvarchar](128) NOT NULL,
+	[IsApproved] [bit] NOT NULL,
 	[Name] [varchar](100) NOT NULL,
 	[Type] [varchar](100) NOT NULL,
 	[FoundationYr] [varchar](4) NOT NULL,
