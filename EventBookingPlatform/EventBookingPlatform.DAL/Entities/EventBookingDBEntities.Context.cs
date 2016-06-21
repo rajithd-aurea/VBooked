@@ -65,10 +65,10 @@ namespace EventBookingPlatform.DAL.Entities
         public virtual DbSet<PrivateEvent> PrivateEvents { get; set; }
         public virtual DbSet<VenueEvent> VenueEvents { get; set; }
         public virtual DbSet<VenueType> VenueTypes { get; set; }
-        public virtual DbSet<VenueInfo> VenueInfoes { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<BusinessEvent> BusinessEvents { get; set; }
-        public virtual DbSet<VenueCertificate> VenueCertificates { get; set; }
         public virtual DbSet<VenueCharacterization> VenueCharacterizations { get; set; }
+        public virtual DbSet<VenueCertificate> VenueCertificates { get; set; }
+        public virtual DbSet<VenueInfo> VenueInfoes { get; set; }
     }
 }

@@ -280,12 +280,19 @@
           <Property Name="Pk_CertificateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Fk_VenueId" Type="int" Nullable="false" />
           <Property Name="BusinessCert" Type="varchar(max)" />
+          <Property Name="BusinessCertStatus" Type="bit" Nullable="false" />
           <Property Name="TermsConditionsCert" Type="varchar(max)" />
+          <Property Name="TermsConditionsCertStatus" Type="bit" Nullable="false" />
           <Property Name="BusinessLicCert" Type="varchar(max)" />
+          <Property Name="BusinessLicCertStatus" Type="bit" Nullable="false" />
           <Property Name="PoliceAuthCert" Type="varchar(max)" />
+          <Property Name="PoliceAuthCertStatus" Type="bit" Nullable="false" />
           <Property Name="FireDeptCert" Type="varchar(max)" />
+          <Property Name="FireDeptCertStatus" Type="bit" Nullable="false" />
           <Property Name="SanitationCert" Type="varchar(max)" />
+          <Property Name="SanitationCertStatus" Type="bit" Nullable="false" />
           <Property Name="ThirdPtInsuranceCert" Type="varchar(max)" />
+          <Property Name="ThirdPtInsuranceCertStatus" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="VenueCharacterization">
           <Key>
@@ -370,6 +377,7 @@
           <Property Name="Pk_VenueId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Approved" Type="bit" Nullable="false" />
           <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Type" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="FoundationYr" Type="varchar" MaxLength="4" Nullable="false" />
@@ -1459,6 +1467,10 @@
           <EntitySet Name="PrivateEvents" EntityType="DevEventBookingDBModel.PrivateEvent" />
           <EntitySet Name="VenueEvents" EntityType="DevEventBookingDBModel.VenueEvent" />
           <EntitySet Name="VenueTypes" EntityType="DevEventBookingDBModel.VenueType" />
+          <EntitySet Name="Countries" EntityType="DevEventBookingDBModel.Country" />
+          <EntitySet Name="BusinessEvents" EntityType="DevEventBookingDBModel.BusinessEvent" />
+          <EntitySet Name="VenueCharacterizations" EntityType="DevEventBookingDBModel.VenueCharacterization" />
+          <EntitySet Name="VenueCertificates" EntityType="DevEventBookingDBModel.VenueCertificate" />
           <EntitySet Name="VenueInfoes" EntityType="DevEventBookingDBModel.VenueInfo" />
           <AssociationSet Name="FK_AspNetUsers_VenueInfo" Association="DevEventBookingDBModel.FK_AspNetUsers_VenueInfo">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
@@ -1479,6 +1491,14 @@
           <AssociationSet Name="FK_VenueInfo_ParkingOptionComment" Association="DevEventBookingDBModel.FK_VenueInfo_ParkingOptionComment">
             <End Role="VenueInfo" EntitySet="VenueInfoes" />
             <End Role="ParkingOptionComment" EntitySet="ParkingOptionComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VenueInfo_VenueCertificate" Association="DevEventBookingDBModel.FK_VenueInfo_VenueCertificate">
+            <End Role="VenueInfo" EntitySet="VenueInfoes" />
+            <End Role="VenueCertificate" EntitySet="VenueCertificates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VenueInfo_VenueCharacterization" Association="DevEventBookingDBModel.FK_VenueInfo_VenueCharacterization">
+            <End Role="VenueInfo" EntitySet="VenueInfoes" />
+            <End Role="VenueCharacterization" EntitySet="VenueCharacterizations" />
           </AssociationSet>
           <AssociationSet Name="Fk_VenueInfo_VenueChildrenOption" Association="DevEventBookingDBModel.Fk_VenueInfo_VenueChildrenOption">
             <End Role="VenueInfo" EntitySet="VenueInfoes" />
@@ -1516,18 +1536,6 @@
             <End Role="VenueInfo" EntitySet="VenueInfoes" />
             <End Role="WaitingRoomOptionComment" EntitySet="WaitingRoomOptionComments" />
           </AssociationSet>
-          <EntitySet Name="Countries" EntityType="DevEventBookingDBModel.Country" />
-          <EntitySet Name="BusinessEvents" EntityType="DevEventBookingDBModel.BusinessEvent" />
-          <EntitySet Name="VenueCertificates" EntityType="DevEventBookingDBModel.VenueCertificate" />
-          <AssociationSet Name="FK_VenueInfo_VenueCertificate" Association="DevEventBookingDBModel.FK_VenueInfo_VenueCertificate">
-            <End Role="VenueInfo" EntitySet="VenueInfoes" />
-            <End Role="VenueCertificate" EntitySet="VenueCertificates" />
-          </AssociationSet>
-          <EntitySet Name="VenueCharacterizations" EntityType="DevEventBookingDBModel.VenueCharacterization" />
-          <AssociationSet Name="FK_VenueInfo_VenueCharacterization" Association="DevEventBookingDBModel.FK_VenueInfo_VenueCharacterization">
-            <End Role="VenueInfo" EntitySet="VenueInfoes" />
-            <End Role="VenueCharacterization" EntitySet="VenueCharacterizations" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="PrivateEvent">
           <Key>
@@ -1552,6 +1560,58 @@
           <Property Name="Pk_VenueTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="VenueType1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Pk_CountryId" />
+          </Key>
+          <Property Name="Pk_CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cc_fips" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="cc_iso" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="tld" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="country_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BusinessEvent">
+          <Key>
+            <PropertyRef Name="Pk_BusinessEventId" />
+          </Key>
+          <Property Name="Pk_BusinessEventId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Event" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VenueCharacterization">
+          <Key>
+            <PropertyRef Name="Pk_VenueCharId" />
+          </Key>
+          <Property Name="Pk_VenueCharId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fk_VenueId" Type="Int32" Nullable="false" />
+          <Property Name="OptionName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OptionValue" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OptionImageLocation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OptionSize" Type="Int32" Nullable="false" />
+          <Property Name="OpenAreasImage" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="VenueInfo" Relationship="DevEventBookingDBModel.FK_VenueInfo_VenueCharacterization" FromRole="VenueCharacterization" ToRole="VenueInfo" />
+        </EntityType>
+        <EntityType Name="VenueCertificate">
+          <Key>
+            <PropertyRef Name="Pk_CertificateId" />
+          </Key>
+          <Property Name="Pk_CertificateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fk_VenueId" Type="Int32" Nullable="false" />
+          <Property Name="BusinessCert" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BusinessCertStatus" Type="Boolean" Nullable="false" />
+          <Property Name="TermsConditionsCert" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TermsConditionsCertStatus" Type="Boolean" Nullable="false" />
+          <Property Name="BusinessLicCert" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BusinessLicCertStatus" Type="Boolean" Nullable="false" />
+          <Property Name="PoliceAuthCert" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PoliceAuthCertStatus" Type="Boolean" Nullable="false" />
+          <Property Name="FireDeptCert" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FireDeptCertStatus" Type="Boolean" Nullable="false" />
+          <Property Name="SanitationCert" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SanitationCertStatus" Type="Boolean" Nullable="false" />
+          <Property Name="ThirdPtInsuranceCert" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ThirdPtInsuranceCertStatus" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="VenueInfo" Relationship="DevEventBookingDBModel.FK_VenueInfo_VenueCertificate" FromRole="VenueCertificate" ToRole="VenueInfo" />
+        </EntityType>
         <EntityType Name="VenueInfo">
           <Key>
             <PropertyRef Name="Pk_VenueId" />
@@ -1559,6 +1619,7 @@
           <Property Name="Pk_VenueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Approved" Type="Boolean" Nullable="false" />
           <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Type" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="FoundationYr" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
@@ -1577,6 +1638,8 @@
           <NavigationProperty Name="DisabledOptionComments" Relationship="DevEventBookingDBModel.FK_VenueInfo_DisabledOptionComment" FromRole="VenueInfo" ToRole="DisabledOptionComment" />
           <NavigationProperty Name="Halls" Relationship="DevEventBookingDBModel.FK_VenueInfo_Hall" FromRole="VenueInfo" ToRole="Hall" />
           <NavigationProperty Name="ParkingOptionComments" Relationship="DevEventBookingDBModel.FK_VenueInfo_ParkingOptionComment" FromRole="VenueInfo" ToRole="ParkingOptionComment" />
+          <NavigationProperty Name="VenueCertificates" Relationship="DevEventBookingDBModel.FK_VenueInfo_VenueCertificate" FromRole="VenueInfo" ToRole="VenueCertificate" />
+          <NavigationProperty Name="VenueCharacterizations" Relationship="DevEventBookingDBModel.FK_VenueInfo_VenueCharacterization" FromRole="VenueInfo" ToRole="VenueCharacterization" />
           <NavigationProperty Name="VenueChildrenOptions" Relationship="DevEventBookingDBModel.Fk_VenueInfo_VenueChildrenOption" FromRole="VenueInfo" ToRole="VenueChildrenOption" />
           <NavigationProperty Name="VenueContacts" Relationship="DevEventBookingDBModel.FK_VenueInfo_VenueContact" FromRole="VenueInfo" ToRole="VenueContact" />
           <NavigationProperty Name="VenueDescriptions" Relationship="DevEventBookingDBModel.FK_VenueInfo_VenueDescription" FromRole="VenueInfo" ToRole="VenueDescription" />
@@ -1586,8 +1649,6 @@
           <NavigationProperty Name="VenueParkingOptions" Relationship="DevEventBookingDBModel.Fk_VenueInfo_VenueParkingOption" FromRole="VenueInfo" ToRole="VenueParkingOption" />
           <NavigationProperty Name="VenueWaitingRoomOptions" Relationship="DevEventBookingDBModel.Fk_VenueInfo_VenueWaitingRoomOption" FromRole="VenueInfo" ToRole="VenueWaitingRoomOption" />
           <NavigationProperty Name="WaitingRoomOptionComments" Relationship="DevEventBookingDBModel.FK_VenueInfo_WaitingRoomOptionComment" FromRole="VenueInfo" ToRole="WaitingRoomOptionComment" />
-          <NavigationProperty Name="VenueCertificates" Relationship="DevEventBookingDBModel.FK_VenueInfo_VenueCertificate" FromRole="VenueInfo" ToRole="VenueCertificate" />
-          <NavigationProperty Name="VenueCharacterizations" Relationship="DevEventBookingDBModel.FK_VenueInfo_VenueCharacterization" FromRole="VenueInfo" ToRole="VenueCharacterization" />
         </EntityType>
         <Association Name="FK_AspNetUsers_VenueInfo">
           <End Type="DevEventBookingDBModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
@@ -1645,6 +1706,30 @@
               <PropertyRef Name="Pk_VenueId" />
             </Principal>
             <Dependent Role="ParkingOptionComment">
+              <PropertyRef Name="Fk_VenueId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VenueInfo_VenueCertificate">
+          <End Type="DevEventBookingDBModel.VenueInfo" Role="VenueInfo" Multiplicity="1" />
+          <End Type="DevEventBookingDBModel.VenueCertificate" Role="VenueCertificate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VenueInfo">
+              <PropertyRef Name="Pk_VenueId" />
+            </Principal>
+            <Dependent Role="VenueCertificate">
+              <PropertyRef Name="Fk_VenueId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VenueInfo_VenueCharacterization">
+          <End Type="DevEventBookingDBModel.VenueInfo" Role="VenueInfo" Multiplicity="1" />
+          <End Type="DevEventBookingDBModel.VenueCharacterization" Role="VenueCharacterization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VenueInfo">
+              <PropertyRef Name="Pk_VenueId" />
+            </Principal>
+            <Dependent Role="VenueCharacterization">
               <PropertyRef Name="Fk_VenueId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1753,75 +1838,6 @@
               <PropertyRef Name="Pk_VenueId" />
             </Principal>
             <Dependent Role="WaitingRoomOptionComment">
-              <PropertyRef Name="Fk_VenueId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Country">
-          <Key>
-            <PropertyRef Name="Pk_CountryId" />
-          </Key>
-          <Property Name="Pk_CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="cc_fips" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
-          <Property Name="cc_iso" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
-          <Property Name="tld" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
-          <Property Name="country_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="BusinessEvent">
-          <Key>
-            <PropertyRef Name="Pk_BusinessEventId" />
-          </Key>
-          <Property Name="Pk_BusinessEventId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Event" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="VenueCertificate">
-          <Key>
-            <PropertyRef Name="Pk_CertificateId" />
-          </Key>
-          <Property Name="Pk_CertificateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Fk_VenueId" Type="Int32" Nullable="false" />
-          <Property Name="BusinessCert" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="TermsConditionsCert" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="BusinessLicCert" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="PoliceAuthCert" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="FireDeptCert" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="SanitationCert" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="ThirdPtInsuranceCert" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="VenueInfo" Relationship="DevEventBookingDBModel.FK_VenueInfo_VenueCertificate" FromRole="VenueCertificate" ToRole="VenueInfo" />
-        </EntityType>
-        <Association Name="FK_VenueInfo_VenueCertificate">
-          <End Type="DevEventBookingDBModel.VenueInfo" Role="VenueInfo" Multiplicity="1" />
-          <End Type="DevEventBookingDBModel.VenueCertificate" Role="VenueCertificate" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="VenueInfo">
-              <PropertyRef Name="Pk_VenueId" />
-            </Principal>
-            <Dependent Role="VenueCertificate">
-              <PropertyRef Name="Fk_VenueId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="VenueCharacterization">
-          <Key>
-            <PropertyRef Name="Pk_VenueCharId" />
-          </Key>
-          <Property Name="Pk_VenueCharId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Fk_VenueId" Type="Int32" Nullable="false" />
-          <Property Name="OptionName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="OptionValue" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="OptionImageLocation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="OptionSize" Type="Int32" Nullable="false" />
-          <Property Name="OpenAreasImage" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="VenueInfo" Relationship="DevEventBookingDBModel.FK_VenueInfo_VenueCharacterization" FromRole="VenueCharacterization" ToRole="VenueInfo" />
-        </EntityType>
-        <Association Name="FK_VenueInfo_VenueCharacterization">
-          <End Type="DevEventBookingDBModel.VenueInfo" Role="VenueInfo" Multiplicity="1" />
-          <End Type="DevEventBookingDBModel.VenueCharacterization" Role="VenueCharacterization" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="VenueInfo">
-              <PropertyRef Name="Pk_VenueId" />
-            </Principal>
-            <Dependent Role="VenueCharacterization">
               <PropertyRef Name="Fk_VenueId" />
             </Dependent>
           </ReferentialConstraint>
@@ -2236,28 +2252,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VenueInfoes">
-            <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueInfo">
-              <MappingFragment StoreEntitySet="VenueInfo">
-                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
-                <ScalarProperty Name="Street" ColumnName="Street" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="SeasonActs" ColumnName="SeasonActs" />
-                <ScalarProperty Name="Service" ColumnName="Service" />
-                <ScalarProperty Name="OpenSpace" ColumnName="OpenSpace" />
-                <ScalarProperty Name="Area" ColumnName="Area" />
-                <ScalarProperty Name="RenovationYr" ColumnName="RenovationYr" />
-                <ScalarProperty Name="RegNo" ColumnName="RegNo" />
-                <ScalarProperty Name="FoundationYr" ColumnName="FoundationYr" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Approved" ColumnName="Approved" />
-                <ScalarProperty Name="Pk_VenueId" ColumnName="Pk_VenueId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Countries">
             <EntityTypeMapping TypeName="DevEventBookingDBModel.Country">
               <MappingFragment StoreEntitySet="Country">
@@ -2277,21 +2271,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VenueCertificates">
-            <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueCertificate">
-              <MappingFragment StoreEntitySet="VenueCertificate">
-                <ScalarProperty Name="ThirdPtInsuranceCert" ColumnName="ThirdPtInsuranceCert" />
-                <ScalarProperty Name="SanitationCert" ColumnName="SanitationCert" />
-                <ScalarProperty Name="FireDeptCert" ColumnName="FireDeptCert" />
-                <ScalarProperty Name="PoliceAuthCert" ColumnName="PoliceAuthCert" />
-                <ScalarProperty Name="BusinessLicCert" ColumnName="BusinessLicCert" />
-                <ScalarProperty Name="TermsConditionsCert" ColumnName="TermsConditionsCert" />
-                <ScalarProperty Name="BusinessCert" ColumnName="BusinessCert" />
-                <ScalarProperty Name="Fk_VenueId" ColumnName="Fk_VenueId" />
-                <ScalarProperty Name="Pk_CertificateId" ColumnName="Pk_CertificateId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="VenueCharacterizations">
             <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueCharacterization">
               <MappingFragment StoreEntitySet="VenueCharacterization">
@@ -2302,6 +2281,51 @@
                 <ScalarProperty Name="OptionName" ColumnName="OptionName" />
                 <ScalarProperty Name="Fk_VenueId" ColumnName="Fk_VenueId" />
                 <ScalarProperty Name="Pk_VenueCharId" ColumnName="Pk_VenueCharId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VenueCertificates">
+            <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueCertificate">
+              <MappingFragment StoreEntitySet="VenueCertificate">
+                <ScalarProperty Name="ThirdPtInsuranceCertStatus" ColumnName="ThirdPtInsuranceCertStatus" />
+                <ScalarProperty Name="ThirdPtInsuranceCert" ColumnName="ThirdPtInsuranceCert" />
+                <ScalarProperty Name="SanitationCertStatus" ColumnName="SanitationCertStatus" />
+                <ScalarProperty Name="SanitationCert" ColumnName="SanitationCert" />
+                <ScalarProperty Name="FireDeptCertStatus" ColumnName="FireDeptCertStatus" />
+                <ScalarProperty Name="FireDeptCert" ColumnName="FireDeptCert" />
+                <ScalarProperty Name="PoliceAuthCertStatus" ColumnName="PoliceAuthCertStatus" />
+                <ScalarProperty Name="PoliceAuthCert" ColumnName="PoliceAuthCert" />
+                <ScalarProperty Name="BusinessLicCertStatus" ColumnName="BusinessLicCertStatus" />
+                <ScalarProperty Name="BusinessLicCert" ColumnName="BusinessLicCert" />
+                <ScalarProperty Name="TermsConditionsCertStatus" ColumnName="TermsConditionsCertStatus" />
+                <ScalarProperty Name="TermsConditionsCert" ColumnName="TermsConditionsCert" />
+                <ScalarProperty Name="BusinessCertStatus" ColumnName="BusinessCertStatus" />
+                <ScalarProperty Name="BusinessCert" ColumnName="BusinessCert" />
+                <ScalarProperty Name="Fk_VenueId" ColumnName="Fk_VenueId" />
+                <ScalarProperty Name="Pk_CertificateId" ColumnName="Pk_CertificateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VenueInfoes">
+            <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueInfo">
+              <MappingFragment StoreEntitySet="VenueInfo">
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="SeasonActs" ColumnName="SeasonActs" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="OpenSpace" ColumnName="OpenSpace" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="RenovationYr" ColumnName="RenovationYr" />
+                <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+                <ScalarProperty Name="FoundationYr" ColumnName="FoundationYr" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="Pk_VenueId" ColumnName="Pk_VenueId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

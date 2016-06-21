@@ -17,12 +17,19 @@ namespace EventBookingPlatform.DAL.Entities
         public int Pk_CertificateId { get; set; }
         public int Fk_VenueId { get; set; }
         public string BusinessCert { get; set; }
+        public bool BusinessCertStatus { get; set; }
         public string TermsConditionsCert { get; set; }
+        public bool TermsConditionsCertStatus { get; set; }
         public string BusinessLicCert { get; set; }
+        public bool BusinessLicCertStatus { get; set; }
         public string PoliceAuthCert { get; set; }
+        public bool PoliceAuthCertStatus { get; set; }
         public string FireDeptCert { get; set; }
+        public bool FireDeptCertStatus { get; set; }
         public string SanitationCert { get; set; }
+        public bool SanitationCertStatus { get; set; }
         public string ThirdPtInsuranceCert { get; set; }
+        public bool ThirdPtInsuranceCertStatus { get; set; }
     
         public virtual VenueInfo VenueInfo { get; set; }
     }
