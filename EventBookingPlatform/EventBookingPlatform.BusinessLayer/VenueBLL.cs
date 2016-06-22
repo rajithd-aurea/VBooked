@@ -32,14 +32,19 @@ namespace EventBookingPlatform.BusinessLayer
             _repo.ApproveVenue(venueid);
         }
 
-        public List<VenueInfo> GetApprovedVenuesPerHost(string hostid)
-        {
-            return _repo.GetApprovedVenues(hostid);
-        }
+        //public List<VenueInfo> GetApprovedVenuesPerHost(string hostid)
+        //{
+        //    return _repo.GetApprovedVenues(hostid);
+        //}
 
         public int GetUnapprovedVenuesCountPerHost(string hostid)
         {
             return _repo.GetUnapprovedVenuesCountPerHost(hostid);
+        }
+
+        public IEnumerable<VenueInfo> GetVenuesPerHost(string hostid)
+        {
+            return _repo.GetVenuesPerHost(hostid);
         }
 
         public IEnumerable<VenueType> GetVenueTypes()

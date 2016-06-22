@@ -43,18 +43,38 @@
                 <thead>
                     <tr>
                         <th>Venue Name</th>
+                        <th>Status</th>
                         <th>Option</th>
                     </tr>
                 </thead>
                 <tbody>
                     @{
-                        var venues = (List<EventBookingPlatform.DAL.Entities.VenueInfo>)ViewData["VenueList"];
+                        var venues = (IEnumerable<EventBookingPlatform.DAL.Entities.VenueInfo>)ViewData["VenueList"];
 
                         foreach (var venue in venues)
                         {
                             <tr>
                                 <td>@venue.Name</td>
-                                <td>@Html.ActionLink("View", "Info", "Venue", new { hostid = Session["UserId"].ToString(), venueid = venue.Pk_VenueId, venuename = venue.Name }, null)</td>
+                                <td>
+                                    @if (venue.Approved)
+                                    {
+                                        <p>Approved</p>
+                                    }
+                                    else
+                                    {
+                                        <p>Pending for Approval</p>
+                                    }
+                                </td>
+                                <td>
+                                    @if (venue.Approved)
+                                    {
+                                        @Html.ActionLink("View", "Info", "Venue", new { currentuserid = Session["UserId"].ToString(), venueid = venue.Pk_VenueId, venuename = venue.Name }, null)
+                                    }
+                                    else
+                                    {
+                                        <a href="#">Upload Business/Enterprise Certificate</a>
+                                    }
+                                </td>
                             </tr>
                         }
                     }

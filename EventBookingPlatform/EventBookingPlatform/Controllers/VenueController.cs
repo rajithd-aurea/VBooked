@@ -27,9 +27,18 @@ namespace EventBookingPlatform.Controllers
         }
 
         [HttpGet]
+        public ActionResult Info(string currentuserid, int venueid, string venuename)
+        {
+            Session["VenueId"] = venueid;
+            Session["VenueName"] = venuename;
+
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult Dashboard(string hostid)
         {
-            ViewData["VenueList"] = _venueBLL.GetApprovedVenuesPerHost(Session["UserId"].ToString());
+            ViewData["VenueList"] = _venueBLL.GetVenuesPerHost(Session["UserId"].ToString()); //GetApprovedVenuesPerHost(Session["UserId"].ToString());
 
             return View();
         }
@@ -81,15 +90,6 @@ namespace EventBookingPlatform.Controllers
         public JsonResult GetUnapprovedVenuesCountPerHost(string hostid)
         {
             return Json(new { count = _venueBLL.GetUnapprovedVenuesCountPerHost(hostid) }, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpGet]
-        public ActionResult Info(string hostid, int venueid, string venuename)
-        {
-            Session["VenueId"] = venueid;
-            Session["VenueName"] = venuename;
-
-            return View();
         }
 
         [HttpGet]

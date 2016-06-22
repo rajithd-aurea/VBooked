@@ -63,7 +63,7 @@ namespace EventBookingPlatform.UnitTest.VenueUnitTest
         public void Venue_GetUnapprovedVenues_Test()
         {
             // Arrange
-            //string hostid = "782fc72d-145c-4013-8078-3a6835ba9db1";
+            //string hostid = "89c2500a-18df-4629-9e1a-ed018999556f";
 
             // Act
             var listOfVenues = _repo.GetUnapprovedVenues();
@@ -92,17 +92,30 @@ namespace EventBookingPlatform.UnitTest.VenueUnitTest
                 Assert.Fail();
         }
 
+        //[TestMethod]
+        //public void Venue_GetApprovedVenuesPerHost_Test()
+        //{
+        //    // Arrange
+        //    string hostid = "0675d564-f92f-4e39-a9bb-05ac418d3b2b";
+
+        //    // Act
+        //    var listOfVenuesPerHost = _repo.GetApprovedVenues(hostid);
+
+        //    // Assert
+        //    Assert.AreNotEqual(0, listOfVenuesPerHost.Count);
+        //}
+
         [TestMethod]
-        public void Venue_GetApprovedVenuesPerHost_Test()
+        public void Venue_GetVenuesPerHost_Test()
         {
             // Arrange
-            string hostid = "0675d564-f92f-4e39-a9bb-05ac418d3b2b";
+            string hostid = "89c2500a-18df-4629-9e1a-ed018999556f";
 
             // Act
-            var listOfVenuesPerHost = _repo.GetApprovedVenues(hostid);
+            var venueList = _repo.GetVenuesPerHost(hostid);
 
             // Assert
-            Assert.AreNotEqual(0, listOfVenuesPerHost.Count);
+            Assert.IsNotNull(venueList.GetEnumerator());
         }
 
         [TestMethod]
