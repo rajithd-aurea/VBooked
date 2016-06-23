@@ -26,7 +26,8 @@ namespace EventBookingPlatform
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/template/css/customcss.css"));
 
             bundles.Add(new StyleBundle("~/Content/template/css/css").Include(
                       "~/Content/template/css/jquery-ui.css",
