@@ -137,3 +137,13 @@ ul.third-level-menu {
     margin-bottom: 5px;
 }
 /* END */
+
+/* VENUE STATUS */
+.venue-status-approved {
+    color: #02e022;
+}
+
+.venue-status-pending-approval {
+    color: #ff0000;
+}
+/* END */

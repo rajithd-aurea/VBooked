@@ -42,6 +42,7 @@
             <table class="table table-bordered table-hover table-striped">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Venue Name</th>
                         <th>Status</th>
                         <th>Option</th>
@@ -53,29 +54,24 @@
 
                         foreach (var venue in venues)
                         {
-                            <tr>
-                                <td>@venue.Name</td>
-                                <td>
-                                    @if (venue.Approved)
-                                    {
-                                        <p>Approved</p>
-                                    }
-                                    else
-                                    {
-                                        <p>Pending for Approval</p>
-                                    }
-                                </td>
-                                <td>
-                                    @if (venue.Approved)
-                                    {
-                                        @Html.ActionLink("View", "Info", "Venue", new { currentuserid = Session["UserId"].ToString(), venueid = venue.Pk_VenueId, venuename = venue.Name }, null)
-                                    }
-                                    else
-                                    {
-                                        <a href="#">Upload Business/Enterprise Certificate</a>
-                                    }
-                                </td>
-                            </tr>
+                            if (venue.Approved)
+                            {
+                                <tr>
+                                    <td></td>
+                                    <td>@venue.Name</td>
+                                    <td><p class="venue-status-approved">Approved</p></td>
+                                    <td>@Html.ActionLink("View", "Info", "Venue", new { currentuserid = Session["UserId"].ToString(), venueid = venue.Pk_VenueId, venuename = venue.Name }, null)</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>@venue.Name</td>
+                                    <td><p class="venue-status-pending-approval">Pending for Approval</p></td>
+                                    <td></td>
+                                </tr>
+                            }
                         }
                     }
                 </tbody>
