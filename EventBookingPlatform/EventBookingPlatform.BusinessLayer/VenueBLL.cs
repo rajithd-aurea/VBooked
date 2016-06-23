@@ -107,9 +107,9 @@ namespace EventBookingPlatform.BusinessLayer
         #endregion
 
         #region Upload images/documents for Certificates
-        public void UploadBusinessCertificate(int venueid, string certificatepath)
+        public void UploadBusinessCertificate(int venueid, string certificatepath, bool status)
         {
-            _repo.SaveBusinessCertificate(venueid, certificatepath);
+            _repo.SaveBusinessCertificate(venueid, certificatepath, status);
             _repo.Save();
         }
 

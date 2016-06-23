@@ -24,26 +24,27 @@
             }
         });
     },
-    getVenues: function () {
-        $.ajax({
-            type: "GET",
-            url: "/Venue/GetUnapprovedVenues",
-            dataType: "json",
-            success: function (result) {
-                var body = $('#venue-list');
-
-                $.each(result, function (index, value) {
-                    $('<tr>' +
-                        '<td>' + value.Name + '</td>' +
-                        '<td>' + '<a href="/Venue/Approve/' + value.Pk_VenueId + '">Approve</a>' + '</td>' +
-                      '</tr>').appendTo(body);
-                });
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    },
+    //getUnapprovedVenues: function () {
+    //    $.ajax({
+    //        type: "GET",
+    //        url: "/Venue/GetPendingForApprovalVenues",
+    //        dataType: "json",
+    //        success: function (result) {
+    //            var body = $('#unapprovedVenueList');
+    //            $.each(result, function (index, value) {
+    //                $.each(value, function (index, value) {
+    //                    $('<tr>' +
+    //                        '<td>' + value.VenueName + '</td>' +
+    //                        '<td>' + '<a href="' + '/Venue/Approve/' + value.VenueId + '/' + value.Email + '/' + value.VenueName + '">Approve</a>' + '</td>' +
+    //                      '</tr>').appendTo(body);
+    //                });
+    //            });
+    //        },
+    //        error: function (error) {
+    //            console.log(error);
+    //        }
+    //    });
+    //},
     loadVenueTypes: function () {
         $.ajax({
             type: "GET",
@@ -326,7 +327,6 @@
     //    if (files.length > 0) {
     //        data.append("MyImages", files[0]);
     //    }
-
     //    $.ajax({
     //        url: "/Venue/UploadOpenAreasImage",
     //        type: "POST",
@@ -642,6 +642,7 @@ var alerts = {
         $('#alert-certificates').hide();
         $('#alert-addvenue-success').hide();
         $('#alert-pending-venue-approval').hide();
+        $('#alert-addbusinesscertificate').hide();
     }
 };
 
@@ -726,31 +727,7 @@ var events = {
 };
 
 var certificates = {
-    addBusinessCertificate: function () {
-        $('#frmAddBusinessCert').validate({
-            rules: {
-                BusinessCert: {
-                    required: true
-                }
-            },
-            messages: {
-                BusinessCert: {
-                    required: "This field is required."
-                }
-            },
-            submitHandler: function (form) {
-                var file = $('#BusinessCert').val().split('.').pop().toLowerCase();
-
-                if (file == 'jpg' || file == 'pdf') {
-                    certificates.uploadBusinessCertificate();
-                }
-                else {
-                    alert("Must upload JPG or PDF file.");
-                }
-            }
-        });
-    },
-    uploadBusinessCertificate: function () {
+    uploadBusinessCertificate: function (venueid) {
         var data = new FormData();
         var files = $("#BusinessCert").get(0).files;
         if(files.length > 0) {
@@ -765,20 +742,35 @@ var certificates = {
             data: data,
             success: function (response) {
                 if (response.status == 1) {
-                    $('#alert-certificates').removeClass('alert-danger');
-                    $('#alert-certificates').addClass('alert-success').show(function () {
+                    $('#alert-addbusinesscertificate').removeClass('alert-danger');
+                    $('#alert-addbusinesscertificate').addClass('alert-success').show(function () {
                         $(this).slideDown();
                         $(this).find('p.img-for').text(response.message);
                     });
+
+                    certificates.saveBusinessCertificateInfo(venueid, response.imagelocation, false);
                 }
             },
             error: function (er) {
-                $('#alert-certificates').removeClass('alert-success');
-                $('#alert-certificates').addClass('alert-danger').show(function () {
+                $('#alert-addbusinesscertificate').removeClass('alert-success');
+                $('#alert-addbusinesscertificate').addClass('alert-danger').show(function () {
                     $(this).slideDown();
                     $(this).find('p.img-for').text("Uploaded file size exceeds 3MB.");
                 });
             }
+        });
+    },
+    saveBusinessCertificateInfo: function (venueid, imagelocation, status) {
+        $.ajax({
+            type: "POST",
+            url: "/Venue/SaveBusinessCertificateInfo",
+            data: {
+                venueid: venueid,
+                imageserverlocation: imagelocation,
+                status: status
+            },
+            success: function (result) { },
+            error: function (error) { }
         });
     },
     addTermsAndConditionsCertificate: function () {
@@ -1014,7 +1006,7 @@ var certificates = {
 $(document).ready(function () {
     alerts.hideAlerts();
 
-    venue.getVenues();
+    //venue.getUnapprovedVenues();
     venue.loadVenueTypes();
     venue.loadCountries();
     events.getPrivateEvents();
@@ -1026,7 +1018,48 @@ $(document).ready(function () {
 
     //venue.addOpenAreasImage();
 
-    certificates.addBusinessCertificate();
+    // Upload Business Certificate
+    $('#btnAddBusinessCert').click(function () {
+        var checkbox = $('#venuelist').find('tr td input[type=checkbox]');
+
+        $.each(checkbox, function (index, value) {
+            var isChecked = $(value).is(':checked');
+
+            if (isChecked) {
+                var venueid = $(value).attr('value');
+
+                $('#venueId').val(venueid);
+
+                return false;
+            }
+        });
+    });
+
+    $('#frmAddBusinessCert').validate({
+        rules: {
+            BusinessCert: {
+                required: true
+            }
+        },
+        messages: {
+            BusinessCert: {
+                required: "This field is required."
+            }
+        },
+        submitHandler: function (form) {
+            var file = $('#BusinessCert').val().split('.').pop().toLowerCase();
+
+            if (file == 'jpg' || file == 'pdf') {
+                var venueid = parseInt($('#venueId').val());
+
+                certificates.uploadBusinessCertificate(venueid);
+            }
+            else {
+                alert("Must upload JPG or PDF file.");
+            }
+        }
+    });
+    // End
 
     // Add Venue Name
     $('#frmAddVenue').validate({

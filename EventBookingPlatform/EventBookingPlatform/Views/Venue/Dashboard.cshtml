@@ -24,6 +24,7 @@
     <div class="col-lg-12">
         <div class="form-group">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addVenueModal">Add Venue</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addVenueBusinessCertModal" id="btnAddBusinessCert">Upload Business Certificate</button>
         </div>
     </div>
 </div>
@@ -48,7 +49,7 @@
                         <th>Option</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="venuelist">
                     @{
                         var venues = (IEnumerable<EventBookingPlatform.DAL.Entities.VenueInfo>)ViewData["VenueList"];
 
@@ -66,7 +67,7 @@
                             else
                             {
                                 <tr>
-                                    <td><input type="checkbox" /></td>
+                                    <td><input type="checkbox" value="@venue.Pk_VenueId" /></td>
                                     <td>@venue.Name</td>
                                     <td><p class="venue-status-pending-approval">Pending for Approval</p></td>
                                     <td></td>
@@ -80,6 +81,7 @@
     </div>
 </div>
 
+<!-- MODAL FOR ADDING VENUE -->
 <div class="modal fade" id="addVenueModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -111,3 +113,37 @@
         </div>
     </div>
 </div>
+<!-- END -->
+
+<!-- MODAL FOR UPLOADING BUSINES/ENTERPRISE CERTIFICATE -->
+<div class="modal fade" id="addVenueBusinessCertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Venue Business Certificate</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-contents">
+                    <div class="alert alert-success" id="alert-addbusinesscertificate">
+                        <p class="img-for"></p>
+                    </div>
+                    <div class="form-group">
+                        @using (Html.BeginForm("UploadBusinessCertificate", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddBusinessCert" }))
+                        {
+                            <label>Certificate for Starting a Business/Enterprise Ltd.</label><br />
+                            <small>Accepted formats: JPG or PDF. 3MB max size.</small>
+                            <input type="text" id="venueId" class="form-control form-control-margin-bottom" />
+                            <input type="file" name="BusinessCert" id="BusinessCert" class="form-control form-control-margin-bottom" />
+                            <input type="submit" value="Save" class="btn btn-primary form-control" />
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END -->

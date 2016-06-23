@@ -37,7 +37,7 @@ namespace EventBookingPlatform.DAL.Repository
         #endregion
 
         #region Upload images for Certificates
-        void SaveBusinessCertificate(int venueid, string certificatepath);
+        void SaveBusinessCertificate(int venueid, string certificatepath, bool status);
         void SaveTermsAndConditionsCertificate(int venueid, string certificatepath);
         void SaveBusinessLicense(int venueid, string certificatepath);
         void SavePoliceAuthorization(int venueid, string certificatepath);
@@ -323,18 +323,25 @@ namespace EventBookingPlatform.DAL.Repository
         //}
 
         #region Methods to upload Certificates
-        public void SaveBusinessCertificate(int venueid, string certificatepath)
+        public void SaveBusinessCertificate(int venueid, string certificatepath, bool status)
         {
             VenueCertificate businessCertificate = new VenueCertificate
             {
                 Fk_VenueId = venueid,
                 BusinessCert = certificatepath,
+                BusinessCertStatus = status,
                 TermsConditionsCert = "",
+                TermsConditionsCertStatus = false,
                 BusinessLicCert = "",
+                BusinessLicCertStatus = false,
                 PoliceAuthCert = "",
+                PoliceAuthCertStatus = false,
                 FireDeptCert = "",
+                FireDeptCertStatus = false,
                 SanitationCert = "",
-                ThirdPtInsuranceCert = ""
+                SanitationCertStatus = false,
+                ThirdPtInsuranceCert = "",
+                ThirdPtInsuranceCertStatus = false
             };
 
             _entity.VenueCertificates.Add(businessCertificate);

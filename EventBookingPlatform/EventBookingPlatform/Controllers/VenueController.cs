@@ -4,11 +4,11 @@ using EventBookingPlatform.Helpers;
 
 using System.Web.Mvc;
 using System.Collections.Generic;
-using System.Web;
 using System.IO;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text;
 
 namespace EventBookingPlatform.Controllers
 {
@@ -429,6 +429,8 @@ namespace EventBookingPlatform.Controllers
         [HttpPost]
         public JsonResult UploadBusinessCertificate()
         {
+            string imageServerLocation = string.Empty;
+
             if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
             {
                 var certificate = System.Web.HttpContext.Current.Request.Files["MyCertificates"];
@@ -436,14 +438,20 @@ namespace EventBookingPlatform.Controllers
                 var fileName = Path.GetFileName(certificate.FileName);
 
                 var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Certificates/Business"), fileName);
-                var imageServerLocation = "~/Content/Files/Venues/Certificates/Business/" + fileName;
-
-                _venueBLL.UploadBusinessCertificate(Convert.ToInt16(Session["VenueId"]), imageServerLocation);
+                imageServerLocation = "~/Content/Files/Venues/Certificates/Business/" + fileName;
 
                 certificate.SaveAs(serverPath);
             }
 
-            return Json(new { status = 1, message = "Successfully uploaded Certificate Business/Enterprise." });
+            return Json(new { status = 1, message = "Successfully uploaded Business / Enterprise Certificate. Pending for Admin approval.", imagelocation = imageServerLocation });
+        }
+
+        [HttpPost]
+        public JsonResult SaveBusinessCertificateInfo(int venueid, string imageserverlocation, bool status)
+        {
+            _venueBLL.UploadBusinessCertificate(venueid, imageserverlocation, status);
+
+            return Json(new { status = 1 });
         }
 
         [HttpPost]
