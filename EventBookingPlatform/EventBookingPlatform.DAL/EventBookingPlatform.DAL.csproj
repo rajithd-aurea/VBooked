@@ -201,6 +201,7 @@
     <Compile Include="Entities\WaitingRoomOptionValue.cs">
       <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UnapproveVenueModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IEFRepository.cs" />
   </ItemGroup>

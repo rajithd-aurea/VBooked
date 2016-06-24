@@ -8,3 +8,13 @@ E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\bin\Release\En
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\obj\Release\EventBookingPlatform.DAL.dll
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\obj\Release\EventBookingPlatform.DAL.pdb
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\obj\Release\EventBookingPlatform.DAL.csprojResolveAssemblyReference.cache
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\bin\Release\EventBookingPlatform.DAL.dll.config
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\bin\Release\EventBookingPlatform.DAL.dll
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\bin\Release\EventBookingPlatform.DAL.pdb
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\bin\Release\EntityFramework.dll
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\bin\Release\EntityFramework.SqlServer.dll
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\bin\Release\EntityFramework.xml
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\bin\Release\EntityFramework.SqlServer.xml
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\obj\Release\EventBookingPlatform.DAL.csprojResolveAssemblyReference.cache
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\obj\Release\EventBookingPlatform.DAL.dll
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\obj\Release\EventBookingPlatform.DAL.pdb

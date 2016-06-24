@@ -377,7 +377,7 @@
           <Property Name="Pk_VenueId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Approved" Type="bit" Nullable="false" />
           <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Type" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="FoundationYr" Type="varchar" MaxLength="4" Nullable="false" />
@@ -1536,7 +1536,7 @@
             <End Role="VenueInfo" EntitySet="VenueInfoes" />
             <End Role="WaitingRoomOptionComment" EntitySet="WaitingRoomOptionComments" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="PrivateEvent">
           <Key>
             <PropertyRef Name="Pk_EventId" />
@@ -1619,7 +1619,7 @@
           <Property Name="Pk_VenueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Approved" Type="Boolean" Nullable="false" />
           <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Type" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="FoundationYr" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
@@ -1842,7 +1842,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -2322,7 +2322,7 @@
                 <ScalarProperty Name="FoundationYr" ColumnName="FoundationYr" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Approved" ColumnName="Approved" />
                 <ScalarProperty Name="Pk_VenueId" ColumnName="Pk_VenueId" />

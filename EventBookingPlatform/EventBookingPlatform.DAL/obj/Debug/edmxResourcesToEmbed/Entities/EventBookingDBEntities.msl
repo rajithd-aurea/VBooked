@@ -405,28 +405,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="VenueInfoes">
-      <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueInfo">
-        <MappingFragment StoreEntitySet="VenueInfo">
-          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
-          <ScalarProperty Name="Street" ColumnName="Street" />
-          <ScalarProperty Name="City" ColumnName="City" />
-          <ScalarProperty Name="Country" ColumnName="Country" />
-          <ScalarProperty Name="SeasonActs" ColumnName="SeasonActs" />
-          <ScalarProperty Name="Service" ColumnName="Service" />
-          <ScalarProperty Name="OpenSpace" ColumnName="OpenSpace" />
-          <ScalarProperty Name="Area" ColumnName="Area" />
-          <ScalarProperty Name="RenovationYr" ColumnName="RenovationYr" />
-          <ScalarProperty Name="RegNo" ColumnName="RegNo" />
-          <ScalarProperty Name="FoundationYr" ColumnName="FoundationYr" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Approved" ColumnName="Approved" />
-          <ScalarProperty Name="Pk_VenueId" ColumnName="Pk_VenueId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Countries">
       <EntityTypeMapping TypeName="DevEventBookingDBModel.Country">
         <MappingFragment StoreEntitySet="Country">
@@ -446,21 +424,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="VenueCertificates">
-      <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueCertificate">
-        <MappingFragment StoreEntitySet="VenueCertificate">
-          <ScalarProperty Name="ThirdPtInsuranceCert" ColumnName="ThirdPtInsuranceCert" />
-          <ScalarProperty Name="SanitationCert" ColumnName="SanitationCert" />
-          <ScalarProperty Name="FireDeptCert" ColumnName="FireDeptCert" />
-          <ScalarProperty Name="PoliceAuthCert" ColumnName="PoliceAuthCert" />
-          <ScalarProperty Name="BusinessLicCert" ColumnName="BusinessLicCert" />
-          <ScalarProperty Name="TermsConditionsCert" ColumnName="TermsConditionsCert" />
-          <ScalarProperty Name="BusinessCert" ColumnName="BusinessCert" />
-          <ScalarProperty Name="Fk_VenueId" ColumnName="Fk_VenueId" />
-          <ScalarProperty Name="Pk_CertificateId" ColumnName="Pk_CertificateId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="VenueCharacterizations">
       <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueCharacterization">
         <MappingFragment StoreEntitySet="VenueCharacterization">
@@ -471,6 +434,51 @@
           <ScalarProperty Name="OptionName" ColumnName="OptionName" />
           <ScalarProperty Name="Fk_VenueId" ColumnName="Fk_VenueId" />
           <ScalarProperty Name="Pk_VenueCharId" ColumnName="Pk_VenueCharId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VenueCertificates">
+      <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueCertificate">
+        <MappingFragment StoreEntitySet="VenueCertificate">
+          <ScalarProperty Name="ThirdPtInsuranceCertStatus" ColumnName="ThirdPtInsuranceCertStatus" />
+          <ScalarProperty Name="ThirdPtInsuranceCert" ColumnName="ThirdPtInsuranceCert" />
+          <ScalarProperty Name="SanitationCertStatus" ColumnName="SanitationCertStatus" />
+          <ScalarProperty Name="SanitationCert" ColumnName="SanitationCert" />
+          <ScalarProperty Name="FireDeptCertStatus" ColumnName="FireDeptCertStatus" />
+          <ScalarProperty Name="FireDeptCert" ColumnName="FireDeptCert" />
+          <ScalarProperty Name="PoliceAuthCertStatus" ColumnName="PoliceAuthCertStatus" />
+          <ScalarProperty Name="PoliceAuthCert" ColumnName="PoliceAuthCert" />
+          <ScalarProperty Name="BusinessLicCertStatus" ColumnName="BusinessLicCertStatus" />
+          <ScalarProperty Name="BusinessLicCert" ColumnName="BusinessLicCert" />
+          <ScalarProperty Name="TermsConditionsCertStatus" ColumnName="TermsConditionsCertStatus" />
+          <ScalarProperty Name="TermsConditionsCert" ColumnName="TermsConditionsCert" />
+          <ScalarProperty Name="BusinessCertStatus" ColumnName="BusinessCertStatus" />
+          <ScalarProperty Name="BusinessCert" ColumnName="BusinessCert" />
+          <ScalarProperty Name="Fk_VenueId" ColumnName="Fk_VenueId" />
+          <ScalarProperty Name="Pk_CertificateId" ColumnName="Pk_CertificateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VenueInfoes">
+      <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueInfo">
+        <MappingFragment StoreEntitySet="VenueInfo">
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="SeasonActs" ColumnName="SeasonActs" />
+          <ScalarProperty Name="Service" ColumnName="Service" />
+          <ScalarProperty Name="OpenSpace" ColumnName="OpenSpace" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="RenovationYr" ColumnName="RenovationYr" />
+          <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+          <ScalarProperty Name="FoundationYr" ColumnName="FoundationYr" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Pk_VenueId" ColumnName="Pk_VenueId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

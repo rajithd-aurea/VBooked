@@ -62,28 +62,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Certificates">
-      <EntityTypeMapping TypeName="DevEventBookingDBModel.Certificate">
-        <MappingFragment StoreEntitySet="Certificate">
-          <ScalarProperty Name="Pk_CertificateId" ColumnName="Pk_CertificateId" />
-          <ScalarProperty Name="Fk_VenueId" ColumnName="Fk_VenueId" />
-          <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
-          <ScalarProperty Name="BusinessCert" ColumnName="BusinessCert" />
-          <ScalarProperty Name="TermsName" ColumnName="TermsName" />
-          <ScalarProperty Name="TermsConditionsCert" ColumnName="TermsConditionsCert" />
-          <ScalarProperty Name="BusinessLicName" ColumnName="BusinessLicName" />
-          <ScalarProperty Name="BusinessLicCert" ColumnName="BusinessLicCert" />
-          <ScalarProperty Name="PoliceAuthName" ColumnName="PoliceAuthName" />
-          <ScalarProperty Name="PoliceAuthCert" ColumnName="PoliceAuthCert" />
-          <ScalarProperty Name="FireDeptName" ColumnName="FireDeptName" />
-          <ScalarProperty Name="FireDeptCert" ColumnName="FireDeptCert" />
-          <ScalarProperty Name="SanitationName" ColumnName="SanitationName" />
-          <ScalarProperty Name="SanitationCert" ColumnName="SanitationCert" />
-          <ScalarProperty Name="ThirdPtInsuranceName" ColumnName="ThirdPtInsuranceName" />
-          <ScalarProperty Name="ThirdPtInsuranceCert" ColumnName="ThirdPtInsuranceCert" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Chefs">
       <EntityTypeMapping TypeName="DevEventBookingDBModel.Chef">
         <MappingFragment StoreEntitySet="Chef">
@@ -284,21 +262,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="VenueCharacterizations">
-      <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueCharacterization">
-        <MappingFragment StoreEntitySet="VenueCharacterization">
-          <ScalarProperty Name="Pk_VenueCharId" ColumnName="Pk_VenueCharId" />
-          <ScalarProperty Name="Fk_VenueId" ColumnName="Fk_VenueId" />
-          <ScalarProperty Name="TypeOfConstruction" ColumnName="TypeOfConstruction" />
-          <ScalarProperty Name="OpenAreas" ColumnName="OpenAreas" />
-          <ScalarProperty Name="AView" ColumnName="AView" />
-          <ScalarProperty Name="MaxNoRoomsAreas" ColumnName="MaxNoRoomsAreas" />
-          <ScalarProperty Name="Parking" ColumnName="Parking" />
-          <ScalarProperty Name="Privacy" ColumnName="Privacy" />
-          <ScalarProperty Name="PagesIn" ColumnName="PagesIn" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="VenueChildrenOptions">
       <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueChildrenOption">
         <MappingFragment StoreEntitySet="VenueChildrenOption">
@@ -417,11 +380,38 @@
         <ScalarProperty Name="Id" ColumnName="UserId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="PrivateEvents">
+      <EntityTypeMapping TypeName="DevEventBookingDBModel.PrivateEvent">
+        <MappingFragment StoreEntitySet="PrivateEvents">
+          <ScalarProperty Name="Event" ColumnName="Event" />
+          <ScalarProperty Name="Pk_EventId" ColumnName="Pk_EventId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VenueEvents">
+      <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueEvent">
+        <MappingFragment StoreEntitySet="VenueEvents">
+          <ScalarProperty Name="Events" ColumnName="Events" />
+          <ScalarProperty Name="Fk_VenueId" ColumnName="Fk_VenueId" />
+          <ScalarProperty Name="Pk_VenueEventId" ColumnName="Pk_VenueEventId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VenueTypes">
+      <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueType">
+        <MappingFragment StoreEntitySet="VenueType">
+          <ScalarProperty Name="VenueType1" ColumnName="VenueType" />
+          <ScalarProperty Name="Pk_VenueTypeId" ColumnName="Pk_VenueTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="VenueInfoes">
       <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueInfo">
         <MappingFragment StoreEntitySet="VenueInfo">
-          <ScalarProperty Name="Settlement" ColumnName="Settlement" />
-          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
           <ScalarProperty Name="SeasonActs" ColumnName="SeasonActs" />
           <ScalarProperty Name="Service" ColumnName="Service" />
           <ScalarProperty Name="OpenSpace" ColumnName="OpenSpace" />
@@ -437,20 +427,50 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PrivateEvents">
-      <EntityTypeMapping TypeName="DevEventBookingDBModel.PrivateEvent">
-        <MappingFragment StoreEntitySet="PrivateEvents">
-          <ScalarProperty Name="Event" ColumnName="Event" />
-          <ScalarProperty Name="Pk_EventId" ColumnName="Pk_EventId" />
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="DevEventBookingDBModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="country_name" ColumnName="country_name" />
+          <ScalarProperty Name="tld" ColumnName="tld" />
+          <ScalarProperty Name="cc_iso" ColumnName="cc_iso" />
+          <ScalarProperty Name="cc_fips" ColumnName="cc_fips" />
+          <ScalarProperty Name="Pk_CountryId" ColumnName="Pk_CountryId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="VenueEvents">
-      <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueEvent">
-        <MappingFragment StoreEntitySet="VenueEvents">
-          <ScalarProperty Name="Events" ColumnName="Events" />
+    <EntitySetMapping Name="BusinessEvents">
+      <EntityTypeMapping TypeName="DevEventBookingDBModel.BusinessEvent">
+        <MappingFragment StoreEntitySet="BusinessEvents">
+          <ScalarProperty Name="Event" ColumnName="Event" />
+          <ScalarProperty Name="Pk_BusinessEventId" ColumnName="Pk_BusinessEventId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VenueCertificates">
+      <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueCertificate">
+        <MappingFragment StoreEntitySet="VenueCertificate">
+          <ScalarProperty Name="ThirdPtInsuranceCert" ColumnName="ThirdPtInsuranceCert" />
+          <ScalarProperty Name="SanitationCert" ColumnName="SanitationCert" />
+          <ScalarProperty Name="FireDeptCert" ColumnName="FireDeptCert" />
+          <ScalarProperty Name="PoliceAuthCert" ColumnName="PoliceAuthCert" />
+          <ScalarProperty Name="BusinessLicCert" ColumnName="BusinessLicCert" />
+          <ScalarProperty Name="TermsConditionsCert" ColumnName="TermsConditionsCert" />
+          <ScalarProperty Name="BusinessCert" ColumnName="BusinessCert" />
           <ScalarProperty Name="Fk_VenueId" ColumnName="Fk_VenueId" />
-          <ScalarProperty Name="Pk_VenueEventId" ColumnName="Pk_VenueEventId" />
+          <ScalarProperty Name="Pk_CertificateId" ColumnName="Pk_CertificateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VenueCharacterizations">
+      <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueCharacterization">
+        <MappingFragment StoreEntitySet="VenueCharacterization">
+          <ScalarProperty Name="OpenAreasImage" ColumnName="OpenAreasImage" />
+          <ScalarProperty Name="OptionSize" ColumnName="OptionSize" />
+          <ScalarProperty Name="OptionImageLocation" ColumnName="OptionImageLocation" />
+          <ScalarProperty Name="OptionValue" ColumnName="OptionValue" />
+          <ScalarProperty Name="OptionName" ColumnName="OptionName" />
+          <ScalarProperty Name="Fk_VenueId" ColumnName="Fk_VenueId" />
+          <ScalarProperty Name="Pk_VenueCharId" ColumnName="Pk_VenueCharId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

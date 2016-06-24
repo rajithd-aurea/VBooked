@@ -275,12 +275,19 @@
     <Property Name="Pk_CertificateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Fk_VenueId" Type="int" Nullable="false" />
     <Property Name="BusinessCert" Type="varchar(max)" />
+    <Property Name="BusinessCertStatus" Type="bit" Nullable="false" />
     <Property Name="TermsConditionsCert" Type="varchar(max)" />
+    <Property Name="TermsConditionsCertStatus" Type="bit" Nullable="false" />
     <Property Name="BusinessLicCert" Type="varchar(max)" />
+    <Property Name="BusinessLicCertStatus" Type="bit" Nullable="false" />
     <Property Name="PoliceAuthCert" Type="varchar(max)" />
+    <Property Name="PoliceAuthCertStatus" Type="bit" Nullable="false" />
     <Property Name="FireDeptCert" Type="varchar(max)" />
+    <Property Name="FireDeptCertStatus" Type="bit" Nullable="false" />
     <Property Name="SanitationCert" Type="varchar(max)" />
+    <Property Name="SanitationCertStatus" Type="bit" Nullable="false" />
     <Property Name="ThirdPtInsuranceCert" Type="varchar(max)" />
+    <Property Name="ThirdPtInsuranceCertStatus" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="VenueCharacterization">
     <Key>
@@ -365,6 +372,7 @@
     <Property Name="Pk_VenueId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Approved" Type="bit" Nullable="false" />
     <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Type" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="FoundationYr" Type="varchar" MaxLength="4" Nullable="false" />
