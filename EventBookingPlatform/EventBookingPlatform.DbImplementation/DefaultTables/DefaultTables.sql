@@ -751,7 +751,6 @@ SET ANSI_PADDING ON
 GO
 CREATE TABLE [dbo].[VenueInfo](
 	[Pk_VenueId] [int] IDENTITY(1,1) NOT NULL,
-	[Approved] [bit] NOT NULL,
 	[Id] [nvarchar](128) NOT NULL,
 	[Status] [int] NOT NULL, -- 1 - Approved, 2 - Deny, 3 - Suspend
 	[Name] [varchar](100) NOT NULL,
