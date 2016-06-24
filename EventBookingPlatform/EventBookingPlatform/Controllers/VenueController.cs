@@ -438,7 +438,7 @@ namespace EventBookingPlatform.Controllers
                 var fileName = Path.GetFileName(certificate.FileName);
 
                 var serverPath = Path.Combine(Server.MapPath("/Content/Files/Venues/Certificates/Business"), fileName);
-                imageServerLocation = "~/Content/Files/Venues/Certificates/Business/" + fileName;
+                imageServerLocation = "/Content/Files/Venues/Certificates/Business/" + fileName;
 
                 certificate.SaveAs(serverPath);
             }
@@ -573,6 +573,20 @@ namespace EventBookingPlatform.Controllers
 
             return Json(new { status = 1, message = "Successfully uploaded Third Party Insurance Certificate." });
         }
+        #endregion
+
+        #region Dowload Business Certificate
+        //public FileResult DownloadBusinessCertificate(int venueid)
+        //{
+        //    VenueCertificate obj = _venueBLL.GetVenueBusinessCertificateDetails(venueid);
+
+        //    string fileContent = obj.BusinessCert;
+        //    var file = fileContent.Split('.');
+            
+        //    byte[] fileBytes = System.IO.File.ReadAllBytes(file[0]);
+
+        //    return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, file.ToString());
+        //}
         #endregion
     }
 }
