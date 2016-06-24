@@ -32,6 +32,10 @@ namespace EventBookingPlatform.DAL.Repository
         IEnumerable<VenueInfo> GetVenuesPerHost(string hostid);
         #endregion
 
+        #region
+        VenueCertificate GetVenueBusinessCertificateDetails(int venueid);
+        #endregion
+
         #region Upload images for Characterization of place sub module
         void SaveCharacterizationPlace(VenueCharacterization obj);
         #endregion
@@ -130,6 +134,13 @@ namespace EventBookingPlatform.DAL.Repository
         public IEnumerable<VenueInfo> GetVenuesPerHost(string hostid)
         {
             return _entity.VenueInfoes.Where(venue => venue.Id == hostid).AsEnumerable();
+        }
+        #endregion
+
+        #region Get Venue Business Certificate Detials
+        public VenueCertificate GetVenueBusinessCertificateDetails(int venueid)
+        {
+            return _entity.VenueCertificates.Where(venue => venue.Fk_VenueId == venueid).First();
         }
         #endregion
 

@@ -576,17 +576,20 @@ namespace EventBookingPlatform.Controllers
         #endregion
 
         #region Dowload Business Certificate
-        //public FileResult DownloadBusinessCertificate(int venueid)
-        //{
-        //    VenueCertificate obj = _venueBLL.GetVenueBusinessCertificateDetails(venueid);
+        public FileResult DownloadBusinessCertificate(int venueid)
+        {
+            VenueCertificate obj = _venueBLL.GetVenueBusinessCertificateDetails(venueid);
 
-        //    string fileContent = obj.BusinessCert;
-        //    var file = fileContent.Split('.');
-            
-        //    byte[] fileBytes = System.IO.File.ReadAllBytes(file[0]);
+            string fileContent = obj.BusinessCert;
+            var file = fileContent.Split('.');
+            var fileName = fileContent.Split('/');
 
-        //    return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, file.ToString());
-        //}
+            string basepath = AppDomain.CurrentDomain.BaseDirectory;
+
+            byte[] fileBytes = System.IO.File.ReadAllBytes(basepath + obj.BusinessCert);
+
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName[6]);
+        }
         #endregion
     }
 }

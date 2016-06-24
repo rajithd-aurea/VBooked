@@ -119,6 +119,19 @@ namespace EventBookingPlatform.UnitTest.VenueUnitTest
         }
 
         [TestMethod]
+        public void Venue_GetVenueBusinessCertificateDetails_Test()
+        {
+            // Arrange
+            int venueid = 1;
+
+            // Act
+            var certificateInfo = _repo.GetVenueBusinessCertificateDetails(venueid);
+
+            // Assert
+            Assert.IsNotNull(certificateInfo.BusinessCert);
+        }
+
+        [TestMethod]
         public void Venue_GetVenueTypes_Test()
         {
             // Arrange

@@ -34,6 +34,7 @@
                             <tr>
                                 <td><p>@venue.VenueInfo.Name</p></td>
                                 <td>
+                                    @Html.ActionLink("Download Certificate", "DownloadBusinessCertificate", "Venue", new { venueid = venue.VenueInfo.Pk_VenueId, email = string.Empty, venuename = string.Empty }, null) |
                                     @Html.ActionLink("Approve", "Approve", "Venue", new { venueid = venue.VenueInfo.Pk_VenueId, email = venue.User.Email, venuename = venue.VenueInfo.Name }, null) |
                                     @Html.ActionLink("Deny", "", "", new { venueid = venue.VenueInfo.Pk_VenueId, email = venue.User.Email, venuename = venue.VenueInfo.Name }, null) |
                                     @Html.ActionLink("Suspend", "", "", new { venueid = venue.VenueInfo.Pk_VenueId, email = venue.User.Email, venuename = venue.VenueInfo.Name }, null)
