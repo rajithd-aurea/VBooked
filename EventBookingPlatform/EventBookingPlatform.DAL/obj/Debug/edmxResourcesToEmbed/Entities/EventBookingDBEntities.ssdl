@@ -370,9 +370,8 @@
       <PropertyRef Name="Pk_VenueId" />
     </Key>
     <Property Name="Pk_VenueId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Approved" Type="bit" Nullable="false" />
     <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Type" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="FoundationYr" Type="varchar" MaxLength="4" Nullable="false" />

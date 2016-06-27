@@ -475,9 +475,8 @@
           <ScalarProperty Name="FoundationYr" ColumnName="FoundationYr" />
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Approved" ColumnName="Approved" />
           <ScalarProperty Name="Pk_VenueId" ColumnName="Pk_VenueId" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -35,7 +35,6 @@ namespace EventBookingPlatform.DAL.Entities
         }
     
         public int Pk_VenueId { get; set; }
-        public bool Approved { get; set; }
         public string Id { get; set; }
         public int Status { get; set; }
         public string Name { get; set; }
