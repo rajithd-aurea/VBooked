@@ -45,9 +45,9 @@ namespace EventBookingPlatform.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult AddVenueName(string hostid, string venuename, bool approval)
+        public JsonResult AddVenueName(string hostid, string venuename, int status)
         {
-            _venueBLL.AddVenueName(hostid, venuename, approval);
+            _venueBLL.AddVenueName(hostid, venuename, status);
 
             return Json(new { status = 1 });
         }

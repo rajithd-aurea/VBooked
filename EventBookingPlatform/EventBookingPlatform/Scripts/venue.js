@@ -1,5 +1,5 @@
 ﻿var venue = {
-    addVenueName: function (forgerytoken, hostid, venuename, approval) {
+    addVenueName: function (forgerytoken, hostid, venuename, status) {
         $.ajax({
             type: "POST",
             url: "/Venue/AddVenueName",
@@ -7,7 +7,7 @@
                 __RequestVerificationToken: forgerytoken,
                 hostid: hostid,
                 venuename: venuename,
-                approval: approval
+                status: status
             },
             success: function (result) {
                 if (result.status == 1) {
@@ -1018,6 +1018,29 @@ $(document).ready(function () {
 
     //venue.addOpenAreasImage();
 
+    // Add Venue Name
+    $('#frmAddVenue').validate({
+        rules: {
+            venuename: {
+                required: true
+            }
+        },
+        messages: {
+            venuename: {
+                required: "This field is required."
+            }
+        },
+        submitHandler: function (form) {
+            var antiforgerytoken = $('input[name=__RequestVerificationToken]').val();
+            var hostid = $('#hostid').val();
+            var venuename = $('#venuename').val();
+            var status = 0;
+
+            venue.addVenueName(antiforgerytoken, hostid, venuename, status);
+        }
+    });
+    // End
+
     // Upload Business Certificate
     $('#btnAddBusinessCert').click(function () {
         var checkbox = $('#venuelist').find('tr td input[type=checkbox]');
@@ -1057,29 +1080,6 @@ $(document).ready(function () {
             else {
                 alert("Must upload JPG or PDF file.");
             }
-        }
-    });
-    // End
-
-    // Add Venue Name
-    $('#frmAddVenue').validate({
-        rules: {
-            venuename: {
-                required: true
-            }
-        },
-        messages: {
-            venuename: {
-                required: "This field is required."
-            }
-        },
-        submitHandler: function (form) {
-            var antiforgerytoken = $('input[name=__RequestVerificationToken]').val();
-            var hostid = $('#hostid').val();
-            var venuename = $('#venuename').val();
-            var approval = false;
-
-            venue.addVenueName(antiforgerytoken, hostid, venuename, approval);
         }
     });
     // End

@@ -16,9 +16,9 @@ namespace EventBookingPlatform.BusinessLayer
             _repo = new Repository();
         }
 
-        public void AddVenueName(string hostid, string venuename, bool approval)
+        public void AddVenueName(string hostid, string venuename, int status)
         {
-            _repo.AddVenueName(hostid, venuename, approval);
+            _repo.AddVenueName(hostid, venuename, status);
             _repo.Save();
         }
 
