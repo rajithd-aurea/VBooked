@@ -128,7 +128,7 @@ namespace EventBookingPlatform.DAL.Repository
 
         public int GetUnapprovedVenuesCountPerHost(string hostid)
         {
-            return _entity.VenueInfoes.Where(venue => venue.Status == 1 && venue.Id == hostid).Count();
+            return _entity.VenueInfoes.Where(venue => venue.Status == 0 && venue.Id == hostid).Count();
         }
 
         public IEnumerable<VenueInfo> GetVenuesPerHost(string hostid)
