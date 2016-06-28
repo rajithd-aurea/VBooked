@@ -54,6 +54,12 @@ namespace EventBookingPlatform.Helpers
                 if (EmailFor == "Venue Approval")
                     message.Body = VenueApprovalEmailContent();
 
+                if (EmailFor == "Venue Denied")
+                    message.Body = VenueDeniedEmailContent();
+
+                if (EmailFor == "Venue Suspend")
+                    message.Body = VenueSuspendEmailContent();
+
                 message.Priority = MailPriority.High;
                 message.IsBodyHtml = true;
 
@@ -92,6 +98,26 @@ namespace EventBookingPlatform.Helpers
             content.Append("Congratulations!<br /><br />");
             content.Append("The venue " + VenueName + " has been approved. You can now view it in your venue list under your account.<br /><br />");
             content.Append("Thank you!<br /><br />");
+            content.Append("VBOOKED. Copyright " + DateTime.Now.Year);
+
+            return content.ToString();
+        }
+
+        private string VenueDeniedEmailContent()
+        {
+            StringBuilder content = new StringBuilder();
+            content.Append("Dear " + RegistrantName + "<br /><br />");
+            content.Append("We regret to say that the venue " + VenueName + " has been denied. Please contact VBOOKED support for more details.<br /><br />");
+            content.Append("VBOOKED. Copyright " + DateTime.Now.Year);
+
+            return content.ToString();
+        }
+
+        private string VenueSuspendEmailContent()
+        {
+            StringBuilder content = new StringBuilder();
+            content.Append("Dear " + RegistrantName + "<br /><br />");
+            content.Append("We regret to say that the venue " + VenueName + " has been suspended. Please contact VBOOKED support for more details.<br /><br />");
             content.Append("VBOOKED. Copyright " + DateTime.Now.Year);
 
             return content.ToString();

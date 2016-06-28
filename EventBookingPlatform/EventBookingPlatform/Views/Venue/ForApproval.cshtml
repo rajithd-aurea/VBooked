@@ -35,9 +35,9 @@
                                 <td><p>@venue.VenueInfo.Name</p></td>
                                 <td>
                                     @Html.ActionLink("Download Certificate", "DownloadBusinessCertificate", "Venue", new { venueid = venue.VenueInfo.Pk_VenueId, email = string.Empty, venuename = string.Empty }, null) |
-                                    @Html.ActionLink("Approve", "Approve", "Venue", new { venueid = venue.VenueInfo.Pk_VenueId, email = venue.User.Email, venuename = venue.VenueInfo.Name }, null) |
-                                    @Html.ActionLink("Deny", "", "", new { venueid = venue.VenueInfo.Pk_VenueId, email = venue.User.Email, venuename = venue.VenueInfo.Name }, null) |
-                                    @Html.ActionLink("Suspend", "", "", new { venueid = venue.VenueInfo.Pk_VenueId, email = venue.User.Email, venuename = venue.VenueInfo.Name }, null)
+                                    @Html.ActionLink("Approve", "UpdateVenueStatus", "Venue", new { venueid = venue.VenueInfo.Pk_VenueId, email = venue.User.Email, venuename = venue.VenueInfo.Name, status = 1 }, null) |
+                                    @Html.ActionLink("Deny", "UpdateVenueStatus", "Venue", new { venueid = venue.VenueInfo.Pk_VenueId, email = venue.User.Email, venuename = venue.VenueInfo.Name, status = 2 }, null) |
+                                    @Html.ActionLink("Suspend", "UpdateVenueStatus", "Venue", new { venueid = venue.VenueInfo.Pk_VenueId, email = venue.User.Email, venuename = venue.VenueInfo.Name, status = 3 }, null)
                                 </td>
                             </tr>
                         }

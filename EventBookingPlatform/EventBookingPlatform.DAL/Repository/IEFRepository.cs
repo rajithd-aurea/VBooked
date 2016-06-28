@@ -27,7 +27,7 @@ namespace EventBookingPlatform.DAL.Repository
         void AddVenueName(string hostid, string venuename, int status);
         IEnumerable<UnapproveVenueModel> GetUnapprovedVenues();
         //List<VenueInfo> GetApprovedVenues(string hostid);
-        bool ApproveVenue(int venueid);
+        bool UpdateVenueStatus(int venueid, int status);
         int GetUnapprovedVenuesCountPerHost(string hostid);
         IEnumerable<VenueInfo> GetVenuesPerHost(string hostid);
         #endregion
@@ -115,10 +115,10 @@ namespace EventBookingPlatform.DAL.Repository
             return venueinfo;
         }
 
-        public bool ApproveVenue(int venueid)
+        public bool UpdateVenueStatus(int venueid, int status)
         {
             VenueInfo venueinfo = _entity.VenueInfoes.Find(venueid);
-            venueinfo.Status = 1;
+            venueinfo.Status = status;
 
             _entity.Entry(venueinfo).State = EntityState.Modified;
             Save();

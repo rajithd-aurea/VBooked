@@ -1,6 +1,7 @@
 ﻿using EventBookingPlatform.DAL.Entities;
 using EventBookingPlatform.DAL.Repository;
 using EventBookingPlatform.DAL.Models;
+using EventBookingPlatform.Helpers;
 
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -27,9 +28,26 @@ namespace EventBookingPlatform.BusinessLayer
             return _repo.GetUnapprovedVenues();
         }
 
-        public void ApproveVenue(int venueid)
+        public async Task UpdateVenueStatus(int venueid, int status, string email, string venuename)
         {
-            _repo.ApproveVenue(venueid);
+            switch (status)
+            {
+                case 1:
+                    _repo.UpdateVenueStatus(venueid, status);
+
+                    await SendEmail(email, venuename, "Venue Approval", "VBooked Venue Approval");
+                    break;
+                case 2:
+                    _repo.UpdateVenueStatus(venueid, status);
+
+                    await SendEmail(email, venuename, "Venue Denied", "VBooked Venue Denied");
+                    break;
+                case 3:
+                    _repo.UpdateVenueStatus(venueid, status);
+
+                    await SendEmail(email, venuename, "Venue Suspend", "VBooked Venue Suspend");
+                    break;
+            }
         }
 
         //public List<VenueInfo> GetApprovedVenuesPerHost(string hostid)
@@ -154,6 +172,29 @@ namespace EventBookingPlatform.BusinessLayer
         {
             _repo.SaveThirdPartyInsurance(venueid, certificatepath);
             _repo.Save();
+        }
+        #endregion
+
+        #region Private Methods
+        private async Task SendEmail(string email, string venuename, string emailfor, string subject)
+        {
+            EmailHelper emailHelper = new EmailHelper
+            {
+                EmailFor = emailfor,
+                RegistrantName = email,
+                VenueName = venuename,
+                Host = "mail.vbooked.com",
+                Sender = "support@vbooked.com",
+                Recipient = email,
+                Subject = subject,
+                NetworkUser = "support@vbooked.com",
+                NetworkPass = "supportmail123!",
+                UserEmail = "",
+                UserPassword = "",
+                ConfirmationUrl = ""
+            };
+
+            await emailHelper.SendEmailAsync();
         }
         #endregion
     }
