@@ -383,8 +383,10 @@
     <Property Name="SeasonActs" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Country" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="City" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Street" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Street1" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Street2" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="ZipCode" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="PBox" Type="varchar" MaxLength="6" Nullable="false" />
   </EntityType>
   <EntityType Name="VenueParkingOption">
     <Key>

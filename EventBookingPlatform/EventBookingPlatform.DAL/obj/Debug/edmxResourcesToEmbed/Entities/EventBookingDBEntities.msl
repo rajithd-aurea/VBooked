@@ -462,8 +462,10 @@
     <EntitySetMapping Name="VenueInfoes">
       <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueInfo">
         <MappingFragment StoreEntitySet="VenueInfo">
+          <ScalarProperty Name="PBox" ColumnName="PBox" />
           <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
-          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Street2" ColumnName="Street2" />
+          <ScalarProperty Name="Street1" ColumnName="Street1" />
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Country" ColumnName="Country" />
           <ScalarProperty Name="SeasonActs" ColumnName="SeasonActs" />

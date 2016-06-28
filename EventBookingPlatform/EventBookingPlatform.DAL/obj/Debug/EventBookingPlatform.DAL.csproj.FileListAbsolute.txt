@@ -35,6 +35,5 @@ F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\bin\Debug\En
 F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\bin\Debug\EntityFramework.SqlServer.dll
 F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\bin\Debug\EntityFramework.xml
 F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\bin\Debug\EntityFramework.SqlServer.xml
-F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\obj\Debug\EventBookingPlatform.DAL.csprojResolveAssemblyReference.cache
 F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\obj\Debug\EventBookingPlatform.DAL.dll
 F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DAL\obj\Debug\EventBookingPlatform.DAL.pdb

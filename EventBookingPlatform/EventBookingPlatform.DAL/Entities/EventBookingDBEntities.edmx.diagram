@@ -56,7 +56,6 @@
         <EntityTypeShape EntityType="DevEventBookingDBModel.VenueType" Width="1.5" PointX="14.375" PointY="6.75" />
         <EntityTypeShape EntityType="DevEventBookingDBModel.Country" Width="1.5" PointX="14.375" PointY="9.75" />
         <EntityTypeShape EntityType="DevEventBookingDBModel.BusinessEvent" Width="1.5" PointX="14.375" PointY="12.75" />
-        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueCharacterization" Width="1.5" PointX="7.5" PointY="25.5" />
         <EntityTypeShape EntityType="DevEventBookingDBModel.VenueCertificate" Width="1.5" PointX="3.25" PointY="33.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DevEventBookingDBModel.VenueInfo" Width="1.5" PointX="5.25" PointY="24" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_AspNetUsers_VenueInfo" />
@@ -65,7 +64,6 @@
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_Hall" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_ParkingOptionComment" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_VenueCertificate" />
-        <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_VenueCharacterization" />
         <AssociationConnector Association="DevEventBookingDBModel.Fk_VenueInfo_VenueChildrenOption" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_VenueContact" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_VenueDescription" />
@@ -75,6 +73,8 @@
         <AssociationConnector Association="DevEventBookingDBModel.Fk_VenueInfo_VenueParkingOption" />
         <AssociationConnector Association="DevEventBookingDBModel.Fk_VenueInfo_VenueWaitingRoomOption" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_WaitingRoomOptionComment" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueCharacterization" Width="1.5" PointX="7.5" PointY="25.375" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_VenueCharacterization" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
