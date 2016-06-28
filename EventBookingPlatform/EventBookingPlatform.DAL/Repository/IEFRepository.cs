@@ -208,6 +208,7 @@ namespace EventBookingPlatform.DAL.Repository
             VenueCharacterization characterization = new VenueCharacterization
             {
                 Fk_VenueId = obj.Fk_VenueId,
+                IsApproved = obj.IsApproved,
                 OptionName = obj.OptionName,
                 OptionValue = obj.OptionValue,
                 OptionImageLocation = obj.OptionImageLocation,

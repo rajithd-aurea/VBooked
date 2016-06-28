@@ -114,9 +114,10 @@
             data: {
                 __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
                 Fk_VenueId: parseInt($('#venueid').val()),
+                IsApproved: false,
                 OptionName: "StructureOfTheVenue",
                 OptionValue: $('#drpVenueStructure option:selected').text(),
-                OptionImageLocation: "~/Content/Files/Venues/Images/VenueStructure/" + filename,
+                OptionImageLocation: "/Content/Files/Venues/Images/VenueStructure/" + filename,
                 OptionSize: 0,
                 OpenAreasImage: "N/A"
             },
@@ -168,9 +169,10 @@
             data: {
                 __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
                 Fk_VenueId: parseInt($('#venueid').val()),
+                IsApproved: false,
                 OptionName: "AView",
                 OptionValue: $('#drpAViewOption option:selected').text(),
-                OptionImageLocation: "~/Content/Files/Venues/Images/AView/" + filename,
+                OptionImageLocation: "/Content/Files/Venues/Images/AView/" + filename,
                 OptionSize: 0,
                 OpenAreasImage: "N/A"
             },
@@ -248,9 +250,10 @@
             data: {
                 __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
                 Fk_VenueId: parseInt($('#venueid').val()),
+                IsApproved: false,
                 OptionName: "Privacy",
                 OptionValue: $('#drpPrivacyOption').val(),
-                OptionImageLocation: "~/Content/Files/Venues/Images/Privacy/" + filename,
+                OptionImageLocation: "/Content/Files/Venues/Images/Privacy/" + filename,
                 OptionSize: 0,
                 OpenAreasImage: "N/A"
             },
@@ -302,9 +305,10 @@
             data: {
                 __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
                 Fk_VenueId: parseInt($('#venueid').val()),
+                IsApproved: false,
                 OptionName: "Pillars",
                 OptionValue: $('#drpPillarsOption').val(),
-                OptionImageLocation: "~/Content/Files/Venues/Images/Pillars/" + filename,
+                OptionImageLocation: "/Content/Files/Venues/Images/Pillars/" + filename,
                 OptionSize: 0,
                 OpenAreasImage: "N/A"
             },
@@ -1144,18 +1148,20 @@ $(document).ready(function () {
         }
     });
 
-    $('#frmAddVenueStructure').submit(function (event) {
-        event.preventDefault();
+    $('#VenueStructure').change(function () {
+        var value = $(this).val();
 
-        var fileExtension = $('#VenueStructure').val().split('.').pop().toLowerCase();
-        var optionValue = $('#drpVenueStructure option:selected').text();
+        if (value != '' || value != null) {
+            var fileExtension = $('#VenueStructure').val().split('.').pop().toLowerCase();
+            var optionValue = $('#drpVenueStructure option:selected').text();
 
-        if (fileExtension != 'jpg' || optionValue == "Select") {
-            alert("Please a select an option or upload JPG image");
-        }
-        else {
-            venue.uploadVenueStructureImage();
-            venue.saveVenueStructureInfo();
+            if (fileExtension != 'jpg' || optionValue == "Select") {
+                alert("Please a select an option or upload JPG image");
+            }
+            else {
+                venue.uploadVenueStructureImage();
+                venue.saveVenueStructureInfo();
+            }
         }
     });
     // End
@@ -1168,15 +1174,18 @@ $(document).ready(function () {
             $('#AView').prop("disabled", true);
             $('#AView').val("");
         }
+        else if (val == "N/A") {
+            venue.saveAViewInfo();
+
+            $('#AView').prop("disabled", true);
+        }
         else {
             $('#AView').prop("disabled", false);
         }
     });
 
-    $('#frmAddAView').submit(function (event) {
-        event.preventDefault();
-
-        var fileExtension = $('#AView').val().split('.').pop().toLowerCase();
+    $('#AView').change(function () {
+        var fileExtension = $(this).val().split('.').pop().toLowerCase();
         var optionValue = $('#drpAViewOption option:selected').text();
 
         if (fileExtension != 'jpg' || optionValue == "Select") {
@@ -1206,21 +1215,24 @@ $(document).ready(function () {
     $('#drpPrivacyOption').change(function () {
         var val = $(this).val();
 
-        if (val == "Select" || val == "N/A") {
+        if (val == "Select") {
             $('#Privacy').prop("disabled", true);
             $('#Privacy').val("");
+        }
+        else if (val == "N/A") {
+            venue.savePrivacyInfo();
+
+            $('#Privacy').prop("disabled", true);
         }
         else {
             $('#Privacy').prop("disabled", false);
         }
     });
 
-    $('#frmAddPrivacy').submit(function (event) {
-        event.preventDefault();
-
-        var fileExtension = $('#Privacy').val().split('.').pop().toLowerCase();
+    $('#Privacy').change(function () {
+        var fileExtension = $(this).val().split('.').pop().toLowerCase();
         var optionValue = $('#drpPrivacyOption option:selected').text();
-        var image = $('#Privacy').val();
+        var image = $(this).val();
 
         if (fileExtension != 'jpg' || optionValue == "Select" || image == '') {
             alert("Please a select an option or upload JPG image");
@@ -1236,21 +1248,24 @@ $(document).ready(function () {
     $('#drpPillarsOption').change(function () {
         var val = $(this).val();
 
-        if (val == "Select" || val == "No" || val == "N/A") {
+        if (val == "Select") {
             $('#Pillars').prop("disabled", true);
             $('#Pillars').val("");
+        }
+        else if (val == "No" || val == "N/A") {
+            venue.savePillarsInfo();
+
+            $('#Pillars').prop("disabled", true);
         }
         else {
             $('#Pillars').prop("disabled", false);
         }
     });
 
-    $('#frmAddPillars').submit(function (event) {
-        event.preventDefault();
-
-        var fileExtension = $('#Pillars').val().split('.').pop().toLowerCase();
+    $('#Pillars').change(function () {
+        var fileExtension = $(this).val().split('.').pop().toLowerCase();
         var optionValue = $('#drpPillarsOption option:selected').text();
-        var image = $('#Pillars').val();
+        var image = $(this).val();
 
         if (fileExtension != 'jpg' || optionValue == "Select" || image == '') {
             alert("Please a select an option or upload JPG image");

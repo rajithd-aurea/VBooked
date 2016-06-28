@@ -262,6 +262,7 @@ namespace EventBookingPlatform.Controllers
             VenueCharacterization obj = new VenueCharacterization
             {
                 Fk_VenueId = model.Fk_VenueId,
+                IsApproved = model.IsApproved,
                 OptionName = model.OptionName,
                 OptionValue = model.OptionValue,
                 OptionImageLocation = model.OptionImageLocation,

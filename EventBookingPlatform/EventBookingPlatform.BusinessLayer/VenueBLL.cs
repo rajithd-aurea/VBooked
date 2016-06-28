@@ -119,6 +119,7 @@ namespace EventBookingPlatform.BusinessLayer
             VenueCharacterization obj = new VenueCharacterization
             {
                 Fk_VenueId = param.Fk_VenueId,
+                IsApproved = param.IsApproved,
                 OptionName = param.OptionName,
                 OptionValue = param.OptionValue,
                 OptionImageLocation = param.OptionImageLocation,
