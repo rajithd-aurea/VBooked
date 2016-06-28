@@ -596,6 +596,7 @@ GO
 CREATE TABLE [dbo].[VenueCharacterization](
 	[Pk_VenueCharId] [int] IDENTITY(1,1) NOT NULL,
 	[Fk_VenueId] [int] NOT NULL,
+	[IsApproved] [bit] NOT NULL,
 	[OptionName] [varchar](200) NOT NULL,
 	[OptionValue] [varchar](MAX) NOT NULL,
 	[OptionImageLocation] [varchar](100) NOT NULL,
