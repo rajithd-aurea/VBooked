@@ -346,104 +346,6 @@
     //        }
     //    });
     //},
-    addPlaceFormValidation: function () {
-        $('#frmAddPlace').validate({
-            rules: {
-                venuename: {
-                    required: true
-                },
-                venuetype: {
-                    required: true
-                },
-                foundationyear: {
-                    required: true,
-                    digits: true,
-                    minlength: 4,
-                    maxlength: 4
-                },
-                regno: {
-                    required: true
-                },
-                renovationyear: {
-                    required: true,
-                    digits: true,
-                    minlength: 4,
-                    maxlength: 4
-                },
-                area: {
-                    required: true,
-                    number: true
-                },
-                openspaces: {
-                    required: true,
-                    number: true
-                },
-                service: {
-                    required: true
-                },
-                seasonactivity: {
-                    required: true
-                },
-                country: {
-                    required: true
-                },
-                city: {
-                    required: true
-                },
-                street: {
-                    required: true
-                },
-                zipcode: {
-                    required: true,
-                    number: true
-                }
-            },
-            messages: {
-                venuename: "Please enter Venue Name",
-                venuetype: {
-                    required: "This field is required."
-                },
-                foundationyear: {
-                    minlength: "Please enter 4 digits for year",
-                    maxlength: "Please enter 4 digits for year"
-                },
-                regno: {
-                    required: "This field is required."
-                },
-                renovationyear: {
-                    minlength: "Please enter 4 digits for year",
-                    maxlength: "Please enter 4 digits for year"
-                },
-                area: {
-                    number: "Please enter whole or decimal values"
-                },
-                openspaces: {
-                    number: "Please enter whole or decimal values"
-                },
-                service: {
-                    required: "This field is required."
-                },
-                seasonactivity: {
-                    required: "This field is required."
-                },
-                country: {
-                    required: "This field is required."
-                },
-                city: {
-                    required: "This field is required."
-                },
-                street: {
-                    required: "This field is required."
-                },
-                zipcode: {
-                    number: "Please enter valid Zip Code"
-                }
-            },
-            submitHandler: function (form) {
-                venue.addPlace();
-            }
-        });
-    },
     addContactFormValidation: function () {
         $('#frmAddContact').validate({
             rules: {
@@ -541,11 +443,17 @@
     addPlace: function () {
         var seasonactivity = $('#seasonactivity').val();
         var activity = "";
+        var street2 = $('#street2').val();
 
         if (seasonactivity == "Seasonal")
             activity = $('#seasonal').val();
         else
             activity = seasonactivity;
+
+        if (street2 != "")
+            street2 = $('#street2').val();
+        else
+            street2 = "n/a";
 
         $.ajax({
             type: "POST",
@@ -566,8 +474,10 @@
                 SeasonActs: activity,
                 Country: $('#country option:selected').text(),
                 City: $('#city').val(),
-                Street: $('#street').val(),
-                ZipCode: $('#zipcode').val()
+                Street1: $('#street1').val(),
+                Street2: street2,
+                ZipCode: $('#zipcode').val(),
+                PBox: $('#pbox').val()
             },
             success: function (result) {
                 if (result.status == 1) {
@@ -1012,7 +922,113 @@ $(document).ready(function () {
     events.getPrivateEvents();
     events.getBusinessEvents();
 
-    venue.addPlaceFormValidation();
+    // Update Place Info
+    $('#frmAddPlace').validate({
+        rules: {
+            venuename: {
+                required: true
+            },
+            venuetype: {
+                required: true
+            },
+            foundationyear: {
+                required: true,
+                digits: true,
+                minlength: 4,
+                maxlength: 4
+            },
+            regno: {
+                required: true
+            },
+            renovationyear: {
+                required: true,
+                digits: true,
+                minlength: 4,
+                maxlength: 4
+            },
+            area: {
+                required: true,
+                number: true
+            },
+            openspaces: {
+                required: true,
+                number: true
+            },
+            service: {
+                required: true
+            },
+            seasonactivity: {
+                required: true
+            },
+            country: {
+                required: true
+            },
+            city: {
+                required: true
+            },
+            street1: {
+                required: true
+            },
+            zipcode: {
+                required: true,
+                number: true
+            },
+            pbox: {
+                required: true,
+                digits: true,
+                maxlength: 6
+            }
+        },
+        messages: {
+            venuename: "Please enter Venue Name",
+            venuetype: {
+                required: "This field is required."
+            },
+            foundationyear: {
+                minlength: "Please enter 4 digits for year",
+                maxlength: "Please enter 4 digits for year"
+            },
+            regno: {
+                required: "This field is required."
+            },
+            renovationyear: {
+                minlength: "Please enter 4 digits for year",
+                maxlength: "Please enter 4 digits for year"
+            },
+            area: {
+                number: "Please enter whole or decimal values"
+            },
+            openspaces: {
+                number: "Please enter whole or decimal values"
+            },
+            service: {
+                required: "This field is required."
+            },
+            seasonactivity: {
+                required: "This field is required."
+            },
+            country: {
+                required: "This field is required."
+            },
+            city: {
+                required: "This field is required."
+            },
+            street1: {
+                required: "This field is required."
+            },
+            zipcode: {
+                number: "Please enter valid Zip Code"
+            },
+            pbox: {
+                required: "This field is required."
+            }
+        },
+        submitHandler: function (form) {
+            venue.addPlace();
+        }
+    });
+    // End
+
     venue.addContactFormValidation();
     venue.addPlaceDescriptionFormValidation();
 
