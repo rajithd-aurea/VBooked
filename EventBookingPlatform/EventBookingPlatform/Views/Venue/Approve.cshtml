@@ -6,8 +6,23 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <div class="alert alert-success">
-            <p>Venue Approved!</p>
-        </div>
+        @if (ViewBag.Status == 1)
+        {
+            <div class="alert alert-success">
+                <p>Venue Approved!</p>
+            </div>
+        }
+        else if (ViewBag.Status == 2)
+        {
+            <div class="alert alert-info">
+                <p>Venue Denied!</p>
+            </div>
+        }
+        else if (ViewBag.Status == 3)
+        {
+            <div class="alert alert-info">
+                <p>Venue Suspended!</p>
+            </div>
+        }
     </div>
 </div>

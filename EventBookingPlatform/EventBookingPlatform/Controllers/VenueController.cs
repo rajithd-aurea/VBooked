@@ -64,6 +64,19 @@ namespace EventBookingPlatform.Controllers
         {
             await _venueBLL.UpdateVenueStatus(venueid, status, email, venuename);
 
+            switch (status)
+            {
+                case 1:
+                    ViewBag.Status = 1;
+                    break;
+                case 2:
+                    ViewBag.Status = 2;
+                    break;
+                case 3:
+                    ViewBag.Status = 3;
+                    break;
+            }
+
             return View("Approve");
         }
         
