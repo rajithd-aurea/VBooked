@@ -764,8 +764,10 @@ CREATE TABLE [dbo].[VenueInfo](
 	[SeasonActs] [varchar](50) NOT NULL,
 	[Country] [varchar](100) NOT NULL,
 	[City] [varchar](100) NOT NULL,
-	[Street] [varchar](100) NOT NULL,
-	[ZipCode] [varchar](5) NOT NULL
+	[Street1] [varchar](100) NOT NULL,
+	[Street2] [varchar](100) NOT NULL,
+	[ZipCode] [varchar](5) NOT NULL,
+	[PBox] [varchar](6) NOT NULL
  CONSTRAINT [PK_VenueInfo] PRIMARY KEY CLUSTERED 
 (
 	[Pk_VenueId] ASC
