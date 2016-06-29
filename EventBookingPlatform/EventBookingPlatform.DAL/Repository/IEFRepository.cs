@@ -23,6 +23,10 @@ namespace EventBookingPlatform.DAL.Repository
         void AddVenueDescription(VenueDescription obj);
         void AddVenueEvents(VenueEvent obj);
 
+        #region Host Methods
+        void UpdateHostEmail(string hostid, string email);
+        #endregion
+
         #region Venue methods
         void AddVenueName(string hostid, string venuename, int status);
         IEnumerable<UnapproveVenueModel> GetUnapprovedVenues();
@@ -32,7 +36,7 @@ namespace EventBookingPlatform.DAL.Repository
         IEnumerable<VenueInfo> GetVenuesPerHost(string hostid);
         #endregion
 
-        #region
+        #region Venue Business Certificate Details
         VenueCertificate GetVenueBusinessCertificateDetails(int venueid);
         #endregion
 
@@ -64,6 +68,18 @@ namespace EventBookingPlatform.DAL.Repository
         {
             _entity.SaveChanges();
         }
+
+        #region Host Methods
+        public void UpdateHostEmail(string hostid, string email)
+        {
+            AspNetUser user = _entity.AspNetUsers.Find(hostid);
+            user.Email = email;
+            user.UserName = email;
+
+            _entity.Entry(user).State = EntityState.Modified;
+            Save();
+        }
+        #endregion
 
         #region Venue Methods
         //public List<VenueInfo> GetApprovedVenues(string hostid)

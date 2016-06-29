@@ -198,5 +198,12 @@ namespace EventBookingPlatform.BusinessLayer
             await emailHelper.SendEmailAsync();
         }
         #endregion
+
+        #region Host Methods
+        public void UpdateHostEmail(string hostid, string email)
+        {
+            _repo.UpdateHostEmail(hostid, email);
+        }
+        #endregion
     }
 }

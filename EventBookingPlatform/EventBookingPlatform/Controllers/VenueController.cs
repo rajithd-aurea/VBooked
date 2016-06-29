@@ -586,5 +586,16 @@ namespace EventBookingPlatform.Controllers
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName[6]);
         }
         #endregion
+
+        #region Update Host Email
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult UpdateHostEmail(string hostid, string email)
+        {
+            _venueBLL.UpdateHostEmail(hostid, email);
+
+            return Json(new { status = 1, message = "Successfully updated email." });
+        }
+        #endregion
     }
 }

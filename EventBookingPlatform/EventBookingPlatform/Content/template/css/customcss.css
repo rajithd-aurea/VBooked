@@ -123,7 +123,8 @@ ul.third-level-menu {
 #frmAddParking label.error,
 #frmAddPrivacy label.error,
 #frmAddPagesIn label.error,
-#frmAddBusinessCert label.error {
+#frmAddBusinessCert label.error,
+#frmUpdateEmail label.error {
     color: #FB3A3A;
     display: inline-block;
     padding: 0;

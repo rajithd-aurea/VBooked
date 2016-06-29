@@ -557,6 +557,7 @@ var alerts = {
         $('#alert-addvenue-success').hide();
         $('#alert-pending-venue-approval').hide();
         $('#alert-addbusinesscertificate').hide();
+        $('#alert-updateemail').hide();
     }
 };
 
@@ -917,6 +918,39 @@ var certificates = {
     }
 };
 
+var host = {
+    updateHostEmail: function (forgerytoken, hostid, venueid, email) {
+        $.ajax({
+            type: "POST",
+            url: "/Venue/UpdateHostEmail",
+            data: {
+                __RequestVerificationToken: forgerytoken,
+                hostid: hostid,
+                email: email
+            },
+            success: function (result) {
+                if (result.status == 1) {
+                    $('#alert-updateemail').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text(result.message);
+
+                        $('#currentuseremail').val("");
+                    });
+
+                    setTimeout(function () {
+                        $('#editEmailModal').modal('hide');
+
+                        window.location = "/Venue/Module?" + "mainmodule=Settings" + "&parentmodule=Main" + "&venueid=" + venueid;
+                    }, 2000);
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+};
+
 $(document).ready(function () {
     alerts.hideAlerts();
 
@@ -1057,6 +1091,29 @@ $(document).ready(function () {
             var status = 0;
 
             venue.addVenueName(antiforgerytoken, hostid, venuename, status);
+        }
+    });
+    // End
+
+    // Update Host Email
+    $('#frmUpdateEmail').validate({
+        rules: {
+            currentuseremail: {
+                required: true
+            }
+        },
+        messages: {
+            currentuseremail: {
+                required: "This field is required."
+            }
+        },
+        submitHandler: function (form) {
+            var forgerytoken = $('input[name=__RequestVerificationToken]').val();
+            var hostid = $('#currentuserid').val();
+            var venueid = parseInt($('#venueid').val());
+            var email = $('#currentuseremail').val();
+
+            host.updateHostEmail(forgerytoken, hostid, venueid, email);
         }
     });
     // End
