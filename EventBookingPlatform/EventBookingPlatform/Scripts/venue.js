@@ -973,6 +973,28 @@ $(document).ready(function () {
     events.getBusinessEvents();
 
     // Update Place Info
+    $('#foundationyear').keyup(function () {
+        var currentyear = new Date().getFullYear();
+        var inputyear = parseInt($(this).val());
+
+        if (inputyear > currentyear) {
+            alert("Foundation Year must be not more than the current year.");
+
+            $(this).val("");
+        }
+    });
+
+    $('#renovationyear').keyup(function () {
+        var currentyear = new Date().getFullYear();
+        var inputyear = parseInt($(this).val());
+
+        if (inputyear > currentyear) {
+            alert("Renovation Year must be not more than the current year.");
+            
+            $(this).val("");
+        }
+    });
+
     $('#frmAddPlace').validate({
         rules: {
             venuename: {
