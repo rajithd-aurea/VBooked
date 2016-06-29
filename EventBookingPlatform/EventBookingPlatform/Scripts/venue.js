@@ -648,7 +648,7 @@ var events = {
 };
 
 var certificates = {
-    uploadBusinessCertificate: function (venueid) {
+    uploadBusinessCertificate: function (venueid, hostid) {
         var data = new FormData();
         var files = $("#BusinessCert").get(0).files;
         if(files.length > 0) {
@@ -670,6 +670,12 @@ var certificates = {
                     });
 
                     certificates.saveBusinessCertificateInfo(venueid, response.imagelocation, false);
+
+                    setTimeout(function () {
+                        $('#addVenueBusinessCertModal').modal('hide');
+
+                        window.location = "/Venue/Dashboard?" + "hostid=" + hostid;
+                    }, 2000);
                 }
             },
             error: function (er) {
@@ -1157,8 +1163,9 @@ $(document).ready(function () {
 
             if (file == 'jpg' || file == 'pdf') {
                 var venueid = parseInt($('#venueId').val());
+                var hostid = $('#hostid').val();
 
-                certificates.uploadBusinessCertificate(venueid);
+                certificates.uploadBusinessCertificate(venueid, hostid);
             }
             else {
                 alert("Must upload JPG or PDF file.");
