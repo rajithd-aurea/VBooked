@@ -14,9 +14,15 @@
                     $('#alert-addvenue-success').show(function () {
                         $(this).slideDown();
                         $(this).find('p.img-for').text(result.message);
+
+                        $('#venuename').val("");
                     });
 
-                    $('#venuename').val("");
+                    setTimeout(function () {
+                        $('#addVenueModal').modal('hide');
+
+                        window.location = "/Venue/Dashboard?" + "hostid=" + hostid;
+                    }, 2000);
                 }
             },
             error: function (error) {
