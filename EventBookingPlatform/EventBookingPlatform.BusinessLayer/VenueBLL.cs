@@ -17,6 +17,12 @@ namespace EventBookingPlatform.BusinessLayer
             _repo = new Repository();
         }
 
+        #region Venue Methods
+        public IEnumerable<VenueInfo> GetVenuesAccordingToStatus(int status)
+        {
+            return _repo.GetVenuesAccordingToStatus(status);
+        }
+
         public void AddVenueName(string hostid, string venuename, int status)
         {
             _repo.AddVenueName(hostid, venuename, status);
@@ -50,11 +56,6 @@ namespace EventBookingPlatform.BusinessLayer
             }
         }
 
-        //public List<VenueInfo> GetApprovedVenuesPerHost(string hostid)
-        //{
-        //    return _repo.GetApprovedVenues(hostid);
-        //}
-
         public int GetUnapprovedVenuesCountPerHost(string hostid)
         {
             return _repo.GetUnapprovedVenuesCountPerHost(hostid);
@@ -64,8 +65,14 @@ namespace EventBookingPlatform.BusinessLayer
         {
             return _repo.GetVenuesPerHost(hostid);
         }
+        #endregion
 
-        #region
+        //public List<VenueInfo> GetApprovedVenuesPerHost(string hostid)
+        //{
+        //    return _repo.GetApprovedVenues(hostid);
+        //}
+
+        #region Venue Business Certificate
         public VenueCertificate GetVenueBusinessCertificateDetails(int venueid)
         {
             return _repo.GetVenueBusinessCertificateDetails(venueid);

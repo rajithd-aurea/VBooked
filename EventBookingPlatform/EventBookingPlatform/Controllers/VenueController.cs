@@ -25,6 +25,7 @@ namespace EventBookingPlatform.Controllers
             _eventBLL = new EventBLL();
         }
 
+        #region Venue Views
         [HttpGet]
         public ActionResult Info(string currentuserid, int venueid, string venuename)
         {
@@ -42,20 +43,29 @@ namespace EventBookingPlatform.Controllers
             return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public JsonResult AddVenueName(string hostid, string venuename, int status)
-        {
-            _venueBLL.AddVenueName(hostid, venuename, status);
-
-            return Json(new { status = 1 });
-        }
-
         [HttpGet]
         public ActionResult ForApproval()
         {
             ViewBag.VenueList = _venueBLL.GetUnapprovedVenueList();
 
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Approved()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Denied()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Suspended()
+        {
             return View();
         }
 
@@ -79,12 +89,6 @@ namespace EventBookingPlatform.Controllers
 
             return View("Approve");
         }
-        
-        [HttpGet]
-        public JsonResult GetUnapprovedVenuesCountPerHost(string hostid)
-        {
-            return Json(new { count = _venueBLL.GetUnapprovedVenuesCountPerHost(hostid) }, JsonRequestBehavior.AllowGet);
-        }
 
         [HttpGet]
         public ActionResult Module(string mainmodule, string parentmodule, int venueid)
@@ -93,10 +97,33 @@ namespace EventBookingPlatform.Controllers
             {
                 if (parentmodule == "Main" ||
                     parentmodule == "Administrative")
-                return View("~/Views/Settings/" + parentmodule + ".cshtml");
+                    return View("~/Views/Settings/" + parentmodule + ".cshtml");
             }
 
             return View();
+        }
+        #endregion
+
+        #region Venue Data
+        [HttpGet]
+        public JsonResult GetVenuesAccordingToStatus(int status)
+        {
+            return Json(_venueBLL.GetVenuesAccordingToStatus(status), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult AddVenueName(string hostid, string venuename, int status)
+        {
+            _venueBLL.AddVenueName(hostid, venuename, status);
+
+            return Json(new { status = 1 });
+        }
+
+        [HttpGet]
+        public JsonResult GetUnapprovedVenuesCountPerHost(string hostid)
+        {
+            return Json(new { count = _venueBLL.GetUnapprovedVenuesCountPerHost(hostid) }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -170,6 +197,7 @@ namespace EventBookingPlatform.Controllers
 
             return Json(new { status = 1 });
         }
+        #endregion
 
         #region Upload images for Characterization of place sub module
         [HttpPost]

@@ -28,6 +28,7 @@ namespace EventBookingPlatform.DAL.Repository
         #endregion
 
         #region Venue methods
+        IEnumerable<VenueInfo> GetVenuesAccordingToStatus(int status);
         void AddVenueName(string hostid, string venuename, int status);
         IEnumerable<UnapproveVenueModel> GetUnapprovedVenues();
         //List<VenueInfo> GetApprovedVenues(string hostid);
@@ -92,6 +93,12 @@ namespace EventBookingPlatform.DAL.Repository
 
         //    return venues;
         //}
+        public IEnumerable<VenueInfo> GetVenuesAccordingToStatus(int status)
+        {
+            _entity.Configuration.ProxyCreationEnabled = false;
+
+            return _entity.VenueInfoes.Where(venue => venue.Status == status);
+        }
 
         public void AddVenueName(string hostid, string venuename, int status)
         {

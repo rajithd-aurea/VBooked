@@ -1,4 +1,70 @@
 ﻿var venue = {
+    getApprovedVenues: function () {
+        $.ajax({
+            type: "GET",
+            url: "/Venue/GetVenuesAccordingToStatus",
+            data: { status: 1 },
+            success: function (result) {
+                var tbody = $('#approvedVenueList');
+
+                $.each(result, function (index, value) {
+                    $(
+                        '<tr>' +
+                            '<td>' + value.Name + '</td>' +
+                            '<td>' + '<p style="color:#02e022">Approved</p>' + '</td>' +
+                        '</tr>'
+                    ).appendTo(tbody);
+                });
+            },
+            error: function (error) {
+                console.log(error.responseText);
+            }
+        });
+    },
+    getDeniedVenues: function () {
+        $.ajax({
+            type: "GET",
+            url: "/Venue/GetVenuesAccordingToStatus",
+            data: { status: 2 },
+            success: function (result) {
+                var tbody = $('#deniedVenueList');
+
+                $.each(result, function (index, value) {
+                    $(
+                        '<tr>' +
+                            '<td>' + value.Name + '</td>' +
+                            '<td>' + '<p style="color:#FB3A3A">Denied</p>' + '</td>' +
+                        '</tr>'
+                    ).appendTo(tbody);
+                });
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    },
+    getSuspendedVenues: function () {
+        $.ajax({
+            type: "GET",
+            url: "/Venue/GetVenuesAccordingToStatus",
+            data: { status: 3 },
+            success: function (result) {
+                var tbody = $('#suspendedVenueList');
+
+                $.each(result, function (index, value) {
+                    $(
+                        '<tr>' +
+                            '<td>' + value.Name + '</td>' +
+                            '<td>' + '<p style="color:#FB3A3A">Suspended</p>' + '</td>' +
+                        '</tr>'
+                    ).appendTo(tbody);
+                });
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    },
     addVenueName: function (forgerytoken, hostid, venuename, status) {
         $.ajax({
             type: "POST",
@@ -966,7 +1032,12 @@ var host = {
 $(document).ready(function () {
     alerts.hideAlerts();
 
-    //venue.getUnapprovedVenues();
+    // Get Approved, Denied and Suspended Venues
+    venue.getApprovedVenues();
+    venue.getDeniedVenues();
+    venue.getSuspendedVenues();
+    // End
+
     venue.loadVenueTypes();
     venue.loadCountries();
     events.getPrivateEvents();
