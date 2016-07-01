@@ -65,6 +65,11 @@ namespace EventBookingPlatform.BusinessLayer
         {
             return _repo.GetVenuesPerHost(hostid);
         }
+
+        public void UpdateVenueStatus(int venueid)
+        {
+            _repo.UpdateVenueStatus(venueid);
+        }
         #endregion
 
         //public List<VenueInfo> GetApprovedVenuesPerHost(string hostid)

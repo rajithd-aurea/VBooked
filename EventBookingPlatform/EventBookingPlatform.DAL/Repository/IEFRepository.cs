@@ -35,6 +35,7 @@ namespace EventBookingPlatform.DAL.Repository
         bool UpdateVenueStatus(int venueid, int status);
         int GetUnapprovedVenuesCountPerHost(string hostid);
         IEnumerable<VenueInfo> GetVenuesPerHost(string hostid);
+        void UpdateVenueStatus(int venueid);
         #endregion
 
         #region Venue Business Certificate Details
@@ -159,6 +160,15 @@ namespace EventBookingPlatform.DAL.Repository
         public IEnumerable<VenueInfo> GetVenuesPerHost(string hostid)
         {
             return _entity.VenueInfoes.Where(venue => venue.Id == hostid).AsEnumerable();
+        }
+
+        public void UpdateVenueStatus(int venueid)
+        {
+            VenueInfo venueInfo = _entity.VenueInfoes.Find(venueid);
+            venueInfo.Status = 1;
+
+            _entity.Entry(venueInfo).State = EntityState.Modified;
+            Save();
         }
         #endregion
 

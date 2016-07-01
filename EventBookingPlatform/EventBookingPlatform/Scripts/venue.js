@@ -34,6 +34,7 @@
                         '<tr>' +
                             '<td>' + value.Name + '</td>' +
                             '<td>' + '<p style="color:#FB3A3A">Denied</p>' + '</td>' +
+                            '<td>' + '<a href="/Venue/ReapproveVenueStatus?venueid=' + value.Pk_VenueId + '">Re-approve</a>' +
                         '</tr>'
                     ).appendTo(tbody);
                 });
@@ -56,6 +57,7 @@
                         '<tr>' +
                             '<td>' + value.Name + '</td>' +
                             '<td>' + '<p style="color:#FB3A3A">Suspended</p>' + '</td>' +
+                            '<td>' + '<a href="/Venue/ReapproveVenueStatus?venueid=' + value.Pk_VenueId + '">Re-approve</a>' +
                         '</tr>'
                     ).appendTo(tbody);
                 });

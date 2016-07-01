@@ -102,6 +102,14 @@ namespace EventBookingPlatform.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public ActionResult ReapproveVenueStatus(int venueid)
+        {
+            _venueBLL.UpdateVenueStatus(venueid);
+
+            return RedirectToAction("Approved", "Venue");
+        }
         #endregion
 
         #region Venue Data
