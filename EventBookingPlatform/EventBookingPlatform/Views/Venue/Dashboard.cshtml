@@ -64,6 +64,24 @@
                                     <td>@Html.ActionLink("View", "Info", "Venue", new { currentuserid = Session["UserId"].ToString(), venueid = venue.Pk_VenueId, venuename = venue.Name }, null)</td>
                                 </tr>
                             }
+                            else if (venue.Status == 2)
+                            {
+                                <tr>
+                                    <td></td>
+                                    <td>@venue.Name</td>
+                                    <td><p class="venue-status-denied">Denied</p></td>
+                                    <td></td>
+                                </tr>
+                            }
+                            else if (venue.Status == 3)
+                            {
+                                <tr>
+                                    <td></td>
+                                    <td>@venue.Name</td>
+                                    <td><p class="venue-status-suspended">Suspended</p></td>
+                                    <td></td>
+                                </tr>
+                            }
                             else
                             {
                                 <tr>

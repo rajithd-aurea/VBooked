@@ -144,6 +144,11 @@ ul.third-level-menu {
     color: #02e022;
 }
 
+.venue-status-denied,
+.venue-status-suspended {
+    color: #ff0000;
+}
+
 .venue-status-pending-approval {
     color: #ff0000;
 }
