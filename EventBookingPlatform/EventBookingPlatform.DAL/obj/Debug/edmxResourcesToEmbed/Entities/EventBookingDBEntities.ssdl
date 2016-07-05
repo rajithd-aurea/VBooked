@@ -295,6 +295,7 @@
     </Key>
     <Property Name="Pk_VenueCharId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Fk_VenueId" Type="int" Nullable="false" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
     <Property Name="OptionName" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="OptionValue" Type="varchar(max)" Nullable="false" />
     <Property Name="OptionImageLocation" Type="varchar" MaxLength="100" Nullable="false" />

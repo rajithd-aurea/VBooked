@@ -156,6 +156,9 @@
     <Compile Include="Entities\Supplier.cs">
       <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\VenueActivityTime.cs">
+      <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\VenueCertificate.cs">
       <DependentUpon>EventBookingDBEntities.tt</DependentUpon>
     </Compile>

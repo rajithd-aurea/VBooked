@@ -424,19 +424,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="VenueCharacterizations">
-      <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueCharacterization">
-        <MappingFragment StoreEntitySet="VenueCharacterization">
-          <ScalarProperty Name="OpenAreasImage" ColumnName="OpenAreasImage" />
-          <ScalarProperty Name="OptionSize" ColumnName="OptionSize" />
-          <ScalarProperty Name="OptionImageLocation" ColumnName="OptionImageLocation" />
-          <ScalarProperty Name="OptionValue" ColumnName="OptionValue" />
-          <ScalarProperty Name="OptionName" ColumnName="OptionName" />
-          <ScalarProperty Name="Fk_VenueId" ColumnName="Fk_VenueId" />
-          <ScalarProperty Name="Pk_VenueCharId" ColumnName="Pk_VenueCharId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="VenueCertificates">
       <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueCertificate">
         <MappingFragment StoreEntitySet="VenueCertificate">
@@ -480,6 +467,20 @@
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Pk_VenueId" ColumnName="Pk_VenueId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VenueCharacterizations">
+      <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueCharacterization">
+        <MappingFragment StoreEntitySet="VenueCharacterization">
+          <ScalarProperty Name="OpenAreasImage" ColumnName="OpenAreasImage" />
+          <ScalarProperty Name="OptionSize" ColumnName="OptionSize" />
+          <ScalarProperty Name="OptionImageLocation" ColumnName="OptionImageLocation" />
+          <ScalarProperty Name="OptionValue" ColumnName="OptionValue" />
+          <ScalarProperty Name="OptionName" ColumnName="OptionName" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="Fk_VenueId" ColumnName="Fk_VenueId" />
+          <ScalarProperty Name="Pk_VenueCharId" ColumnName="Pk_VenueCharId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

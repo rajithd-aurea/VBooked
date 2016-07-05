@@ -75,6 +75,8 @@
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_WaitingRoomOptionComment" />
         <EntityTypeShape EntityType="DevEventBookingDBModel.VenueCharacterization" Width="1.5" PointX="7.5" PointY="25.375" />
         <AssociationConnector Association="DevEventBookingDBModel.FK_VenueInfo_VenueCharacterization" />
+        <EntityTypeShape EntityType="DevEventBookingDBModel.VenueActivityTime" Width="1.5" PointX="7.5" PointY="9.625" />
+        <AssociationConnector Association="DevEventBookingDBModel.FK__VenueActi__Fk_Ve__5CD6CB2B" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

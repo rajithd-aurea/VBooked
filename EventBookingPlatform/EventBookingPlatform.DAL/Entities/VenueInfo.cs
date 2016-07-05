@@ -32,6 +32,7 @@ namespace EventBookingPlatform.DAL.Entities
             this.VenueWaitingRoomOptions = new HashSet<VenueWaitingRoomOption>();
             this.WaitingRoomOptionComments = new HashSet<WaitingRoomOptionComment>();
             this.VenueCharacterizations = new HashSet<VenueCharacterization>();
+            this.VenueActivityTimes = new HashSet<VenueActivityTime>();
         }
     
         public int Pk_VenueId { get; set; }
@@ -84,5 +85,7 @@ namespace EventBookingPlatform.DAL.Entities
         public virtual ICollection<WaitingRoomOptionComment> WaitingRoomOptionComments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VenueCharacterization> VenueCharacterizations { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VenueActivityTime> VenueActivityTimes { get; set; }
     }
 }
