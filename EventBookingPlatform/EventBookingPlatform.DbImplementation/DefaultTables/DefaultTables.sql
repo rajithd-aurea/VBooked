@@ -776,6 +776,23 @@ CREATE TABLE [dbo].[VenueInfo](
 ) ON [PRIMARY]
 
 GO
+
+-- Create table "VenueActivityTime"
+CREATE TABLE [dbo].[VenueActivityTime](
+	[Pk_ActivityTimeId] [int] IDENTITY(1,1) NOT NULL,
+	[Fk_VenueId] [int] NOT NULL FOREIGN KEY REFERENCES VenueInfo(Pk_VenueId),
+	[SchedType] [varchar](50) NOT NULL,
+	[Duration] [varchar](50) NOT NULL,
+	[StartTime] [varchar](6) NOT NULL,
+	[EndTime] [varchar](6) NOT NULL,
+	[Overtime] [int] NOT NULL
+	CONSTRAINT [PK_ActivityTimeId] PRIMARY KEY CLUSTERED 
+(
+	[Pk_ActivityTimeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
 SET ANSI_PADDING ON
 GO
 /****** Object:  Table [dbo].[VenueParkingOption]    Script Date: 5/25/2016 7:18:57 PM ******/
