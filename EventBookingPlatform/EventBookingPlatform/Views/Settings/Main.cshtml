@@ -374,7 +374,72 @@
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="acttime">
-                <p>Add activity time here</p>
+                <div class="content-container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addVenueSchedModal">Set Schedule</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Reg. Days Evening</th>
+                                            <th>Reg. Days Afternoon</th>
+                                            <th>Reg. Days Morning</th>
+                                            <th>Holiday Evening</th>
+                                            <th>Holiday Afternoon</th>
+                                            <th>Holiday Morning</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Duration</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Starting Time</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>End Time</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Overtime</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="halls">
                 <p>Add halls here</p>
@@ -408,6 +473,107 @@
                     </div>
                     <div class="form-group">
                     </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END -->
+
+<!-- ADD VENUE SCHEDULE POP UP MODAL -->
+<div class="modal fade bs-example-modal-sm" id="addVenueSchedModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Set Venue Schedule</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-contents">
+                    <div class="alert alert-success" id="alert-addvenuesched">
+                        <p class="img-for"></p>
+                    </div>
+
+                    @using (Html.BeginForm("", "", null, FormMethod.Post, new { id = "frmAddVenueSched" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-group">
+                            <label>Schedule For</label>
+                            <select id="drpschedfor" class="form-control">
+                                <option value="Select">Select..</option>
+                                <option value="Regular days morning">Regular days morning</option>
+                                <option value="Regular days afternoon">Regular days afternoon</option>
+                                <option value="Regular days evening">Regular days evening</option>
+                                <option value="Holiday morning">Holiday morning</option>
+                                <option value="Holiday afternoon">Holiday afternoon</option>
+                                <option value="Holiday evening">Holiday evening</option>
+                                <option value="Shabbat / Hag entry">Shabbat / Hag entry</option>
+                                <option value="Shabbat / Hag exit">Shabbat / Hag exit</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Duration</label>
+                            <select id="drpduration" class="form-control">
+                                <option value="Select">Select..</option>
+                                <option value="3 hours">Up to 3 hours</option>
+                                <option value="4 hours">Up to 4 hours</option>
+                                <option value="5 hours">Up to 5 hours</option>
+                                <option value="6 hours">Up to 6 hours</option>
+                                <option value="Till last of the guests">Till last of the guests</option>
+                                <option value="Closed">Closed</option>
+                                <option value="N/A">N/A</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Starting Time</label>
+                            <select id="drpStartTime" class="form-control">
+                                <option value="Select">Select..</option>
+                                <option value="06:00">06:00</option>
+                                <option value="06:30">06:30</option>
+                                <option value="07:00">07:00</option>
+                                <option value="07:30">07:30</option>
+                                <option value="08:00">08:00</option>
+                                <option value="08:30">08:30</option>
+                                <option value="09:00">09:00</option>
+                                <option value="09:30">09:30</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>End Time</label>
+                            <select id="drpEndTime" class="form-control">
+                                <option value="Select">Select..</option>
+                                <option value="06:30">06:30</option>
+                                <option value="07:00">07:00</option>
+                                <option value="07:30">07:30</option>
+                                <option value="08:00">08:00</option>
+                                <option value="08:30">08:30</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Overtime</label>
+                            <select id="drpStartTime" class="form-control">
+                                <option value="Select">Select..</option>
+                                <option value="1 hour free">1 hour free</option>
+                                <option value="Extra hours charge">Extra hours charge</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Set Schedule" class="btn btn-primary form-control" />
+                        </div>
+                    }
                 </div>
             </div>
             <div class="modal-footer">
