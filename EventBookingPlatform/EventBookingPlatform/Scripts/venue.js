@@ -617,6 +617,37 @@
                 console.log(error);
             }
         });
+    },
+    setSchedule: function (venueid, schedfor, duration, starttime, endtime, overtime) {
+        $.ajax({
+            type: "POST",
+            url: "/Venue/SetVenueSchedule",
+            data: {
+                Fk_VenueId: venueid,
+                SchedType: schedfor,
+                Duration: duration,
+                StartTime: starttime,
+                EndTime: endtime,
+                Overtime: overtime
+            },
+            success: function (result) {
+                if (result.status == 1) {
+                    $('#alert-addvenuesched').show(function () {
+                        $(this).slideDown();
+                        $(this).find('p.img-for').text(result.message);
+                    });
+
+                    setTimeout(function () {
+                        $('#addVenueSchedModal').modal('hide');
+
+                        window.location = "/Venue/Module?" + "mainmodule=Settings" + "&parentmodule=Main" + "&venueid=" + venueid;
+                    }, 2000);
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
     }
 };
 
@@ -632,6 +663,7 @@ var alerts = {
         $('#alert-pending-venue-approval').hide();
         $('#alert-addbusinesscertificate').hide();
         $('#alert-updateemail').hide();
+        $('#alert-addvenuesched').hide();
     }
 };
 
@@ -1540,6 +1572,478 @@ $(document).ready(function () {
         event.preventDefault();
 
         certificates.addThirdPartyInsuranceCertificate();
+    });
+    // END
+
+
+
+    // ACTIVITY TIME
+    $('#drpschedfor').change(function () {
+        var value = $('#drpschedfor option:selected').text();
+
+        switch (value) {
+            case "Regular days morning":
+                var duration = $('#drpduration');
+                duration.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="3 hours">Up to 3 hours</option>' +
+                    '<option value="4 hours">Up to 4 hours</option>' +
+                    '<option value="5 hours">Up to 5 hours</option>' +
+                    '<option value="6 hours">Up to 6 hours</option>' +
+                    '<option value="Till last of the guests">Till last of the guests</option>' +
+                    '<option value="Closed">Closed</option>' +
+                    '<option value="N/A">N/A</option>'
+                ).appendTo(duration);
+
+                var starttime = $('#drpStartTime');
+                starttime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="06:00">06:00</option>' +
+                    '<option value="06:30">06:30</option>' +
+                    '<option value="07:00">07:00</option>' +
+                    '<option value="07:30">07:30</option>' +
+                    '<option value="08:00">08:00</option>' +
+                    '<option value="08:30">08:30</option>' +
+                    '<option value="09:00">09:00</option>' +
+                    '<option value="09:30">09:30</option>' +
+                    '<option value="10:00">10:00</option>' +
+                    '<option value="10:30">10:30</option>' +
+                    '<option value="11:00">11:00</option>'
+                ).appendTo(starttime);
+
+                var endtime = $('#drpEndTime');
+                endtime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="06:30">06:30</option>' +
+                    '<option value="07:00">07:00</option>' +
+                    '<option value="07:30">07:30</option>' +
+                    '<option value="08:00">08:00</option>' +
+                    '<option value="08:30">08:30</option>' +
+                    '<option value="09:00">09:00</option>' +
+                    '<option value="10:00">10:00</option>' +
+                    '<option value="10:30">10:30</option>' +
+                    '<option value="11:00">11:00</option>' +
+                    '<option value="11:30">11:30</option>' +
+                    '<option value="12:00">12:00</option>'
+                ).appendTo(endtime);
+
+                var overtime = $('#drpOverTime');
+                overtime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="One hour for free">One hour for free</option>' +
+                    '<option value="1">1 hour</option>' +
+                    '<option value="2">2 hours</option>' +
+                    '<option value="3">3 hours</option>'
+                ).appendTo(overtime);
+
+                break;
+
+            case "Regular days afternoon":
+                var duration = $('#drpduration');
+                duration.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="3 hours">Up to 3 hours</option>' +
+                    '<option value="4 hours">Up to 4 hours</option>' +
+                    '<option value="5 hours">Up to 5 hours</option>' +
+                    '<option value="6 hours">Up to 6 hours</option>' +
+                    '<option value="Till last of the guests">Till last of the guests</option>' +
+                    '<option value="Closed">Closed</option>' +
+                    '<option value="N/A">N/A</option>'
+                ).appendTo(duration);
+
+                var starttime = $('#drpStartTime');
+                starttime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="11:00">11:00</option>' +
+                    '<option value="11:30">11:30</option>' +
+                    '<option value="12:00">12:00</option>' +
+                    '<option value="12:30">12:30</option>' +
+                    '<option value="13:00">13:00</option>' +
+                    '<option value="13:30">13:30</option>' +
+                    '<option value="14:00">14:00</option>'
+                ).appendTo(starttime);
+
+                var endtime = $('#drpEndTime');
+                endtime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="12:30">12:30</option>' +
+                    '<option value="13:00">13:00</option>' +
+                    '<option value="13:30">13:30</option>' +
+                    '<option value="14:00">14:00</option>' +
+                    '<option value="14:30">14:30</option>' +
+                    '<option value="15:00">15:00</option>' +
+                    '<option value="15:30">15:30</option>' +
+                    '<option value="16:00">16:00</option>' +
+                    '<option value="16:30">16:30</option>' +
+                    '<option value="17:00">17:00</option>' +
+                    '<option value="17:30">17:30</option>' +
+                    '<option value="18:00">18:00</option>' +
+                    '<option value="18:30">18:30</option>' +
+                    '<option value="19:00">19:00</option>'
+                ).appendTo(endtime);
+
+                var overtime = $('#drpOverTime');
+                overtime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="One hour for free">One hour for free</option>' +
+                    '<option value="1">1 hour</option>' +
+                    '<option value="2">2 hours</option>' +
+                    '<option value="3">3 hours</option>'
+                ).appendTo(overtime);
+
+                break;
+
+            case "Regular days evening":
+                var duration = $('#drpduration');
+                duration.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="3 hours">Up to 3 hours</option>' +
+                    '<option value="4 hours">Up to 4 hours</option>' +
+                    '<option value="5 hours">Up to 5 hours</option>' +
+                    '<option value="6 hours">Up to 6 hours</option>' +
+                    '<option value="Till last of the guests">Till last of the guests</option>' +
+                    '<option value="Closed">Closed</option>' +
+                    '<option value="N/A">N/A</option>'
+                ).appendTo(duration);
+
+                var starttime = $('#drpStartTime');
+                starttime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="17:00">17:00</option>' +
+                    '<option value="17:30">17:30</option>' +
+                    '<option value="18:00">18:00</option>' +
+                    '<option value="18:30">18:30</option>' +
+                    '<option value="19:00">19:00</option>' +
+                    '<option value="19:30">19:30</option>' +
+                    '<option value="20:00">20:00</option>' +
+                    '<option value="20:30">20:30</option>' +
+                    '<option value="21:00">21:00</option>' +
+                    '<option value="21:30">21:30</option>' +
+                    '<option value="22:00">22:00</option>' +
+                    '<option value="22:30">22:30</option>' +
+                    '<option value="23:00">23:00</option>' +
+                    '<option value="23:30">23:30</option>' +
+                    '<option value="24:00">24:00</option>'
+                ).appendTo(starttime);
+
+                var endtime = $('#drpEndTime');
+                endtime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="17:30">17:30</option>' +
+                    '<option value="18:00">18:00</option>' +
+                    '<option value="18:30">18:30</option>' +
+                    '<option value="19:00">19:00</option>' +
+                    '<option value="19:30">19:30</option>' +
+                    '<option value="20:00">20:00</option>' +
+                    '<option value="21:30">21:30</option>' +
+                    '<option value="22:00">22:00</option>' +
+                    '<option value="22:30">22:30</option>' +
+                    '<option value="23:00">23:00</option>' +
+                    '<option value="23:30">23:30</option>' +
+                    '<option value="24:00">24:00</option>' +
+                    '<option value="24:30">24:30</option>' +
+                    '<option value="01:00">01:00</option>' +
+                    '<option value="01:30">01:30</option>' +
+                    '<option value="02:00">02:00</option>' +
+                    '<option value="02:30">02:30</option>' +
+                    '<option value="03:00">03:00</option>' +
+                    '<option value="03:30">03:30</option>' +
+                    '<option value="04:00">04:00</option>'
+                ).appendTo(endtime);
+
+                var overtime = $('#drpOverTime');
+                overtime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="One hour for free">One hour for free</option>' +
+                    '<option value="1">1 hour</option>' +
+                    '<option value="2">2 hours</option>' +
+                    '<option value="3">3 hours</option>'
+                ).appendTo(overtime);
+
+                break;
+
+            case "Holiday morning":
+                var duration = $('#drpduration');
+                duration.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="3 hours">Up to 3 hours</option>' +
+                    '<option value="4 hours">Up to 4 hours</option>' +
+                    '<option value="5 hours">Up to 5 hours</option>' +
+                    '<option value="6 hours">Up to 6 hours</option>' +
+                    '<option value="Till last of the guests">Till last of the guests</option>' +
+                    '<option value="Closed">Closed</option>' +
+                    '<option value="N/A">N/A</option>'
+                ).appendTo(duration);
+
+                var starttime = $('#drpStartTime');
+                starttime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="06:00">06:00</option>' +
+                    '<option value="06:30">06:30</option>' +
+                    '<option value="07:00">07:00</option>' +
+                    '<option value="07:30">07:30</option>' +
+                    '<option value="08:00">08:00</option>' +
+                    '<option value="08:30">08:30</option>' +
+                    '<option value="09:00">09:00</option>' +
+                    '<option value="09:30">09:30</option>' +
+                    '<option value="10:00">10:00</option>' +
+                    '<option value="10:30">10:30</option>' +
+                    '<option value="11:00">11:00</option>'
+                ).appendTo(starttime);
+
+                var endtime = $('#drpEndTime');
+                endtime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="06:30">06:30</option>' +
+                    '<option value="07:00">07:00</option>' +
+                    '<option value="07:30">07:30</option>' +
+                    '<option value="08:00">08:00</option>' +
+                    '<option value="08:30">08:30</option>' +
+                    '<option value="09:00">09:00</option>' +
+                    '<option value="09:30">09:30</option>' +
+                    '<option value="10:00">10:00</option>' +
+                    '<option value="10:30">10:30</option>' +
+                    '<option value="11:00">11:00</option>' +
+                    '<option value="11:30">11:30</option>' +
+                    '<option value="12:00">12:00</option>'
+                ).appendTo(endtime);
+
+                var overtime = $('#drpOverTime');
+                overtime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="One hour for free">One hour for free</option>' +
+                    '<option value="1">1 hour</option>' +
+                    '<option value="2">2 hours</option>' +
+                    '<option value="3">3 hours</option>'
+                ).appendTo(overtime);
+
+                break;
+
+            case "Holiday afternoon":
+                var duration = $('#drpduration');
+                duration.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="3 hours">Up to 3 hours</option>' +
+                    '<option value="4 hours">Up to 4 hours</option>' +
+                    '<option value="5 hours">Up to 5 hours</option>' +
+                    '<option value="6 hours">Up to 6 hours</option>' +
+                    '<option value="Till last of the guests">Till last of the guests</option>' +
+                    '<option value="Closed">Closed</option>' +
+                    '<option value="N/A">N/A</option>'
+                ).appendTo(duration);
+
+                var starttime = $('#drpStartTime');
+                starttime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="11:00">11:00</option>' +
+                    '<option value="11:30">11:30</option>' +
+                    '<option value="12:00">12:00</option>' +
+                    '<option value="12:30">12:30</option>' +
+                    '<option value="13:00">13:00</option>' +
+                    '<option value="13:30">13:30</option>' +
+                    '<option value="14:00">14:00</option>'
+                ).appendTo(starttime);
+
+                var endtime = $('#drpEndTime');
+                endtime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="12:30">12:30</option>' +
+                    '<option value="13:00">13:00</option>' +
+                    '<option value="13:30">13:30</option>' +
+                    '<option value="14:00">14:00</option>' +
+                    '<option value="14:30">14:30</option>' +
+                    '<option value="15:00">15:00</option>' +
+                    '<option value="15:30">15:30</option>' +
+                    '<option value="16:00">16:00</option>' +
+                    '<option value="16:30">16:30</option>' +
+                    '<option value="17:00">17:00</option>' +
+                    '<option value="17:30">17:30</option>' +
+                    '<option value="18:00">18:00</option>' +
+                    '<option value="18:30">18:00</option>' +
+                    '<option value="19:00">19:00</option>'
+                ).appendTo(endtime);
+
+                var overtime = $('#drpOverTime');
+                overtime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="One hour for free">One hour for free</option>' +
+                    '<option value="1">1 hour</option>' +
+                    '<option value="2">2 hours</option>' +
+                    '<option value="3">3 hours</option>'
+                ).appendTo(overtime);
+
+                break;
+
+            case "Holiday evening":
+                var duration = $('#drpduration');
+                duration.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="3 hours">Up to 3 hours</option>' +
+                    '<option value="4 hours">Up to 4 hours</option>' +
+                    '<option value="5 hours">Up to 5 hours</option>' +
+                    '<option value="6 hours">Up to 6 hours</option>' +
+                    '<option value="Till last of the guests">Till last of the guests</option>' +
+                    '<option value="Closed">Closed</option>' +
+                    '<option value="N/A">N/A</option>'
+                ).appendTo(duration);
+
+                var starttime = $('#drpStartTime');
+                starttime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="17:00">17:00</option>' +
+                    '<option value="17:30">17:30</option>' +
+                    '<option value="18:00">18:00</option>' +
+                    '<option value="18:30">18:30</option>' +
+                    '<option value="19:00">19:00</option>' +
+                    '<option value="19:30">19:30</option>' +
+                    '<option value="20:00">20:00</option>' +
+                    '<option value="20:30">20:30</option>' +
+                    '<option value="21:00">21:00</option>' +
+                    '<option value="21:30">21:30</option>' +
+                    '<option value="22:00">22:00</option>' +
+                    '<option value="22:30">22:30</option>' +
+                    '<option value="23:00">23:00</option>' +
+                    '<option value="23:30">23:30</option>' +
+                    '<option value="24:00">24:00</option>'
+                ).appendTo(starttime);
+
+                var endtime = $('#drpEndTime');
+                endtime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="17:30">17:30</option>' +
+                    '<option value="18:00">18:00</option>' +
+                    '<option value="18:30">18:30</option>' +
+                    '<option value="19:00">19:00</option>' +
+                    '<option value="19:30">19:30</option>' +
+                    '<option value="20:00">20:00</option>' +
+                    '<option value="20:30">20:30</option>' +
+                    '<option value="21:00">21:00</option>' +
+                    '<option value="21:30">21:30</option>' +
+                    '<option value="22:00">22:00</option>' +
+                    '<option value="22:30">22:30</option>' +
+                    '<option value="23:00">23:00</option>' +
+                    '<option value="23:30">23:30</option>' +
+                    '<option value="24:00">24:00</option>' +
+                    '<option value="24:30">24:30</option>' +
+                    '<option value="01:00">01:00</option>' +
+                    '<option value="01:30">01:30</option>' +
+                    '<option value="02:00">02:00</option>' +
+                    '<option value="02:30">02:30</option>' +
+                    '<option value="03:00">03:00</option>' +
+                    '<option value="03:30">03:30</option>' +
+                    '<option value="04:00">04:00</option>'
+                ).appendTo(endtime);
+
+                var overtime = $('#drpOverTime');
+                overtime.find('option').remove();
+
+                $(
+                    '<option value="Select">Select</option>' +
+                    '<option value="One hour for free">One hour for free</option>' +
+                    '<option value="1">1 hour</option>' +
+                    '<option value="2">2 hours</option>' +
+                    '<option value="3">3 hours</option>'
+                ).appendTo(overtime);
+
+                break;
+
+            case "Shabbat / Hag entry":
+                break;
+
+            case "Shabbat / Hag exit":
+                alert(8);
+                break;
+        }
+    });
+
+    $('#frmAddVenueSched').validate({
+        rules: {
+            schedfor: {
+                required: true
+            },
+            duration: {
+                required: true
+            },
+            starttime: {
+                required: true
+            },
+            endtime: {
+                required: true
+            },
+            overtime: {
+                required: true
+            }
+        },
+        messages: {
+            schedfor: "This field is required.",
+            duration: "This field is required.",
+            starttime: "This field is required.",
+            endtime: "This field is required.",
+            overtime: "This field is required."
+        },
+        submitHandler: function (form) {
+            var venueid = $('#venueid').val();
+            var schedfor = $('#drpschedfor option:selected').val();
+            var duration = $('#drpduration option:selected').val();
+            var starttime = $('#drpStartTime option:selected').val();
+            var endtime = $('#drpEndTime option:selected').val();
+            var overtime = $('#drpOverTime option:selected').val();
+
+            if (schedfor == "Select" ||
+                duration == "Select" ||
+                starttime == "Select" ||
+                endtime == "Select" ||
+                overtime == "Select")
+                alert("Please select an option.");
+            else
+                venue.setSchedule(venueid, schedfor, duration, starttime, endtime, overtime);
+        }
     });
     // END
 });

@@ -112,7 +112,7 @@ namespace EventBookingPlatform.Controllers
         }
         #endregion
 
-        #region Venue Data
+        #region Venue Data & Functions
         [HttpGet]
         public JsonResult GetVenuesAccordingToStatus(int status)
         {
@@ -204,6 +204,14 @@ namespace EventBookingPlatform.Controllers
             _venueBLL.AddEventToVenue(eventInfo);
 
             return Json(new { status = 1 });
+        }
+
+        [HttpPost]
+        public JsonResult SetVenueSchedule(VenueActivityTime model)
+        {
+            _venueBLL.SetVenueSchedule(model);
+
+            return Json(new { status = 1, message = "Successfully set venue schedule." });
         }
         #endregion
 

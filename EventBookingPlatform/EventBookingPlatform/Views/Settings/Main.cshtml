@@ -502,8 +502,12 @@
                         @Html.AntiForgeryToken()
 
                         <div class="form-group">
+                            <input type="hidden" value="@Request.QueryString["venueid"]" id="venueid" />
+                        </div>
+
+                        <div class="form-group">
                             <label>Schedule For</label>
-                            <select id="drpschedfor" class="form-control">
+                            <select id="drpschedfor" name="schedfor" class="form-control">
                                 <option value="Select">Select..</option>
                                 <option value="Regular days morning">Regular days morning</option>
                                 <option value="Regular days afternoon">Regular days afternoon</option>
@@ -517,58 +521,19 @@
                         </div>
                         <div class="form-group">
                             <label>Duration</label>
-                            <select id="drpduration" class="form-control">
-                                <option value="Select">Select..</option>
-                                <option value="3 hours">Up to 3 hours</option>
-                                <option value="4 hours">Up to 4 hours</option>
-                                <option value="5 hours">Up to 5 hours</option>
-                                <option value="6 hours">Up to 6 hours</option>
-                                <option value="Till last of the guests">Till last of the guests</option>
-                                <option value="Closed">Closed</option>
-                                <option value="N/A">N/A</option>
-                            </select>
+                            <select id="drpduration" name="duration" class="form-control"></select>
                         </div>
                         <div class="form-group">
                             <label>Starting Time</label>
-                            <select id="drpStartTime" class="form-control">
-                                <option value="Select">Select..</option>
-                                <option value="06:00">06:00</option>
-                                <option value="06:30">06:30</option>
-                                <option value="07:00">07:00</option>
-                                <option value="07:30">07:30</option>
-                                <option value="08:00">08:00</option>
-                                <option value="08:30">08:30</option>
-                                <option value="09:00">09:00</option>
-                                <option value="09:30">09:30</option>
-                                <option value="10:00">10:00</option>
-                                <option value="10:30">10:30</option>
-                                <option value="11:00">11:00</option>
-                            </select>
+                            <select id="drpStartTime" name="starttime" class="form-control"></select>
                         </div>
                         <div class="form-group">
                             <label>End Time</label>
-                            <select id="drpEndTime" class="form-control">
-                                <option value="Select">Select..</option>
-                                <option value="06:30">06:30</option>
-                                <option value="07:00">07:00</option>
-                                <option value="07:30">07:30</option>
-                                <option value="08:00">08:00</option>
-                                <option value="08:30">08:30</option>
-                                <option value="09:00">09:00</option>
-                                <option value="10:00">10:00</option>
-                                <option value="10:30">10:30</option>
-                                <option value="11:00">11:00</option>
-                                <option value="11:30">11:30</option>
-                                <option value="12:00">12:00</option>
-                            </select>
+                            <select id="drpEndTime" name="endtime" class="form-control"></select>
                         </div>
                         <div class="form-group">
                             <label>Overtime</label>
-                            <select id="drpStartTime" class="form-control">
-                                <option value="Select">Select..</option>
-                                <option value="1 hour free">1 hour free</option>
-                                <option value="Extra hours charge">Extra hours charge</option>
-                            </select>
+                            <select id="drpOverTime" name="overtime" class="form-control"></select>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Set Schedule" class="btn btn-primary form-control" />
