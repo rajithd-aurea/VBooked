@@ -76,6 +76,11 @@ namespace EventBookingPlatform.BusinessLayer
             _repo.SetVenueSchedule(obj);
             _repo.Save();
         }
+
+        public List<VenueActivityTime> GetVenueSchedule(int venueid)
+        {
+            return _repo.GetVenueSchedule(venueid);
+        }
         #endregion
 
         //public List<VenueInfo> GetApprovedVenuesPerHost(string hostid)

@@ -213,6 +213,14 @@ namespace EventBookingPlatform.Controllers
 
             return Json(new { status = 1, message = "Successfully set venue schedule." });
         }
+
+        [HttpGet]
+        public JsonResult GetVenueSchedule(int venueid)
+        {
+            var schedules = _venueBLL.GetVenueSchedule(venueid);
+
+            return Json(schedules, JsonRequestBehavior.AllowGet);
+        }
         #endregion
 
         #region Upload images for Characterization of place sub module

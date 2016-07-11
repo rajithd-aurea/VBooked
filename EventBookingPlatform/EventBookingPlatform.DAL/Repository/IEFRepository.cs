@@ -37,6 +37,7 @@ namespace EventBookingPlatform.DAL.Repository
         IEnumerable<VenueInfo> GetVenuesPerHost(string hostid);
         void UpdateVenueStatus(int venueid);
         void SetVenueSchedule(VenueActivityTime obj);
+        List<VenueActivityTime> GetVenueSchedule(int venueid);
         #endregion
 
         #region Venue Business Certificate Details
@@ -175,6 +176,13 @@ namespace EventBookingPlatform.DAL.Repository
         public void SetVenueSchedule(VenueActivityTime obj)
         {
             _entity.VenueActivityTimes.Add(obj);
+        }
+
+        public List<VenueActivityTime> GetVenueSchedule(int venueid)
+        {
+            _entity.Configuration.ProxyCreationEnabled = false;
+
+            return _entity.VenueActivityTimes.Where(venue => venue.Fk_VenueId == venueid).ToList();
         }
         #endregion
 

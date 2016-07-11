@@ -648,6 +648,38 @@
                 console.log(error);
             }
         });
+    },
+    getSchedule: function (venueid) {
+        $.ajax({
+            type: "GET",
+            url: "/Venue/GetVenueSchedule",
+            data: { venueid: venueid },
+            dataType: "json",
+            success: function (result) {
+                var thead = $('thead#activitytimeheader');
+                var tbody = $('tbody#activitytimebody');
+
+                $.each(result, function (index, value) {
+                    var th = $(thead).find('tr');
+                    $('<th>' + value.SchedType + '</th>').appendTo(th);
+
+                    var duration = $(tbody).find('tr#duration');
+                    $('<td><p>' + value.Duration + '</td></p>').appendTo(duration);
+
+                    var starttime = $(tbody).find('tr#starttime');
+                    $('<td><p>' + value.StartTime + '</p></td>').appendTo(starttime);
+
+                    var endtime = $(tbody).find('tr#endtime');
+                    $('<td><p>' + value.EndTime + '</p></td>').appendTo(endtime);
+
+                    var overtime = $(tbody).find('tr#overtime');
+                    $('<td><p>' + value.Overtime + '</p></td>').appendTo(overtime);
+                });
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
     }
 };
 
@@ -1578,6 +1610,9 @@ $(document).ready(function () {
 
 
     // ACTIVITY TIME
+    // Retrieve and display schedules
+    venue.getSchedule(parseInt($('#venueid').val()));
+
     $('#drpschedfor').change(function () {
         var value = $('#drpschedfor option:selected').text();
 
@@ -2002,6 +2037,21 @@ $(document).ready(function () {
         }
     });
 
+    $('#drpduration').change(function () {
+        var value = $(this).val();
+
+        if (value == "N/A" || value == "Closed") {
+            $('#drpStartTime').attr("disabled", "disabled");
+            $('#drpEndTime').attr("disabled", "disabled");
+            $('#drpOverTime').attr("disabled", "disabled");
+        }
+        else {
+            $('#drpStartTime').removeAttr("disabled");
+            $('#drpEndTime').removeAttr("disabled");
+            $('#drpOverTime').removeAttr("disabled");
+        }
+    });
+
     $('#frmAddVenueSched').validate({
         rules: {
             schedfor: {
@@ -2035,14 +2085,21 @@ $(document).ready(function () {
             var endtime = $('#drpEndTime option:selected').val();
             var overtime = $('#drpOverTime option:selected').val();
 
-            if (schedfor == "Select" ||
-                duration == "Select" ||
-                starttime == "Select" ||
-                endtime == "Select" ||
-                overtime == "Select")
-                alert("Please select an option.");
-            else
-                venue.setSchedule(venueid, schedfor, duration, starttime, endtime, overtime);
+            if (duration == "N/A" || duration == "Closed") {
+                venue.setSchedule(venueid, schedfor, duration, "N/A", "N/A", "N/A");
+            }
+            else {
+                if (schedfor == "Select" ||
+                    duration == "Select" ||
+                    starttime == "Select" ||
+                    endtime == "Select" ||
+                    overtime == "Select") {
+                    alert("Please select an option.");
+                }
+                else {
+                    venue.setSchedule(venueid, schedfor, duration, starttime, endtime, overtime);
+                }
+            }
         }
     });
     // END
