@@ -34,3 +34,5 @@ F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\bi
 F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\bin\Debug\EntityFramework.xml
 F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\obj\Debug\EventBookingPlatform.BusinessLayer.dll
 F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\obj\Debug\EventBookingPlatform.BusinessLayer.pdb
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\bin\Debug\EventBookingPlatform.Helpers.dll
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.BusinessLayer\bin\Debug\EventBookingPlatform.Helpers.pdb

@@ -33,6 +33,9 @@
     <Reference Include="EventBookingPlatform.DAL">
       <HintPath>..\EventBookingPlatform.DAL\bin\Debug\EventBookingPlatform.DAL.dll</HintPath>
     </Reference>
+    <Reference Include="EventBookingPlatform.Helpers">
+      <HintPath>..\EventBookingPlatform.Helpers\bin\Debug\EventBookingPlatform.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

@@ -3,3 +3,8 @@ E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\b
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\bin\Release\EventBookingPlatform.DbImplementation.pdb
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\obj\Release\EventBookingPlatform.DbImplementation.dll
 E:\Projects\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\obj\Release\EventBookingPlatform.DbImplementation.pdb
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\bin\Release\EventBookingPlatform.DbImplementation.dacpac
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\bin\Release\EventBookingPlatform.DbImplementation.dll
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\bin\Release\EventBookingPlatform.DbImplementation.pdb
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\obj\Release\EventBookingPlatform.DbImplementation.dll
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.DbImplementation\obj\Release\EventBookingPlatform.DbImplementation.pdb

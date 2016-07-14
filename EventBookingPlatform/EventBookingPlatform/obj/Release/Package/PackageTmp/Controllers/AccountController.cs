@@ -1,5 +1,6 @@
 ﻿using EventBookingPlatform.Models;
 using EventBookingPlatform.Helpers;
+using EventBookingPlatform.BusinessLayer;
 
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -83,6 +84,10 @@ namespace EventBookingPlatform.Controllers
                 {
                     if (user.EmailConfirmed)
                     {
+                        Session["UserId"] = user.Id;
+                        Session["VenueId"] = 0;
+                        Session["VenueName"] = string.Empty;
+
                         // This doesn't count login failures towards account lockout
                         // To enable password failures to trigger account lockout, change to shouldLockout: true
                         var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
@@ -93,7 +98,7 @@ namespace EventBookingPlatform.Controllers
                                     return RedirectToAction("Dashboard", "Admin");
 
                                 if (UserManager.IsInRole(user.Id, "Host"))
-                                    return RedirectToAction("Dashboard", "Host");
+                                    return RedirectToAction("Dashboard", "Venue", new { hostid = Session["UserId"] });
 
                                 if (UserManager.IsInRole(user.Id, "User"))
                                     return RedirectToAction("Dashboard", "Renter");
@@ -184,7 +189,7 @@ namespace EventBookingPlatform.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model, string usertype)
+        public async Task<ActionResult> Register(RegisterViewModel model, string usertype, string venuename)
         {
             if (ModelState.IsValid)
             {
@@ -199,14 +204,17 @@ namespace EventBookingPlatform.Controllers
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code, email = user.Email }, protocol: Request.Url.Scheme);
                     //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     EmailHelper emailHelper = new EmailHelper
                     {
+                        EmailFor = "Registration",
+                        RegistrantName = model.Fullname,
+                        VenueName = "",
                         Host = "mail.vbooked.com",
                         Sender = "support@vbooked.com",
-                        Recipient = user.Email,
+                        Recipient = model.Email,
                         Subject = "VBooked Registration Confirmation",
                         NetworkUser = "support@vbooked.com",
                         NetworkPass = "supportmail123!",
@@ -215,7 +223,7 @@ namespace EventBookingPlatform.Controllers
                         ConfirmationUrl = callbackUrl
                     };
 
-                    await emailHelper.SendEmail();
+                    await emailHelper.SendEmailAsync();
 
                     return RedirectToAction("Confirm", "Account", new { status = false });
                 }
@@ -229,13 +237,16 @@ namespace EventBookingPlatform.Controllers
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
-        public async Task<ActionResult> ConfirmEmail(string userId, string code)
+        public async Task<ActionResult> ConfirmEmail(string userId, string code, string email)
         {
             if (userId == null || code == null)
             {
                 return View("Error");
             }
             var result = await UserManager.ConfirmEmailAsync(userId, code);
+
+            ViewBag.Email = email;
+
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 

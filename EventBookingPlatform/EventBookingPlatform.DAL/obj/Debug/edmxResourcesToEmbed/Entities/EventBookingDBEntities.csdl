@@ -617,6 +617,11 @@
       <End Role="VenueInfo" EntitySet="VenueInfoes" />
       <End Role="VenueCharacterization" EntitySet="VenueCharacterizations" />
     </AssociationSet>
+    <EntitySet Name="VenueActivityTimes" EntityType="DevEventBookingDBModel.VenueActivityTime" />
+    <AssociationSet Name="FK__VenueActi__Fk_Ve__5CD6CB2B" Association="DevEventBookingDBModel.FK__VenueActi__Fk_Ve__5CD6CB2B">
+      <End Role="VenueInfo" EntitySet="VenueInfoes" />
+      <End Role="VenueActivityTime" EntitySet="VenueActivityTimes" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="PrivateEvent">
     <Key>
@@ -718,6 +723,7 @@
     <NavigationProperty Name="VenueWaitingRoomOptions" Relationship="DevEventBookingDBModel.Fk_VenueInfo_VenueWaitingRoomOption" FromRole="VenueInfo" ToRole="VenueWaitingRoomOption" />
     <NavigationProperty Name="WaitingRoomOptionComments" Relationship="DevEventBookingDBModel.FK_VenueInfo_WaitingRoomOptionComment" FromRole="VenueInfo" ToRole="WaitingRoomOptionComment" />
     <NavigationProperty Name="VenueCharacterizations" Relationship="DevEventBookingDBModel.FK_VenueInfo_VenueCharacterization" FromRole="VenueInfo" ToRole="VenueCharacterization" />
+    <NavigationProperty Name="VenueActivityTimes" Relationship="DevEventBookingDBModel.FK__VenueActi__Fk_Ve__5CD6CB2B" FromRole="VenueInfo" ToRole="VenueActivityTime" />
   </EntityType>
   <Association Name="FK_AspNetUsers_VenueInfo">
     <End Type="DevEventBookingDBModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
@@ -921,6 +927,31 @@
         <PropertyRef Name="Pk_VenueId" />
       </Principal>
       <Dependent Role="VenueCharacterization">
+        <PropertyRef Name="Fk_VenueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="VenueActivityTime">
+    <Key>
+      <PropertyRef Name="Pk_ActivityTimeId" />
+    </Key>
+    <Property Name="Pk_ActivityTimeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fk_VenueId" Type="Int32" Nullable="false" />
+    <Property Name="SchedType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Duration" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StartTime" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="EndTime" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="Overtime" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="VenueInfo" Relationship="DevEventBookingDBModel.FK__VenueActi__Fk_Ve__5CD6CB2B" FromRole="VenueActivityTime" ToRole="VenueInfo" />
+  </EntityType>
+  <Association Name="FK__VenueActi__Fk_Ve__5CD6CB2B">
+    <End Type="DevEventBookingDBModel.VenueInfo" Role="VenueInfo" Multiplicity="1" />
+    <End Type="DevEventBookingDBModel.VenueActivityTime" Role="VenueActivityTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VenueInfo">
+        <PropertyRef Name="Pk_VenueId" />
+      </Principal>
+      <Dependent Role="VenueActivityTime">
         <PropertyRef Name="Fk_VenueId" />
       </Dependent>
     </ReferentialConstraint>

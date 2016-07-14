@@ -1,7 +1,19 @@
 ﻿@{
     ViewBag.Title = "Main";
-    Layout = "~/Views/Host/HostPageTemplate.cshtml";
+    Layout = "~/Views/Venue/HostPageTemplate.cshtml";
 }
+
+<input type="hidden" id="venueid" value="@Request.QueryString["venueid"]" />
+<input type="hidden" id="hostid" value="@Request.QueryString["hostid"]" />
+
+<div class="row">
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
+            <li><i class="fa fa-dashboard"></i> Settings</li>
+            <li>Main</li>
+        </ol>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-lg-12">
@@ -19,219 +31,346 @@
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="addplace">
                 <div class="content-container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label>Name of Venue</label>
-                                <input type="text" id="venuename" class="form-control" />
+                    <form action="" method="post" id="frmAddPlace" novalidate="novalidate">
+                        <div class="alert alert-success" id="alert-success">
+                            Successfully updated venue initial detail!
+                        </div>
+
+                        @Html.AntiForgeryToken()
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Name of Venue</label>
+                                    <input type="text" id="venuename" value="@Session["VenueName"]" readonly="readonly" name="venuename" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Type of Venue</label>
+                                    <select id="venuetype" name="venuetype" class="form-control">
+                                        <option value="">Select..</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Foundation Year</label>
+                                    <input type="text" id="foundationyear" name="foundationyear" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Registration #</label>
+                                    <input type="text" id="regno" name="regno" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Renovation Year</label>
+                                    <input type="text" id="renovationyear" name="renovationyear" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Area (sq)</label>
+                                    <input type="text" id="area" name="area" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Open spaces of the place</label>
+                                    <input type="text" id="openspaces" name="openspaces" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Service</label>
+                                    <select id="service" name="service" class="form-control">
+                                        <option value="">Select..</option>
+                                        <option value="SpaceRent">Space rent only</option>
+                                        <option value="Packages">Packages</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label>Type of Venue</label>
-                                <select id="venuename" class="form-control"></select>
-                            </div>
-                            <div class="form-group">
-                                <label>Foundation Year</label>
-                                <input type="text" id="foundationyear" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Registration #</label>
-                                <input type="text" id="regno" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Renovation Year</label>
-                                <input type="text" id="renovationyear" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Area (sq)</label>
-                                <input type="text" id="venuename" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Open spaces of the place</label>
-                                <input type="text" id="openspaces" class="form-control" />
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Season Activity</label>
+                                    <select id="seasonactivity" name="seasonactivity" class="form-control">
+                                        <option value="">Select..</option>
+                                        <option value="AllOfYear">All of the Year</option>
+                                        <option value="Seasonal">Seasonal</option>
+                                    </select>
+
+                                    <select id="seasonal" name="seasonal" class="form-control">
+                                        <option value="">Select..</option>
+                                        <option value="January">January</option>
+                                        <option value="February">February</option>
+                                        <option value="March">March</option>
+                                        <option value="April">April</option>
+                                        <option value="May">May</option>
+                                        <option value="June">June</option>
+                                        <option value="July">July</option>
+                                        <option value="August">August</option>
+                                        <option value="September">September</option>
+                                        <option value="October">October</option>
+                                        <option value="November">November</option>
+                                        <option value="December">December</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Country</label>
+                                    <select id="country" name="country" class="form-control">
+                                        <option value="">Select..</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <input type="text" id="city" name="city" class="form-control" />
+                                    @*<select id="city" name="city" class="form-control">
+                                        <option value="Select">Select..</option>
+                                    </select>*@
+                                </div>
+                                <div class="form-group">
+                                    <label>Street 1</label>
+                                    <input type="text" id="street1" name="street1" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Street 2</label>
+                                    <input type="text" id="street2" name="street2" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Zip Code</label>
+                                    <input type="text" id="zipcode" name="zipcode" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>P.Box</label>
+                                    <input type="text" id="pbox" name="pbox" class="form-control" />
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label>Service</label>
-                                <select id="service" class="form-control"></select>
-                            </div>
-                            <div class="form-group">
-                                <label>Season Activity</label>
-                                <select id="seasonactivity" class="form-control"></select>
-                            </div>
-                            <div class="form-group">
-                                <label>Location</label>
-                                <input type="text" id="location" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Settlement</label>
-                                <input type="text" id="settlement" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Street</label>
-                                <input type="text" id="street" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Targeting</label>
-                                <input type="text" id="targeting" class="form-control" />
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="submit" value="Update" class="btn btn-primary form-control" />
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <input type="submit" value="Add" class="btn btn-primary form-control" />
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="contact">
                 <div class="content-container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label>Phone</label>
-                                <input type="text" id="phone" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Additional Telephone</label>
-                                <input type="text" id="telephone" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Fax</label>
-                                <input type="text" id="Fax" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" id="email" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Position</label>
-                                <input type="text" id="position" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>External Management Company Name</label>
-                                <input type="text" id="extmanagement" class="form-control" />
+                    <form action="" method="post" id="frmAddContact" novalidate="novalidate">
+                        <div class="alert alert-success" id="alert-contact-success">
+                            Successfully updated venue contact detail!
+                        </div>
+
+                        @Html.AntiForgeryToken()
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="text" id="phone" name="phone" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone 2</label>
+                                    <input type="text" id="phone2" name="phone2" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Fax</label>
+                                    <input type="text" id="fax" name="fax" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Email - <a href="#" id="editEmail" data-toggle="modal" data-target="#editEmailModal">Edit</a></label>
+                                    <input type="text" value="@User.Identity.Name" id="email" name="email" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>What is your position</label>
+                                    <input type="text" id="position" name="position" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>External Manage Company Name</label>
+                                    <input type="text" id="extmancomp" name="extmancomp" class="form-control" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <input type="submit" value="Save" class="btn btn-primary form-control" />
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="submit" value="Update" class="btn btn-primary form-control" />
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="charplace">
                 <div class="content-container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label>Type of Construction</label>
-                                <input type="file" id="phone" />
-                            </div>
-                            <div class="form-group">
-                                <label>Open Areas</label>
-                                <input type="file" id="openareas" />
-                            </div>
-                            <div class="form-group">
-                                <label>A View</label>
-                                <input type="file" id="view" />
-                            </div>
-                            <div class="form-group">
-                                <label>Max Number of Rooms/Areas/Enclosures assigned</label>
-                                <input type="file" id="roomsareasenclosures" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label>Parking</label>
-                                <input type="file" id="parking" />
-                            </div>
-                            <div class="form-group">
-                                <label>Privacy</label>
-                                <input type="file" id="privacy" />
-                            </div>
-                            <div class="form-group">
-                                <label>Pages In</label>
-                                <input type="file" id="pagein" />
-                            </div>
-                        </div>
+                    <div class="alert alert-success" id="alert-place-characterization">
+                        <p class="img-for"></p>
                     </div>
+
                     <div class="row">
-                        <div class="col-lg-12">
-                            <input type="submit" value="Save" class="btn btn-primary form-control" />
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                @using (Html.BeginForm("SaveCharacterizationPlaceInfo", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddVenueStructure" }))
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <label>Structure of the Venue</label>
+                                    <select id="drpVenueStructure" class="form-control form-control-margin-bottom">
+                                        <option value="Select">Select..</option>
+                                        <option value="Apart Standing Building Separate Entrance">Apart standing building separate entrance</option>
+                                        <option value="Apart Building Entrance From A Common Floor">Apart building, entrance from a common floor</option>
+                                    </select>
+                                    <input type="file" name="VenueStructure" id="VenueStructure" class="form-control form-control-margin-bottom" disabled="disabled" />
+                                }
+                            </div>
+                            <div class="form-group">
+                                @using (Html.BeginForm("UploadOpenAreasImage", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddOpenAreas" }))
+                                {
+                                    <label>Open Areas</label>
+                                    <select id="drpOpenAreasOption" class="form-control form-control-margin-bottom">
+                                        <option value="Select">Select..</option>
+                                        <option value="Lobby">Lobby</option>
+                                        <option value="Hall">Hall</option>
+                                        <option value="Garden">Garden</option>
+                                        <option value="N/A">N/A</option>
+                                    </select>
+                                    <input type="text" name="sqmeter" id="sqmeter" class="form-control form-control-margin-bottom" placeholder="Enter Sq. Meter" />
+                                    <input type="file" name="OpenAreas" id="OpenAreas" class="form-control form-control-margin-bottom" />
+                                    <input type="submit" value="Save" class="btn btn-primary form-control" />
+                                }
+                            </div>
+                            <div class="form-group">
+                                @using (Html.BeginForm("SaveCharacterizationPlaceInfo", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddAView" }))
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <label>A View</label>
+                                    <select id="drpAViewOption" class="form-control form-control-margin-bottom">
+                                        <option value="Select">Select..</option>
+                                        <option value="Industrial Area">Industrial Area</option>
+                                        <option value="Forrest">Forrest</option>
+                                        <option value="Prairie">Prairie</option>
+                                        <option value="City">City</option>
+                                        <option value="Kibbutz">Kibbutz</option>
+                                        <option value="Sea/Ocean">Sea/Ocean</option>
+                                        <option value="Tourism Center">Tourism Center</option>
+                                        <option value="Parc">Parc</option>
+                                        <option value="Mountatin">Mountain</option>
+                                        <option value="City View">City View</option>
+                                        <option value="N/A">N/A</option>
+                                    </select>
+                                    <input type="file" name="AView" id="AView" class="form-control form-control-margin-bottom" disabled="disabled" />
+                                }
+                            </div>
+                            <div class="form-group">
+                                <form id="frmAddRoomsAreasEnclosure">
+                                    @Html.AntiForgeryToken()
+
+                                    <label>Max Number of Rooms/Areas/Enclosures assigned</label>
+                                    <select id="drpMaxRoomsAreasOption" class="form-control form-control-margin-bottom">
+                                        <option value="Select">Select..</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="N/A">N/A</option>
+                                    </select>
+                                    <input type="submit" value="Save" class="btn btn-primary form-control" />
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                @using (Html.BeginForm("SaveCharacterizationPlaceInfo", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddPrivacy" }))
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <label>Privacy</label>
+                                    <select id="drpPrivacyOption" class="form-control form-control-margin-bottom">
+                                        <option value="Select">Select..</option>
+                                        <option value="Separate event with separate entry">Separate event with separate entry</option>
+                                        <option value="Multiple events, separate entry">Multiple events, separate entry</option>
+                                        <option value="Multiple events, common entry">Multiple events, common entry</option>
+                                        <option value="N/A">N/A</option>
+                                    </select>
+                                    <input type="file" name="Privacy" id="Privacy" class="form-control form-control-margin-bottom" disabled="disabled" />
+                                }
+                            </div>
+                            <div class="form-group">
+                                @using (Html.BeginForm("SaveCharacterizationPlaceInfo", "Venue", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddPillars" }))
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <label>Pillars</label>
+                                    <select id="drpPillarsOption" class="form-control form-control-margin-bottom">
+                                        <option value="Select">Select..</option>
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="N/A">N/A</option>
+                                    </select>
+                                    <input type="file" name="Pillars" id="Pillars" class="form-control form-control-margin-bottom" disabled="disabled" />
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="placedesc">
                 <div class="content-container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label>Description of the Place</label>
-                                <textarea rows="6" cols="10" id="placedescription" class="form-control"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Distinct Advantage</label>
-                                <textarea rows="6" cols="10" id="advantage1" class="form-control"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Distinct Advantage 2</label>
-                                <textarea rows="6" cols="10" id="advantage2" class="form-control"></textarea>
-                            </div>
+                    <form action="" method="post" id="frmPlaceDesc" novalidate="novalidate">
+                        <div class="alert alert-success" id="alert-placedesc-success">
+                            Successfully updated place description!
                         </div>
-                        <div class="col-lg-6">
-                            <div class="events-container">
-                                <h3>Social/Private Events</h3>
-                                <p>We can host private events type:</p>
-                                <div class="events-list">
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 1">Value 1
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 2">Value 2
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 3">Value 3
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 4">Value 4
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 5">Value 5
-                                    </label>
-                                </div>
-                            </div>
-                            <br />
-                            <div class="events-container">
-                                <h3>Business Events</h3>
-                                <p>We can host corporate events type:</p>
-                                <div class="events-list">
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 1">Value 1
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 2">Value 2
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 3">Value 3
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 4">Value 4
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="Value 5">Value 5
-                                    </label>
+
+                        @Html.AntiForgeryToken()
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label>Description of the Place</label>
+                                    <textarea rows="6" cols="10" id="placedescription" name="placedescription" class="form-control"></textarea>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <input type="submit" value="Save" class="btn btn-primary form-control" />
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Distinct Advantage 1</label>
+                                    <textarea rows="6" cols="10" id="advantage1" name="advantage1" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Distinct Advantage 2</label>
+                                    <textarea rows="6" cols="10" id="advantage2" name="advantage2" class="form-control"></textarea>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="events-container">
+                                    <div class="private-events-list">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Social/Private Events</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <ul id="private-events"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="events-container">
+                                    <div class="corporate-events-list">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Business Events</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <ul id="corporate-events"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="submit" value="Save" class="btn btn-primary form-control" />
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="acttime">
@@ -243,3 +382,42 @@
         </div>
     </div>
 </div>
+
+<!-- EDIT EMAIL POP UP MODAL -->
+<div class="modal fade" id="editEmailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Update Email</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-contents">
+                    <div class="alert alert-success" id="alert-updateemail">
+                        <p class="img-for"></p>
+                    </div>
+                    <div class="form-group">
+                        @using Microsoft.AspNet.Identity;
+                        @using (Html.BeginForm("", "", null, FormMethod.Post, new { id = "frmUpdateEmail" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" id="currentuserid" value="@User.Identity.GetUserId()" />
+                            <input type="text" name="currentuseremail" id="currentuseremail" class="form-control form-control-margin-bottom" value="@User.Identity.Name" />
+                            <input type="submit" value="Update" class="btn btn-primary form-control" />
+                        }
+                    </div>
+                    <div class="form-group">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END -->
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

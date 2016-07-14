@@ -484,5 +484,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="VenueActivityTimes">
+      <EntityTypeMapping TypeName="DevEventBookingDBModel.VenueActivityTime">
+        <MappingFragment StoreEntitySet="VenueActivityTime">
+          <ScalarProperty Name="Overtime" ColumnName="Overtime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="SchedType" ColumnName="SchedType" />
+          <ScalarProperty Name="Fk_VenueId" ColumnName="Fk_VenueId" />
+          <ScalarProperty Name="Pk_ActivityTimeId" ColumnName="Pk_ActivityTimeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

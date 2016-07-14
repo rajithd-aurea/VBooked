@@ -1,3 +1,6 @@
+#Ignore .vs excess files
+EventBookingPlatform/.vs/*
+
 #Ignore DbImplementation project excess files
 EventBookingPlatform/EventBookingPlatform.DbImplementation/bin/Debug/*.txt
 EventBookingPlatform/EventBookingPlatform.DbImplementation/bin/Debug/*.publish.sql
@@ -11,8 +14,9 @@ EventBookingPlatform/EventBookingPlatform.DbImplementation/*.sqlproj
 EventBookingPlatform/EventBookingPlatform.Helpers/obj/*
 
 #Ignore BusinessLayer project excess files
-EventBookingPlatform/EventBookingPlatform.BusinessLayer/bin/*
-EventBookingPlatform/EventBookingPlatform.BusinessLayer/obj/*
+EventBookingPlatform/EventBookingPlatform.BusinessLayer/bin/**/*
+EventBookingPlatform/EventBookingPlatform.BusinessLayer/obj/**/*
+EventBookingPlatform/EventBookingPlatform.BusinessLayer/*.csproj
 
 #Ignore DAL project excess files
 EventBookingPlatform/EventBookingPlatform.DAL/bin/*

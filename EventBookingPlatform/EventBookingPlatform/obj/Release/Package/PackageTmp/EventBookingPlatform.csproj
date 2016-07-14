@@ -42,9 +42,15 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EventBookingPlatform.BusinessLayer">
+      <HintPath>..\EventBookingPlatform.BusinessLayer\bin\Debug\EventBookingPlatform.BusinessLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="EventBookingPlatform.DAL">
+      <HintPath>..\EventBookingPlatform.DAL\bin\Debug\EventBookingPlatform.DAL.dll</HintPath>
+    </Reference>
     <Reference Include="EventBookingPlatform.Helpers">
       <HintPath>..\EventBookingPlatform.Helpers\bin\Debug\EventBookingPlatform.Helpers.dll</HintPath>
     </Reference>
@@ -202,11 +208,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\HostController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RenterController.cs" />
-    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\VenueController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -219,6 +224,13 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Files\Venues\Certificates\BusinessLicense\pic.jpg" />
+    <Content Include="Content\Files\Venues\Certificates\FireDepartment\pic.jpg" />
+    <Content Include="Content\Files\Venues\Certificates\PoliceAuthorization\pic.jpg" />
+    <Content Include="Content\Files\Venues\Certificates\Sanitation\pic.jpg" />
+    <Content Include="Content\Files\Venues\Certificates\Terms\pic.jpg" />
+    <Content Include="Content\Files\Venues\Certificates\ThirdPartyInsurance\pic.jpg" />
+    <Content Include="Content\Files\Venues\Images\Privacy\pic.jpg" />
     <Content Include="Content\template\css\bootstrap.min.css" />
     <Content Include="Content\template\css\customcss.css" />
     <Content Include="Content\template\css\jquery-ui.css" />
@@ -260,8 +272,11 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\venue.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -295,17 +310,28 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Host\Dashboard.cshtml" />
     <Content Include="Views\Admin\AdminPageTemplate.cshtml" />
     <Content Include="Views\Admin\Dashboard.cshtml" />
     <Content Include="Views\Renter\Dashboard.cshtml" />
     <Content Include="Views\Renter\RenterPageTemplate.cshtml" />
     <Content Include="Views\Settings\Main.cshtml" />
-    <Content Include="Views\Host\HostPageTemplate.cshtml" />
+    <Content Include="Views\Venue\HostPageTemplate.cshtml" />
     <Content Include="Views\Account\Confirm.cshtml" />
+    <Content Include="Views\Venue\Dashboard.cshtml" />
+    <Content Include="Views\Venue\ForApproval.cshtml" />
+    <Content Include="Views\Venue\Approve.cshtml" />
+    <Content Include="Views\Venue\Info.cshtml" />
+    <Content Include="Views\Settings\Administrative.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Files\Venues\Certificates\Business\" />
+    <Folder Include="Content\Files\Venues\Images\AView\" />
+    <Folder Include="Content\Files\Venues\Images\BusinessCertificate\" />
+    <Folder Include="Content\Files\Venues\Images\OpenAreas\" />
+    <Folder Include="Content\Files\Venues\Images\Pillars\" />
+    <Folder Include="Content\Files\Venues\Images\RoomsAreasEnclosures\" />
+    <Folder Include="Content\Files\Venues\Images\VenueStructure\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -13,6 +13,6 @@ D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debu
 D:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.pdb
 F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\bin\Debug\EventBookingPlatform.Helpers.dll
 F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\bin\Debug\EventBookingPlatform.Helpers.pdb
-F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.csprojResolveAssemblyReference.cache
 F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.dll
 F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.pdb
+F:\Repository\VBooked\EventBookingPlatform\EventBookingPlatform.Helpers\obj\Debug\EventBookingPlatform.Helpers.csprojResolveAssemblyReference.cache

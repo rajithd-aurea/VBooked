@@ -268,6 +268,18 @@
     <Property Name="LiquorBarSupplier" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="SecurityCheckSupplier" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="VenueActivityTime">
+    <Key>
+      <PropertyRef Name="Pk_ActivityTimeId" />
+    </Key>
+    <Property Name="Pk_ActivityTimeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fk_VenueId" Type="int" Nullable="false" />
+    <Property Name="SchedType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Duration" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StartTime" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="EndTime" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="Overtime" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="VenueCertificate">
     <Key>
       <PropertyRef Name="Pk_CertificateId" />
@@ -440,6 +452,18 @@
     <Property Name="Fk_WaitingRoomOptId" Type="int" Nullable="false" />
     <Property Name="Value" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <Association Name="FK__VenueActi__Fk_Ve__5CD6CB2B">
+    <End Role="VenueInfo" Type="Self.VenueInfo" Multiplicity="1" />
+    <End Role="VenueActivityTime" Type="Self.VenueActivityTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VenueInfo">
+        <PropertyRef Name="Pk_VenueId" />
+      </Principal>
+      <Dependent Role="VenueActivityTime">
+        <PropertyRef Name="Fk_VenueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_AspNetUsers_VenueInfo">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
     <End Role="VenueInfo" Type="Self.VenueInfo" Multiplicity="*" />
@@ -792,6 +816,7 @@
     <EntitySet Name="ParkingOptionValue" EntityType="Self.ParkingOptionValue" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PrivateEvents" EntityType="Self.PrivateEvents" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VenueActivityTime" EntityType="Self.VenueActivityTime" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VenueCertificate" EntityType="Self.VenueCertificate" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VenueCharacterization" EntityType="Self.VenueCharacterization" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VenueChildrenOption" EntityType="Self.VenueChildrenOption" Schema="dbo" store:Type="Tables" />
@@ -807,6 +832,10 @@
     <EntitySet Name="WaitingRoomOption" EntityType="Self.WaitingRoomOption" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WaitingRoomOptionComment" EntityType="Self.WaitingRoomOptionComment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WaitingRoomOptionValue" EntityType="Self.WaitingRoomOptionValue" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__VenueActi__Fk_Ve__5CD6CB2B" Association="Self.FK__VenueActi__Fk_Ve__5CD6CB2B">
+      <End Role="VenueInfo" EntitySet="VenueInfo" />
+      <End Role="VenueActivityTime" EntitySet="VenueActivityTime" />
+    </AssociationSet>
     <AssociationSet Name="FK_AspNetUsers_VenueInfo" Association="Self.FK_AspNetUsers_VenueInfo">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="VenueInfo" EntitySet="VenueInfo" />
