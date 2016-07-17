@@ -1261,7 +1261,22 @@ $(document).ready(function () {
             var venuename = $('#venuename').val();
             var status = 0;
 
-            venue.addVenueName(antiforgerytoken, hostid, venuename, status);
+            $.ajax({
+                type: "GET",
+                url: "/Venue/GetPendingVenueCount",
+                data: {
+                    hostid: hostid,
+                },
+                success: function (result) {
+                    if (result.count >= 5)
+                        alert("Our apologize but no more than 5 venues to be pending for our approval.");
+                    else
+                        venue.addVenueName(antiforgerytoken, hostid, venuename, status);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
         }
     });
     // End

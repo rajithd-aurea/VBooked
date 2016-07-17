@@ -221,6 +221,12 @@ namespace EventBookingPlatform.Controllers
 
             return Json(schedules, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public JsonResult GetPendingVenueCount(string hostid)
+        {
+            return Json(new { count = _venueBLL.GetPendingVenueCount(hostid) }, JsonRequestBehavior.AllowGet);
+        }
         #endregion
 
         #region Upload images for Characterization of place sub module

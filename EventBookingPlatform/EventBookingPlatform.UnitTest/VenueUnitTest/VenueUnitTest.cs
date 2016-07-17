@@ -275,5 +275,18 @@ namespace EventBookingPlatform.UnitTest.VenueUnitTest
                 }
             }
         }
+
+        [TestMethod]
+        public void Venue_GetPendingVenueCount_Test()
+        {
+            // Arrange
+            string hostid = "f4865fcd-aec3-48d6-baa8-6b4aea51021b";
+
+            // Act
+            int count = _repo.GetPendingVenueCount(hostid);
+
+            // Assert
+            Assert.AreNotEqual(0, count);
+        }
     }
 }
