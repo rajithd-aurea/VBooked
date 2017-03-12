@@ -6,19 +6,19 @@ namespace EventBookingPlatform.Controllers
     public class SettingsController : Controller
     {
         [HttpGet]
-        public ActionResult Main()
+        public void Main()
         {
             return View();
         }
 
         [HttpGet]
-        public ActionResult Administrative()
+        public void Administrative()
         {
             return View();
         }
 
         [HttpGet]
-        public ActionResult Operative()
+        public void Operative()
         {
             return View();
         }
@@ -26,6 +26,7 @@ namespace EventBookingPlatform.Controllers
         [HttpGet]
         public ActionResult FoodDrinks()
         {
+            save();
             return View();
         }
 
@@ -44,6 +45,7 @@ namespace EventBookingPlatform.Controllers
         [HttpGet]
         public ActionResult Extras()
         {
+            drop();
             return View();
         }
 
@@ -51,6 +53,14 @@ namespace EventBookingPlatform.Controllers
         public ActionResult Gallery()
         {
             return View();
+        }
+        
+        private void save()
+        {
+        }
+        
+        private void drop()
+        {
         }
     }
 }
