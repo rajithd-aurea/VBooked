@@ -55,6 +55,27 @@ namespace EventBookingPlatform.Controllers
             return View();
         }
         
+        [HttpPost]
+        public ActionResult GallerySave()
+        {
+            save();
+            return View();
+        }
+        
+        [HttpPost]
+        public ActionResult GalleryFind()
+        {
+            find();
+            return View();
+        }
+        
+        [HttpPost]
+        public ActionResult GalleryDrop()
+        {
+            drop();
+            return View();
+        }
+        
         private void save()
         {
         }
@@ -62,5 +83,11 @@ namespace EventBookingPlatform.Controllers
         private void drop()
         {
         }
+        
+        private String find()
+        {
+        }
+        
+        
     }
 }
